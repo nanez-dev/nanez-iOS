@@ -1,0 +1,47 @@
+//
+//  TabController.swift
+//  Na'nez
+//
+//  Created by 최지철 on 2023/07/13.
+//
+
+import UIKit
+import SnapKit
+import Then
+class TabController: UITabBarController, UITabBarControllerDelegate {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.delegate = self
+        let vc1 = UINavigationController(rootViewController: HomeViewController())
+        vc1.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+        vc1.navigationBar.isHidden = true
+        vc1.tabBarItem.image = UIImage(systemName: "house")
+        let vc2 = UINavigationController(rootViewController: WishListViewController())
+        vc2.tabBarItem.image = UIImage(systemName: "heart")
+        vc2.tabBarItem.selectedImage = UIImage(systemName: "heart.fill")
+        let vc3 = UINavigationController(rootViewController: MyInfoViewController())
+        vc3.tabBarItem.selectedImage = UIImage(systemName: "person.fill")
+        vc3.tabBarItem.image = UIImage(systemName: "person")
+        
+   
+        vc1.navigationItem.largeTitleDisplayMode = .always
+        vc2.navigationItem.largeTitleDisplayMode = .always
+        vc3.navigationItem.largeTitleDisplayMode = .always
+        self.tabBar.barTintColor = .white
+        self.tabBar.layer.borderWidth = 0.5
+        self.tabBar.layer.borderColor = UIColor.systemGray5.cgColor
+        self.tabBar.clipsToBounds = true
+        self.tabBar.tintColor = .mainTurquoise
+
+        //tabBar가 선택되지 않았을때의 색을 지정해준다.
+        self.tabBar.unselectedItemTintColor = .darkGray
+        
+        
+        setViewControllers([vc1,vc2,vc3], animated: false)
+        // Do any additional setup after loading the view.
+    }
+
+
+}

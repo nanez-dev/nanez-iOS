@@ -19,6 +19,9 @@
 		094BCCEB2A6003650012A404 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCEA2A6003650012A404 /* TabController.swift */; };
 		094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */; };
 		094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCEE2A60045A0012A404 /* WishListViewController.swift */; };
+		094BCCF12A6019250012A404 /* tempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCF02A6019250012A404 /* tempModel.swift */; };
+		094BCCF32A60192E0012A404 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCF22A60192E0012A404 /* TempView.swift */; };
+		094BCCF52A60193C0012A404 /* TempService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCF42A60193C0012A404 /* TempService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		094BCCEA2A6003650012A404 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		094BCCEE2A60045A0012A404 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		094BCCF02A6019250012A404 /* tempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempModel.swift; sourceTree = "<group>"; };
+		094BCCF22A60192E0012A404 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
+		094BCCF42A60193C0012A404 /* TempService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 		094BCCDB2A5FEE400012A404 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				094BCCF42A60193C0012A404 /* TempService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -101,6 +108,7 @@
 		094BCCDD2A5FEE4F0012A404 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				094BCCF22A60192E0012A404 /* TempView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 		094BCCDF2A5FEE5F0012A404 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				094BCCF02A6019250012A404 /* tempModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,8 +212,11 @@
 			files = (
 				094BCCCC2A5FEC0B0012A404 /* ViewController.swift in Sources */,
 				094BCCEB2A6003650012A404 /* TabController.swift in Sources */,
+				094BCCF52A60193C0012A404 /* TempService.swift in Sources */,
+				094BCCF32A60192E0012A404 /* TempView.swift in Sources */,
 				094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */,
 				094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */,
+				094BCCF12A6019250012A404 /* tempModel.swift in Sources */,
 				094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */,
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,

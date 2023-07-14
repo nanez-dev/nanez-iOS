@@ -17,7 +17,7 @@ extension UIColor {
         )
     }
     class var mainGray: UIColor { UIColor(named: "mainGray") ?? UIColor() } //주로 버튼에쓰이는 그레이
-    class var mainTurquoise: UIColor { UIColor(named: "mainTurquoise") ?? UIColor() } // 버튼에 주로쓰이는 청록
+    class var mainturquoise: UIColor { UIColor(named: "mainturquoise") ?? UIColor() } // 버튼에 주로쓰이는 청록
   
     // MARK: 메인 테마 색 또는 자주 쓰는 색을 정의
   

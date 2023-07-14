@@ -20,8 +20,21 @@
 		094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */; };
 		094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCEE2A60045A0012A404 /* WishListViewController.swift */; };
 		094BCCF12A6019250012A404 /* tempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCF02A6019250012A404 /* tempModel.swift */; };
-		094BCCF32A60192E0012A404 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCF22A60192E0012A404 /* TempView.swift */; };
 		094BCCF52A60193C0012A404 /* TempService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCF42A60193C0012A404 /* TempService.swift */; };
+		094BCCF82A611C700012A404 /* ImageSlideshow in Frameworks */ = {isa = PBXBuildFile; productRef = 094BCCF72A611C700012A404 /* ImageSlideshow */; };
+		094BCCFA2A611C700012A404 /* ImageSlideshow/Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 094BCCF92A611C700012A404 /* ImageSlideshow/Alamofire */; };
+		094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCFB2A6123F30012A404 /* BannerAdModel.swift */; };
+		094BCD072A613AD60012A404 /* SUIT-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCFE2A613AD50012A404 /* SUIT-Light.ttf */; };
+		094BCD082A613AD60012A404 /* SUIT-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCFF2A613AD50012A404 /* SUIT-Regular.ttf */; };
+		094BCD092A613AD60012A404 /* SUIT-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD002A613AD60012A404 /* SUIT-SemiBold.ttf */; };
+		094BCD0A2A613AD60012A404 /* SUIT-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD012A613AD60012A404 /* SUIT-Thin.ttf */; };
+		094BCD0B2A613AD60012A404 /* SUIT-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD022A613AD60012A404 /* SUIT-Medium.ttf */; };
+		094BCD0C2A613AD60012A404 /* SUIT-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD032A613AD60012A404 /* SUIT-ExtraLight.ttf */; };
+		094BCD0D2A613AD60012A404 /* SUIT-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD042A613AD60012A404 /* SUIT-ExtraBold.ttf */; };
+		094BCD0E2A613AD60012A404 /* SUIT-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD052A613AD60012A404 /* SUIT-Bold.ttf */; };
+		094BCD0F2A613AD60012A404 /* SUIT-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */; };
+		094BCD112A613B8B0012A404 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD102A613B8B0012A404 /* Fonts.swift */; };
+		094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +51,19 @@
 		094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		094BCCEE2A60045A0012A404 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		094BCCF02A6019250012A404 /* tempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempModel.swift; sourceTree = "<group>"; };
-		094BCCF22A60192E0012A404 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		094BCCF42A60193C0012A404 /* TempService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempService.swift; sourceTree = "<group>"; };
+		094BCCFB2A6123F30012A404 /* BannerAdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdModel.swift; sourceTree = "<group>"; };
+		094BCCFE2A613AD50012A404 /* SUIT-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Light.ttf"; sourceTree = "<group>"; };
+		094BCCFF2A613AD50012A404 /* SUIT-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Regular.ttf"; sourceTree = "<group>"; };
+		094BCD002A613AD60012A404 /* SUIT-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-SemiBold.ttf"; sourceTree = "<group>"; };
+		094BCD012A613AD60012A404 /* SUIT-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Thin.ttf"; sourceTree = "<group>"; };
+		094BCD022A613AD60012A404 /* SUIT-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Medium.ttf"; sourceTree = "<group>"; };
+		094BCD032A613AD60012A404 /* SUIT-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-ExtraLight.ttf"; sourceTree = "<group>"; };
+		094BCD042A613AD60012A404 /* SUIT-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-ExtraBold.ttf"; sourceTree = "<group>"; };
+		094BCD052A613AD60012A404 /* SUIT-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Bold.ttf"; sourceTree = "<group>"; };
+		094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Heavy.ttf"; sourceTree = "<group>"; };
+		094BCD102A613B8B0012A404 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				094BCCFA2A611C700012A404 /* ImageSlideshow/Alamofire in Frameworks */,
+				094BCCF82A611C700012A404 /* ImageSlideshow in Frameworks */,
 				094BCCE42A5FF3530012A404 /* SnapKit in Frameworks */,
 				094BCCE72A5FF3680012A404 /* Then in Frameworks */,
 			);
@@ -82,6 +108,7 @@
 				094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */,
 				094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */,
 				094BCCCB2A5FEC0B0012A404 /* ViewController.swift */,
+				094BCCFD2A613ABA0012A404 /* Resource */,
 				094BCCD02A5FEC0E0012A404 /* Assets.xcassets */,
 				094BCCD22A5FEC0E0012A404 /* LaunchScreen.storyboard */,
 				094BCCD52A5FEC0E0012A404 /* Info.plist */,
@@ -101,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				094BCCE82A5FF37B0012A404 /* Colors.swift */,
+				094BCD102A613B8B0012A404 /* Fonts.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -108,7 +136,7 @@
 		094BCCDD2A5FEE4F0012A404 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				094BCCF22A60192E0012A404 /* TempView.swift */,
+				094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,8 +156,25 @@
 			isa = PBXGroup;
 			children = (
 				094BCCF02A6019250012A404 /* tempModel.swift */,
+				094BCCFB2A6123F30012A404 /* BannerAdModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		094BCCFD2A613ABA0012A404 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				094BCD052A613AD60012A404 /* SUIT-Bold.ttf */,
+				094BCD042A613AD60012A404 /* SUIT-ExtraBold.ttf */,
+				094BCD032A613AD60012A404 /* SUIT-ExtraLight.ttf */,
+				094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */,
+				094BCCFE2A613AD50012A404 /* SUIT-Light.ttf */,
+				094BCD022A613AD60012A404 /* SUIT-Medium.ttf */,
+				094BCCFF2A613AD50012A404 /* SUIT-Regular.ttf */,
+				094BCD002A613AD60012A404 /* SUIT-SemiBold.ttf */,
+				094BCD012A613AD60012A404 /* SUIT-Thin.ttf */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +196,8 @@
 			packageProductDependencies = (
 				094BCCE32A5FF3530012A404 /* SnapKit */,
 				094BCCE62A5FF3680012A404 /* Then */,
+				094BCCF72A611C700012A404 /* ImageSlideshow */,
+				094BCCF92A611C700012A404 /* ImageSlideshow/Alamofire */,
 			);
 			productName = "Na'nez";
 			productReference = 094BCCC42A5FEC0B0012A404 /* Na'nez.app */;
@@ -183,6 +230,7 @@
 			packageReferences = (
 				094BCCE22A5FF3530012A404 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				094BCCE52A5FF3680012A404 /* XCRemoteSwiftPackageReference "Then" */,
+				094BCCF62A611C700012A404 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
 			);
 			productRefGroup = 094BCCC52A5FEC0B0012A404 /* Products */;
 			projectDirPath = "";
@@ -198,8 +246,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				094BCD0B2A613AD60012A404 /* SUIT-Medium.ttf in Resources */,
+				094BCD082A613AD60012A404 /* SUIT-Regular.ttf in Resources */,
+				094BCD0E2A613AD60012A404 /* SUIT-Bold.ttf in Resources */,
 				094BCCD42A5FEC0E0012A404 /* LaunchScreen.storyboard in Resources */,
+				094BCD0A2A613AD60012A404 /* SUIT-Thin.ttf in Resources */,
+				094BCD072A613AD60012A404 /* SUIT-Light.ttf in Resources */,
+				094BCD0C2A613AD60012A404 /* SUIT-ExtraLight.ttf in Resources */,
+				094BCD092A613AD60012A404 /* SUIT-SemiBold.ttf in Resources */,
 				094BCCD12A5FEC0E0012A404 /* Assets.xcassets in Resources */,
+				094BCD0F2A613AD60012A404 /* SUIT-Heavy.ttf in Resources */,
+				094BCD0D2A613AD60012A404 /* SUIT-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,10 +269,12 @@
 			files = (
 				094BCCCC2A5FEC0B0012A404 /* ViewController.swift in Sources */,
 				094BCCEB2A6003650012A404 /* TabController.swift in Sources */,
+				094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */,
+				094BCD112A613B8B0012A404 /* Fonts.swift in Sources */,
 				094BCCF52A60193C0012A404 /* TempService.swift in Sources */,
-				094BCCF32A60192E0012A404 /* TempView.swift in Sources */,
 				094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */,
 				094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */,
+				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,
 				094BCCF12A6019250012A404 /* tempModel.swift in Sources */,
 				094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */,
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
@@ -450,6 +509,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		094BCCF62A611C700012A404 /* XCRemoteSwiftPackageReference "ImageSlideshow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zvonicek/ImageSlideshow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -462,6 +529,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 094BCCE52A5FF3680012A404 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		094BCCF72A611C700012A404 /* ImageSlideshow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 094BCCF62A611C700012A404 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			productName = ImageSlideshow;
+		};
+		094BCCF92A611C700012A404 /* ImageSlideshow/Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 094BCCF62A611C700012A404 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			productName = ImageSlideshow/Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

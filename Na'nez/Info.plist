@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SUIT-Bold.ttf</string>
+		<string>SUIT-ExtraBold.ttf</string>
+		<string>SUIT-ExtraLight.ttf</string>
+		<string>SUIT-Light.ttf</string>
+		<string>SUIT-Heavy.ttf</string>
+		<string>SUIT-Medium.ttf</string>
+		<string>SUIT-Regular.ttf</string>
+		<string>SUIT-SemiBold.ttf</string>
+		<string>SUIT-Thin.ttf</string>
+	</array>
 	<key>UIMainStoryboardFile~iphone</key>
 	<string></string>
 	<key>UIApplicationSceneManifest</key>

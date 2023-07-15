@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
     private var Popularbrands:[Brand] = []
     private let AccordAPI = AccordService()
     private var Totalaccord:[Accord] = []
+    private let PerfumeAPI = PerfumeService()
+    private var TotalPerfume:[Perfume] = []
     
     private let accordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
@@ -302,8 +304,20 @@ class HomeViewController: UIViewController {
             case .success(let accordList):
                 self.Totalaccord = accordList.accords
                 self.accordCollectionView.reloadData()
+                
             case .failure(let error):
                 print("/accord 오류:\(error)")
+            }
+        }
+        self.PerfumeAPI.getAllPerfumes(offset: 0, limit: 11) { result in
+            switch result {
+            case .success(let perfumes):
+                self.TotalPerfume = perfumes
+                self.recommendCollectionView.reloadData()
+                self.Second_recommendCollectionView.reloadData()
+                print("갯수",self.TotalPerfume.count)
+            case .failure(let error):
+                print("오류: \(error)")
             }
         }
     }
@@ -311,10 +325,12 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == recommendCollectionView {
-            return 5
+            return min(5, TotalPerfume.count)
         }
         else if collectionView == Second_recommendCollectionView{
-            return 6
+            let startIndex = 5
+            let endIndex = min(11, TotalPerfume.count)
+            return max(0, endIndex - startIndex)
         }
         else if collectionView == brandCollectionView{
             return Popularbrands.count
@@ -329,11 +345,30 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == recommendCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecommendCollectionViewCell.identifier, for: indexPath) as! HomeRecommendCollectionViewCell
+            let perfumeinfo = self.TotalPerfume[indexPath.item]
+            cell.perfumeLabel.text = perfumeinfo.kor
+            cell.descriptionLabel.text = perfumeinfo.title
+            cell.brandLabel.text = perfumeinfo.brand.kor
+            cell.capacityLabel.text = String(perfumeinfo.capacity) + "ml"
+            if let imageURL = URL(string: perfumeinfo.image ?? "") {
+                cell.Img.af.setImage(withURL: imageURL)
+            }
             return cell
         }
         else if collectionView == Second_recommendCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecommendCollectionViewCell.identifier, for: indexPath) as! HomeRecommendCollectionViewCell
             cell.descriptionLabel.isHidden = true
+            let startIndex = 5
+             let perfumeIndex = startIndex + indexPath.item
+             if perfumeIndex < TotalPerfume.count {
+                 let perfumeinfo = self.TotalPerfume[perfumeIndex]
+                 cell.perfumeLabel.text = perfumeinfo.kor
+                 cell.brandLabel.text = perfumeinfo.brand.kor
+                 cell.capacityLabel.text = String(perfumeinfo.capacity) + "ml"
+                 if let imageURL = URL(string: perfumeinfo.image ?? "") {
+                     cell.Img.af.setImage(withURL: imageURL)
+                 }
+             }
             return cell
         }
         else if collectionView == brandCollectionView {
@@ -357,6 +392,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecommendCollectionViewCell.identifier, for: indexPath) as! HomeRecommendCollectionViewCell
             return cell
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == recommendCollectionView{
+            let detailVC = DetailPerfumeViewController()
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+        else if collectionView == Second_recommendCollectionView{
+            
+        }
+        else if collectionView == brandCollectionView {
+            
+        }
+        else if collectionView == accordCollectionView{
+            
         }
     }
  

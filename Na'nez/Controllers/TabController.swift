@@ -35,12 +35,10 @@ class TabController: UITabBarController, UITabBarControllerDelegate {
         self.tabBar.clipsToBounds = true
         self.tabBar.tintColor = .mainturquoise
 
-        //tabBar가 선택되지 않았을때의 색을 지정해준다.
         self.tabBar.unselectedItemTintColor = .darkGray
         
         
         setViewControllers([vc1,vc2,vc3], animated: false)
-        // Do any additional setup after loading the view.
     }
 
 

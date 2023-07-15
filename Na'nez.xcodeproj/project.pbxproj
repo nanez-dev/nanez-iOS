@@ -34,6 +34,7 @@
 		094BCD0F2A613AD60012A404 /* SUIT-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */; };
 		094BCD112A613B8B0012A404 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD102A613B8B0012A404 /* Fonts.swift */; };
 		094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */; };
+		098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */; };
 		0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */; };
 		0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */; };
 		0999E2C42A62C949002042EF /* BrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2C32A62C949002042EF /* BrandService.swift */; };
@@ -68,6 +69,7 @@
 		094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Heavy.ttf"; sourceTree = "<group>"; };
 		094BCD102A613B8B0012A404 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPerfumeViewController.swift; sourceTree = "<group>"; };
 		0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionViewCell.swift; sourceTree = "<group>"; };
 		0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordCollectionViewCell.swift; sourceTree = "<group>"; };
 		0999E2C32A62C949002042EF /* BrandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandService.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				094BCCEA2A6003650012A404 /* TabController.swift */,
 				094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */,
 				094BCCEE2A60045A0012A404 /* WishListViewController.swift */,
+				098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */,
 				0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */,
 				0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */,
 				094BCCCC2A5FEC0B0012A404 /* ViewController.swift in Sources */,

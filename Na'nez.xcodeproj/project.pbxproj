@@ -20,7 +20,6 @@
 		094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */; };
 		094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCEE2A60045A0012A404 /* WishListViewController.swift */; };
 		094BCCF12A6019250012A404 /* tempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCF02A6019250012A404 /* tempModel.swift */; };
-		094BCCF52A60193C0012A404 /* TempService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCF42A60193C0012A404 /* TempService.swift */; };
 		094BCCF82A611C700012A404 /* ImageSlideshow in Frameworks */ = {isa = PBXBuildFile; productRef = 094BCCF72A611C700012A404 /* ImageSlideshow */; };
 		094BCCFA2A611C700012A404 /* ImageSlideshow/Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 094BCCF92A611C700012A404 /* ImageSlideshow/Alamofire */; };
 		094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCFB2A6123F30012A404 /* BannerAdModel.swift */; };
@@ -35,6 +34,12 @@
 		094BCD0F2A613AD60012A404 /* SUIT-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */; };
 		094BCD112A613B8B0012A404 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD102A613B8B0012A404 /* Fonts.swift */; };
 		094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */; };
+		0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */; };
+		0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */; };
+		0999E2C42A62C949002042EF /* BrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2C32A62C949002042EF /* BrandService.swift */; };
+		0999E2C62A62C954002042EF /* PerfumeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2C52A62C954002042EF /* PerfumeService.swift */; };
+		0999E2C82A62C95E002042EF /* AccordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2C72A62C95E002042EF /* AccordService.swift */; };
+		0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2CB2A62CA02002042EF /* APIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +56,6 @@
 		094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		094BCCEE2A60045A0012A404 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		094BCCF02A6019250012A404 /* tempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempModel.swift; sourceTree = "<group>"; };
-		094BCCF42A60193C0012A404 /* TempService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempService.swift; sourceTree = "<group>"; };
 		094BCCFB2A6123F30012A404 /* BannerAdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdModel.swift; sourceTree = "<group>"; };
 		094BCCFE2A613AD50012A404 /* SUIT-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Light.ttf"; sourceTree = "<group>"; };
 		094BCCFF2A613AD50012A404 /* SUIT-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Regular.ttf"; sourceTree = "<group>"; };
@@ -64,6 +68,12 @@
 		094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Heavy.ttf"; sourceTree = "<group>"; };
 		094BCD102A613B8B0012A404 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionViewCell.swift; sourceTree = "<group>"; };
+		0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordCollectionViewCell.swift; sourceTree = "<group>"; };
+		0999E2C32A62C949002042EF /* BrandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandService.swift; sourceTree = "<group>"; };
+		0999E2C52A62C954002042EF /* PerfumeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfumeService.swift; sourceTree = "<group>"; };
+		0999E2C72A62C95E002042EF /* AccordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordService.swift; sourceTree = "<group>"; };
+		0999E2CB2A62CA02002042EF /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +129,10 @@
 		094BCCDB2A5FEE400012A404 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				094BCCF42A60193C0012A404 /* TempService.swift */,
+				0999E2C52A62C954002042EF /* PerfumeService.swift */,
+				0999E2C32A62C949002042EF /* BrandService.swift */,
+				0999E2C72A62C95E002042EF /* AccordService.swift */,
+				0999E2CB2A62CA02002042EF /* APIConstants.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -137,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */,
+				0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */,
+				0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,16 +282,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */,
+				0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */,
 				094BCCCC2A5FEC0B0012A404 /* ViewController.swift in Sources */,
 				094BCCEB2A6003650012A404 /* TabController.swift in Sources */,
+				0999E2C62A62C954002042EF /* PerfumeService.swift in Sources */,
 				094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */,
+				0999E2C82A62C95E002042EF /* AccordService.swift in Sources */,
+				0999E2C42A62C949002042EF /* BrandService.swift in Sources */,
 				094BCD112A613B8B0012A404 /* Fonts.swift in Sources */,
-				094BCCF52A60193C0012A404 /* TempService.swift in Sources */,
 				094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */,
 				094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */,
 				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,
 				094BCCF12A6019250012A404 /* tempModel.swift in Sources */,
 				094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */,
+				0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */,
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
 				094BCCE12A5FF2290012A404 /* HomeViewController.swift in Sources */,

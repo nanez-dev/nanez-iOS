@@ -10,6 +10,11 @@ import SnapKit
 import Then
 class HomeRecommendCollectionViewCell: UICollectionViewCell {
     static let identifier = "HomeRecommendCollectionViewCell"
+    public let Img = UIImageView().then{
+        $0.backgroundColor = .clear
+        $0.contentMode = .scaleAspectFit
+        $0.layer.masksToBounds = true
+    }
     public let roundview = UIView().then{
            $0.layer.cornerRadius = 20
            $0.layer.masksToBounds = true
@@ -17,22 +22,22 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
            $0.layer.borderColor = UIColor(rgb: 0xEFEFEF).cgColor
            $0.backgroundColor = .clear
        }
-    public let brandLabel = UILabel().then{
+    public var brandLabel = UILabel().then{
         $0.text = "Brand"
         $0.textColor = UIColor(rgb: 0x666666)
         $0.font = .pretendard(.Light, size: 14)
     }
-    public let perfumeLabel = UILabel().then{
+    public var perfumeLabel = UILabel().then{
         $0.text = "장폴고티에 르말"
         $0.textColor = UIColor(rgb: 0x111111)
         $0.font = .pretendard(.Bold, size: 16)
     }
-    public let volumeLabel = UILabel().then{
+    public var volumeLabel = UILabel().then{
         $0.text = "100ml"
         $0.textColor = UIColor(rgb: 0x111111)
         $0.font = .pretendard(.Light, size: 14)
     }
-    public let descriptionLabel = UILabel().then{
+    public var descriptionLabel = UILabel().then{
         $0.text = "화이트 프리지아 부케향에 이제 막 익은 배의 신선함을 입히고 호박, 파출..."
         $0.textColor = UIColor(rgb: 0x424242)
         $0.font = .pretendard(.Regular, size: 14)
@@ -45,6 +50,7 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
     }
     public func layout(){
            self.roundview.snp.makeConstraints{
+               $0.top.equalToSuperview()
                $0.height.equalTo(186)
                $0.width.equalToSuperview()
            }
@@ -57,10 +63,8 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
                    $0.leading.trailing.equalToSuperview().offset(0)
                    $0.height.equalTo(42)
                }
-
-
        }
-    public func addsubView(){
+    public func addSubview(){
            self.addSubview(roundview)
             self.addSubview(infoSV)
             self.infoSV.addArrangedSubview(brandLabel)
@@ -72,7 +76,7 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
        override init(frame: CGRect) {
            super.init(frame: .zero)
            
-           self.addsubView()
+           self.addSubview()
            self.layout()
        }
        required init?(coder: NSCoder) {

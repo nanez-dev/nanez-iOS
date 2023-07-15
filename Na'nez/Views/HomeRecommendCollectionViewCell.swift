@@ -32,7 +32,7 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
         $0.textColor = UIColor(rgb: 0x111111)
         $0.font = .pretendard(.Bold, size: 16)
     }
-    public var volumeLabel = UILabel().then{
+    public var capacityLabel = UILabel().then{
         $0.text = "100ml"
         $0.textColor = UIColor(rgb: 0x111111)
         $0.font = .pretendard(.Light, size: 14)
@@ -49,6 +49,9 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
         $0.distribution = .fill
     }
     public func layout(){
+        self.Img.snp.makeConstraints{
+            $0.top.leading.trailing.bottom.equalToSuperview()
+        }
            self.roundview.snp.makeConstraints{
                $0.top.equalToSuperview()
                $0.height.equalTo(186)
@@ -69,8 +72,9 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
             self.addSubview(infoSV)
             self.infoSV.addArrangedSubview(brandLabel)
             self.infoSV.addArrangedSubview(perfumeLabel)
-            self.infoSV.addArrangedSubview(volumeLabel)
+            self.infoSV.addArrangedSubview(capacityLabel)
             self.addSubview(descriptionLabel)
+            self.roundview.addSubview(Img)
       }
        
        override init(frame: CGRect) {

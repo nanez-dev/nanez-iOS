@@ -12,7 +12,7 @@ class TabController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = .white
         self.delegate = self
         let vc1 = UINavigationController(rootViewController: HomeViewController())
         vc1.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
@@ -29,6 +29,7 @@ class TabController: UITabBarController, UITabBarControllerDelegate {
         vc1.navigationItem.largeTitleDisplayMode = .always
         vc2.navigationItem.largeTitleDisplayMode = .always
         vc3.navigationItem.largeTitleDisplayMode = .always
+        self.tabBar.isTranslucent = false
         self.tabBar.barTintColor = .white
         self.tabBar.layer.borderWidth = 0.5
         self.tabBar.layer.borderColor = UIColor.systemGray5.cgColor

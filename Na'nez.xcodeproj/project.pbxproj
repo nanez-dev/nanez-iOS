@@ -161,10 +161,10 @@
 		094BCCDE2A5FEE590012A404 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				094BCCE02A5FF2290012A404 /* HomeViewController.swift */,
 				094BCCEA2A6003650012A404 /* TabController.swift */,
 				094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */,
 				094BCCEE2A60045A0012A404 /* WishListViewController.swift */,
+				094BCCE02A5FF2290012A404 /* HomeViewController.swift */,
 				098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */,
 			);
 			path = Controllers;

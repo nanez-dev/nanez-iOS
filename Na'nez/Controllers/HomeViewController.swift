@@ -233,12 +233,11 @@ class HomeViewController: UIViewController {
             $0.height.equalTo(28)
             $0.centerX.equalTo(customNaviBar)
             $0.centerY.equalTo(customNaviBar)
-            
         }
         self.contentView.snp.makeConstraints{
             $0.width.equalToSuperview().offset(0)
             $0.edges.equalToSuperview().offset(0)
-            $0.height.equalTo(3059)
+            $0.height.equalTo(2890)
         }
         self.scrollView.snp.makeConstraints{
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -398,6 +397,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == recommendCollectionView{
             let detailVC = DetailPerfumeViewController()
             navigationController?.pushViewController(detailVC, animated: true)
+
         }
         else if collectionView == Second_recommendCollectionView{
             

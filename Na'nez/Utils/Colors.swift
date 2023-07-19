@@ -27,7 +27,6 @@ extension UIColor {
                 alpha: CGFloat(a) / 255.0
             )
         }
-     
         convenience init(rgb: Int) {
                self.init(
                    red: (rgb >> 16) & 0xFF,
@@ -36,7 +35,6 @@ extension UIColor {
                )
            }
         
-        // let's suppose alpha is the first component (ARGB)
         convenience init(argb: Int) {
             self.init(
                 red: (argb >> 16) & 0xFF,

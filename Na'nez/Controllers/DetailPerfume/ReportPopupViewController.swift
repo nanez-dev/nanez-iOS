@@ -8,10 +8,14 @@
 import UIKit
 
 class ReportPopupViewController: UIViewController {
+    private var reportInfo = UILabel().then{
+            $0.text = "신고사유"
+            $0.font = .pretendard(.Bold, size: 16)
+            $0.textColor = UIColor(rgb: 0x111111)
+    }
     private let resonView = UIView().then{
         $0.backgroundColor = UIColor(rgb: 0xF2F2F2)
         $0.layer.cornerRadius = 20
-
     }
     private let reportLabel = UILabel().then{
     $0.text = "신고하기"

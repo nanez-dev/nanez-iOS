@@ -300,15 +300,30 @@ class DetailPerfumeViewController: UIViewController {
         self.noteSV.addArrangedSubview(bottomnoteLabel)
         self.contentView.addSubview(second_accordcollectionView)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .white
-        self.addSubview()
-        self.layout()
+    private func configure(){
         self.detailaccordCollectionView.dataSource = self
         self.detailaccordCollectionView.delegate = self
         self.second_accordcollectionView.dataSource = self
         self.second_accordcollectionView.delegate = self
+        self.view.backgroundColor = .white
+        self.backBtn.addTarget(self, action: #selector(backBtnClick), for: .touchUpInside)
+        self.reportBtn.addTarget(self, action: #selector(reportBtnClick), for: .touchUpInside)
+
+    }
+    @objc private func reportBtnClick(){
+        let vc = ReportPopupViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc,animated: false,completion: nil)
+    }
+    @objc private func backBtnClick(){
+        self.dismiss(animated: false)
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.configure()
+        self.addSubview()
+        self.layout()
 
     }
     

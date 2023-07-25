@@ -7,21 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090649232A66E225007FFE24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCD02A5FEC0E0012A404 /* Assets.xcassets */; };
+		0924164B2A6F92E20084E415 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0924164A2A6F92E20084E415 /* Alamofire */; };
+		0924164E2A6F92F50084E415 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0924164D2A6F92F50084E415 /* SnapKit */; };
+		092416512A6F93030084E415 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 092416502A6F93030084E415 /* Then */; };
+		092416622A6F94C70084E415 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 092416612A6F94C70084E415 /* Kingfisher */; };
+		092416692A6F95C10084E415 /* ImageSlideshow in Frameworks */ = {isa = PBXBuildFile; productRef = 092416682A6F95C10084E415 /* ImageSlideshow */; };
+		0924166B2A6F95C10084E415 /* ImageSlideshow/Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0924166A2A6F95C10084E415 /* ImageSlideshow/Alamofire */; };
+		0924166D2A6F95C10084E415 /* ImageSlideshow/Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0924166C2A6F95C10084E415 /* ImageSlideshow/Kingfisher */; };
 		094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */; };
 		094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */; };
 		094BCCCC2A5FEC0B0012A404 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCCB2A5FEC0B0012A404 /* ViewController.swift */; };
-		094BCCD12A5FEC0E0012A404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCD02A5FEC0E0012A404 /* Assets.xcassets */; };
 		094BCCD42A5FEC0E0012A404 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCD22A5FEC0E0012A404 /* LaunchScreen.storyboard */; };
 		094BCCE12A5FF2290012A404 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCE02A5FF2290012A404 /* HomeViewController.swift */; };
-		094BCCE42A5FF3530012A404 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 094BCCE32A5FF3530012A404 /* SnapKit */; };
-		094BCCE72A5FF3680012A404 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 094BCCE62A5FF3680012A404 /* Then */; };
 		094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCE82A5FF37B0012A404 /* Colors.swift */; };
 		094BCCEB2A6003650012A404 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCEA2A6003650012A404 /* TabController.swift */; };
 		094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */; };
 		094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCEE2A60045A0012A404 /* WishListViewController.swift */; };
 		094BCCF12A6019250012A404 /* tempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCF02A6019250012A404 /* tempModel.swift */; };
-		094BCCF82A611C700012A404 /* ImageSlideshow in Frameworks */ = {isa = PBXBuildFile; productRef = 094BCCF72A611C700012A404 /* ImageSlideshow */; };
-		094BCCFA2A611C700012A404 /* ImageSlideshow/Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 094BCCF92A611C700012A404 /* ImageSlideshow/Alamofire */; };
 		094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCFB2A6123F30012A404 /* BannerAdModel.swift */; };
 		094BCD072A613AD60012A404 /* SUIT-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCFE2A613AD50012A404 /* SUIT-Light.ttf */; };
 		094BCD082A613AD60012A404 /* SUIT-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCFF2A613AD50012A404 /* SUIT-Regular.ttf */; };
@@ -41,6 +44,7 @@
 		0999E2C62A62C954002042EF /* PerfumeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2C52A62C954002042EF /* PerfumeService.swift */; };
 		0999E2C82A62C95E002042EF /* AccordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2C72A62C95E002042EF /* AccordService.swift */; };
 		0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2CB2A62CA02002042EF /* APIConstants.swift */; };
+		09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B759862A652B53008452A3 /* ReportPopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +80,7 @@
 		0999E2C52A62C954002042EF /* PerfumeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfumeService.swift; sourceTree = "<group>"; };
 		0999E2C72A62C95E002042EF /* AccordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordService.swift; sourceTree = "<group>"; };
 		0999E2CB2A62CA02002042EF /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		09B759862A652B53008452A3 /* ReportPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +88,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				094BCCFA2A611C700012A404 /* ImageSlideshow/Alamofire in Frameworks */,
-				094BCCF82A611C700012A404 /* ImageSlideshow in Frameworks */,
-				094BCCE42A5FF3530012A404 /* SnapKit in Frameworks */,
-				094BCCE72A5FF3680012A404 /* Then in Frameworks */,
+				0924164E2A6F92F50084E415 /* SnapKit in Frameworks */,
+				0924166D2A6F95C10084E415 /* ImageSlideshow/Kingfisher in Frameworks */,
+				092416692A6F95C10084E415 /* ImageSlideshow in Frameworks */,
+				0924164B2A6F92E20084E415 /* Alamofire in Frameworks */,
+				092416622A6F94C70084E415 /* Kingfisher in Frameworks */,
+				0924166B2A6F95C10084E415 /* ImageSlideshow/Alamofire in Frameworks */,
+				092416512A6F93030084E415 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,11 +169,11 @@
 		094BCCDE2A5FEE590012A404 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				094BCCEA2A6003650012A404 /* TabController.swift */,
+				09FEB4232A6688A200DD1CC5 /* UIController */,
+				09FEB4222A66887F00DD1CC5 /* DetailPerfume */,
+				09FEB4212A66886700DD1CC5 /* Home */,
 				094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */,
 				094BCCEE2A60045A0012A404 /* WishListViewController.swift */,
-				094BCCE02A5FF2290012A404 /* HomeViewController.swift */,
-				098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +203,31 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		09FEB4212A66886700DD1CC5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				094BCCE02A5FF2290012A404 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		09FEB4222A66887F00DD1CC5 /* DetailPerfume */ = {
+			isa = PBXGroup;
+			children = (
+				098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */,
+				09B759862A652B53008452A3 /* ReportPopupViewController.swift */,
+			);
+			path = DetailPerfume;
+			sourceTree = "<group>";
+		};
+		09FEB4232A6688A200DD1CC5 /* UIController */ = {
+			isa = PBXGroup;
+			children = (
+				094BCCEA2A6003650012A404 /* TabController.swift */,
+			);
+			path = UIController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -212,10 +245,13 @@
 			);
 			name = "Na'nez";
 			packageProductDependencies = (
-				094BCCE32A5FF3530012A404 /* SnapKit */,
-				094BCCE62A5FF3680012A404 /* Then */,
-				094BCCF72A611C700012A404 /* ImageSlideshow */,
-				094BCCF92A611C700012A404 /* ImageSlideshow/Alamofire */,
+				0924164A2A6F92E20084E415 /* Alamofire */,
+				0924164D2A6F92F50084E415 /* SnapKit */,
+				092416502A6F93030084E415 /* Then */,
+				092416612A6F94C70084E415 /* Kingfisher */,
+				092416682A6F95C10084E415 /* ImageSlideshow */,
+				0924166A2A6F95C10084E415 /* ImageSlideshow/Alamofire */,
+				0924166C2A6F95C10084E415 /* ImageSlideshow/Kingfisher */,
 			);
 			productName = "Na'nez";
 			productReference = 094BCCC42A5FEC0B0012A404 /* Na'nez.app */;
@@ -246,9 +282,11 @@
 			);
 			mainGroup = 094BCCBB2A5FEC0B0012A404;
 			packageReferences = (
-				094BCCE22A5FF3530012A404 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				094BCCE52A5FF3680012A404 /* XCRemoteSwiftPackageReference "Then" */,
-				094BCCF62A611C700012A404 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
+				092416492A6F92E20084E415 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0924164C2A6F92F50084E415 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				0924164F2A6F93030084E415 /* XCRemoteSwiftPackageReference "Then" */,
+				092416602A6F94C70084E415 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
 			);
 			productRefGroup = 094BCCC52A5FEC0B0012A404 /* Products */;
 			projectDirPath = "";
@@ -266,13 +304,13 @@
 			files = (
 				094BCD0B2A613AD60012A404 /* SUIT-Medium.ttf in Resources */,
 				094BCD082A613AD60012A404 /* SUIT-Regular.ttf in Resources */,
+				090649232A66E225007FFE24 /* Assets.xcassets in Resources */,
 				094BCD0E2A613AD60012A404 /* SUIT-Bold.ttf in Resources */,
 				094BCCD42A5FEC0E0012A404 /* LaunchScreen.storyboard in Resources */,
 				094BCD0A2A613AD60012A404 /* SUIT-Thin.ttf in Resources */,
 				094BCD072A613AD60012A404 /* SUIT-Light.ttf in Resources */,
 				094BCD0C2A613AD60012A404 /* SUIT-ExtraLight.ttf in Resources */,
 				094BCD092A613AD60012A404 /* SUIT-SemiBold.ttf in Resources */,
-				094BCCD12A5FEC0E0012A404 /* Assets.xcassets in Resources */,
 				094BCD0F2A613AD60012A404 /* SUIT-Heavy.ttf in Resources */,
 				094BCD0D2A613AD60012A404 /* SUIT-ExtraBold.ttf in Resources */,
 			);
@@ -302,6 +340,7 @@
 				094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */,
 				0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */,
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
+				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
 				094BCCE12A5FF2290012A404 /* HomeViewController.swift in Sources */,
 			);
@@ -517,52 +556,83 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		094BCCE22A5FF3530012A404 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		092416492A6F92E20084E415 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.7.1;
+			};
+		};
+		0924164C2A6F92F50084E415 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				kind = exactVersion;
+				version = 5.6.0;
 			};
 		};
-		094BCCE52A5FF3680012A404 /* XCRemoteSwiftPackageReference "Then" */ = {
+		0924164F2A6F93030084E415 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				kind = exactVersion;
+				version = 3.0.0;
 			};
 		};
-		094BCCF62A611C700012A404 /* XCRemoteSwiftPackageReference "ImageSlideshow" */ = {
+		092416602A6F94C70084E415 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = exactVersion;
+				version = 5.8.0;
+			};
+		};
+		092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/zvonicek/ImageSlideshow";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				kind = exactVersion;
+				version = 1.9.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		094BCCE32A5FF3530012A404 /* SnapKit */ = {
+		0924164A2A6F92E20084E415 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 094BCCE22A5FF3530012A404 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 092416492A6F92E20084E415 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0924164D2A6F92F50084E415 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0924164C2A6F92F50084E415 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		094BCCE62A5FF3680012A404 /* Then */ = {
+		092416502A6F93030084E415 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 094BCCE52A5FF3680012A404 /* XCRemoteSwiftPackageReference "Then" */;
+			package = 0924164F2A6F93030084E415 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
 		};
-		094BCCF72A611C700012A404 /* ImageSlideshow */ = {
+		092416612A6F94C70084E415 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 094BCCF62A611C700012A404 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			package = 092416602A6F94C70084E415 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		092416682A6F95C10084E415 /* ImageSlideshow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
 			productName = ImageSlideshow;
 		};
-		094BCCF92A611C700012A404 /* ImageSlideshow/Alamofire */ = {
+		0924166A2A6F95C10084E415 /* ImageSlideshow/Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 094BCCF62A611C700012A404 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			package = 092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
 			productName = ImageSlideshow/Alamofire;
+		};
+		0924166C2A6F95C10084E415 /* ImageSlideshow/Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
+			productName = ImageSlideshow/Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -397,10 +397,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == recommendCollectionView{
             let detailVC = DetailPerfumeViewController()
             navigationController?.pushViewController(detailVC, animated: true)
-
         }
         else if collectionView == Second_recommendCollectionView{
-            
+            let detailVC = DetailPerfumeViewController()
+            navigationController?.pushViewController(detailVC, animated: true)
         }
         else if collectionView == brandCollectionView {
             

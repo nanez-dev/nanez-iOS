@@ -8,4 +8,5 @@
 import Foundation
 struct APIConstants {
     static let baseURL = "https://api.nanez.co.kr/api"
+    static let noImage = "https://geojecci.korcham.net/images/no-image01.gif"
 }

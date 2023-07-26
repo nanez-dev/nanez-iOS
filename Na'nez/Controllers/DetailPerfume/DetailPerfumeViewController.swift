@@ -332,7 +332,12 @@ class DetailPerfumeViewController: UIViewController {
             self.EngLabel.text = PefumeInfo?.eng ?? "Eng"
             self.brandLabel.text = PefumeInfo?.brand?.kor ?? "브랜드"
             self.kor_capacityLabel.text = PefumeInfo!.kor + ", " + String(PefumeInfo!.capacity) + "ml"
-            self.priceLabel.text = String(PefumeInfo!.price) + "원"
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            self.priceLabel.text = numberFormatter.string(from: NSNumber(value: PefumeInfo!.price))! + "원"
+            let attributedStr = NSMutableAttributedString(string: priceLabel.text!)
+            attributedStr.addAttribute(.foregroundColor, value: UIColor.black, range: (priceLabel.text! as NSString).range(of: "원"))
+            priceLabel.attributedText = attributedStr
             self.notetitleLabel.text = PefumeInfo!.title
             self.notedesLabel.text = PefumeInfo!.subtitle
             if PefumeInfo!.perfume_notes.count < 3 {

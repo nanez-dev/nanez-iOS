@@ -24,5 +24,4 @@ enum bannerImg: String{
         case .banner5: return UIImage(named: "bannerAD5") ?? UIImage()
         }
     }
-    
 }

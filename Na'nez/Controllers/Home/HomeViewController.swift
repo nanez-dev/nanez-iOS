@@ -10,7 +10,7 @@ import SnapKit
 import ImageSlideshow
 import Then
 import AlamofireImage
-
+import Kingfisher
 class HomeViewController: UIViewController {
     private let BrandAPI = BrandService()
     private var Popularbrands:[Brand] = []
@@ -312,9 +312,10 @@ class HomeViewController: UIViewController {
             switch result {
             case .success(let perfumes):
                 self.TotalPerfume = perfumes
-                self.recommendCollectionView.reloadData()
-                self.Second_recommendCollectionView.reloadData()
-                print("갯수",self.TotalPerfume.count)
+                DispatchQueue.main.async {
+                    self.recommendCollectionView.reloadData()
+                    self.Second_recommendCollectionView.reloadData()
+                }
             case .failure(let error):
                 print("오류: \(error)")
             }
@@ -347,9 +348,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let perfumeinfo = self.TotalPerfume[indexPath.item]
             cell.perfumeLabel.text = perfumeinfo.kor
             cell.descriptionLabel.text = perfumeinfo.title
-            cell.brandLabel.text = perfumeinfo.brand.kor
+            cell.brandLabel.text = perfumeinfo.brand?.kor
             cell.capacityLabel.text = String(perfumeinfo.capacity) + "ml"
-            if let imageURL = URL(string: perfumeinfo.image ?? "") {
+            if let imageURL = URL(string: perfumeinfo.image ?? APIConstants.noImage) {
                 cell.Img.af.setImage(withURL: imageURL)
             }
             return cell
@@ -362,10 +363,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
              if perfumeIndex < TotalPerfume.count {
                  let perfumeinfo = self.TotalPerfume[perfumeIndex]
                  cell.perfumeLabel.text = perfumeinfo.kor
-                 cell.brandLabel.text = perfumeinfo.brand.kor
+                 cell.brandLabel.text = perfumeinfo.brand?.kor
                  cell.capacityLabel.text = String(perfumeinfo.capacity) + "ml"
-                 if let imageURL = URL(string: perfumeinfo.image ?? "") {
-                     cell.Img.af.setImage(withURL: imageURL)
+     
+                 if let imageURL = URL(string: perfumeinfo.image ?? APIConstants.noImage) {
+                     cell.Img.kf.setImage(with:imageURL)
                  }
              }
             return cell
@@ -395,12 +397,35 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == recommendCollectionView{
-            let detailVC = DetailPerfumeViewController()
-            navigationController?.pushViewController(detailVC, animated: true)
+            print(self.TotalPerfume[indexPath.item].id!)
+            self.PerfumeAPI.getPerfumeDetailInfo(id: self.TotalPerfume[indexPath.item].id!) { respnse in
+                switch respnse{
+                case .success(let result):
+                    print(result)
+                   let vc = DetailPerfumeViewController()
+                    vc.PefumeInfo = result
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc,animated: false,completion: nil)
+                case .failure(_):
+                    print("향수상세정보 오류")
+                }
+            }
+
         }
         else if collectionView == Second_recommendCollectionView{
-            let detailVC = DetailPerfumeViewController()
-            navigationController?.pushViewController(detailVC, animated: true)
+            self.PerfumeAPI.getPerfumeDetailInfo(id: self.TotalPerfume[indexPath.item + 5].id!) { respnse in
+                switch respnse{
+                case .success(let result):
+                    print(result)
+                   let vc = DetailPerfumeViewController()
+                    vc.PefumeInfo = result
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc,animated: false,completion: nil)
+                case .failure(_):
+                    print("향수상세정보 오류")
+                }
+            }
+
         }
         else if collectionView == brandCollectionView {
             

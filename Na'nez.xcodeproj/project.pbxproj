@@ -15,6 +15,8 @@
 		092416692A6F95C10084E415 /* ImageSlideshow in Frameworks */ = {isa = PBXBuildFile; productRef = 092416682A6F95C10084E415 /* ImageSlideshow */; };
 		0924166B2A6F95C10084E415 /* ImageSlideshow/Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0924166A2A6F95C10084E415 /* ImageSlideshow/Alamofire */; };
 		0924166D2A6F95C10084E415 /* ImageSlideshow/Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0924166C2A6F95C10084E415 /* ImageSlideshow/Kingfisher */; };
+		0924166F2A6FFA0C0084E415 /* reportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0924166E2A6FFA0C0084E415 /* reportModel.swift */; };
+		092416712A6FFFC70084E415 /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */; };
 		094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */; };
 		094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */; };
 		094BCCCC2A5FEC0B0012A404 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCCB2A5FEC0B0012A404 /* ViewController.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0924166E2A6FFA0C0084E415 /* reportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reportModel.swift; sourceTree = "<group>"; };
+		092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
 		094BCCC42A5FEC0B0012A404 /* Na'nez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Na'nez.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */,
 				0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */,
 				0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */,
+				092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			children = (
 				094BCCF02A6019250012A404 /* tempModel.swift */,
 				094BCCFB2A6123F30012A404 /* BannerAdModel.swift */,
+				0924166E2A6FFA0C0084E415 /* reportModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -324,6 +330,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */,
+				0924166F2A6FFA0C0084E415 /* reportModel.swift in Sources */,
+				092416712A6FFFC70084E415 /* DropDownTableViewCell.swift in Sources */,
 				0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */,
 				0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */,
 				094BCCCC2A5FEC0B0012A404 /* ViewController.swift in Sources */,

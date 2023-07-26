@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailPerfumeViewController: UIViewController {
+    public var PefumeInfo: Perfume?
     private let second_accordcollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
         $0.register(AccordCollectionViewCell.self, forCellWithReuseIdentifier: AccordCollectionViewCell.identifier)
@@ -18,17 +19,17 @@ class DetailPerfumeViewController: UIViewController {
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
     }
-    private let bottomnoteLabel = UILabel().then{
+    private var bottomnoteLabel = UILabel().then{
         $0.text = "BottomNote:Lemon"
         $0.font = .pretendard(.Regular, size: 18)
         $0.textColor = UIColor(rgb: 0x000000)
     }
-    private let middlenoteLabel = UILabel().then{
+    private var middlenoteLabel = UILabel().then{
         $0.text = "MiddleNote:Lemon"
         $0.font = .pretendard(.Regular, size: 18)
         $0.textColor = UIColor(rgb: 0x000000)
     }
-    private let topnoteLabel = UILabel().then{
+    private var topnoteLabel = UILabel().then{
         $0.text = "TopNote:Lemon"
         $0.font = .pretendard(.Regular, size: 18)
         $0.textColor = UIColor(rgb: 0x000000)
@@ -38,16 +39,21 @@ class DetailPerfumeViewController: UIViewController {
         $0.axis = .vertical
         $0.distribution = .fill
     }
-    private let notedesLabel = UILabel().then{
+    private var notedesLabel = UILabel().then{
         $0.text = "설명블라블라블라"
         $0.font = .pretendard(.Light, size: 16)
         $0.textColor = UIColor(rgb: 0x333333)
         $0.numberOfLines = 0
+        $0.numberOfLines = 0
+        $0.sizeToFit()
+
     }
-    private let notetitleLabel = UILabel().then{
+    private var notetitleLabel = UILabel().then{
         $0.text = "가을의 정수"
         $0.font = .pretendard(.SemiBold, size: 18)
         $0.textColor = UIColor(rgb: 0xF27766)
+        $0.numberOfLines = 0
+        $0.sizeToFit()
     }
     private let noteLabel = UILabel().then{
         $0.text = "노트"
@@ -82,7 +88,7 @@ class DetailPerfumeViewController: UIViewController {
         $0.axis = .vertical
         $0.distribution = .fill
     }
-    private let reportBtn = UIButton().then{
+    private var reportBtn = UIButton().then{
         $0.layer.borderWidth = 0
         $0.backgroundColor = .clear
         $0.setTitle("신고", for: .normal)
@@ -90,35 +96,38 @@ class DetailPerfumeViewController: UIViewController {
         $0.setTitleColor(UIColor(rgb: 0xFF0000), for: .normal)
         
     }
-    private let heartBtn = UIButton().then{
+    private var heartBtn = UIButton().then{
         $0.setImage(UIImage(systemName: "heart"), for: .normal)
         $0.contentMode = .scaleAspectFit
         $0.layer.masksToBounds = true
         $0.tintColor = .black
     }
-    private let checkBtn = UIButton().then{
+    private var checkBtn = UIButton().then{
         $0.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
         $0.contentMode = .scaleAspectFit
         $0.layer.masksToBounds = true
         $0.tintColor = .black
 
     }
-    private let priceLabel = UILabel().then{
+    private var priceLabel = UILabel().then{
         $0.text = "99,000원"
         $0.font = .pretendard(.Bold, size: 24)
         $0.textColor = UIColor(rgb: 0x65BFC4)
+        let attributedStr = NSMutableAttributedString(string: $0.text!)
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.black, range: ($0.text! as NSString).range(of: "원"))
+        $0.attributedText = attributedStr
     }
-    private let kor_capacityLabel = UILabel().then{
+    private var kor_capacityLabel = UILabel().then{
         $0.text = "향수, 30ml"
         $0.font = .pretendard(.Regular, size: 14)
         $0.textColor = UIColor(rgb: 0x333333)
     }
-    private let EngLabel = UILabel().then{
+    private var EngLabel = UILabel().then{
         $0.text = "Eng"
         $0.font = .pretendard(.Bold, size: 16)
         $0.textColor = UIColor(rgb: 0x333333)
     }
-    private let brandLabel = UILabel().then{
+    private var brandLabel = UILabel().then{
         $0.text = "brand"
         $0.font = .pretendard(.Regular, size: 14)
         $0.textColor = UIColor(rgb: 0x666666)
@@ -129,6 +138,7 @@ class DetailPerfumeViewController: UIViewController {
     private var PerfumeImg = UIImageView().then{
         $0.contentMode = .scaleAspectFit
         $0.layer.masksToBounds = true
+        $0.backgroundColor = .clear
     }
     private let perfumeView = UIView().then {
         $0.backgroundColor = UIColor(rgb: 0xFAFAFD)
@@ -169,13 +179,11 @@ class DetailPerfumeViewController: UIViewController {
             $0.top.equalTo(notetitleLabel.snp.bottom).offset(8)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-22)
-            $0.height.equalTo(48)
         }
         self.notetitleLabel.snp.makeConstraints{
             $0.top.equalTo(noteLabel.snp.bottom).offset(20)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-22)
-            $0.height.equalTo(28)
         }
         self.noteLabel.snp.makeConstraints{
             $0.top.equalTo(detailaccordCollectionView.snp.bottom).offset(50)
@@ -256,7 +264,7 @@ class DetailPerfumeViewController: UIViewController {
         self.contentView.snp.makeConstraints{
             $0.width.equalToSuperview().offset(0)
             $0.edges.equalToSuperview().offset(0)
-            $0.height.equalTo(1200)
+            $0.height.equalTo(1300)
         }
         self.scrollView.snp.makeConstraints{
             $0.top.equalTo(customNaviBar.snp.bottom).offset(0)
@@ -300,26 +308,81 @@ class DetailPerfumeViewController: UIViewController {
         self.noteSV.addArrangedSubview(bottomnoteLabel)
         self.contentView.addSubview(second_accordcollectionView)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .white
-        self.addSubview()
-        self.layout()
+    private func configure(){
         self.detailaccordCollectionView.dataSource = self
         self.detailaccordCollectionView.delegate = self
         self.second_accordcollectionView.dataSource = self
         self.second_accordcollectionView.delegate = self
+        self.view.backgroundColor = .white
+        self.backBtn.addTarget(self, action: #selector(backBtnClick), for: .touchUpInside)
+        self.reportBtn.addTarget(self, action: #selector(reportBtnClick), for: .touchUpInside)
+
+    }
+    @objc private func reportBtnClick(){
+        let vc = ReportPopupViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc,animated: false,completion: nil)
+    }
+    @objc private func backBtnClick(){
+        self.dismiss(animated: false)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        if PefumeInfo != nil {
+            self.EngLabel.text = PefumeInfo?.eng ?? "Eng"
+            self.brandLabel.text = PefumeInfo?.brand?.kor ?? "브랜드"
+            self.kor_capacityLabel.text = PefumeInfo!.kor + ", " + String(PefumeInfo!.capacity) + "ml"
+            self.priceLabel.text = String(PefumeInfo!.price) + "원"
+            self.notetitleLabel.text = PefumeInfo!.title
+            self.notedesLabel.text = PefumeInfo!.subtitle
+            if PefumeInfo!.perfume_notes.count < 3 {
+                self.topnoteLabel.text = "TopNote: " + PefumeInfo!.perfume_notes[0].note.eng
+                 self.middlenoteLabel.text = "MiddleNote: " + PefumeInfo!.perfume_notes[1].note.eng
+            }
+            else{
+                self.topnoteLabel.text = "TopNote: " + PefumeInfo!.perfume_notes[0].note.eng
+                 self.middlenoteLabel.text = "MiddleNote: " + PefumeInfo!.perfume_notes[1].note.eng
+                 self.bottomnoteLabel.text = "BottomNote: " + PefumeInfo!.perfume_notes[2].note.eng
+            }
+            self.detailaccordCollectionView.reloadData()
+            self.second_accordcollectionView.reloadData()
+            let url = URL(string: PefumeInfo!.image ?? APIConstants.noImage)
+            self.PerfumeImg.kf.setImage(with: url)
+        }
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.configure()
+        self.addSubview()
+        self.layout()
 
     }
     
 }
 extension DetailPerfumeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if collectionView == detailaccordCollectionView {
+            return PefumeInfo!.perfume_accords.count
+        }
+        else{
+            return PefumeInfo!.perfume_notes.count
+
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AccordCollectionViewCell.identifier, for: indexPath) as! AccordCollectionViewCell
+        if PefumeInfo != nil{
+            if collectionView == detailaccordCollectionView {
+                let url = URL(string: PefumeInfo!.perfume_accords[indexPath.row].accord.image)
+                cell.Img.kf.setImage(with: url)
+                cell.accordLabel.text =  PefumeInfo!.perfume_accords[indexPath.row].accord.eng
+            }else{
+                let url = URL(string: PefumeInfo!.perfume_notes[indexPath.row].note.image ?? APIConstants.noImage )
+                cell.Img.kf.setImage(with: url)
+                cell.accordLabel.text =  PefumeInfo!.perfume_notes[indexPath.row].note.eng
+            }
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

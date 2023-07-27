@@ -371,7 +371,6 @@ extension DetailPerfumeViewController: UICollectionViewDelegate, UICollectionVie
         }
         else{
             return PefumeInfo!.perfume_notes.count
-
         }
     }
     

@@ -143,7 +143,7 @@ class DetailPerfumeViewController: UIViewController {
     private let perfumeView = UIView().then {
         $0.backgroundColor = UIColor(rgb: 0xFAFAFD)
     }
-    private let perfumetitleLabel = UILabel().then{
+    private let navititleLabel = UILabel().then{
         $0.text = "상품정보"
         $0.font = .pretendard(.Bold, size: 18)
         $0.textColor = UIColor(rgb: 0x333333)
@@ -247,13 +247,13 @@ class DetailPerfumeViewController: UIViewController {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(375)
         }
-        self.perfumetitleLabel.snp.makeConstraints{
+        self.navititleLabel.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
         self.backBtn.snp.makeConstraints{
             $0.top.equalToSuperview().offset(14)
-            $0.leading.equalToSuperview().offset(14)
+            $0.leading.equalToSuperview().offset(24)
             $0.height.equalTo(24)
         }
         self.searchBtn.snp.makeConstraints{
@@ -278,7 +278,7 @@ class DetailPerfumeViewController: UIViewController {
     }
     private func addSubview(){
         self.view.addSubview(customNaviBar)
-        self.customNaviBar.addSubview(perfumetitleLabel)
+        self.customNaviBar.addSubview(navititleLabel)
         self.customNaviBar.addSubview(searchBtn)
         self.customNaviBar.addSubview(backBtn)
         self.view.addSubview(scrollView)
@@ -371,7 +371,6 @@ extension DetailPerfumeViewController: UICollectionViewDelegate, UICollectionVie
         }
         else{
             return PefumeInfo!.perfume_notes.count
-
         }
     }
     

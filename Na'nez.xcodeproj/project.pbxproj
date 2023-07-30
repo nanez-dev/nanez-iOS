@@ -39,6 +39,7 @@
 		094BCD0F2A613AD60012A404 /* SUIT-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */; };
 		094BCD112A613B8B0012A404 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD102A613B8B0012A404 /* Fonts.swift */; };
 		094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */; };
+		0966E10F2A7143660083BF1C /* AccordtubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966E10E2A7143660083BF1C /* AccordtubeViewController.swift */; };
 		098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */; };
 		0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */; };
 		0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */; };
@@ -77,6 +78,7 @@
 		094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Heavy.ttf"; sourceTree = "<group>"; };
 		094BCD102A613B8B0012A404 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		0966E10E2A7143660083BF1C /* AccordtubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordtubeViewController.swift; sourceTree = "<group>"; };
 		098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPerfumeViewController.swift; sourceTree = "<group>"; };
 		0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionViewCell.swift; sourceTree = "<group>"; };
 		0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -175,8 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				09FEB4232A6688A200DD1CC5 /* UIController */,
-				09FEB4222A66887F00DD1CC5 /* DetailPerfume */,
-				09FEB4212A66886700DD1CC5 /* Home */,
+				0966E10D2A71434E0083BF1C /* AccordUI */,
+				09FEB4222A66887F00DD1CC5 /* DetailPerfumeUI */,
+				09FEB4212A66886700DD1CC5 /* HomeUI */,
 				094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */,
 				094BCCEE2A60045A0012A404 /* WishListViewController.swift */,
 			);
@@ -209,21 +212,29 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		09FEB4212A66886700DD1CC5 /* Home */ = {
+		0966E10D2A71434E0083BF1C /* AccordUI */ = {
+			isa = PBXGroup;
+			children = (
+				0966E10E2A7143660083BF1C /* AccordtubeViewController.swift */,
+			);
+			path = AccordUI;
+			sourceTree = "<group>";
+		};
+		09FEB4212A66886700DD1CC5 /* HomeUI */ = {
 			isa = PBXGroup;
 			children = (
 				094BCCE02A5FF2290012A404 /* HomeViewController.swift */,
 			);
-			path = Home;
+			path = HomeUI;
 			sourceTree = "<group>";
 		};
-		09FEB4222A66887F00DD1CC5 /* DetailPerfume */ = {
+		09FEB4222A66887F00DD1CC5 /* DetailPerfumeUI */ = {
 			isa = PBXGroup;
 			children = (
 				098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */,
 				09B759862A652B53008452A3 /* ReportPopupViewController.swift */,
 			);
-			path = DetailPerfume;
+			path = DetailPerfumeUI;
 			sourceTree = "<group>";
 		};
 		09FEB4232A6688A200DD1CC5 /* UIController */ = {
@@ -350,6 +361,7 @@
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
 				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
+				0966E10F2A7143660083BF1C /* AccordtubeViewController.swift in Sources */,
 				094BCCE12A5FF2290012A404 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

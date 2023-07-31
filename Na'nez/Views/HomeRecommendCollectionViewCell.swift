@@ -31,6 +31,8 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
         $0.text = "장폴고티에 르말"
         $0.textColor = UIColor(rgb: 0x111111)
         $0.font = .pretendard(.Bold, size: 16)
+        $0.numberOfLines = 0
+        $0.sizeToFit()
     }
     public var capacityLabel = UILabel().then{
         $0.text = "100ml"
@@ -57,9 +59,9 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
                $0.height.equalTo(186)
                $0.width.equalToSuperview()
            }
-        self.infoSV.snp.makeConstraints{
+            self.infoSV.snp.makeConstraints{
                    $0.top.equalTo(roundview.snp.bottom).offset(8)
-                   $0.leading.equalToSuperview().offset(0)
+                $0.leading.trailing.equalToSuperview().offset(0)
                }
                self.descriptionLabel.snp.makeConstraints{
                    $0.top.equalTo(infoSV.snp.bottom).offset(12)
@@ -68,7 +70,7 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
                }
        }
     public func addSubview(){
-           self.addSubview(roundview)
+            self.addSubview(roundview)
             self.addSubview(infoSV)
             self.infoSV.addArrangedSubview(brandLabel)
             self.infoSV.addArrangedSubview(perfumeLabel)

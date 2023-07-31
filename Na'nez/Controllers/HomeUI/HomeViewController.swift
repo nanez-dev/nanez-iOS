@@ -425,13 +425,27 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     print("향수상세정보 오류")
                 }
             }
-
         }
         else if collectionView == brandCollectionView {
-            
+            print(self.Popularbrands[indexPath.row].id)
+            self.BrandAPI.getBrandDetail(brand_id:self.Popularbrands[indexPath.row].id, limit: 3) { resonse in
+                switch resonse{
+                case .success(let result):
+                    let vc = DetailBrandViewController()
+                    vc.brandinfo = result
+                    vc.modalPresentationStyle = .fullScreen
+                     self.present(vc,animated: false,completion: nil)
+                case .failure(_):
+                    print("상세브랜드정보 오류")
+                }
+            }
+
         }
         else if collectionView == accordCollectionView{
             
+            let vc = DetailAccordViewController()
+             vc.modalPresentationStyle = .fullScreen
+             self.present(vc,animated: false,completion: nil)
         }
     }
  

@@ -44,7 +44,6 @@ class DetailPerfumeViewController: UIViewController {
         $0.font = .pretendard(.Light, size: 16)
         $0.textColor = UIColor(rgb: 0x333333)
         $0.numberOfLines = 0
-        $0.numberOfLines = 0
         $0.sizeToFit()
 
     }
@@ -396,6 +395,11 @@ extension DetailPerfumeViewController: UICollectionViewDelegate, UICollectionVie
                 return CGSize(width: cellWidth, height: cellHeight)
             }
         return CGSize(width: 0, height: 0)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailAccordViewController()
+         vc.modalPresentationStyle = .fullScreen
+         self.present(vc,animated: false,completion: nil)
     }
 
  }

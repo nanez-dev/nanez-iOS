@@ -8,6 +8,10 @@
 import UIKit
 
 class AccordtubeViewController: UIViewController {
+    private var Totalaccord:[Accord] = []
+    private var popularAccord:[Accord] = []
+    private let api = AccordService()
+
     private let AllaccordtitleLabel = UILabel().then{
         $0.text = "모든 어코드"
         $0.font = .pretendard(.Bold, size: 20)
@@ -19,9 +23,11 @@ class AccordtubeViewController: UIViewController {
         $0.collectionViewLayout = layout
         $0.decelerationRate = .fast
         $0.isScrollEnabled = false
-        $0.backgroundColor = .blue
+        $0.backgroundColor = .clear
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
+        layout.minimumInteritemSpacing = 0
+
     }
     private let RecommendaccordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
@@ -29,9 +35,10 @@ class AccordtubeViewController: UIViewController {
         $0.collectionViewLayout = layout
         $0.decelerationRate = .fast
         $0.isScrollEnabled = false
-        $0.backgroundColor = .red
+        $0.backgroundColor = .clear
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
+        layout.minimumInteritemSpacing = 0
     }
     private let accordtitleLabel = UILabel().then{
         $0.text = "지금 계절에 어울리는 어코드"
@@ -61,7 +68,8 @@ class AccordtubeViewController: UIViewController {
         self.RecommendaccordCollectionView.delegate = self
         self.AllaccordCollectionView.dataSource = self
         self.AllaccordCollectionView.delegate = self
-        
+        self.backBtn.addTarget(self, action: #selector(backBtnClick), for: .touchUpInside)
+
     }
     private func addsubview(){
         self.view.addSubview(customNaviBar)
@@ -78,7 +86,7 @@ class AccordtubeViewController: UIViewController {
         self.AllaccordCollectionView.snp.makeConstraints{
             $0.top.equalTo(AllaccordtitleLabel.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(324)
+            $0.height.equalTo(600)
         }
         self.AllaccordtitleLabel.snp.makeConstraints{
             $0.top.equalTo(RecommendaccordCollectionView.snp.bottom).offset(50)
@@ -87,10 +95,11 @@ class AccordtubeViewController: UIViewController {
         self.RecommendaccordCollectionView.snp.makeConstraints{
             $0.top.equalTo(accordtitleLabel.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(75)
+            $0.height.equalTo(150)
+
         }
         self.accordtitleLabel.snp.makeConstraints{
-            $0.top.equalTo(customNaviBar.snp.bottom).offset(26)
+            $0.top.equalToSuperview().offset(26)
             $0.leading.equalToSuperview().offset(16)
         }
         self.navititleLabel.snp.makeConstraints{
@@ -106,7 +115,7 @@ class AccordtubeViewController: UIViewController {
         self.contentView.snp.makeConstraints{
             $0.width.equalToSuperview().offset(0)
             $0.edges.equalToSuperview().offset(0)
-            $0.height.equalTo(812)
+            $0.height.equalTo(920)
         }
         self.scrollView.snp.makeConstraints{
             $0.top.equalTo(customNaviBar.snp.bottom).offset(0)
@@ -124,20 +133,67 @@ class AccordtubeViewController: UIViewController {
         self.addsubview()
         self.layout()
     }
-    
+    @objc private func backBtnClick(){
+        self.dismiss(animated: false)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.api.getAccord { response in
+            switch response {
+            case .success(let accordList):
+                self.Totalaccord = accordList.accords
+                DispatchQueue.main.async {
+                    self.AllaccordCollectionView.reloadData()
+                    self.RecommendaccordCollectionView.reloadData()
 
+                }
+            case .failure(_):
+                break
+            }
+        }
+    }
 }
-extension AccordtubeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AccordtubeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == RecommendaccordCollectionView {
-            return 5
-        }
+            return min(5, Totalaccord.count)
+    }
         else{
-            return 0
+            return Totalaccord.count
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AccordCollectionViewCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AccordCollectionViewCell.identifier, for: indexPath) as! AccordCollectionViewCell
+        cell.roundview.layer.borderWidth = 0
+ 
+            let accordinfo = Totalaccord[indexPath.row]
+            cell.accordLabel.text = accordinfo.kor
+            if let imageURL = URL(string: accordinfo.image) {
+                cell.Img.kf.setImage(with: imageURL)
+
+        }
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == RecommendaccordCollectionView{
+            if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+                let cellWidth: CGFloat = (collectionView.bounds.width - layout.minimumInteritemSpacing) / 5.2
+                let cellHeight: CGFloat = (collectionView.bounds.height - layout.minimumLineSpacing) / 2
+                    return CGSize(width: cellWidth, height: cellHeight)
+                }
+            return CGSize(width: 0, height: 0)
+        }else{
+            if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+                let cellWidth: CGFloat = (collectionView.bounds.width - layout.minimumInteritemSpacing) / 5
+                let cellHeight: CGFloat = (collectionView.bounds.height - layout.minimumLineSpacing) / 4.2
+                    return CGSize(width: cellWidth, height: cellHeight)
+                }
+            return CGSize(width: 0, height: 0)
+        }
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailAccordViewController()
+         vc.modalPresentationStyle = .fullScreen
+         self.present(vc,animated: false,completion: nil)
     }
 }

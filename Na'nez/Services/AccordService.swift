@@ -7,16 +7,7 @@
 
 import Foundation
 import Alamofire
-struct Accord: Codable {
-    let id: Int
-    let code: Int
-    let eng: String
-    let kor: String
-    let image: String
-}
-struct AccordList: Codable {
-    let accords: [Accord]
-}
+
 class AccordService{
     func getAccord(completion: @escaping (Result<AccordList, Error>) -> Void) {
         let url = APIConstants.baseURL + "/accord"

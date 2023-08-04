@@ -18,7 +18,32 @@ class HomeViewController: UIViewController {
     private var Totalaccord:[Accord] = []
     private let PerfumeAPI = PerfumeService()
     private var TotalPerfume:[Perfume] = []
-    
+    private let allaccordBtn = UIButton().then{
+        $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        $0.semanticContentAttribute = .forceRightToLeft
+        $0.setTitle("모든 어코드보기 ", for: .normal)
+        $0.backgroundColor = .clear
+        $0.titleLabel?.font = .pretendard(.Regular, size: 12)
+        $0.setTitleColor(UIColor(hexString: "#333333"), for: .normal)
+        $0.tintColor = UIColor(hexString: "#333333")
+        let underlineText = "모든 어코드보기"
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+        let underlineAttributedString = NSAttributedString(string: underlineText, attributes: underlineAttribute)
+        $0.setAttributedTitle(underlineAttributedString, for: .normal)
+    }
+    private let allbrandBtn = UIButton().then{
+        $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        $0.semanticContentAttribute = .forceRightToLeft
+        $0.setTitle("모든 브랜드보기 ", for: .normal)
+        $0.backgroundColor = .clear
+        $0.titleLabel?.font = .pretendard(.Regular, size: 12)
+        $0.setTitleColor(UIColor(hexString: "#333333"), for: .normal)
+        $0.tintColor = UIColor(hexString: "#333333")
+        let underlineText = "모든 브랜드보기"
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+        let underlineAttributedString = NSAttributedString(string: underlineText, attributes: underlineAttribute)
+        $0.setAttributedTitle(underlineAttributedString, for: .normal)
+    }
     private let accordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
         $0.register(AccordCollectionViewCell.self, forCellWithReuseIdentifier: AccordCollectionViewCell.identifier)
@@ -51,6 +76,7 @@ class HomeViewController: UIViewController {
         $0.text = "지금, 사랑받고 있는 브랜드"
         $0.font = .pretendard(.Bold, size: 20)
         $0.textColor = UIColor(rgb: 0x333333)
+        $0.backgroundColor = .clear
     }
     private let Second_recommendCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
@@ -141,6 +167,18 @@ class HomeViewController: UIViewController {
     private let scrollView = UIScrollView()
     
     private func layout(){
+        self.allaccordBtn.snp.makeConstraints{
+            $0.trailing.equalToSuperview().offset(-15)
+            $0.top.equalTo(spacebarView3.snp.bottom).offset(32)
+            $0.height.equalTo(25)
+            $0.width.equalTo(100)
+        }
+        self.allbrandBtn.snp.makeConstraints{
+            $0.trailing.equalToSuperview().offset(-15)
+            $0.top.equalTo(spacebarView2.snp.bottom).offset(32)
+            $0.height.equalTo(25)
+            $0.width.equalTo(100)
+        }
         self.accordCollectionView.snp.makeConstraints{
             $0.top.equalTo(LastcommentLabel.snp.bottom).offset(24)
             $0.leading.equalToSuperview().offset(16)
@@ -226,7 +264,6 @@ class HomeViewController: UIViewController {
             $0.top.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-22)
             $0.bottom.equalToSuperview().offset(-9.63)
-
         }
         self.logoImgView.snp.makeConstraints{
             $0.width.equalTo(86)
@@ -271,14 +308,10 @@ class HomeViewController: UIViewController {
         self.contentView.addSubview(spacebarView3)
         self.contentView.addSubview(LastcommentLabel)
         self.contentView.addSubview(accordCollectionView)
-
-
+        self.contentView.addSubview(allbrandBtn)
+        self.contentView.addSubview(allaccordBtn)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .white
-        self.addSubview()
-        self.layout()
+    private func configure(){
         self.recommendCollectionView.delegate = self
         self.recommendCollectionView.dataSource = self
         self.Second_recommendCollectionView.delegate = self
@@ -287,13 +320,36 @@ class HomeViewController: UIViewController {
         self.brandCollectionView.dataSource = self
         self.accordCollectionView.delegate = self
         self.accordCollectionView.dataSource = self
+        self.allbrandBtn.addTarget(self, action: #selector(allbrandBtnClick), for: .touchUpInside)
+        self.allaccordBtn.addTarget(self, action: #selector(allaccordBtnClick), for: .touchUpInside)
+
+    }
+    @objc private func allbrandBtnClick(){
+        let vc = BrandtubeViewController()
+         vc.modalPresentationStyle = .fullScreen
+         self.present(vc,animated: false,completion: nil)
+
+    }
+    @objc private func allaccordBtnClick(){
+        let vc = AccordtubeViewController()
+         vc.modalPresentationStyle = .fullScreen
+         self.present(vc,animated: false,completion: nil)
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .white
+        self.addSubview()
+        self.layout()
+        self.configure()
     }
     override func viewWillAppear(_ animated: Bool) {
         self.BrandAPI.getPoularBrands { result in
             switch result {
             case .success(let brandList):
                 self.Popularbrands = brandList.brands
-                self.brandCollectionView.reloadData()
+                DispatchQueue.main.async {
+                    self.brandCollectionView.reloadData()
+                }
             case .failure(let error):
                 print("/brand/popular 오류:\(error)")
             }
@@ -303,7 +359,9 @@ class HomeViewController: UIViewController {
             case .success(let accordList):
                 self.Totalaccord = accordList.accords
                 self.accordCollectionView.reloadData()
-                
+                DispatchQueue.main.async {
+                    self.accordCollectionView.reloadData()
+                }
             case .failure(let error):
                 print("/accord 오류:\(error)")
             }
@@ -376,7 +434,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BrandCollectionViewCell.identifier, for: indexPath) as! BrandCollectionViewCell
             let brandinfo = self.Popularbrands[indexPath.item]
             cell.brandLabel.text = brandinfo.kor
-            if let imageURL = URL(string: brandinfo.image) {
+            if let imageURL = URL(string: brandinfo.image ?? APIConstants.noImage) {
                 cell.Img.af.setImage(withURL: imageURL)
             }
             return cell

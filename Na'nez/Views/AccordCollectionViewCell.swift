@@ -28,7 +28,9 @@ class AccordCollectionViewCell: UICollectionViewCell {
     }
     public func layout(){
         self.Img.snp.makeConstraints{
-            $0.top.leading.trailing.bottom.equalToSuperview()
+            $0.top.bottom.equalToSuperview()
+            $0.leading.equalToSuperview().offset(10)
+            $0.trailing.equalToSuperview().offset(-10)
         }
         self.roundview.snp.makeConstraints{
             $0.top.equalToSuperview()

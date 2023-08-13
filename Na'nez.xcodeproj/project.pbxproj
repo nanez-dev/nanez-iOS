@@ -41,6 +41,7 @@
 		094BCD112A613B8B0012A404 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD102A613B8B0012A404 /* Fonts.swift */; };
 		094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */; };
 		0966E10F2A7143660083BF1C /* AccordtubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966E10E2A7143660083BF1C /* AccordtubeViewController.swift */; };
+		098CDB9F2A88F582008774B7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CDB9E2A88F582008774B7 /* HomeView.swift */; };
 		098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */; };
 		0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */; };
 		0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */; };
@@ -85,6 +86,7 @@
 		094BCD102A613B8B0012A404 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		0966E10E2A7143660083BF1C /* AccordtubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordtubeViewController.swift; sourceTree = "<group>"; };
+		098CDB9E2A88F582008774B7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPerfumeViewController.swift; sourceTree = "<group>"; };
 		0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionViewCell.swift; sourceTree = "<group>"; };
 		0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -145,11 +147,9 @@
 		094BCCC62A5FEC0B0012A404 /* Na'nez */ = {
 			isa = PBXGroup;
 			children = (
-				094BCCDF2A5FEE5F0012A404 /* Models */,
-				094BCCDE2A5FEE590012A404 /* Controllers */,
-				094BCCDD2A5FEE4F0012A404 /* Views */,
-				094BCCDC2A5FEE480012A404 /* Utils */,
 				094BCCDB2A5FEE400012A404 /* Services */,
+				094BCCDF2A5FEE5F0012A404 /* Models */,
+				094BCCDE2A5FEE590012A404 /* Presents */,
 				094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */,
 				094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */,
 				094BCCCB2A5FEC0B0012A404 /* ViewController.swift */,
@@ -181,20 +181,11 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		094BCCDD2A5FEE4F0012A404 /* Views */ = {
+		094BCCDE2A5FEE590012A404 /* Presents */ = {
 			isa = PBXGroup;
 			children = (
-				094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */,
-				0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */,
-				0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */,
-				092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		094BCCDE2A5FEE590012A404 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
+				094BCCDC2A5FEE480012A404 /* Utils */,
+				098CDB9D2A88F520008774B7 /* Cells */,
 				09FEB4232A6688A200DD1CC5 /* UIController */,
 				093396F52A76A2FF003B8C7A /* BrandUI */,
 				0966E10D2A71434E0083BF1C /* AccordUI */,
@@ -203,7 +194,7 @@
 				094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */,
 				094BCCEE2A60045A0012A404 /* WishListViewController.swift */,
 			);
-			path = Controllers;
+			path = Presents;
 			sourceTree = "<group>";
 		};
 		094BCCDF2A5FEE5F0012A404 /* Models */ = {
@@ -243,10 +234,22 @@
 			path = AccordUI;
 			sourceTree = "<group>";
 		};
+		098CDB9D2A88F520008774B7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */,
+				0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */,
+				0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */,
+				092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		09FEB4212A66886700DD1CC5 /* HomeUI */ = {
 			isa = PBXGroup;
 			children = (
 				094BCCE02A5FF2290012A404 /* HomeViewController.swift */,
+				098CDB9E2A88F582008774B7 /* HomeView.swift */,
 			);
 			path = HomeUI;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */,
 				09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */,
 				094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */,
+				098CDB9F2A88F582008774B7 /* HomeView.swift in Sources */,
 				0999E2C82A62C95E002042EF /* AccordService.swift in Sources */,
 				0999E2C42A62C949002042EF /* BrandService.swift in Sources */,
 				094BCD112A613B8B0012A404 /* Fonts.swift in Sources */,

@@ -7,8 +7,15 @@
 
 import UIKit
 import ImageSlideshow
-
+@objc
+protocol HomeVeiwDelegate: AnyObject {
+    func allbrandBtnClick(_ homeView: HomeView)
+    func allaccordBtnClick(_ homeView: HomeView)
+}
 class HomeView: UIView {
+    
+    weak var delegate: HomeVeiwDelegate?
+
     public let allaccordBtn = UIButton().then{
         $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         $0.semanticContentAttribute = .forceRightToLeft
@@ -120,16 +127,9 @@ class HomeView: UIView {
         $0.axis = .vertical
         $0.distribution = .fill
     }
-    private let bannerSlide = ImageSlideshow().then{
+    public var bannerSlide = ImageSlideshow().then{
         $0.contentScaleMode = .scaleAspectFill
         $0.slideshowInterval = 3
-        $0.setImageInputs([
-            ImageSource(image: UIImage(named: "bannerAD1")!),
-            ImageSource(image: UIImage(named: "bannerAD2")!),
-            ImageSource(image: UIImage(named: "bannerAD3")!),
-            ImageSource(image: UIImage(named: "bannerAD4")!),
-            ImageSource(image: UIImage(named: "bannerAD5")!)
-        ])
     }
     private let writeBtn = UIButton().then{
         $0.setImage(UIImage(named: "pencil"), for: .normal)
@@ -304,14 +304,25 @@ class HomeView: UIView {
             $0.height.equalTo(2780)
         }
     }
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         self.addsubview()
         self.layout()
+        self.allbrandBtn.addTarget(self, action: #selector(allbrandBtnClick), for: .touchUpInside)
+        self.allaccordBtn.addTarget(self, action: #selector(allaccordBtnClick), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+}
+extension HomeView {
+    @objc func allbrandBtnClick() {
+        delegate?.allbrandBtnClick(self)
+    }
+    @objc func allaccordBtnClick() {
+        delegate?.allaccordBtnClick(self)
     }
 }
 

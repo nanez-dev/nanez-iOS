@@ -11,7 +11,7 @@ import ImageSlideshow
 import Then
 import AlamofireImage
 import Kingfisher
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     private let BrandAPI = BrandService()
     private var Popularbrands:[Brand] = []
     private let AccordAPI = AccordService()
@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     private let PerfumeAPI = PerfumeService()
     private var TotalPerfume:[Perfume] = []
     private let homeview: HomeView = HomeView(frame: .zero)
+
 
     private func configure() {
         self.homeview.recommendCollectionView.delegate = self
@@ -29,26 +30,15 @@ class HomeViewController: UIViewController {
         self.homeview.brandCollectionView.dataSource = self
         self.homeview.accordCollectionView.delegate = self
         self.homeview.accordCollectionView.dataSource = self
-        self.homeview.allbrandBtn.addTarget(self, action: #selector(allbrandBtnClick), for: .touchUpInside)
-        self.homeview.allaccordBtn.addTarget(self, action: #selector(allaccordBtnClick), for: .touchUpInside)
+        self.homeview.delegate = self
     }
-    private func setUI(){
+    private func setUI() {
         homeview.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.bottom.leading.trailing.equalToSuperview()
         }
     }
-    @objc private func allbrandBtnClick() {
-        let vc = BrandtubeViewController()
-         vc.modalPresentationStyle = .fullScreen
-         self.present(vc,animated: false,completion: nil)
 
-    }
-    @objc private func allaccordBtnClick() {
-        let vc = AccordtubeViewController()
-         vc.modalPresentationStyle = .fullScreen
-         self.present(vc,animated: false,completion: nil)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -220,7 +210,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
              self.present(vc,animated: false,completion: nil)
         }
     }
- 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == homeview.recommendCollectionView {
             let cellWidth :CGFloat = 200
@@ -255,5 +244,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         {
             return CGSize(width: 0, height: 0)
         }
+    }
+}
+extension HomeViewController: HomeVeiwDelegate {
+    func allbrandBtnClick(_ homeView: HomeView) {
+        let vc = BrandtubeViewController()
+         vc.modalPresentationStyle = .fullScreen
+         self.present(vc,animated: false,completion: nil)
+    }
+    func allaccordBtnClick(_ homeView: HomeView) {
+        let vc = AccordtubeViewController()
+         vc.modalPresentationStyle = .fullScreen
+         self.present(vc,animated: false,completion: nil)
     }
 }

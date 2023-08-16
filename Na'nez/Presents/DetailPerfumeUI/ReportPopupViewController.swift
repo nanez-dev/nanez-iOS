@@ -116,7 +116,7 @@ class ReportPopupViewController: UIViewController {
         self.contentView.addSubview(dropdownTableView)
     }
     @objc private func reportBtnClick() {
-        self.dismiss(animated: true)
+        self.dismiss(animated: false)
     }
     @objc private func dropDownBtnClick() {
         self.dropdownTableView.isHidden = false
@@ -131,7 +131,7 @@ class ReportPopupViewController: UIViewController {
     private func configure(){
         self.reportBtn.addTarget(self, action: #selector(reportBtnClick), for: .touchUpInside)
         self.dropDownBtn.addTarget(self, action: #selector(dropDownBtnClick), for: .touchUpInside)
-        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0,alpha: 0.6)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.view.isOpaque = false
         self.wirteResonView.delegate = self
         self.dropdownTableView.dataSource = self

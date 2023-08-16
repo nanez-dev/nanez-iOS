@@ -40,6 +40,7 @@
 		094BCD0F2A613AD60012A404 /* SUIT-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */; };
 		094BCD112A613B8B0012A404 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD102A613B8B0012A404 /* Fonts.swift */; };
 		094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */; };
+		0960798C2A8D0ADB00C7DFBA /* DetailPerfumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0960798B2A8D0ADB00C7DFBA /* DetailPerfumeView.swift */; };
 		0966E10F2A7143660083BF1C /* AccordtubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966E10E2A7143660083BF1C /* AccordtubeViewController.swift */; };
 		098CDB9F2A88F582008774B7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CDB9E2A88F582008774B7 /* HomeView.swift */; };
 		098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */; };
@@ -85,6 +86,7 @@
 		094BCD062A613AD60012A404 /* SUIT-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Heavy.ttf"; sourceTree = "<group>"; };
 		094BCD102A613B8B0012A404 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		0960798B2A8D0ADB00C7DFBA /* DetailPerfumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPerfumeView.swift; sourceTree = "<group>"; };
 		0966E10E2A7143660083BF1C /* AccordtubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordtubeViewController.swift; sourceTree = "<group>"; };
 		098CDB9E2A88F582008774B7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPerfumeViewController.swift; sourceTree = "<group>"; };
@@ -154,7 +156,6 @@
 				094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */,
 				094BCCCB2A5FEC0B0012A404 /* ViewController.swift */,
 				094BCCFD2A613ABA0012A404 /* Resource */,
-				094BCCD02A5FEC0E0012A404 /* Assets.xcassets */,
 				094BCCD22A5FEC0E0012A404 /* LaunchScreen.storyboard */,
 				094BCCD52A5FEC0E0012A404 /* Info.plist */,
 			);
@@ -212,6 +213,7 @@
 		094BCCFD2A613ABA0012A404 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				094BCCD02A5FEC0E0012A404 /* Assets.xcassets */,
 				094BCD052A613AD60012A404 /* SUIT-Bold.ttf */,
 				094BCD042A613AD60012A404 /* SUIT-ExtraBold.ttf */,
 				094BCD032A613AD60012A404 /* SUIT-ExtraLight.ttf */,
@@ -259,6 +261,7 @@
 			children = (
 				098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */,
 				09B759862A652B53008452A3 /* ReportPopupViewController.swift */,
+				0960798B2A8D0ADB00C7DFBA /* DetailPerfumeView.swift */,
 			);
 			path = DetailPerfumeUI;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				094BCD112A613B8B0012A404 /* Fonts.swift in Sources */,
 				094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */,
 				094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */,
+				0960798C2A8D0ADB00C7DFBA /* DetailPerfumeView.swift in Sources */,
 				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,
 				094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */,
 				09F7D6AF2A7CC52C001645AA /* perfumeModel.swift in Sources */,

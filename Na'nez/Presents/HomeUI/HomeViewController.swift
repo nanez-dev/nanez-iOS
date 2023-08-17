@@ -55,7 +55,7 @@ final class HomeViewController: UIViewController {
                     self.homeview.brandCollectionView.reloadData()
                 }
             case .failure(let error):
-                print("/brand/popular 오류:\(error)")
+                print("/brand/popular:\(error)")
             }
         }
         self.AccordAPI.getAccord { result in

@@ -55,6 +55,8 @@
 		09F7D6AF2A7CC52C001645AA /* perfumeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6AE2A7CC52C001645AA /* perfumeModel.swift */; };
 		09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B02A7CC553001645AA /* accordModel.swift */; };
 		09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */; };
+		834346032A8F8F1F005B6320 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834346022A8F8F1F005B6320 /* LoginModel.swift */; };
+		834346052A8F8F2D005B6320 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834346042A8F8F2D005B6320 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +103,8 @@
 		09F7D6AE2A7CC52C001645AA /* perfumeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = perfumeModel.swift; sourceTree = "<group>"; };
 		09F7D6B02A7CC553001645AA /* accordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accordModel.swift; sourceTree = "<group>"; };
 		09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandtubeViewController.swift; sourceTree = "<group>"; };
+		834346022A8F8F1F005B6320 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		834346042A8F8F2D005B6320 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,8 @@
 				09F7D6AC2A7CC4FE001645AA /* brandModel.swift */,
 				09F7D6AE2A7CC52C001645AA /* perfumeModel.swift */,
 				09F7D6B02A7CC553001645AA /* accordModel.swift */,
+				834346022A8F8F1F005B6320 /* LoginModel.swift */,
+				834346042A8F8F2D005B6320 /* UserInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -382,12 +388,14 @@
 				09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */,
 				094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */,
 				098CDB9F2A88F582008774B7 /* HomeView.swift in Sources */,
+				834346032A8F8F1F005B6320 /* LoginModel.swift in Sources */,
 				0999E2C82A62C95E002042EF /* AccordService.swift in Sources */,
 				0999E2C42A62C949002042EF /* BrandService.swift in Sources */,
 				094BCD112A613B8B0012A404 /* Fonts.swift in Sources */,
 				094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */,
 				094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */,
 				0960798C2A8D0ADB00C7DFBA /* DetailPerfumeView.swift in Sources */,
+				834346052A8F8F2D005B6320 /* UserInfo.swift in Sources */,
 				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,
 				094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */,
 				09F7D6AF2A7CC52C001645AA /* perfumeModel.swift in Sources */,

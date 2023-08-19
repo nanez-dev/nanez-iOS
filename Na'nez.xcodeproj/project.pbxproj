@@ -57,6 +57,9 @@
 		09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */; };
 		834346032A8F8F1F005B6320 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834346022A8F8F1F005B6320 /* LoginModel.swift */; };
 		834346052A8F8F2D005B6320 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834346042A8F8F2D005B6320 /* UserInfo.swift */; };
+		83D699262A90D8120094018D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699252A90D8120094018D /* LoginService.swift */; };
+		83D699292A90D8460094018D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699282A90D8460094018D /* LoginView.swift */; };
+		83D6992B2A90D8540094018D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6992A2A90D8540094018D /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +108,9 @@
 		09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandtubeViewController.swift; sourceTree = "<group>"; };
 		834346022A8F8F1F005B6320 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		834346042A8F8F2D005B6320 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		83D699252A90D8120094018D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		83D699282A90D8460094018D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		83D6992A2A90D8540094018D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,7 @@
 				0999E2C32A62C949002042EF /* BrandService.swift */,
 				0999E2C72A62C95E002042EF /* AccordService.swift */,
 				0999E2CB2A62CA02002042EF /* APIConstants.swift */,
+				83D699252A90D8120094018D /* LoginService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 		094BCCDE2A5FEE590012A404 /* Presents */ = {
 			isa = PBXGroup;
 			children = (
+				83D699272A90D8340094018D /* LoginUI */,
 				094BCCDC2A5FEE480012A404 /* Utils */,
 				098CDB9D2A88F520008774B7 /* Cells */,
 				09FEB4232A6688A200DD1CC5 /* UIController */,
@@ -278,6 +286,15 @@
 				094BCCEA2A6003650012A404 /* TabController.swift */,
 			);
 			path = UIController;
+			sourceTree = "<group>";
+		};
+		83D699272A90D8340094018D /* LoginUI */ = {
+			isa = PBXGroup;
+			children = (
+				83D699282A90D8460094018D /* LoginView.swift */,
+				83D6992A2A90D8540094018D /* LoginViewController.swift */,
+			);
+			path = LoginUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +402,7 @@
 				094BCCEB2A6003650012A404 /* TabController.swift in Sources */,
 				0999E2C62A62C954002042EF /* PerfumeService.swift in Sources */,
 				09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */,
+				83D699292A90D8460094018D /* LoginView.swift in Sources */,
 				09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */,
 				094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */,
 				098CDB9F2A88F582008774B7 /* HomeView.swift in Sources */,
@@ -402,7 +420,9 @@
 				0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */,
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
 				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
+				83D6992B2A90D8540094018D /* LoginViewController.swift in Sources */,
 				092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */,
+				83D699262A90D8120094018D /* LoginService.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
 				09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */,
 				0966E10F2A7143660083BF1C /* AccordtubeViewController.swift in Sources */,

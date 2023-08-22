@@ -8,10 +8,9 @@
 import UIKit
 @objc
 protocol DetailPerfumeViewDelegate {
-    func backBtnClick(_ detailperfumeView:DetailPerfumeView)
      func reportBtnClick(_ detailperfumeView:DetailPerfumeView)
 }
-class DetailPerfumeView: UIView {
+class DetailPerfumeView: BaseView {
     weak var delegate: DetailPerfumeViewDelegate?
     public let second_accordcollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
@@ -146,27 +145,11 @@ class DetailPerfumeView: UIView {
     private let perfumeView = UIView().then {
         $0.backgroundColor = UIColor(rgb: 0xFAFAFD)
     }
-    private let navititleLabel = UILabel().then{
-        $0.text = "상품정보"
-        $0.font = .pretendard(.Bold, size: 18)
-        $0.textColor = UIColor(rgb: 0x333333)
-    }
-    public let backBtn = UIButton().then{
-        $0.setImage(UIImage(named: "Nan'Nez_Back"), for: .normal)
-        $0.imageView?.contentMode = .scaleAspectFit
-    }
-    public let searchBtn = UIButton().then{
-        $0.setImage(UIImage(named: "Nan'Nez_Search"), for: .normal)
-        $0.imageView?.contentMode = .scaleAspectFit
-    }
-    private let customNaviBar = UIView().then{
-        $0.backgroundColor = .white
-    }
     private let contentView = UIView().then{
         $0.backgroundColor = .white
     }
     private let scrollView = UIScrollView()
-    private func layout() {
+    override func layout() {
         self.second_accordcollectionView.snp.makeConstraints{
             $0.top.equalTo(noteSV.snp.bottom).offset(12)
             $0.leading.equalToSuperview().offset(16)
@@ -219,11 +202,7 @@ class DetailPerfumeView: UIView {
             $0.width.equalTo(24)
 
         }
-        self.backBtn.snp.makeConstraints{
-            $0.height.equalTo(24)
-            $0.width.equalTo(24)
 
-        }
         self.infoBtnSV.snp.makeConstraints{
             $0.top.equalToSuperview().offset(24)
             $0.trailing.equalToSuperview().offset(-22)
@@ -249,40 +228,19 @@ class DetailPerfumeView: UIView {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(375)
         }
-        self.navititleLabel.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
-        }
-        self.backBtn.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(14)
-            $0.leading.equalToSuperview().offset(24)
-            $0.height.equalTo(24)
-        }
-        self.searchBtn.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(14)
-            $0.trailing.equalToSuperview().offset(-14)
-            $0.height.equalTo(24)
-        }
+
         self.contentView.snp.makeConstraints{
             $0.width.equalToSuperview().offset(0)
             $0.edges.equalToSuperview().offset(0)
             $0.height.equalTo(1300)
         }
         self.scrollView.snp.makeConstraints{
-            $0.top.equalTo(customNaviBar.snp.bottom).offset(0)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(0)
             $0.left.right.bottom.equalToSuperview()
         }
-        self.customNaviBar.snp.makeConstraints{
-            $0.top.equalToSuperview()
-            $0.width.equalToSuperview()
-            $0.height.equalTo(52)
-        }
+
     }
-    private func addsubview() {
-        self.addSubview(customNaviBar)
-        self.customNaviBar.addSubview(navititleLabel)
-        self.customNaviBar.addSubview(searchBtn)
-        self.customNaviBar.addSubview(backBtn)
+    override func addsubview() {
         self.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
         self.contentView.addSubview(perfumeView)
@@ -310,22 +268,11 @@ class DetailPerfumeView: UIView {
         self.noteSV.addArrangedSubview(bottomnoteLabel)
         self.contentView.addSubview(second_accordcollectionView)
     }
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        self.addsubview()
-        self.layout()
-        self.backBtn.addTarget(self, action: #selector(backBtnClick), for: .touchUpInside)
+    override func configure() {
         self.reportBtn.addTarget(self, action: #selector(reportBtnClick), for: .touchUpInside)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }
 extension DetailPerfumeView {
-    @objc func backBtnClick() {
-        delegate?.backBtnClick(self)
-    }
     @objc func reportBtnClick() {
         delegate?.reportBtnClick(self)
     }

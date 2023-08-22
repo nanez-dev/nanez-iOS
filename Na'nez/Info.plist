@@ -14,8 +14,6 @@
 		<string>SUIT-SemiBold.ttf</string>
 		<string>SUIT-Thin.ttf</string>
 	</array>
-	<key>UIMainStoryboardFile~iphone</key>
-	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -33,5 +31,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIMainStoryboardFile~iphone</key>
+	<string></string>
 </dict>
 </plist>

@@ -12,7 +12,7 @@ protocol HomeVeiwDelegate: AnyObject {
     func allbrandBtnClick(_ homeView: HomeView)
     func allaccordBtnClick(_ homeView: HomeView)
 }
-class HomeView: UIView {
+class HomeView: BaseView {
     
     weak var delegate: HomeVeiwDelegate?
 
@@ -158,7 +158,7 @@ class HomeView: UIView {
     
     private let scrollView = UIScrollView()
 
-    private func addsubview() {
+    override func addsubview() {
         self.addSubview(navibar)
         self.navibar.addSubview(writeBtn)
         self.navibar.addSubview(logoImgView)
@@ -184,7 +184,7 @@ class HomeView: UIView {
         self.contentView.addSubview(allaccordBtn)
     }
     
-    private func layout() {
+    override func layout() {
         self.navibar.snp.makeConstraints{
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
@@ -304,17 +304,9 @@ class HomeView: UIView {
             $0.height.equalTo(2780)
         }
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        self.addsubview()
-        self.layout()
+    override func configure() {
         self.allbrandBtn.addTarget(self, action: #selector(allbrandBtnClick), for: .touchUpInside)
         self.allaccordBtn.addTarget(self, action: #selector(allaccordBtnClick), for: .touchUpInside)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }
 extension HomeView {

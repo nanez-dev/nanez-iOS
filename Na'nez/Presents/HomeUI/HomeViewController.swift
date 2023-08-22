@@ -11,7 +11,7 @@ import ImageSlideshow
 import Then
 import AlamofireImage
 import Kingfisher
-final class HomeViewController: UIViewController {
+final class HomeViewController: BaseViewController {
     private let BrandAPI = BrandService()
     private var Popularbrands:[Brand] = []
     private let AccordAPI = AccordService()
@@ -20,8 +20,7 @@ final class HomeViewController: UIViewController {
     private var TotalPerfume:[Perfume] = []
     private let homeview: HomeView = HomeView(frame: .zero)
 
-
-    private func configure() {
+    override func configure() {
         self.homeview.recommendCollectionView.delegate = self
         self.homeview.recommendCollectionView.dataSource = self
         self.homeview.Second_recommendCollectionView.delegate = self

@@ -65,6 +65,17 @@
 		83D699262A90D8120094018D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699252A90D8120094018D /* LoginService.swift */; };
 		83D699292A90D8460094018D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699282A90D8460094018D /* LoginView.swift */; };
 		83D6992B2A90D8540094018D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6992A2A90D8540094018D /* LoginViewController.swift */; };
+		83D699382A97B6F90094018D /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699372A97B6F90094018D /* JoinViewController.swift */; };
+		83D6993A2A97B70F0094018D /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699392A97B70F0094018D /* JoinView.swift */; };
+		83D6993C2A97B8390094018D /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6993B2A97B8390094018D /* PasswordViewController.swift */; };
+		83D6993E2A97B8440094018D /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6993D2A97B8440094018D /* PasswordView.swift */; };
+		83D699402A97B8550094018D /* SelectSexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6993F2A97B8550094018D /* SelectSexViewController.swift */; };
+		83D699442A97B86D0094018D /* SelectSexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699432A97B86D0094018D /* SelectSexView.swift */; };
+		83D699462A97BBA60094018D /* PassWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699452A97BBA60094018D /* PassWordModel.swift */; };
+		83D699482A9C413D0094018D /* SelectAgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699472A9C413D0094018D /* SelectAgeViewController.swift */; };
+		83D6994A2A9C41530094018D /* SelectAgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699492A9C41530094018D /* SelectAgeView.swift */; };
+		83D6994C2A9C46780094018D /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6994B2A9C46780094018D /* NickNameViewController.swift */; };
+		83D6994E2A9C46830094018D /* NickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D6994D2A9C46830094018D /* NickNameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +132,17 @@
 		83D699252A90D8120094018D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		83D699282A90D8460094018D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		83D6992A2A90D8540094018D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		83D699372A97B6F90094018D /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		83D699392A97B70F0094018D /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
+		83D6993B2A97B8390094018D /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		83D6993D2A97B8440094018D /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		83D6993F2A97B8550094018D /* SelectSexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSexViewController.swift; sourceTree = "<group>"; };
+		83D699432A97B86D0094018D /* SelectSexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSexView.swift; sourceTree = "<group>"; };
+		83D699452A97BBA60094018D /* PassWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassWordModel.swift; sourceTree = "<group>"; };
+		83D699472A9C413D0094018D /* SelectAgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAgeViewController.swift; sourceTree = "<group>"; };
+		83D699492A9C41530094018D /* SelectAgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAgeView.swift; sourceTree = "<group>"; };
+		83D6994B2A9C46780094018D /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
+		83D6994D2A9C46830094018D /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,9 +227,10 @@
 		094BCCDE2A5FEE590012A404 /* Presents */ = {
 			isa = PBXGroup;
 			children = (
+				83D699362A97B6D10094018D /* JoinUI */,
+				83D699272A90D8340094018D /* LoginUI */,
 				094BCCDC2A5FEE480012A404 /* Utils */,
 				09D5FE282A9497900082EB28 /* Common */,
-				83D699272A90D8340094018D /* LoginUI */,
 				098CDB9D2A88F520008774B7 /* Cells */,
 				09FEB4232A6688A200DD1CC5 /* UIController */,
 				093396F52A76A2FF003B8C7A /* BrandUI */,
@@ -230,6 +253,7 @@
 				09F7D6B02A7CC553001645AA /* accordModel.swift */,
 				834346022A8F8F1F005B6320 /* LoginModel.swift */,
 				834346042A8F8F2D005B6320 /* UserInfo.swift */,
+				83D699452A97BBA60094018D /* PassWordModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,6 +360,23 @@
 			path = LoginUI;
 			sourceTree = "<group>";
 		};
+		83D699362A97B6D10094018D /* JoinUI */ = {
+			isa = PBXGroup;
+			children = (
+				83D699372A97B6F90094018D /* JoinViewController.swift */,
+				83D699392A97B70F0094018D /* JoinView.swift */,
+				83D6993B2A97B8390094018D /* PasswordViewController.swift */,
+				83D6993D2A97B8440094018D /* PasswordView.swift */,
+				83D6993F2A97B8550094018D /* SelectSexViewController.swift */,
+				83D699432A97B86D0094018D /* SelectSexView.swift */,
+				83D699472A9C413D0094018D /* SelectAgeViewController.swift */,
+				83D699492A9C41530094018D /* SelectAgeView.swift */,
+				83D6994B2A9C46780094018D /* NickNameViewController.swift */,
+				83D6994D2A9C46830094018D /* NickNameView.swift */,
+			);
+			path = JoinUI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -431,14 +472,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D6994E2A9C46830094018D /* NickNameView.swift in Sources */,
 				098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */,
 				0924166F2A6FFA0C0084E415 /* reportModel.swift in Sources */,
 				093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */,
 				092416712A6FFFC70084E415 /* DropDownTableViewCell.swift in Sources */,
+				83D6993E2A97B8440094018D /* PasswordView.swift in Sources */,
+				83D699442A97B86D0094018D /* SelectSexView.swift in Sources */,
 				09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */,
 				0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */,
 				0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */,
 				094BCCEB2A6003650012A404 /* TabController.swift in Sources */,
+				83D6994C2A9C46780094018D /* NickNameViewController.swift in Sources */,
 				09D5FE2E2A949E4C0082EB28 /* BaseView.swift in Sources */,
 				0999E2C62A62C954002042EF /* PerfumeService.swift in Sources */,
 				09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */,
@@ -456,9 +501,14 @@
 				094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */,
 				0960798C2A8D0ADB00C7DFBA /* DetailPerfumeView.swift in Sources */,
 				834346052A8F8F2D005B6320 /* UserInfo.swift in Sources */,
+				83D6993A2A97B70F0094018D /* JoinView.swift in Sources */,
+				83D699382A97B6F90094018D /* JoinViewController.swift in Sources */,
+				83D6994A2A9C41530094018D /* SelectAgeView.swift in Sources */,
 				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,
+				83D6993C2A97B8390094018D /* PasswordViewController.swift in Sources */,
 				094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */,
 				09F7D6AF2A7CC52C001645AA /* perfumeModel.swift in Sources */,
+				83D699482A9C413D0094018D /* SelectAgeViewController.swift in Sources */,
 				0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */,
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
 				09AEACAC2A9A0EFB009D57E5 /* SegmentController.swift in Sources */,
@@ -469,8 +519,10 @@
 				09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
 				09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */,
+				83D699462A97BBA60094018D /* PassWordModel.swift in Sources */,
 				0966E10F2A7143660083BF1C /* AccordtubeViewController.swift in Sources */,
 				094BCCE12A5FF2290012A404 /* HomeViewController.swift in Sources */,
+				83D699402A97B8550094018D /* SelectSexViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

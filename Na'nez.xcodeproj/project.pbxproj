@@ -21,7 +21,6 @@
 		093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093396F62A76A314003B8C7A /* DetailAccordViewController.swift */; };
 		094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */; };
 		094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */; };
-		094BCCCC2A5FEC0B0012A404 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCCB2A5FEC0B0012A404 /* ViewController.swift */; };
 		094BCCD42A5FEC0E0012A404 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCD22A5FEC0E0012A404 /* LaunchScreen.storyboard */; };
 		094BCCE12A5FF2290012A404 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCE02A5FF2290012A404 /* HomeViewController.swift */; };
 		094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCE82A5FF37B0012A404 /* Colors.swift */; };
@@ -50,7 +49,13 @@
 		0999E2C62A62C954002042EF /* PerfumeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2C52A62C954002042EF /* PerfumeService.swift */; };
 		0999E2C82A62C95E002042EF /* AccordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2C72A62C95E002042EF /* AccordService.swift */; };
 		0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2CB2A62CA02002042EF /* APIConstants.swift */; };
+		09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEACA92A9A077A009D57E5 /* WishListView.swift */; };
+		09AEACAC2A9A0EFB009D57E5 /* SegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEACAB2A9A0EFB009D57E5 /* SegmentController.swift */; };
+		09AEACAE2A9A1803009D57E5 /* PerfumeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEACAD2A9A1803009D57E5 /* PerfumeListTableViewCell.swift */; };
 		09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B759862A652B53008452A3 /* ReportPopupViewController.swift */; };
+		09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE292A9497A20082EB28 /* BaseViewController.swift */; };
+		09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */; };
+		09D5FE2E2A949E4C0082EB28 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2D2A949E4C0082EB28 /* BaseView.swift */; };
 		09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6AC2A7CC4FE001645AA /* brandModel.swift */; };
 		09F7D6AF2A7CC52C001645AA /* perfumeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6AE2A7CC52C001645AA /* perfumeModel.swift */; };
 		09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B02A7CC553001645AA /* accordModel.swift */; };
@@ -81,7 +86,6 @@
 		094BCCC42A5FEC0B0012A404 /* Na'nez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Na'nez.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		094BCCCB2A5FEC0B0012A404 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		094BCCD02A5FEC0E0012A404 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		094BCCD32A5FEC0E0012A404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		094BCCD52A5FEC0E0012A404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,7 +116,13 @@
 		0999E2C52A62C954002042EF /* PerfumeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfumeService.swift; sourceTree = "<group>"; };
 		0999E2C72A62C95E002042EF /* AccordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordService.swift; sourceTree = "<group>"; };
 		0999E2CB2A62CA02002042EF /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		09AEACA92A9A077A009D57E5 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		09AEACAB2A9A0EFB009D57E5 /* SegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentController.swift; sourceTree = "<group>"; };
+		09AEACAD2A9A1803009D57E5 /* PerfumeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfumeListTableViewCell.swift; sourceTree = "<group>"; };
 		09B759862A652B53008452A3 /* ReportPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupViewController.swift; sourceTree = "<group>"; };
+		09D5FE292A9497A20082EB28 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNaviBar.swift; sourceTree = "<group>"; };
+		09D5FE2D2A949E4C0082EB28 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		09F7D6AC2A7CC4FE001645AA /* brandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brandModel.swift; sourceTree = "<group>"; };
 		09F7D6AE2A7CC52C001645AA /* perfumeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = perfumeModel.swift; sourceTree = "<group>"; };
 		09F7D6B02A7CC553001645AA /* accordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accordModel.swift; sourceTree = "<group>"; };
@@ -186,7 +196,6 @@
 				094BCCDE2A5FEE590012A404 /* Presents */,
 				094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */,
 				094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */,
-				094BCCCB2A5FEC0B0012A404 /* ViewController.swift */,
 				094BCCFD2A613ABA0012A404 /* Resource */,
 				094BCCD22A5FEC0E0012A404 /* LaunchScreen.storyboard */,
 				094BCCD52A5FEC0E0012A404 /* Info.plist */,
@@ -221,14 +230,15 @@
 				83D699362A97B6D10094018D /* JoinUI */,
 				83D699272A90D8340094018D /* LoginUI */,
 				094BCCDC2A5FEE480012A404 /* Utils */,
+				09D5FE282A9497900082EB28 /* Common */,
 				098CDB9D2A88F520008774B7 /* Cells */,
 				09FEB4232A6688A200DD1CC5 /* UIController */,
 				093396F52A76A2FF003B8C7A /* BrandUI */,
 				0966E10D2A71434E0083BF1C /* AccordUI */,
 				09FEB4222A66887F00DD1CC5 /* DetailPerfumeUI */,
 				09FEB4212A66886700DD1CC5 /* HomeUI */,
-				094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */,
-				094BCCEE2A60045A0012A404 /* WishListViewController.swift */,
+				09D5FE302A94A6390082EB28 /* WishListUI */,
+				09D5FE2F2A94A62E0082EB28 /* MyInfoUI */,
 			);
 			path = Presents;
 			sourceTree = "<group>";
@@ -281,8 +291,36 @@
 				0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */,
 				0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */,
 				092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */,
+				09AEACAD2A9A1803009D57E5 /* PerfumeListTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		09D5FE282A9497900082EB28 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				09D5FE292A9497A20082EB28 /* BaseViewController.swift */,
+				09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */,
+				09D5FE2D2A949E4C0082EB28 /* BaseView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		09D5FE2F2A94A62E0082EB28 /* MyInfoUI */ = {
+			isa = PBXGroup;
+			children = (
+				094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */,
+			);
+			path = MyInfoUI;
+			sourceTree = "<group>";
+		};
+		09D5FE302A94A6390082EB28 /* WishListUI */ = {
+			isa = PBXGroup;
+			children = (
+				094BCCEE2A60045A0012A404 /* WishListViewController.swift */,
+				09AEACA92A9A077A009D57E5 /* WishListView.swift */,
+			);
+			path = WishListUI;
 			sourceTree = "<group>";
 		};
 		09FEB4212A66886700DD1CC5 /* HomeUI */ = {
@@ -298,8 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */,
-				09B759862A652B53008452A3 /* ReportPopupViewController.swift */,
 				0960798B2A8D0ADB00C7DFBA /* DetailPerfumeView.swift */,
+				09B759862A652B53008452A3 /* ReportPopupViewController.swift */,
 			);
 			path = DetailPerfumeUI;
 			sourceTree = "<group>";
@@ -308,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				094BCCEA2A6003650012A404 /* TabController.swift */,
+				09AEACAB2A9A0EFB009D57E5 /* SegmentController.swift */,
 			);
 			path = UIController;
 			sourceTree = "<group>";
@@ -440,15 +479,18 @@
 				092416712A6FFFC70084E415 /* DropDownTableViewCell.swift in Sources */,
 				83D6993E2A97B8440094018D /* PasswordView.swift in Sources */,
 				83D699442A97B86D0094018D /* SelectSexView.swift in Sources */,
+				09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */,
 				0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */,
 				0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */,
-				094BCCCC2A5FEC0B0012A404 /* ViewController.swift in Sources */,
 				094BCCEB2A6003650012A404 /* TabController.swift in Sources */,
 				83D6994C2A9C46780094018D /* NickNameViewController.swift in Sources */,
+				09D5FE2E2A949E4C0082EB28 /* BaseView.swift in Sources */,
 				0999E2C62A62C954002042EF /* PerfumeService.swift in Sources */,
 				09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */,
 				83D699292A90D8460094018D /* LoginView.swift in Sources */,
+				09AEACAE2A9A1803009D57E5 /* PerfumeListTableViewCell.swift in Sources */,
 				09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */,
+				09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */,
 				094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */,
 				098CDB9F2A88F582008774B7 /* HomeView.swift in Sources */,
 				834346032A8F8F1F005B6320 /* LoginModel.swift in Sources */,
@@ -469,10 +511,12 @@
 				83D699482A9C413D0094018D /* SelectAgeViewController.swift in Sources */,
 				0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */,
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
+				09AEACAC2A9A0EFB009D57E5 /* SegmentController.swift in Sources */,
 				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
 				83D6992B2A90D8540094018D /* LoginViewController.swift in Sources */,
 				092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */,
 				83D699262A90D8120094018D /* LoginService.swift in Sources */,
+				09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
 				09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */,
 				83D699462A97BBA60094018D /* PassWordModel.swift in Sources */,
@@ -623,8 +667,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -652,8 +696,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

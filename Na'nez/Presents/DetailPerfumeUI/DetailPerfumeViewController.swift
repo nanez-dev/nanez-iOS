@@ -7,25 +7,34 @@
 
 import UIKit
 
-class DetailPerfumeViewController: UIViewController {
+class DetailPerfumeViewController: BaseViewController {
     public var PefumeInfo: Perfume?
     private var detailperfumeView: DetailPerfumeView = DetailPerfumeView(frame: .zero)
+    private var navibar: CustomNaviBar = CustomNaviBar(frame: .zero)
 
-    private func setUI() {
+    override func layout() {
+        navibar.snp.makeConstraints{
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(0)
+            $0.width.equalToSuperview().offset(0)
+            $0.height.equalTo(52)
+        }
         detailperfumeView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.top.equalTo(navibar.snp.bottom)
             $0.bottom.leading.trailing.equalToSuperview()
         }
     }
-    private func configure(){
+    override func configure(){
         self.detailperfumeView.detailaccordCollectionView.dataSource = self
         self.detailperfumeView.detailaccordCollectionView.delegate = self
         self.detailperfumeView.second_accordcollectionView.dataSource = self
         self.detailperfumeView.second_accordcollectionView.delegate = self
         self.view.backgroundColor = .white
         self.detailperfumeView.delegate = self
+        self.navibar.delegate = self
+        self.view.addSubview(detailperfumeView)
+        self.view.addSubview(navibar)
+        self.navibar.navititleLabel.text = "상품정보"
     }
-
     override func viewWillAppear(_ animated: Bool) {
         if PefumeInfo != nil {
             self.detailperfumeView.EngLabel.text = PefumeInfo?.eng ?? "Eng"
@@ -54,15 +63,8 @@ class DetailPerfumeViewController: UIViewController {
             self.detailperfumeView.PerfumeImg.kf.setImage(with: url)
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.configure()
-        self.view.addSubview(detailperfumeView)
-        
-        self.setUI()
-    }
-    
 }
+
 extension DetailPerfumeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == detailperfumeView.detailaccordCollectionView {
@@ -103,13 +105,14 @@ extension DetailPerfumeViewController: UICollectionViewDelegate, UICollectionVie
     }
 
  }
-extension DetailPerfumeViewController: DetailPerfumeViewDelegate {
-    func backBtnClick(_ detailperfumeView: DetailPerfumeView) {
+extension DetailPerfumeViewController: DetailPerfumeViewDelegate, CustomNaviBarDelegate {
+    func backBtnClick(_ navibar: CustomNaviBar) {
         self.dismiss(animated: false)
     }
-    
-    func reportBtnClick(_ detailperfumeView: DetailPerfumeView) {
+    func searchBtnClick(_ navibar: CustomNaviBar) {
         
+    }
+    func reportBtnClick(_ detailperfumeView: DetailPerfumeView) {
         let vc = ReportPopupViewController()
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc,animated: false,completion: nil)

@@ -17,7 +17,7 @@
 		0924166D2A6F95C10084E415 /* ImageSlideshow/Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0924166C2A6F95C10084E415 /* ImageSlideshow/Kingfisher */; };
 		0924166F2A6FFA0C0084E415 /* reportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0924166E2A6FFA0C0084E415 /* reportModel.swift */; };
 		092416712A6FFFC70084E415 /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */; };
-		09296F432AA06DAF00D724B1 /* DetailAccordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09296F422AA06DAF00D724B1 /* DetailAccordView.swift */; };
+		09296F452AA072E500D724B1 /* DetailAccordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09296F442AA072E500D724B1 /* DetailAccordView.swift */; };
 		092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EFFBC2A778E9900E0DA90 /* DetailBrandViewController.swift */; };
 		093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093396F62A76A314003B8C7A /* DetailAccordViewController.swift */; };
 		094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */; };
@@ -82,7 +82,7 @@
 /* Begin PBXFileReference section */
 		0924166E2A6FFA0C0084E415 /* reportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reportModel.swift; sourceTree = "<group>"; };
 		092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
-		09296F422AA06DAF00D724B1 /* DetailAccordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAccordView.swift; sourceTree = "<group>"; };
+		09296F442AA072E500D724B1 /* DetailAccordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAccordView.swift; sourceTree = "<group>"; };
 		092EFFBC2A778E9900E0DA90 /* DetailBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBrandViewController.swift; sourceTree = "<group>"; };
 		093396F62A76A314003B8C7A /* DetailAccordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAccordViewController.swift; sourceTree = "<group>"; };
 		094BCCC42A5FEC0B0012A404 /* Na'nez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Na'nez.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,7 +282,7 @@
 			children = (
 				0966E10E2A7143660083BF1C /* AccordtubeViewController.swift */,
 				093396F62A76A314003B8C7A /* DetailAccordViewController.swift */,
-				09296F422AA06DAF00D724B1 /* DetailAccordView.swift */,
+				09296F442AA072E500D724B1 /* DetailAccordView.swift */,
 			);
 			path = AccordUI;
 			sourceTree = "<group>";
@@ -482,6 +482,7 @@
 				092416712A6FFFC70084E415 /* DropDownTableViewCell.swift in Sources */,
 				83D6993E2A97B8440094018D /* PasswordView.swift in Sources */,
 				83D699442A97B86D0094018D /* SelectSexView.swift in Sources */,
+				09296F452AA072E500D724B1 /* DetailAccordView.swift in Sources */,
 				09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */,
 				0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */,
 				0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */,
@@ -525,7 +526,6 @@
 				83D699462A97BBA60094018D /* PassWordModel.swift in Sources */,
 				0966E10F2A7143660083BF1C /* AccordtubeViewController.swift in Sources */,
 				094BCCE12A5FF2290012A404 /* HomeViewController.swift in Sources */,
-				09296F432AA06DAF00D724B1 /* DetailAccordView.swift in Sources */,
 				83D699402A97B8550094018D /* SelectSexViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

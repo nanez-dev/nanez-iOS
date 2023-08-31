@@ -57,6 +57,10 @@ extension LoginViewController: LoginViewDelegate {
     
     func joinButtonClock(_ loginview: LoginView) {
         print("가입")
+        let vc = PasswordViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+        
     }
     
     

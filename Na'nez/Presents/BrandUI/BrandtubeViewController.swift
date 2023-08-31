@@ -1,4 +1,4 @@
-
+//스위프트 패키지 메뉴얼
 import UIKit
 
 class BrandtubeViewController: UIViewController {

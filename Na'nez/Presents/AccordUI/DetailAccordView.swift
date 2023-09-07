@@ -59,7 +59,7 @@ class DetailAccordView: BaseView {
         self.contentView.addSubview(accordDesLabel)
         self.contentView.addSubview(accordInfoLabel)
         self.contentView.addSubview(accordPerfume)
-        self.contentView.addSubview(accordPerfumeCollectionView)
+        self.contentView.addSubview(accordPerfumeCollectionView) 
         
     }
     override func layout(){

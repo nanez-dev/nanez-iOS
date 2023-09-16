@@ -40,7 +40,7 @@ class NickNameViewController: UIViewController {
 
     //연령대 선택으로 넘어감
     @objc func nextButtonTapped() {
-        let vc = NickNameViewController()
+        let vc = FavoriteScentViewController()
         
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)

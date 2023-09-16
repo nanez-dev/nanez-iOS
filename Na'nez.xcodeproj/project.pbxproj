@@ -61,6 +61,8 @@
 		09F7D6AF2A7CC52C001645AA /* perfumeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6AE2A7CC52C001645AA /* perfumeModel.swift */; };
 		09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B02A7CC553001645AA /* accordModel.swift */; };
 		09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */; };
+		830BFA962AB5FAC7002481B8 /* FavoriteScentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830BFA952AB5FAC6002481B8 /* FavoriteScentView.swift */; };
+		830BFA982AB5FAD8002481B8 /* FavoriteScentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830BFA972AB5FAD8002481B8 /* FavoriteScentViewController.swift */; };
 		834346032A8F8F1F005B6320 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834346022A8F8F1F005B6320 /* LoginModel.swift */; };
 		834346052A8F8F2D005B6320 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834346042A8F8F2D005B6320 /* UserInfo.swift */; };
 		83D699262A90D8120094018D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D699252A90D8120094018D /* LoginService.swift */; };
@@ -129,6 +131,8 @@
 		09F7D6AE2A7CC52C001645AA /* perfumeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = perfumeModel.swift; sourceTree = "<group>"; };
 		09F7D6B02A7CC553001645AA /* accordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accordModel.swift; sourceTree = "<group>"; };
 		09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandtubeViewController.swift; sourceTree = "<group>"; };
+		830BFA952AB5FAC6002481B8 /* FavoriteScentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScentView.swift; sourceTree = "<group>"; };
+		830BFA972AB5FAD8002481B8 /* FavoriteScentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScentViewController.swift; sourceTree = "<group>"; };
 		834346022A8F8F1F005B6320 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		834346042A8F8F2D005B6320 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		83D699252A90D8120094018D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -376,6 +380,8 @@
 				83D699492A9C41530094018D /* SelectAgeView.swift */,
 				83D6994B2A9C46780094018D /* NickNameViewController.swift */,
 				83D6994D2A9C46830094018D /* NickNameView.swift */,
+				830BFA972AB5FAD8002481B8 /* FavoriteScentViewController.swift */,
+				830BFA952AB5FAC6002481B8 /* FavoriteScentView.swift */,
 			);
 			path = JoinUI;
 			sourceTree = "<group>";
@@ -477,6 +483,7 @@
 			files = (
 				83D6994E2A9C46830094018D /* NickNameView.swift in Sources */,
 				098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */,
+				830BFA962AB5FAC7002481B8 /* FavoriteScentView.swift in Sources */,
 				0924166F2A6FFA0C0084E415 /* reportModel.swift in Sources */,
 				093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */,
 				092416712A6FFFC70084E415 /* DropDownTableViewCell.swift in Sources */,
@@ -506,6 +513,7 @@
 				0960798C2A8D0ADB00C7DFBA /* DetailPerfumeView.swift in Sources */,
 				834346052A8F8F2D005B6320 /* UserInfo.swift in Sources */,
 				83D6993A2A97B70F0094018D /* JoinView.swift in Sources */,
+				830BFA982AB5FAD8002481B8 /* FavoriteScentViewController.swift in Sources */,
 				83D699382A97B6F90094018D /* JoinViewController.swift in Sources */,
 				83D6994A2A9C41530094018D /* SelectAgeView.swift in Sources */,
 				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,

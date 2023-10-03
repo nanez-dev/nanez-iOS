@@ -33,7 +33,7 @@ class CustomNaviBar: BaseView {
         self.backBtn.addTarget(self, action: #selector(backBtnClick), for: .touchUpInside)
         self.searchBtn.addTarget(self, action: #selector(searchBtnClick), for: .touchUpInside)
     }
-    override func addsubview() {
+    override func addview() {
         self.addSubview(backBtn)
         self.addSubview(searchBtn)
         self.addSubview(navititleLabel)

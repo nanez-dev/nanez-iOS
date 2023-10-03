@@ -46,7 +46,7 @@ class AccordtubeView: BaseView {
     }
     private let scrollView = UIScrollView()
 
-    override func addsubview(){
+    override func addview(){
         self.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
         self.contentView.addSubview(accordtitleLabel)

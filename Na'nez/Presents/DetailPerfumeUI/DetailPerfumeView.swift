@@ -240,7 +240,7 @@ class DetailPerfumeView: BaseView {
         }
 
     }
-    override func addsubview() {
+    override func addview() {
         self.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
         self.contentView.addSubview(perfumeView)

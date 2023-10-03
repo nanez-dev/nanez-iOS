@@ -35,7 +35,7 @@ class WishListView: BaseView {
             $0.bottom.leading.trailing.equalToSuperview()
         }
     }
-    override func addsubview() {
+    override func addview() {
         self.addSubview(segment)
         self.addSubview(tableView)
     }

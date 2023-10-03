@@ -158,7 +158,7 @@ class HomeView: BaseView {
     
     private let scrollView = UIScrollView()
 
-    override func addsubview() {
+    override func addview() {
         self.addSubview(navibar)
         self.navibar.addSubview(writeBtn)
         self.navibar.addSubview(logoImgView)

@@ -10,11 +10,11 @@ import UIKit
 class BaseView: UIView {
     func layout() {}
     func configure() {}
-    func addsubview() {}
+    func addview() {}
     override init(frame: CGRect) {
         super.init(frame: .zero)
         self.backgroundColor = .white
-        self.addsubview()
+        self.addview()
         self.configure()
         self.layout()
     }

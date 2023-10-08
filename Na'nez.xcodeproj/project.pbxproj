@@ -54,6 +54,8 @@
 		09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEACA92A9A077A009D57E5 /* WishListView.swift */; };
 		09AEACAC2A9A0EFB009D57E5 /* SegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEACAB2A9A0EFB009D57E5 /* SegmentController.swift */; };
 		09AEACAE2A9A1803009D57E5 /* PerfumeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEACAD2A9A1803009D57E5 /* PerfumeListTableViewCell.swift */; };
+		09B4F8792AD2E9AD00E42220 /* BrandtubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B4F8782AD2E9AD00E42220 /* BrandtubeView.swift */; };
+		09B4F87B2AD2E9C200E42220 /* DetailBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B4F87A2AD2E9C200E42220 /* DetailBrandView.swift */; };
 		09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B759862A652B53008452A3 /* ReportPopupViewController.swift */; };
 		09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE292A9497A20082EB28 /* BaseViewController.swift */; };
 		09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */; };
@@ -123,6 +125,8 @@
 		09AEACA92A9A077A009D57E5 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		09AEACAB2A9A0EFB009D57E5 /* SegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentController.swift; sourceTree = "<group>"; };
 		09AEACAD2A9A1803009D57E5 /* PerfumeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfumeListTableViewCell.swift; sourceTree = "<group>"; };
+		09B4F8782AD2E9AD00E42220 /* BrandtubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandtubeView.swift; sourceTree = "<group>"; };
+		09B4F87A2AD2E9C200E42220 /* DetailBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBrandView.swift; sourceTree = "<group>"; };
 		09B759862A652B53008452A3 /* ReportPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupViewController.swift; sourceTree = "<group>"; };
 		09D5FE292A9497A20082EB28 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNaviBar.swift; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 			children = (
 				092EFFBC2A778E9900E0DA90 /* DetailBrandViewController.swift */,
 				09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */,
+				09B4F8782AD2E9AD00E42220 /* BrandtubeView.swift */,
+				09B4F87A2AD2E9C200E42220 /* DetailBrandView.swift */,
 			);
 			path = BrandUI;
 			sourceTree = "<group>";
@@ -500,6 +506,7 @@
 				09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */,
 				09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */,
 				094BCD132A6142610012A404 /* HomeRecommendCollectionViewCell.swift in Sources */,
+				09B4F8792AD2E9AD00E42220 /* BrandtubeView.swift in Sources */,
 				098CDB9F2A88F582008774B7 /* HomeView.swift in Sources */,
 				834346032A8F8F1F005B6320 /* LoginModel.swift in Sources */,
 				0999E2C82A62C95E002042EF /* AccordService.swift in Sources */,
@@ -520,6 +527,7 @@
 				0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */,
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
 				09AEACAC2A9A0EFB009D57E5 /* SegmentController.swift in Sources */,
+				09B4F87B2AD2E9C200E42220 /* DetailBrandView.swift in Sources */,
 				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
 				83D6992B2A90D8540094018D /* LoginViewController.swift in Sources */,
 				092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */,

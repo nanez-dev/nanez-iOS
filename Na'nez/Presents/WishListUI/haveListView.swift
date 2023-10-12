@@ -1,15 +1,14 @@
 //
-//  WishListView.swift
+//  HaveListView.swift
 //  Na'nez
 //
-//  Created by 최지철 on 2023/08/26.
+//  Created by 최지철 on 2023/10/13.
 //
 
 import UIKit
 
-class WishListView: BaseView {
-    
-    public let NoListSV = UIStackView().then {
+class HaveListView: BaseView {
+    private let NoListSV = UIStackView().then {
         $0.spacing = 16
         $0.axis = .vertical
         $0.distribution = .fill
@@ -22,12 +21,10 @@ class WishListView: BaseView {
         $0.image = UIImage(named: "noImg")
     }
     private let noListLabel = UILabel().then {
-        $0.text = "아직 찜한 향수가 없어요."
+        $0.text = "아직 보유한 향수가 없어요."
         $0.font = .pretendard(.Regular, size: 16)
         $0.textColor = UIColor(hexString: "#999999")
     }
-    
-
     override func layout() {
        
         self.NoListSV.snp.makeConstraints {
@@ -40,6 +37,5 @@ class WishListView: BaseView {
         self.NoListSV.addArrangedSubview(noListImg)
         self.NoListSV.addArrangedSubview(noListLabel)
     }
-    override func configure() {
-    }
+ 
 }

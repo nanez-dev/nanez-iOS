@@ -30,6 +30,9 @@ final class HomeViewController: BaseViewController {
         self.homeview.accordCollectionView.delegate = self
         self.homeview.accordCollectionView.dataSource = self
         self.homeview.delegate = self
+        self.homeview.bannerView.collectionView.delegate = self
+        self.homeview.bannerView.collectionView.dataSource = self
+
     }
     private func setUI() {
         homeview.snp.makeConstraints {
@@ -99,6 +102,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         else if collectionView == homeview.accordCollectionView{
             return Totalaccord.count
         }
+        else if collectionView == homeview.bannerView.collectionView {
+            return 5
+        }
         else{
             return 0
         }
@@ -120,17 +126,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecommendCollectionViewCell.identifier, for: indexPath) as! HomeRecommendCollectionViewCell
             cell.descriptionLabel.isHidden = true
             let startIndex = 5
-             let perfumeIndex = startIndex + indexPath.item
-             if perfumeIndex < TotalPerfume.count {
-                 let perfumeinfo = self.TotalPerfume[perfumeIndex]
-                 cell.perfumeLabel.text = perfumeinfo.kor
-                 cell.brandLabel.text = perfumeinfo.brand?.kor
-                 cell.capacityLabel.text = String(perfumeinfo.capacity) + "ml"
-     
-                 if let imageURL = URL(string: perfumeinfo.image ?? APIConstants.noImage) {
-                     cell.Img.kf.setImage(with:imageURL)
-                 }
-             }
+            let perfumeIndex = startIndex + indexPath.item
+            if perfumeIndex < TotalPerfume.count {
+                let perfumeinfo = self.TotalPerfume[perfumeIndex]
+                cell.perfumeLabel.text = perfumeinfo.kor
+                cell.brandLabel.text = perfumeinfo.brand?.kor
+                cell.capacityLabel.text = String(perfumeinfo.capacity) + "ml"
+                
+                if let imageURL = URL(string: perfumeinfo.image ?? APIConstants.noImage) {
+                    cell.Img.kf.setImage(with:imageURL)
+                }
+            }
             return cell
         }
         else if collectionView == homeview.brandCollectionView {
@@ -149,6 +155,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if let imageURL = URL(string: accordinfo.image) {
                 cell.Img.af.setImage(withURL: imageURL)
             }
+            return cell
+        }
+        else if collectionView == homeview.bannerView.collectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.identifier, for: indexPath) as! BannerCell
+            
+            cell.BannerImg.image = bannerImg(rawValue: indexPath.row)?.image
+//            if let imageURL = URL(string: APIConstants.noImage) {
+//                cell.BannerImg.kf.setImage(with:imageURL)
+//            }
             return cell
         }
         else{
@@ -239,10 +254,34 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             return CGSize(width: 0, height: 0)
         }
+        else if collectionView == homeview.bannerView.collectionView {
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+        }
         else
         {
             return CGSize(width: 0, height: 0)
         }
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageWidth = scrollView.frame.size.width
+        let currentPage = Int((scrollView.contentOffset.x + pageWidth / 2) / pageWidth)
+        
+        // 현재 페이지를 업데이트합니다.
+        homeview.bannerView.nowPage = currentPage
+        
+        // 스크롤한 페이지를 출력합니다.
+        print("Current Page: \(currentPage)")
+        
+        // 해당 페이지로 스크롤합니다.
+        let newOffsetX = CGFloat(currentPage) * pageWidth
+        scrollView.setContentOffset(CGPoint(x: newOffsetX, y: 0), animated: true)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
     }
 }
 extension HomeViewController: HomeVeiwDelegate {

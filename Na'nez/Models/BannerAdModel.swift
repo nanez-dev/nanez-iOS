@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-enum bannerImg: String{
-    case banner1 = "광고명1"
-    case banner2 = "광고명2"
-    case banner3 = "광고명3"
-    case banner4 = "광고명4"
-    case banner5 = "광고명5"
+enum bannerImg: Int{
+    case banner1 = 0
+    case banner2 = 1
+    case banner3 = 2
+    case banner4 = 3
+    case banner5 = 4
     
     var image: UIImage {
         switch self {

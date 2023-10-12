@@ -19,28 +19,28 @@ class HomeView: BaseView {
     public let allaccordBtn = UIButton().then{
         $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         $0.semanticContentAttribute = .forceRightToLeft
-        $0.setTitle("모든 어코드보기 ", for: .normal)
+        $0.setTitle("더보기 ", for: .normal)
         $0.backgroundColor = .clear
-        $0.titleLabel?.font = .pretendard(.Regular, size: 12)
-        $0.setTitleColor(UIColor(hexString: "#333333"), for: .normal)
-        $0.tintColor = UIColor(hexString: "#333333")
-        let underlineText = "모든 어코드보기"
-        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
-        let underlineAttributedString = NSAttributedString(string: underlineText, attributes: underlineAttribute)
-        $0.setAttributedTitle(underlineAttributedString, for: .normal)
+        $0.titleLabel?.font = .pretendard(.Regular, size: 14)
+        $0.setTitleColor(UIColor(hexString: "#999999"), for: .normal)
+        $0.tintColor = UIColor(hexString: "#999999")
+        let config = UIImage.SymbolConfiguration(pointSize: 16) 
+        $0.setPreferredSymbolConfiguration(config, forImageIn: .normal)
+//        let underlineText = "모든 어코드보기"
+//        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+//        let underlineAttributedString = NSAttributedString(string: underlineText, attributes: underlineAttribute)
+//        $0.setAttributedTitle(underlineAttributedString, for: .normal)
     }
     public let allbrandBtn = UIButton().then{
         $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         $0.semanticContentAttribute = .forceRightToLeft
-        $0.setTitle("모든 브랜드보기 ", for: .normal)
+        $0.setTitle("더보기 ", for: .normal)
         $0.backgroundColor = .clear
-        $0.titleLabel?.font = .pretendard(.Regular, size: 12)
-        $0.setTitleColor(UIColor(hexString: "#333333"), for: .normal)
-        $0.tintColor = UIColor(hexString: "#333333")
-        let underlineText = "모든 브랜드보기"
-        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
-        let underlineAttributedString = NSAttributedString(string: underlineText, attributes: underlineAttribute)
-        $0.setAttributedTitle(underlineAttributedString, for: .normal)
+        $0.titleLabel?.font = .pretendard(.Regular, size: 14)
+        $0.setTitleColor(UIColor(hexString: "#999999"), for: .normal)
+        $0.tintColor = UIColor(hexString: "#999999")
+        let config = UIImage.SymbolConfiguration(pointSize: 16) // 이미지 크기를 20 포인트로 설정
+        $0.setPreferredSymbolConfiguration(config, forImageIn: .normal)
     }
     public let accordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
@@ -127,12 +127,9 @@ class HomeView: BaseView {
         $0.axis = .vertical
         $0.distribution = .fill
     }
-    public var bannerSlide = ImageSlideshow().then{
-        $0.contentScaleMode = .scaleAspectFill
-        $0.slideshowInterval = 3
-    }
-    private let writeBtn = UIButton().then{
-        $0.setImage(UIImage(named: "pencil"), for: .normal)
+    public var bannerView = BannerView()
+    private let searchBtn = UIButton().then{
+        $0.setImage(UIImage(named: "Nan'Nez_Search"), for: .normal)
         $0.imageView?.contentMode = .scaleAspectFit
     }
     private let logoImgView = UIImageView().then{
@@ -160,15 +157,15 @@ class HomeView: BaseView {
 
     override func addview() {
         self.addSubview(navibar)
-        self.navibar.addSubview(writeBtn)
+        self.navibar.addSubview(searchBtn)
         self.navibar.addSubview(logoImgView)
-        self.addSubview(searchbar)
+//        self.addSubview(searchbar)
         self.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
         self.contentView.addSubview(commentSV)
-        self.contentView.addSubview(bannerSlide)
         self.commentSV.addArrangedSubview(commentLabel)
         self.commentSV.addArrangedSubview(subcommentLabel)
+        self.contentView.addSubview(bannerView)
         self.contentView.addSubview(recomandLabel)
         self.contentView.addSubview(recommendCollectionView)
         self.contentView.addSubview(spacebarView)
@@ -189,7 +186,7 @@ class HomeView: BaseView {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
         }
-        self.writeBtn.snp.makeConstraints{
+        self.searchBtn.snp.makeConstraints{
             $0.top.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-22)
             $0.bottom.equalToSuperview().offset(-9.63)
@@ -201,16 +198,16 @@ class HomeView: BaseView {
             $0.centerY.equalToSuperview()
         }
         self.allaccordBtn.snp.makeConstraints{
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.trailing.equalToSuperview().offset(-20)
             $0.top.equalTo(spacebarView3.snp.bottom).offset(32)
-            $0.height.equalTo(25)
-            $0.width.equalTo(100)
+            $0.height.equalTo(20)
+            $0.width.equalTo(53)
         }
         self.allbrandBtn.snp.makeConstraints{
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.trailing.equalToSuperview().offset(-20)
             $0.top.equalTo(spacebarView2.snp.bottom).offset(32)
-            $0.height.equalTo(25)
-            $0.width.equalTo(100)
+            $0.height.equalTo(20)
+            $0.width.equalTo(53)
         }
         self.accordCollectionView.snp.makeConstraints{
             $0.top.equalTo(LastcommentLabel.snp.bottom).offset(24)
@@ -277,25 +274,24 @@ class HomeView: BaseView {
             $0.height.equalTo(25)
         }
         self.commentSV.snp.makeConstraints{
-            $0.top.equalTo(bannerSlide.snp.bottom).offset(16)
+            $0.top.equalTo(bannerView.snp.bottom).offset(16)
             $0.leading.equalToSuperview().offset(16)
         }
-        self.bannerSlide.snp.makeConstraints{
+        self.bannerView.snp.makeConstraints{
             $0.top.equalToSuperview().offset(0)
-            $0.trailing.equalToSuperview().offset(0)
-            $0.leading.equalToSuperview().offset(0)
+            $0.trailing.leading.equalToSuperview().offset(0)
             $0.height.equalTo(240)
 
         }
-        self.searchbar.snp.makeConstraints{
-            $0.top.equalTo(navibar.snp.bottom).offset(16)
-            $0.trailing.equalToSuperview().offset(-22)
-            $0.leading.equalToSuperview().offset(22)
-            $0.height.equalTo(52)
-        }
+//        self.searchbar.snp.makeConstraints{
+//            $0.top.equalTo(navibar.snp.bottom).offset(16)
+//            $0.trailing.equalToSuperview().offset(-22)
+//            $0.leading.equalToSuperview().offset(22)
+//            $0.height.equalTo(52)
+//        }
         
         self.scrollView.snp.makeConstraints{
-            $0.top.equalTo(searchbar.snp.bottom).offset(0)
+            $0.top.equalTo(navibar.snp.bottom).offset(16)
             $0.left.right.bottom.equalToSuperview()
         }
         self.contentView.snp.makeConstraints{
@@ -307,6 +303,7 @@ class HomeView: BaseView {
     override func configure() {
         self.allbrandBtn.addTarget(self, action: #selector(allbrandBtnClick), for: .touchUpInside)
         self.allaccordBtn.addTarget(self, action: #selector(allaccordBtnClick), for: .touchUpInside)
+        self.bannerView.collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
     }
 }
 extension HomeView {

@@ -57,6 +57,10 @@
 		09B4F8792AD2E9AD00E42220 /* BrandtubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B4F8782AD2E9AD00E42220 /* BrandtubeView.swift */; };
 		09B4F87B2AD2E9C200E42220 /* DetailBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B4F87A2AD2E9C200E42220 /* DetailBrandView.swift */; };
 		09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B759862A652B53008452A3 /* ReportPopupViewController.swift */; };
+		09C59E6E2AD836CC00A631A7 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E6D2AD836CC00A631A7 /* BannerCell.swift */; };
+		09C59E702AD838A100A631A7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E6F2AD838A100A631A7 /* BannerView.swift */; };
+		09C59E742AD86F2100A631A7 /* QuadPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E732AD86F2000A631A7 /* QuadPageControl.swift */; };
+		09C59E772AD870C400A631A7 /* CHIPageControl in Frameworks */ = {isa = PBXBuildFile; productRef = 09C59E762AD870C400A631A7 /* CHIPageControl */; };
 		09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE292A9497A20082EB28 /* BaseViewController.swift */; };
 		09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */; };
 		09D5FE2E2A949E4C0082EB28 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2D2A949E4C0082EB28 /* BaseView.swift */; };
@@ -128,6 +132,9 @@
 		09B4F8782AD2E9AD00E42220 /* BrandtubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandtubeView.swift; sourceTree = "<group>"; };
 		09B4F87A2AD2E9C200E42220 /* DetailBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBrandView.swift; sourceTree = "<group>"; };
 		09B759862A652B53008452A3 /* ReportPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupViewController.swift; sourceTree = "<group>"; };
+		09C59E6D2AD836CC00A631A7 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
+		09C59E6F2AD838A100A631A7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		09C59E732AD86F2000A631A7 /* QuadPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadPageControl.swift; sourceTree = "<group>"; };
 		09D5FE292A9497A20082EB28 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNaviBar.swift; sourceTree = "<group>"; };
 		09D5FE2D2A949E4C0082EB28 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -158,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09C59E772AD870C400A631A7 /* CHIPageControl in Frameworks */,
 				0924164E2A6F92F50084E415 /* SnapKit in Frameworks */,
 				0924166D2A6F95C10084E415 /* ImageSlideshow/Kingfisher in Frameworks */,
 				092416692A6F95C10084E415 /* ImageSlideshow in Frameworks */,
@@ -302,6 +310,7 @@
 				094BCD122A6142610012A404 /* HomeRecommendCollectionViewCell.swift */,
 				0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */,
 				0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */,
+				09C59E6D2AD836CC00A631A7 /* BannerCell.swift */,
 				092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */,
 				09AEACAD2A9A1803009D57E5 /* PerfumeListTableViewCell.swift */,
 			);
@@ -314,6 +323,7 @@
 				09D5FE292A9497A20082EB28 /* BaseViewController.swift */,
 				09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */,
 				09D5FE2D2A949E4C0082EB28 /* BaseView.swift */,
+				09C59E732AD86F2000A631A7 /* QuadPageControl.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -340,6 +350,7 @@
 			children = (
 				094BCCE02A5FF2290012A404 /* HomeViewController.swift */,
 				098CDB9E2A88F582008774B7 /* HomeView.swift */,
+				09C59E6F2AD838A100A631A7 /* BannerView.swift */,
 			);
 			path = HomeUI;
 			sourceTree = "<group>";
@@ -413,6 +424,7 @@
 				092416682A6F95C10084E415 /* ImageSlideshow */,
 				0924166A2A6F95C10084E415 /* ImageSlideshow/Alamofire */,
 				0924166C2A6F95C10084E415 /* ImageSlideshow/Kingfisher */,
+				09C59E762AD870C400A631A7 /* CHIPageControl */,
 			);
 			productName = "Na'nez";
 			productReference = 094BCCC42A5FEC0B0012A404 /* Na'nez.app */;
@@ -448,6 +460,7 @@
 				0924164F2A6F93030084E415 /* XCRemoteSwiftPackageReference "Then" */,
 				092416602A6F94C70084E415 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
+				09C59E752AD870C400A631A7 /* XCRemoteSwiftPackageReference "CHIPageControl" */,
 			);
 			productRefGroup = 094BCCC52A5FEC0B0012A404 /* Products */;
 			projectDirPath = "";
@@ -486,6 +499,7 @@
 			files = (
 				83D6994E2A9C46830094018D /* NickNameView.swift in Sources */,
 				098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */,
+				09C59E702AD838A100A631A7 /* BannerView.swift in Sources */,
 				0924166F2A6FFA0C0084E415 /* reportModel.swift in Sources */,
 				093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */,
 				092416712A6FFFC70084E415 /* DropDownTableViewCell.swift in Sources */,
@@ -518,6 +532,7 @@
 				834346052A8F8F2D005B6320 /* UserInfo.swift in Sources */,
 				83D6993A2A97B70F0094018D /* JoinView.swift in Sources */,
 				83D699382A97B6F90094018D /* JoinViewController.swift in Sources */,
+				09C59E742AD86F2100A631A7 /* QuadPageControl.swift in Sources */,
 				83D6994A2A9C41530094018D /* SelectAgeView.swift in Sources */,
 				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,
 				83D6993C2A97B8390094018D /* PasswordViewController.swift in Sources */,
@@ -533,6 +548,7 @@
 				092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */,
 				83D699262A90D8120094018D /* LoginService.swift in Sources */,
 				09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */,
+				09C59E6E2AD836CC00A631A7 /* BannerCell.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
 				09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */,
 				83D699462A97BBA60094018D /* PassWordModel.swift in Sources */,
@@ -792,6 +808,14 @@
 				version = 1.9.0;
 			};
 		};
+		09C59E752AD870C400A631A7 /* XCRemoteSwiftPackageReference "CHIPageControl" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChiliLabs/CHIPageControl";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -829,6 +853,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
 			productName = ImageSlideshow/Kingfisher;
+		};
+		09C59E762AD870C400A631A7 /* CHIPageControl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 09C59E752AD870C400A631A7 /* XCRemoteSwiftPackageReference "CHIPageControl" */;
+			productName = CHIPageControl;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

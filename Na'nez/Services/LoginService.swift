@@ -25,7 +25,6 @@ class LoginService {
                 print(response)
             case.failure(let error) :
                 comletion(.failure(error))
-                print(response.response?.statusCode)
                 if let data = response.data, let jsonString = String(data: data, encoding: .utf8) {
                     print("Response JSON: \(jsonString)")
                 }

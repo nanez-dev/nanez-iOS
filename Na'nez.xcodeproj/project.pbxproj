@@ -62,6 +62,7 @@
 		09C59E772AD870C400A631A7 /* CHIPageControl in Frameworks */ = {isa = PBXBuildFile; productRef = 09C59E762AD870C400A631A7 /* CHIPageControl */; };
 		09C59E7B2AD8774700A631A7 /* WishListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E7A2AD8774700A631A7 /* WishListCollectionViewCell.swift */; };
 		09C59E7D2AD8783F00A631A7 /* HaveListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E7C2AD8783F00A631A7 /* HaveListView.swift */; };
+		09C59E7F2AD8856F00A631A7 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E7E2AD8856F00A631A7 /* MyInfoView.swift */; };
 		09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE292A9497A20082EB28 /* BaseViewController.swift */; };
 		09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */; };
 		09D5FE2E2A949E4C0082EB28 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2D2A949E4C0082EB28 /* BaseView.swift */; };
@@ -137,6 +138,7 @@
 		09C59E732AD86F2000A631A7 /* QuadPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadPageControl.swift; sourceTree = "<group>"; };
 		09C59E7A2AD8774700A631A7 /* WishListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCollectionViewCell.swift; sourceTree = "<group>"; };
 		09C59E7C2AD8783F00A631A7 /* HaveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveListView.swift; sourceTree = "<group>"; };
+		09C59E7E2AD8856F00A631A7 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		09D5FE292A9497A20082EB28 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNaviBar.swift; sourceTree = "<group>"; };
 		09D5FE2D2A949E4C0082EB28 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */,
+				09C59E7E2AD8856F00A631A7 /* MyInfoView.swift */,
 			);
 			path = MyInfoUI;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				83D699262A90D8120094018D /* LoginService.swift in Sources */,
 				09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */,
 				09C59E6E2AD836CC00A631A7 /* BannerCell.swift in Sources */,
+				09C59E7F2AD8856F00A631A7 /* MyInfoView.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
 				09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */,
 				83D699462A97BBA60094018D /* PassWordModel.swift in Sources */,

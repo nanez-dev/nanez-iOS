@@ -20,6 +20,8 @@
 		09296F452AA072E500D724B1 /* DetailAccordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09296F442AA072E500D724B1 /* DetailAccordView.swift */; };
 		092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EFFBC2A778E9900E0DA90 /* DetailBrandViewController.swift */; };
 		093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093396F62A76A314003B8C7A /* DetailAccordViewController.swift */; };
+		0936AB282AEF737200DD321F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0936AB272AEF737200DD321F /* RxCocoa */; };
+		0936AB2A2AEF737200DD321F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0936AB292AEF737200DD321F /* RxRelay */; };
 		094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */; };
 		094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */; };
 		094BCCD42A5FEC0E0012A404 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCD22A5FEC0E0012A404 /* LaunchScreen.storyboard */; };
@@ -62,6 +64,7 @@
 		09C59E772AD870C400A631A7 /* CHIPageControl in Frameworks */ = {isa = PBXBuildFile; productRef = 09C59E762AD870C400A631A7 /* CHIPageControl */; };
 		09C59E7B2AD8774700A631A7 /* WishListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E7A2AD8774700A631A7 /* WishListCollectionViewCell.swift */; };
 		09C59E7D2AD8783F00A631A7 /* HaveListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E7C2AD8783F00A631A7 /* HaveListView.swift */; };
+		09C59E7F2AD8856F00A631A7 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E7E2AD8856F00A631A7 /* MyInfoView.swift */; };
 		09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE292A9497A20082EB28 /* BaseViewController.swift */; };
 		09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */; };
 		09D5FE2E2A949E4C0082EB28 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2D2A949E4C0082EB28 /* BaseView.swift */; };
@@ -137,6 +140,7 @@
 		09C59E732AD86F2000A631A7 /* QuadPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadPageControl.swift; sourceTree = "<group>"; };
 		09C59E7A2AD8774700A631A7 /* WishListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCollectionViewCell.swift; sourceTree = "<group>"; };
 		09C59E7C2AD8783F00A631A7 /* HaveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveListView.swift; sourceTree = "<group>"; };
+		09C59E7E2AD8856F00A631A7 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		09D5FE292A9497A20082EB28 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNaviBar.swift; sourceTree = "<group>"; };
 		09D5FE2D2A949E4C0082EB28 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0936AB2A2AEF737200DD321F /* RxRelay in Frameworks */,
+				0936AB282AEF737200DD321F /* RxCocoa in Frameworks */,
 				09C59E772AD870C400A631A7 /* CHIPageControl in Frameworks */,
 				0924164E2A6F92F50084E415 /* SnapKit in Frameworks */,
 				0924166D2A6F95C10084E415 /* ImageSlideshow/Kingfisher in Frameworks */,
@@ -334,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */,
+				09C59E7E2AD8856F00A631A7 /* MyInfoView.swift */,
 			);
 			path = MyInfoUI;
 			sourceTree = "<group>";
@@ -428,6 +435,8 @@
 				0924166A2A6F95C10084E415 /* ImageSlideshow/Alamofire */,
 				0924166C2A6F95C10084E415 /* ImageSlideshow/Kingfisher */,
 				09C59E762AD870C400A631A7 /* CHIPageControl */,
+				0936AB272AEF737200DD321F /* RxCocoa */,
+				0936AB292AEF737200DD321F /* RxRelay */,
 			);
 			productName = "Na'nez";
 			productReference = 094BCCC42A5FEC0B0012A404 /* Na'nez.app */;
@@ -464,6 +473,7 @@
 				092416602A6F94C70084E415 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
 				09C59E752AD870C400A631A7 /* XCRemoteSwiftPackageReference "CHIPageControl" */,
+				0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 094BCCC52A5FEC0B0012A404 /* Products */;
 			projectDirPath = "";
@@ -552,6 +562,7 @@
 				83D699262A90D8120094018D /* LoginService.swift in Sources */,
 				09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */,
 				09C59E6E2AD836CC00A631A7 /* BannerCell.swift in Sources */,
+				09C59E7F2AD8856F00A631A7 /* MyInfoView.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
 				09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */,
 				83D699462A97BBA60094018D /* PassWordModel.swift in Sources */,
@@ -812,6 +823,14 @@
 				version = 1.9.0;
 			};
 		};
+		0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		09C59E752AD870C400A631A7 /* XCRemoteSwiftPackageReference "CHIPageControl" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ChiliLabs/CHIPageControl";
@@ -857,6 +876,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
 			productName = ImageSlideshow/Kingfisher;
+		};
+		0936AB272AEF737200DD321F /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		0936AB292AEF737200DD321F /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
 		};
 		09C59E762AD870C400A631A7 /* CHIPageControl */ = {
 			isa = XCSwiftPackageProductDependency;

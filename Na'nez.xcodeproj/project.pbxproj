@@ -20,6 +20,8 @@
 		09296F452AA072E500D724B1 /* DetailAccordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09296F442AA072E500D724B1 /* DetailAccordView.swift */; };
 		092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EFFBC2A778E9900E0DA90 /* DetailBrandViewController.swift */; };
 		093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093396F62A76A314003B8C7A /* DetailAccordViewController.swift */; };
+		0936AB282AEF737200DD321F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0936AB272AEF737200DD321F /* RxCocoa */; };
+		0936AB2A2AEF737200DD321F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0936AB292AEF737200DD321F /* RxRelay */; };
 		094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */; };
 		094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */; };
 		094BCCD42A5FEC0E0012A404 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCD22A5FEC0E0012A404 /* LaunchScreen.storyboard */; };
@@ -169,6 +171,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0936AB2A2AEF737200DD321F /* RxRelay in Frameworks */,
+				0936AB282AEF737200DD321F /* RxCocoa in Frameworks */,
 				09C59E772AD870C400A631A7 /* CHIPageControl in Frameworks */,
 				0924164E2A6F92F50084E415 /* SnapKit in Frameworks */,
 				0924166D2A6F95C10084E415 /* ImageSlideshow/Kingfisher in Frameworks */,
@@ -431,6 +435,8 @@
 				0924166A2A6F95C10084E415 /* ImageSlideshow/Alamofire */,
 				0924166C2A6F95C10084E415 /* ImageSlideshow/Kingfisher */,
 				09C59E762AD870C400A631A7 /* CHIPageControl */,
+				0936AB272AEF737200DD321F /* RxCocoa */,
+				0936AB292AEF737200DD321F /* RxRelay */,
 			);
 			productName = "Na'nez";
 			productReference = 094BCCC42A5FEC0B0012A404 /* Na'nez.app */;
@@ -467,6 +473,7 @@
 				092416602A6F94C70084E415 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
 				09C59E752AD870C400A631A7 /* XCRemoteSwiftPackageReference "CHIPageControl" */,
+				0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 094BCCC52A5FEC0B0012A404 /* Products */;
 			projectDirPath = "";
@@ -816,6 +823,14 @@
 				version = 1.9.0;
 			};
 		};
+		0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		09C59E752AD870C400A631A7 /* XCRemoteSwiftPackageReference "CHIPageControl" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ChiliLabs/CHIPageControl";
@@ -861,6 +876,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */;
 			productName = ImageSlideshow/Kingfisher;
+		};
+		0936AB272AEF737200DD321F /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		0936AB292AEF737200DD321F /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
 		};
 		09C59E762AD870C400A631A7 /* CHIPageControl */ = {
 			isa = XCSwiftPackageProductDependency;

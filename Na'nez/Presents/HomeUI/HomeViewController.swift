@@ -11,6 +11,7 @@ import ImageSlideshow
 import Then
 import AlamofireImage
 import Kingfisher
+
 final class HomeViewController: BaseViewController {
     private let BrandAPI = BrandService()
     private var Popularbrands:[Brand] = []
@@ -18,271 +19,290 @@ final class HomeViewController: BaseViewController {
     private var Totalaccord:[Accord] = []
     private let PerfumeAPI = PerfumeService()
     private var TotalPerfume:[Perfume] = []
-    private let homeview: HomeView = HomeView(frame: .zero)
+    
+    public let allaccordBtn = UIButton().then{
+        $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        $0.semanticContentAttribute = .forceRightToLeft
+        $0.setTitle("더보기 ", for: .normal)
+        $0.backgroundColor = .clear
+        $0.titleLabel?.font = .pretendard(.Regular, size: 14)
+        $0.setTitleColor(UIColor(hexString: "#999999"), for: .normal)
+        $0.tintColor = UIColor(hexString: "#999999")
+        let config = UIImage.SymbolConfiguration(pointSize: 16)
+        $0.setPreferredSymbolConfiguration(config, forImageIn: .normal)
+//        let underlineText = "모든 어코드보기"
+//        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+//        let underlineAttributedString = NSAttributedString(string: underlineText, attributes: underlineAttribute)
+//        $0.setAttributedTitle(underlineAttributedString, for: .normal)
+    }
+    public let allbrandBtn = UIButton().then{
+        $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        $0.semanticContentAttribute = .forceRightToLeft
+        $0.setTitle("더보기 ", for: .normal)
+        $0.backgroundColor = .clear
+        $0.titleLabel?.font = .pretendard(.Regular, size: 14)
+        $0.setTitleColor(UIColor(hexString: "#999999"), for: .normal)
+        $0.tintColor = UIColor(hexString: "#999999")
+        let config = UIImage.SymbolConfiguration(pointSize: 16) // 이미지 크기를 20 포인트로 설정
+        $0.setPreferredSymbolConfiguration(config, forImageIn: .normal)
+    }
+    public let accordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
+        let layout = UICollectionViewFlowLayout()
+        $0.register(AccordCollectionViewCell.self, forCellWithReuseIdentifier: AccordCollectionViewCell.identifier)
+        $0.collectionViewLayout = layout
+        $0.decelerationRate = .fast
+        $0.isScrollEnabled = false
+        $0.backgroundColor = .clear
+        $0.showsHorizontalScrollIndicator = false
+        $0.showsVerticalScrollIndicator = false
+    }
+    private let LastcommentLabel = UILabel().then{
+        $0.text = "파릇한 5월에 어울리는 어코드"
+        $0.font = .pretendard(.Bold, size: 20)
+        $0.textColor = UIColor(rgb: 0x333333)
+    }
+    private let spacebarView3 = UIView().then{
+        $0.backgroundColor = .gragray
+    }
+    public let brandCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
+        let layout = UICollectionViewFlowLayout()
+        $0.register(BrandCollectionViewCell.self, forCellWithReuseIdentifier: BrandCollectionViewCell.identifier)
+        $0.collectionViewLayout = layout
+        $0.decelerationRate = .fast
+        $0.isScrollEnabled = false
+        $0.backgroundColor = .clear
+        $0.showsHorizontalScrollIndicator = false
+        $0.showsVerticalScrollIndicator = false
+    }
+    private let brandLabel = UILabel().then{
+        $0.text = "지금, 사랑받고 있는 브랜드"
+        $0.font = .pretendard(.Bold, size: 20)
+        $0.textColor = UIColor(rgb: 0x333333)
+        $0.backgroundColor = .clear
+    }
+    public let Second_recommendCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
+        let layout = UICollectionViewFlowLayout()
+        $0.register(HomeRecommendCollectionViewCell.self, forCellWithReuseIdentifier: HomeRecommendCollectionViewCell.identifier)
+        $0.collectionViewLayout = layout
+        $0.decelerationRate = .fast
+        $0.isScrollEnabled = false
+        $0.backgroundColor = .clear
+        $0.showsHorizontalScrollIndicator = false
+        $0.showsVerticalScrollIndicator = false
+    }
+    private let recommenLabel = UILabel().then{
+        $0.text = "이런 향수는 어떠세요?"
+        $0.font = .pretendard(.Bold, size: 20)
+        $0.textColor = UIColor(rgb: 0x333333)
+    }
+    private let spacebarView2 = UIView().then{
+        $0.backgroundColor = .gragray
+    }
+    private let spacebarView = UIView().then{
+        $0.backgroundColor = .gragray
+    }
+    public let recommendCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        $0.register(HomeRecommendCollectionViewCell.self, forCellWithReuseIdentifier: HomeRecommendCollectionViewCell.identifier)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        $0.collectionViewLayout = layout
+        $0.decelerationRate = .fast
+        $0.backgroundColor = .clear
+        $0.showsHorizontalScrollIndicator = false
+    }
+    private let commentLabel = UILabel().then {
+        $0.text = "어디서 좋은 향이 나네?"
+        $0.textColor = UIColor(rgb: 0x111111)
+        $0.font = .pretendard(.Bold, size: 20)
+    }
+    private let subcommentLabel = UILabel().then{
+        $0.text = "오늘 나에게 맞는 향수를 찾아라!"
+        $0.font = .pretendard(.Light, size: 16)
+        $0.textColor = UIColor(rgb: 0x333333)
 
+    }
+    private let recomandLabel = UILabel().then{
+        $0.text = "비 올 때, 향수로 더 산뜻하게!"
+        $0.font = .pretendard(.Bold, size: 20)
+        $0.textColor = UIColor(rgb: 0x333333)
+    }
+    private let commentSV = UIStackView().then{
+        $0.spacing = 4
+        $0.axis = .vertical
+        $0.distribution = .fill
+    }
+    public var bannerView = BannerView()
+    private let searchBtn = UIButton().then{
+        $0.setImage(UIImage(named: "Nan'Nez_Search"), for: .normal)
+        $0.imageView?.contentMode = .scaleAspectFit
+    }
+    private let logoImgView = UIImageView().then{
+        $0.contentMode = .scaleAspectFit
+        $0.layer.masksToBounds = true
+        $0.image = UIImage(named: "FontLogo")
+    }
+    private let navibar = UIView().then{
+        $0.backgroundColor = .white
+    }
+    private let contentView = UIView().then{
+        $0.backgroundColor = .white
+    }
+    private let searchbar = UISearchBar().then{
+        $0.searchTextField.borderStyle = .none
+        $0.searchTextField.layer.borderColor = UIColor.white.cgColor
+        $0.searchBarStyle = .minimal
+        $0.placeholder = "지금 나에게 맞는 향수를 찾아보세요"
+        if let searchIconView = $0.searchTextField.leftView as? UIImageView {
+             searchIconView.tintColor = .black
+         }
+    }
+    
+    private let scrollView = UIScrollView()
+    
     override func configure() {
-        self.homeview.recommendCollectionView.delegate = self
-        self.homeview.recommendCollectionView.dataSource = self
-        self.homeview.Second_recommendCollectionView.delegate = self
-        self.homeview.Second_recommendCollectionView.dataSource = self
-        self.homeview.brandCollectionView.delegate = self
-        self.homeview.brandCollectionView.dataSource = self
-        self.homeview.accordCollectionView.delegate = self
-        self.homeview.accordCollectionView.dataSource = self
-        self.homeview.delegate = self
-        self.homeview.bannerView.collectionView.delegate = self
-        self.homeview.bannerView.collectionView.dataSource = self
+
 
     }
-    private func setUI() {
-        homeview.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.bottom.leading.trailing.equalToSuperview()
-        }
+    
+    override func addview() {
+        self.view.addSubview(navibar)
+        self.navibar.addSubview(searchBtn)
+        self.navibar.addSubview(logoImgView)
+        self.view.addSubview(scrollView)
+        self.scrollView.addSubview(contentView)
+        self.contentView.addSubview(commentSV)
+        self.commentSV.addArrangedSubview(commentLabel)
+        self.commentSV.addArrangedSubview(subcommentLabel)
+        self.contentView.addSubview(bannerView)
+        self.contentView.addSubview(recomandLabel)
+        self.contentView.addSubview(recommendCollectionView)
+        self.contentView.addSubview(spacebarView)
+        self.contentView.addSubview(recommenLabel)
+        self.contentView.addSubview(Second_recommendCollectionView)
+        self.contentView.addSubview(spacebarView2)
+        self.contentView.addSubview(brandLabel)
+        self.contentView.addSubview(brandCollectionView)
+        self.contentView.addSubview(spacebarView3)
+        self.contentView.addSubview(LastcommentLabel)
+        self.contentView.addSubview(accordCollectionView)
+        self.contentView.addSubview(allbrandBtn)
+        self.contentView.addSubview(allaccordBtn)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .white
-        self.view.addSubview(homeview)
-        self.configure()
-        self.setUI()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        self.BrandAPI.getPoularBrands { result in
-            switch result {
-            case .success(let brandList):
-                self.Popularbrands = brandList.brands
-                DispatchQueue.main.async {
-                    self.homeview.brandCollectionView.reloadData()
-                }
-            case .failure(let error):
-                print("/brand/popular:\(error)")
-            }
+    
+    override func layout() {
+        self.navibar.snp.makeConstraints{
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.leading.trailing.equalToSuperview()
         }
-        self.AccordAPI.getAccord { result in
-            switch result {
-            case .success(let accordList):
-                self.Totalaccord = accordList.accords
-                self.homeview.accordCollectionView.reloadData()
-                DispatchQueue.main.async {
-                    self.homeview.accordCollectionView.reloadData()
-                }
-            case .failure(let error):
-                print("/accord 오류:\(error)")
-            }
+        self.searchBtn.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-22)
+            $0.bottom.equalToSuperview().offset(-9.63)
         }
-        self.PerfumeAPI.getAllPerfumes(offset: 0, limit: 11) { result in
-            switch result {
-            case .success(let perfumes):
-                self.TotalPerfume = perfumes
-                DispatchQueue.main.async {
-                    self.homeview.recommendCollectionView.reloadData()
-                    self.homeview.Second_recommendCollectionView.reloadData()
-                }
-            case .failure(let error):
-                print("오류: \(error)")
-            }
+        self.logoImgView.snp.makeConstraints{
+            $0.width.equalTo(86)
+            $0.height.equalTo(28)
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
         }
-    }
-}
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == homeview.recommendCollectionView {
-            return min(5, TotalPerfume.count)
+        self.allaccordBtn.snp.makeConstraints{
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.top.equalTo(spacebarView3.snp.bottom).offset(32)
+            $0.height.equalTo(20)
+            $0.width.equalTo(53)
         }
-        else if collectionView == homeview.Second_recommendCollectionView{
-            let startIndex = 5
-            let endIndex = min(11, TotalPerfume.count)
-            return max(0, endIndex - startIndex)
+        self.allbrandBtn.snp.makeConstraints{
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.top.equalTo(spacebarView2.snp.bottom).offset(32)
+            $0.height.equalTo(20)
+            $0.width.equalTo(53)
         }
-        else if collectionView == homeview.brandCollectionView{
-            return Popularbrands.count
+        self.accordCollectionView.snp.makeConstraints{
+            $0.top.equalTo(LastcommentLabel.snp.bottom).offset(24)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-22)
+            $0.height.equalTo(137)
         }
-        else if collectionView == homeview.accordCollectionView{
-            return Totalaccord.count
+        self.LastcommentLabel.snp.makeConstraints{
+            $0.top.equalTo(spacebarView3.snp.bottom).offset(32)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(25)
         }
-        else if collectionView == homeview.bannerView.collectionView {
-            return 5
+        self.spacebarView3.snp.makeConstraints{
+            $0.top.equalTo(brandCollectionView.snp.bottom).offset(35)
+            $0.leading.equalToSuperview().offset(0)
+            $0.trailing.equalToSuperview().offset(0)
+            $0.height.equalTo(8)
         }
-        else{
-            return 0
+        self.brandCollectionView.snp.makeConstraints{
+            $0.top.equalTo(brandLabel.snp.bottom).offset(24)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-22)
+            $0.height.equalTo(670)
         }
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == homeview.recommendCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecommendCollectionViewCell.identifier, for: indexPath) as! HomeRecommendCollectionViewCell
-            let perfumeinfo = self.TotalPerfume[indexPath.item]
-            cell.perfumeLabel.text = perfumeinfo.kor
-            cell.descriptionLabel.text = perfumeinfo.title
-            cell.brandLabel.text = perfumeinfo.brand?.kor
-            cell.capacityLabel.text = String(perfumeinfo.capacity) + "ml"
-            if let imageURL = URL(string: perfumeinfo.image ?? APIConstants.noImage) {
-                cell.Img.af.setImage(withURL: imageURL)
-            }
-            return cell
+        self.brandLabel.snp.makeConstraints{
+            $0.top.equalTo(spacebarView2.snp.bottom).offset(32)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(25)
         }
-        else if collectionView == homeview.Second_recommendCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecommendCollectionViewCell.identifier, for: indexPath) as! HomeRecommendCollectionViewCell
-            cell.descriptionLabel.isHidden = true
-            let startIndex = 5
-            let perfumeIndex = startIndex + indexPath.item
-            if perfumeIndex < TotalPerfume.count {
-                let perfumeinfo = self.TotalPerfume[perfumeIndex]
-                cell.perfumeLabel.text = perfumeinfo.kor
-                cell.brandLabel.text = perfumeinfo.brand?.kor
-                cell.capacityLabel.text = String(perfumeinfo.capacity) + "ml"
-                
-                if let imageURL = URL(string: perfumeinfo.image ?? APIConstants.noImage) {
-                    cell.Img.kf.setImage(with:imageURL)
-                }
-            }
-            return cell
+        self.spacebarView2.snp.makeConstraints{
+            $0.top.equalTo(Second_recommendCollectionView.snp.bottom).offset(35)
+            $0.leading.equalToSuperview().offset(0)
+            $0.trailing.equalToSuperview().offset(0)
+            $0.height.equalTo(8)
         }
-        else if collectionView == homeview.brandCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BrandCollectionViewCell.identifier, for: indexPath) as! BrandCollectionViewCell
-            let brandinfo = self.Popularbrands[indexPath.item]
-            cell.brandLabel.text = brandinfo.kor
-            if let imageURL = URL(string: brandinfo.image ?? APIConstants.noImage) {
-                cell.Img.af.setImage(withURL: imageURL)
-            }
-            return cell
+        self.Second_recommendCollectionView.snp.makeConstraints{
+            $0.top.equalTo(recommenLabel.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-22)
+            $0.height.equalTo(815)
         }
-        else if collectionView == homeview.accordCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AccordCollectionViewCell.identifier, for: indexPath) as! AccordCollectionViewCell
-            let accordinfo = self.Totalaccord[indexPath.item]
-            cell.accordLabel.text = accordinfo.kor
-            if let imageURL = URL(string: accordinfo.image) {
-                cell.Img.af.setImage(withURL: imageURL)
-            }
-            return cell
+        self.recommenLabel.snp.makeConstraints{
+            $0.top.equalTo(spacebarView.snp.bottom).offset(32)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(25)
         }
-        else if collectionView == homeview.bannerView.collectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.identifier, for: indexPath) as! BannerCell
-            
-            cell.BannerImg.image = bannerImg(rawValue: indexPath.row)?.image
-//            if let imageURL = URL(string: APIConstants.noImage) {
-//                cell.BannerImg.kf.setImage(with:imageURL)
-//            }
-            return cell
-        }
-        else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecommendCollectionViewCell.identifier, for: indexPath) as! HomeRecommendCollectionViewCell
-            return cell
-        }
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == homeview.recommendCollectionView{
-            print(self.TotalPerfume[indexPath.item].id!)
-            self.PerfumeAPI.getPerfumeDetailInfo(id: self.TotalPerfume[indexPath.item].id!) { respnse in
-                switch respnse{
-                case .success(let result):
-                    print(result)
-                   let vc = DetailPerfumeViewController()
-                    vc.PefumeInfo = result
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc,animated: false,completion: nil)
-                case .failure(_):
-                    print("향수상세정보 오류")
-                }
-            }
+        self.spacebarView.snp.makeConstraints{
+            $0.top.equalTo(recommendCollectionView.snp.bottom).offset(32)
+            $0.leading.equalToSuperview().offset(0)
+            $0.trailing.equalToSuperview().offset(0)
+            $0.height.equalTo(8)
 
         }
-        else if collectionView == homeview.Second_recommendCollectionView{
-            self.PerfumeAPI.getPerfumeDetailInfo(id: self.TotalPerfume[indexPath.item + 5].id!) { respnse in
-                switch respnse{
-                case .success(let result):
-                    print(result)
-                   let vc = DetailPerfumeViewController()
-                    vc.PefumeInfo = result
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc,animated: false,completion: nil)
-                case .failure(_):
-                    print("향수상세정보 오류")
-                }
-            }
-        }
-        else if collectionView == homeview.brandCollectionView {
-            print(self.Popularbrands[indexPath.row].id)
-            self.BrandAPI.getBrandDetail(brand_id:self.Popularbrands[indexPath.row].id, limit: 3) { resonse in
-                switch resonse{
-                case .success(let result):
-                    let vc = DetailBrandViewController()
-                    vc.brandinfo = result
-                    vc.modalPresentationStyle = .fullScreen
-                     self.present(vc,animated: false,completion: nil)
-                case .failure(_):
-                    print("상세브랜드정보 오류")
-                }
-            }
+        self.recommendCollectionView.snp.makeConstraints{
+            $0.top.equalTo(recomandLabel.snp.bottom).offset(16)
+            $0.leading.equalToSuperview().offset(10)
+            $0.trailing.equalToSuperview().offset(-10)
+            $0.height.equalTo(330)
 
         }
-        else if collectionView == homeview.accordCollectionView{
-            
-            let vc = DetailAccordViewController()
-             vc.modalPresentationStyle = .fullScreen
-             self.present(vc,animated: false,completion: nil)
+        self.recomandLabel.snp.makeConstraints{
+            $0.top.equalTo(commentSV.snp.bottom).offset(52)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(25)
         }
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == homeview.recommendCollectionView {
-            let cellWidth :CGFloat = 200
-            let cellHeight: CGFloat = 316 // 셀의 높이
-            return CGSize(width: cellWidth, height: cellHeight)
+        self.commentSV.snp.makeConstraints{
+            $0.top.equalTo(bannerView.snp.bottom).offset(16)
+            $0.leading.equalToSuperview().offset(16)
         }
-        else if collectionView == homeview.Second_recommendCollectionView {
-            if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-                    let cellWidth: CGFloat = (collectionView.bounds.width - layout.minimumInteritemSpacing) / 2
-                    let cellHeight: CGFloat = (collectionView.bounds.height - layout.minimumLineSpacing) / 3 // 셀의 높이
-                    return CGSize(width: cellWidth, height: cellHeight)
-                }
-            return CGSize(width: 178, height: 253)
+        self.bannerView.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(0)
+            $0.trailing.leading.equalToSuperview().offset(0)
+            $0.height.equalTo(240)
+
         }
-        else if collectionView == homeview.brandCollectionView{
-            if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-                    let cellWidth: CGFloat = (collectionView.bounds.width - layout.minimumInteritemSpacing) / 2
-                let cellHeight: CGFloat = (collectionView.bounds.height - layout.minimumLineSpacing) / 4// 셀의 높이
-                    return CGSize(width: cellWidth, height: cellHeight)
-                }
-            return CGSize(width: 0, height: 0)
-        }
-        else if collectionView == homeview.accordCollectionView{
-            if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-                let cellWidth: CGFloat = (collectionView.bounds.width - layout.minimumInteritemSpacing) / 3.2
-                    let cellHeight: CGFloat = (collectionView.bounds.height - layout.minimumLineSpacing) / 1
-                    return CGSize(width: cellWidth, height: cellHeight)
-                }
-            return CGSize(width: 0, height: 0)
-        }
-        else if collectionView == homeview.bannerView.collectionView {
-            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
-        }
-        else
-        {
-            return CGSize(width: 0, height: 0)
-        }
-    }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageWidth = scrollView.frame.size.width
-        let currentPage = Int((scrollView.contentOffset.x + pageWidth / 2) / pageWidth)
         
-        // 현재 페이지를 업데이트합니다.
-        homeview.bannerView.nowPage = currentPage
-        
-        // 스크롤한 페이지를 출력합니다.
-        print("Current Page: \(currentPage)")
-        
-        // 해당 페이지로 스크롤합니다.
-        let newOffsetX = CGFloat(currentPage) * pageWidth
-        scrollView.setContentOffset(CGPoint(x: newOffsetX, y: 0), animated: true)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
+        self.scrollView.snp.makeConstraints{
+            $0.top.equalTo(navibar.snp.bottom).offset(16)
+            $0.left.right.bottom.equalToSuperview()
+        }
+        self.contentView.snp.makeConstraints{
+            $0.width.equalToSuperview().offset(0)
+            $0.edges.equalToSuperview().offset(0)
+            $0.height.equalTo(2780)
+        }
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
-    }
 }
 extension HomeViewController: HomeVeiwDelegate {
     func allbrandBtnClick(_ homeView: HomeView) {

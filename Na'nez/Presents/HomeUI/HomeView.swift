@@ -159,7 +159,6 @@ class HomeView: BaseView {
         self.addSubview(navibar)
         self.navibar.addSubview(searchBtn)
         self.navibar.addSubview(logoImgView)
-//        self.addSubview(searchbar)
         self.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
         self.contentView.addSubview(commentSV)

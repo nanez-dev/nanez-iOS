@@ -211,8 +211,9 @@
 		094BCCC62A5FEC0B0012A404 /* Na'nez */ = {
 			isa = PBXGroup;
 			children = (
+				0969A5402B04CE3B00883862 /* Data */,
+				0969A53F2B04CE3200883862 /* Domain */,
 				094BCCDB2A5FEE400012A404 /* Services */,
-				094BCCDF2A5FEE5F0012A404 /* Models */,
 				094BCCDE2A5FEE590012A404 /* Presents */,
 				094BCCC72A5FEC0B0012A404 /* AppDelegate.swift */,
 				094BCCC92A5FEC0B0012A404 /* SceneDelegate.swift */,
@@ -304,6 +305,21 @@
 				09296F442AA072E500D724B1 /* DetailAccordView.swift */,
 			);
 			path = AccordUI;
+			sourceTree = "<group>";
+		};
+		0969A53F2B04CE3200883862 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		0969A5402B04CE3B00883862 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				094BCCDF2A5FEE5F0012A404 /* Models */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		098CDB9D2A88F520008774B7 /* Cells */ = {

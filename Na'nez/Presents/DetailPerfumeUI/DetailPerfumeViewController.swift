@@ -77,17 +77,6 @@ extension DetailPerfumeViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AccordCollectionViewCell.identifier, for: indexPath) as! AccordCollectionViewCell
-        if PefumeInfo != nil{
-            if collectionView == detailperfumeView.detailaccordCollectionView {
-                let url = URL(string: PefumeInfo!.perfume_accords[indexPath.row].accord.image)
-                cell.Img.kf.setImage(with: url)
-                cell.accordLabel.text =  PefumeInfo!.perfume_accords[indexPath.row].accord.eng
-            }else{
-                let url = URL(string: PefumeInfo!.perfume_notes[indexPath.row].note.image ?? APIConstants.noImage )
-                cell.Img.kf.setImage(with: url)
-                cell.accordLabel.text =  PefumeInfo!.perfume_notes[indexPath.row].note.eng
-            }
-        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

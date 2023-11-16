@@ -39,12 +39,8 @@ extension DetailAccordViewController : UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecommendCollectionViewCell.identifier, for: indexPath) as! HomeRecommendCollectionViewCell
-        cell.capacityLabel.isHidden = true
-        cell.descriptionLabel.isHidden = true
-        cell.brandLabel.font = .pretendard(.Regular, size: 12)
-        cell.perfumeLabel.font = .pretendard(.Regular, size: 16)
-
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PerfumeCollectionViewCell.identifier, for: indexPath) as! PerfumeCollectionViewCell
+       
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

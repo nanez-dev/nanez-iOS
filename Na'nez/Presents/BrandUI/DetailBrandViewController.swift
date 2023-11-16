@@ -54,15 +54,8 @@ extension DetailBrandViewController : UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BrandCollectionViewCell.identifier, for: indexPath) as! HomeRecommendCollectionViewCell
-        cell.capacityLabel.isHidden = true
-        cell.descriptionLabel.isHidden = true
-        cell.brandLabel.font = .pretendard(.Regular, size: 12)
-        cell.perfumeLabel.font = .pretendard(.Regular, size: 16)
-        cell.brandLabel.text = self.brandinfo!.relativePerfumes[indexPath.row].brand.kor
-        cell.perfumeLabel.text = self.brandinfo!.relativePerfumes[indexPath.row].kor
-        let url = URL(string: (self.brandinfo?.relativePerfumes[indexPath.row].image) ?? APIConstants.noImage)
-        cell.Img.kf.setImage(with: url)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PerfumeCollectionViewCell.identifier, for: indexPath) as! PerfumeCollectionViewCell
+     
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

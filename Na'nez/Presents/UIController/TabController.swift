@@ -14,7 +14,7 @@ class TabController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.delegate = self
-        let vc1 = UINavigationController(rootViewController: HomeViewController())
+        let vc1 = UINavigationController(rootViewController: HomeViewController(HomeViewModel(usecase: HomeUseCase(repository: HomeRepository(homeService: HomeService())))))
         vc1.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
         vc1.navigationBar.isHidden = true
         vc1.tabBarItem.image = UIImage(systemName: "house")

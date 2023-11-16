@@ -8,6 +8,7 @@
 import UIKit
 
 class BannerView: UIView{
+ 
 
     public var nowPage: Int = 0 {
         didSet {
@@ -16,10 +17,15 @@ class BannerView: UIView{
     }
     
     public let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
-        $0.register(HomeRecommendCollectionViewCell.self, forCellWithReuseIdentifier: HomeRecommendCollectionViewCell.identifier)
+        $0.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        
         $0.collectionViewLayout = layout
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 5
+        layout.itemSize = .init(width: 375, height: 240)
+        layout.sectionInsetReference = .fromContentInset
+        layout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 20)
         $0.decelerationRate = .fast
         $0.backgroundColor = .clear
         $0.contentInsetAdjustmentBehavior = .never
@@ -67,6 +73,4 @@ class BannerView: UIView{
         super.init(coder: aDecoder)
 
     }
-    
-
 }

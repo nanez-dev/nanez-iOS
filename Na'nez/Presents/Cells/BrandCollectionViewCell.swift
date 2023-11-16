@@ -9,25 +9,26 @@ import UIKit
 
 class BrandCollectionViewCell: UICollectionViewCell {
     static let identifier = "BrandCollectionViewCell"
-    public var Img = UIImageView().then{
+    
+    private var Img = UIImageView().then{
         $0.backgroundColor = .clear
         $0.contentMode = .scaleAspectFit
         $0.layer.masksToBounds = true
     }
-    public let roundview = UIView().then{
+    private let roundview = UIView().then{
            $0.layer.cornerRadius = 12
            $0.layer.masksToBounds = true
            $0.layer.borderWidth = 1
            $0.layer.borderColor = UIColor(rgb: 0xEFEFEF).cgColor
            $0.backgroundColor = .clear
        }
-    public var brandLabel = UILabel().then{
+    private var brandLabel = UILabel().then{
         $0.text = "Brand"
         $0.textColor = UIColor(rgb: 0x111111)
         $0.font = .pretendard(.Regular, size: 14)
 
     }
-    public func layout(){
+    private func layout(){
         self.Img.snp.makeConstraints{
             $0.top.leading.trailing.bottom.equalToSuperview()
         }
@@ -43,11 +44,18 @@ class BrandCollectionViewCell: UICollectionViewCell {
         }
 
        }
-    public func addSubview(){
+    private func addSubview(){
         self.addSubview(roundview)
         self.addSubview(brandLabel)
         self.roundview.addSubview(Img)
       }
+    
+    func configureCell(_ item: BrandDTO) {
+        if let imageURL = URL(string: item.image) {
+            self.Img.kf.setImage(with: imageURL)
+        }
+        self.brandLabel.text = item.kor
+    }
        
        override init(frame: CGRect) {
            super.init(frame: .zero)

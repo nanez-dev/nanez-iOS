@@ -11,15 +11,17 @@ import ImageSlideshow
 import Then
 import AlamofireImage
 import Kingfisher
+import RxCocoa
+import RxSwift
 
 final class HomeViewController: BaseViewController {
-    private let BrandAPI = BrandService()
-    private var Popularbrands:[Brand] = []
-    private let AccordAPI = AccordService()
-    private var Totalaccord:[Accord] = []
-    private let PerfumeAPI = PerfumeService()
-    private var TotalPerfume:[Perfume] = []
     
+    // MARK: - Properties
+
+    private let viewModel: HomeViewModel
+    
+    // MARK: - UI
+
     public let allaccordBtn = UIButton().then{
         $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         $0.semanticContentAttribute = .forceRightToLeft
@@ -30,10 +32,6 @@ final class HomeViewController: BaseViewController {
         $0.tintColor = UIColor(hexString: "#999999")
         let config = UIImage.SymbolConfiguration(pointSize: 16)
         $0.setPreferredSymbolConfiguration(config, forImageIn: .normal)
-//        let underlineText = "모든 어코드보기"
-//        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
-//        let underlineAttributedString = NSAttributedString(string: underlineText, attributes: underlineAttribute)
-//        $0.setAttributedTitle(underlineAttributedString, for: .normal)
     }
     public let allbrandBtn = UIButton().then{
         $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
@@ -49,6 +47,10 @@ final class HomeViewController: BaseViewController {
     public let accordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
         $0.register(AccordCollectionViewCell.self, forCellWithReuseIdentifier: AccordCollectionViewCell.identifier)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 8
+        layout.itemSize = CGSize(width: 106, height: 134)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         $0.collectionViewLayout = layout
         $0.decelerationRate = .fast
         $0.isScrollEnabled = false
@@ -66,6 +68,16 @@ final class HomeViewController: BaseViewController {
     }
     public let brandCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 28
+
+        let numberOfColumns: CGFloat = 2.3
+
+        let collectionViewWidth = UIScreen.main.bounds.width
+        let cellWidth = (collectionViewWidth - (layout.minimumInteritemSpacing * (numberOfColumns - 1))) / numberOfColumns
+
+        layout.itemSize = CGSize(width: cellWidth, height: 116)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         $0.register(BrandCollectionViewCell.self, forCellWithReuseIdentifier: BrandCollectionViewCell.identifier)
         $0.collectionViewLayout = layout
         $0.decelerationRate = .fast
@@ -80,9 +92,20 @@ final class HomeViewController: BaseViewController {
         $0.textColor = UIColor(rgb: 0x333333)
         $0.backgroundColor = .clear
     }
-    public let Second_recommendCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
+    private let Second_recommendCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         let layout = UICollectionViewFlowLayout()
-        $0.register(HomeRecommendCollectionViewCell.self, forCellWithReuseIdentifier: HomeRecommendCollectionViewCell.identifier)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 28
+
+        let numberOfColumns: CGFloat = 2.3
+        let numberOfRows: CGFloat = 3.2
+
+        let collectionViewWidth = UIScreen.main.bounds.width
+        let cellWidth = (collectionViewWidth - (layout.minimumInteritemSpacing * (numberOfColumns - 1))) / numberOfColumns
+
+        layout.itemSize = CGSize(width: cellWidth, height: 216)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        $0.register(PerfumeCollectionViewCell.self, forCellWithReuseIdentifier: PerfumeCollectionViewCell.identifier)
         $0.collectionViewLayout = layout
         $0.decelerationRate = .fast
         $0.isScrollEnabled = false
@@ -90,6 +113,9 @@ final class HomeViewController: BaseViewController {
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
     }
+
+
+
     private let recommenLabel = UILabel().then{
         $0.text = "이런 향수는 어떠세요?"
         $0.font = .pretendard(.Bold, size: 20)
@@ -102,8 +128,10 @@ final class HomeViewController: BaseViewController {
         $0.backgroundColor = .gragray
     }
     public let recommendCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
-        $0.register(HomeRecommendCollectionViewCell.self, forCellWithReuseIdentifier: HomeRecommendCollectionViewCell.identifier)
+        $0.register(PerfumeCollectionViewCell.self, forCellWithReuseIdentifier: PerfumeCollectionViewCell.identifier)
         let layout = UICollectionViewFlowLayout()
+        layout.itemSize = .init(width: 200, height: 330)
+        layout.sectionInsetReference = .fromContentInset
         layout.scrollDirection = .horizontal
         $0.collectionViewLayout = layout
         $0.decelerationRate = .fast
@@ -111,12 +139,12 @@ final class HomeViewController: BaseViewController {
         $0.showsHorizontalScrollIndicator = false
     }
     private let commentLabel = UILabel().then {
-        $0.text = "어디서 좋은 향이 나네?"
+        $0.text = "a 나네?"
         $0.textColor = UIColor(rgb: 0x111111)
         $0.font = .pretendard(.Bold, size: 20)
     }
     private let subcommentLabel = UILabel().then{
-        $0.text = "오늘 나에게 맞는 향수를 찾아라!"
+        $0.text = "오늘 "
         $0.font = .pretendard(.Light, size: 16)
         $0.textColor = UIColor(rgb: 0x333333)
 
@@ -159,9 +187,29 @@ final class HomeViewController: BaseViewController {
     
     private let scrollView = UIScrollView()
     
+    // MARK: - Init
+
+    init(_ viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - App Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.updateHomeInfo()
+    }
+    
+    // MARK: - Private Methods
+
+    
     override func configure() {
-
-
+        viewModel.updateHomeInfo()
     }
     
     override func addview() {
@@ -219,8 +267,8 @@ final class HomeViewController: BaseViewController {
         }
         self.accordCollectionView.snp.makeConstraints{
             $0.top.equalTo(LastcommentLabel.snp.bottom).offset(24)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-22)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
             $0.height.equalTo(137)
         }
         self.LastcommentLabel.snp.makeConstraints{
@@ -236,9 +284,9 @@ final class HomeViewController: BaseViewController {
         }
         self.brandCollectionView.snp.makeConstraints{
             $0.top.equalTo(brandLabel.snp.bottom).offset(24)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-22)
-            $0.height.equalTo(670)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(400)
         }
         self.brandLabel.snp.makeConstraints{
             $0.top.equalTo(spacebarView2.snp.bottom).offset(32)
@@ -253,9 +301,9 @@ final class HomeViewController: BaseViewController {
         }
         self.Second_recommendCollectionView.snp.makeConstraints{
             $0.top.equalTo(recommenLabel.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-22)
-            $0.height.equalTo(815)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(720)
         }
         self.recommenLabel.snp.makeConstraints{
             $0.top.equalTo(spacebarView.snp.bottom).offset(32)
@@ -299,20 +347,61 @@ final class HomeViewController: BaseViewController {
         self.contentView.snp.makeConstraints{
             $0.width.equalToSuperview().offset(0)
             $0.edges.equalToSuperview().offset(0)
-            $0.height.equalTo(2780)
+            $0.height.equalTo(2403)
         }
     }
-
-}
-extension HomeViewController: HomeVeiwDelegate {
-    func allbrandBtnClick(_ homeView: HomeView) {
-        let vc = BrandtubeViewController()
-         vc.modalPresentationStyle = .fullScreen
-         self.present(vc,animated: false,completion: nil)
+    
+    override func binding() {
+        
+        viewModel.homeInfo
+            .bind(onNext: { [weak self] info in
+                self?.commentLabel.text = info.top_rolling_banner.title
+                self?.subcommentLabel.text = info.top_rolling_banner.subtitle
+                self?.recomandLabel.text = info.special_perfumes.title
+                self?.recommenLabel.text = info.recommend_perfumes.title
+                self?.brandLabel.text = info.popular_brands.title
+                self?.LastcommentLabel.text = info.recommend_accords.title
+            })
+            .disposed(by: disposebag)
+        
+        viewModel.bannerInfo
+            .bind(to: self.bannerView.collectionView.rx.items(cellIdentifier: BannerCell.identifier ,
+                                                              cellType: BannerCell.self))
+        { index, item, cell in
+            cell.configureCell(item)
+        }
+        .disposed(by: disposebag)
+        
+        viewModel.specialPerfumes
+            .bind(to: self.recommendCollectionView.rx
+                .items(cellIdentifier: PerfumeCollectionViewCell.identifier , cellType: PerfumeCollectionViewCell.self))
+        { index, item, cell in
+            cell.configureCell(item, true)
+        }
+            .disposed(by: disposebag)
+        
+        viewModel.recommendPerfumes
+            .bind(to: self.Second_recommendCollectionView.rx.items(cellIdentifier: PerfumeCollectionViewCell.identifier ,cellType: PerfumeCollectionViewCell.self))
+        {   index, item, cell in
+            cell.configureCell(item, false)
+        }
+        .disposed(by: disposebag)
+        
+        viewModel.popularBrands
+            .bind(to: self.brandCollectionView.rx.items(cellIdentifier: BrandCollectionViewCell.identifier, cellType: BrandCollectionViewCell.self))
+        {   index, item, cell in
+            cell.configureCell(item)
+        }
+        .disposed(by: disposebag)
+        
+        viewModel.recommendAccords
+            .bind(to: self.accordCollectionView.rx.items(cellIdentifier: AccordCollectionViewCell.identifier, cellType: AccordCollectionViewCell.self))
+        {   index, item, cell in
+            cell.configureCell(item)
+        }
+        .disposed(by: disposebag)
+        
+        
     }
-    func allaccordBtnClick(_ homeView: HomeView) {
-        let vc = AccordtubeViewController()
-         vc.modalPresentationStyle = .fullScreen
-         self.present(vc,animated: false,completion: nil)
-    }
+    
 }

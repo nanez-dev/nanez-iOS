@@ -7,33 +7,6 @@
 
 import Foundation
 
-struct PerfumeResponse: Codable {
-    let perfumes: [Perfume]
-}
-struct DetailPerfumeResponse: Codable {
-    let perfume: Perfume
-}
-struct Perfume: Codable {
-    let id: Int?
-    let brand: Brands?
-    let density: Density
-    let kor: String
-    let eng: String
-    let image: String?
-    let capacity: Int
-    let price: Int
-    let title: String
-    let subtitle: String
-    let is_single: Bool?
-    let perfume_accords: [PerfumeAccord]
-    let perfume_notes: [PerfumeNote]
-    let perfume_tags: [PerfumeTag]
-    let web_image1: String?
-    let web_image2: String?
-    let is_having: Bool?
-    let is_wish: Bool?
-}
-
 struct Brands: Codable {
     let id: Int?
     let eng: String
@@ -46,12 +19,6 @@ struct Density: Codable {
     let name: String
 }
 
-struct PerfumeAccord: Codable {
-    let id: Int?
-    let accord_id: Int
-    let perfume_id: Int
-    let accord: Accords
-}
 
 struct Accords: Codable {
     let eng: String

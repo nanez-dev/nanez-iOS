@@ -62,14 +62,7 @@ extension AccordtubeViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AccordCollectionViewCell.identifier, for: indexPath) as! AccordCollectionViewCell
-        cell.roundview.layer.borderWidth = 0
- 
-            let accordinfo = Totalaccord[indexPath.row]
-            cell.accordLabel.text = accordinfo.kor
-            if let imageURL = URL(string: accordinfo.image) {
-                cell.Img.kf.setImage(with: imageURL)
-
-        }
+  
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

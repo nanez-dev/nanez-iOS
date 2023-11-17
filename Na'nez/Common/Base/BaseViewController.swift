@@ -12,9 +12,11 @@ import SnapKit
 import RxCocoa
 
 class BaseViewController: UIViewController {
+    var disposebag = DisposeBag()
     func layout(){}
     func configure(){}
     func addview() {}
+    func binding() {}
 
     // MARK: 탭시 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -26,5 +28,6 @@ class BaseViewController: UIViewController {
         self.configure()
         self.addview()
         self.layout()
+        self.binding()
     }
 }

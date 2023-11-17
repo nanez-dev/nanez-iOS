@@ -10,7 +10,7 @@ import UIKit
 class BannerCell: UICollectionViewCell {
     static let identifier = "BannerCell"
     
-    public var BannerImg = UIImageView().then {
+    private var BannerImg = UIImageView().then {
         $0.backgroundColor = .clear
         $0.contentMode = .scaleAspectFit
         $0.layer.masksToBounds = true
@@ -24,6 +24,12 @@ class BannerCell: UICollectionViewCell {
     
     private func addview() {
         self.addSubview(BannerImg)
+    }
+    
+    func configureCell(_ item: RollingBannerItemDTO) {
+        if let imageURL = URL(string: item.image) {
+            BannerImg.kf.setImage(with: imageURL)
+        }
     }
     
     override init(frame: CGRect) {

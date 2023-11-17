@@ -80,20 +80,12 @@ extension BrandtubeViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == brandtubeView.brandCollectionView2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BrandCollectionViewCell.identifier, for: indexPath) as! BrandCollectionViewCell
-            let brandinfo = self.brands[indexPath.row]
-            cell.brandLabel.text = brandinfo.kor
-            if let imageURL = URL(string: brandinfo.image ?? APIConstants.noImage) {
-                cell.Img.kf.setImage(with: imageURL)
-            }
+
             return cell
         }
         else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BrandCollectionViewCell.identifier, for: indexPath) as! BrandCollectionViewCell
-            let brandinfo = self.popularBrands[indexPath.row]
-            cell.brandLabel.text = brandinfo.kor
-            if let imageURL = URL(string: brandinfo.image ?? APIConstants.noImage) {
-                cell.Img.kf.setImage(with: imageURL)
-            }
+    
             return cell
         }
 

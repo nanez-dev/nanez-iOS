@@ -7,36 +7,27 @@
 
 import Foundation
 import Alamofire
+import RxSwift
 
-
-class PerfumeService
-{
-    func getAllPerfumes(offset: Int, limit: Int,completion: @escaping (Result<[Perfume], Error>) -> Void) {
-        let url = APIConstants.baseURL + "/perfume"
-        let parameters: Parameters = [
-            "offset": offset,
-            "limit": limit
-        ]
-        AF.request(url, parameters: parameters).responseDecodable(of: PerfumeResponse.self) { response in
-                  switch response.result {
-                  case .success(let response):
-                      completion(.success(response.perfumes))
-                  case .failure(let error):
-                      completion(.failure(error))
-                  }
-        }
-    }
-    func getPerfumeDetailInfo(id: Int,completion: @escaping (Result<Perfume, Error>) -> Void) {
-
+class PerfumeService {
+    func getPerfumeDetailInfo(id:Int) -> Single<DetailPerfumeResponse> {
         let url = APIConstants.baseURL + "/perfume/\(id)"
-        AF.request(url).responseDecodable(of: DetailPerfumeResponse.self) { response in
-                  switch response.result {
-                  case .success(let response):
-                      completion(.success(response.perfume))
-                  case .failure(let error):
-                      completion(.failure(error))
-                      print("세부향수불러오기 실패 \(error)")
-                  }
+        
+        return Single<DetailPerfumeResponse>.create { observer in
+            AF.request(url)
+                .responseDecodable(of: DetailPerfumeResponse.self) { res in
+                    switch res.result {
+                    case .success(let response):
+                        observer(.success(response))
+                    case .failure(let error):
+                        print("상세향수 API 에러:\(error)")
+                        if let decodingError = error.underlyingError as? DecodingError {
+                            print("디코딩 에러 디버그 설명:", decodingError.localizedDescription)
+                        }
+                    }
+                }
+            return Disposables.create()
+            
         }
     }
 }

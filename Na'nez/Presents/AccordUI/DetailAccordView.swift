@@ -9,7 +9,7 @@ import UIKit
 
 class DetailAccordView: BaseView {
     public let accordPerfumeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
-        $0.register(HomeRecommendCollectionViewCell.self, forCellWithReuseIdentifier: HomeRecommendCollectionViewCell.identifier)
+        $0.register(PerfumeCollectionViewCell.self, forCellWithReuseIdentifier: PerfumeCollectionViewCell.identifier)
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         $0.collectionViewLayout = layout

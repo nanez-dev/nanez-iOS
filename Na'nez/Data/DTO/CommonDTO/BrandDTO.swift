@@ -13,9 +13,3 @@ struct BrandDTO: Codable {
     let eng: String
     let kor: String
 }
-// 인기 브랜드 목록 DTO
-
-struct PopularBrandsDTO: Codable {
-    let title: String
-    let list: [BrandDTO]
-}

@@ -15,9 +15,3 @@ struct AccordDTO: Codable {
     let eng: String
     let image: String
 }
-
-// 추천 어코드 목록 DTO
-struct RecommendAccordsDTO: Codable {
-    let title: String
-    let list: [AccordDTO]
-}

@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol DetailPerfumeRepositoryInterface {
-    func getPerfumeInfo(with id: Int) -> Single<DetailPerfumeDTO>
+    func getPerfumeInfo(with id: Int) -> Single<DetailPerfumeResponse>
 }
 
 class DetailPerfumeRepository: DetailPerfumeRepositoryInterface {
@@ -20,7 +20,7 @@ class DetailPerfumeRepository: DetailPerfumeRepositoryInterface {
         self.detailPerfumeService = detailPerfumeService
     }
     
-    func getPerfumeInfo(with id: Int) -> Single<DetailPerfumeDTO> {
+    func getPerfumeInfo(with id: Int) -> Single<DetailPerfumeResponse> {
         return detailPerfumeService.getPerfumeDetailInfo(id: id)
     }
 }

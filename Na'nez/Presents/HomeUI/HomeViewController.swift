@@ -401,7 +401,19 @@ final class HomeViewController: BaseViewController {
         }
         .disposed(by: disposebag)
         
-        
+        recommendCollectionView.rx.modelSelected(PerfumeDTO.self)
+            .bind(onNext: { [weak self] cell in
+                self?.pushPerfumeDetail(id: cell.id)
+            })
+            .disposed(by: disposebag)
     }
-    
+}
+
+// TODO: - 화면전환
+extension HomeViewController {
+    private func pushPerfumeDetail(id: Int) {
+        let usecase = DetailPerfumeUseCase(repository: DetailPerfumeRepository(detailPerfumeService: PerfumeService()))
+        let vc = DetailPerfumeViewController(DetailPerfumeViewModel(usecase: usecase, id: id))
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

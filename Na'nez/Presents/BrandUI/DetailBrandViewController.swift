@@ -66,20 +66,7 @@ extension DetailBrandViewController : UICollectionViewDelegate, UICollectionView
             }
         return CGSize(width: 0, height: 0)
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.PerfumeAPI.getPerfumeDetailInfo(id: self.brandinfo!.relativePerfumes[indexPath.row].id) { respnse in
-            switch respnse{
-            case .success(let result):
-                print(result)
-               let vc = DetailPerfumeViewController()
-                vc.PefumeInfo = result
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc,animated: false,completion: nil)
-            case .failure(_):
-                print("향수상세정보 오류")
-            }
-        }
-    }
+
 }
 extension DetailBrandViewController: CustomNaviBarDelegate {
     func backBtnClick(_ navibar: CustomNaviBar) {

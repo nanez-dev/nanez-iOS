@@ -6,7 +6,21 @@
 //
 
 import Foundation
+import RxSwift
 
-class HomeRepository{
+protocol HomeRepositoryInterface {
+    func getHomeInfo() -> Single<PerfumeDataDTO>
+}
+
+class HomeRepository: HomeRepositoryInterface {
     
+    private let homeService: HomeService
+    
+    init(homeService: HomeService) {
+        self.homeService = homeService
+    }
+
+    func getHomeInfo() -> Single<PerfumeDataDTO> {
+        return homeService.getHomeInfo()
+    }
 }

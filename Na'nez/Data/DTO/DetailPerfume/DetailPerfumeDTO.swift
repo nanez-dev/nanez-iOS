@@ -27,3 +27,7 @@ struct DetailPerfumeDTO: Codable {
     let is_having: Bool?
     let is_wish: Bool?
 }
+
+struct DetailPerfumeResponse: Codable {
+    let perfume: DetailPerfumeDTO
+}

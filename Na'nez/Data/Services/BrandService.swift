@@ -7,43 +7,40 @@
 
 import Foundation
 import Alamofire
-
+import RxSwift
 
 class BrandService{
-    func getPoularBrands(completion: @escaping (Result<BrandList, Error>) -> Void) {
-        let url = APIConstants.baseURL + "/brand/popular"
-        AF.request(url).responseDecodable(of: BrandList.self) { response in
-            switch response.result {
-            case .success(let brandList):
-                completion(.success(brandList))
-            case .failure(let error):
-                print("/brand/popular 오류:",error)
-            }
-        }
-    }
-    func getBrandDetail(brand_id:Int,limit:Int,completion: @escaping(Result<DetailBrandInfo,Error>)-> Void){
-        let url = APIConstants.baseURL + "/brand/\(brand_id)"
-        let parameters: Parameters = [
-             "limit": limit,
-         ]
-        AF.request(url, parameters: parameters).responseDecodable(of: DetailBrandInfo.self) { response in
-            switch response.result {
-            case .success(let detailBrand):
-                completion(.success(detailBrand))
-            case .failure(let error):
-                print("/brand/Detail 오류:", error)
-            }
-        }
-    }
-    func getAllBrand(completion: @escaping (Result<BrandList, Error>) -> Void) {
+    func getAllBrand() -> Single<AllBrandDTO> {
         let url = APIConstants.baseURL + "/brand"
-        AF.request(url).responseDecodable(of: BrandList.self) { response in
-            switch response.result {
-            case .success(let brandList):
-                completion(.success(brandList))
-            case .failure(let error):
-                print("/brand(모든) 오류:",error)
-            }
+        
+        return Single<AllBrandDTO>.create { observer in
+            AF.request(url)
+                .responseDecodable(of: AllBrandDTO.self) { res in
+                    switch res.result {
+                    case .success(let response):
+                        observer(.success(response))
+                    case .failure(let error):
+                        print("모든브랜드 API 에러:\(error)")
+                    }
+                }
+            return Disposables.create()
+        }
+    }
+    
+    func getPopularBrand() -> Single<PopularBrandDTO> {
+        let url = APIConstants.baseURL + "/brand/popular"
+        
+        return Single<PopularBrandDTO>.create { observer in
+            AF.request(url)
+                .responseDecodable(of: PopularBrandDTO.self) { res in
+                    switch res.result {
+                    case .success(let response):
+                        observer(.success(response))
+                    case .failure(let error):
+                        print("인기브랜드 API 에러:\(error)")
+                    }
+                }
+            return Disposables.create()
         }
     }
 }

@@ -406,6 +406,13 @@ final class HomeViewController: BaseViewController {
                 self?.pushPerfumeDetail(id: cell.id)
             })
             .disposed(by: disposebag)
+        
+        allbrandBtn.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                self?.pushAllBrand()
+            })
+            .disposed(by: disposebag)
     }
 }
 
@@ -414,6 +421,14 @@ extension HomeViewController {
     private func pushPerfumeDetail(id: Int) {
         let usecase = DetailPerfumeUseCase(repository: DetailPerfumeRepository(detailPerfumeService: PerfumeService()))
         let vc = DetailPerfumeViewController(DetailPerfumeViewModel(usecase: usecase, id: id))
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    private func pushBrandDetail(id:Int) {
+        let vc = DetailBrandViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    private func pushAllBrand() {
+        let vc = BrandtubeViewController(BrandViewModel(usecase: BrandUseCase(BrandRepository(BrandService()))))
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

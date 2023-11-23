@@ -407,6 +407,13 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: disposebag)
         
+        brandCollectionView.rx.modelSelected(BrandDTO.self)
+            .bind(onNext: {
+                [weak self] cell in
+                    self?.pushBrandDetail(id: cell.id)
+            })
+            .disposed(by: disposebag)
+
         allbrandBtn.rx.tap
             .asDriver()
             .drive(onNext: { [weak self] _ in
@@ -424,7 +431,7 @@ extension HomeViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     private func pushBrandDetail(id:Int) {
-        let vc = DetailBrandViewController()
+        let vc = DetailBrandViewController(BrandViewModel(usecase: BrandUseCase(BrandRepository(BrandService()))),id: id)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     private func pushAllBrand() {

@@ -11,9 +11,10 @@ import RxSwift
 protocol BrandRepositoryProtocol {
     func getAllBrand() -> Single<AllBrandDTO>
     func getPopularBrand() -> Single<PopularBrandDTO>
+    func getDetailBrandInfo(with id: Int,with limit:Int) -> Single<DetailBrandDTO>
 }
 
-class BrandRepository:BrandRepositoryProtocol {
+final class BrandRepository:BrandRepositoryProtocol {
     
     let service:BrandService
     
@@ -23,6 +24,10 @@ class BrandRepository:BrandRepositoryProtocol {
     
     func getPopularBrand() -> RxSwift.Single<PopularBrandDTO> {
         return service.getPopularBrand()
+    }
+    
+    func getDetailBrandInfo(with id: Int, with limit: Int) -> Single<DetailBrandDTO> {
+        return service.getDetailBrandInfo(id: id, limit: limit)
     }
     
     init(_ service:BrandService) {

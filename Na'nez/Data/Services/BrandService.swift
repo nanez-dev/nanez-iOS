@@ -43,4 +43,21 @@ class BrandService{
             return Disposables.create()
         }
     }
+    
+    func getDetailBrandInfo(id:Int, limit:Int) -> Single<DetailBrandDTO> {
+        let url = APIConstants.baseURL + "/brand/\(id)?limit=\(limit)"
+        
+        return Single<DetailBrandDTO>.create {  observer in
+            AF.request(url)
+                .responseDecodable(of: DetailBrandDTO.self) { res in
+                    switch res.result {
+                    case .success(let response):
+                        observer(.success(response))
+                    case .failure(let error):
+                        print("브랜드디테일API에러:\(error)")
+                    }
+                }
+            return Disposables.create()
+        }
+    }
 }

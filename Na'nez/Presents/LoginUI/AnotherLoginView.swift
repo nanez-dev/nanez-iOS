@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class AnotherLoginsView: UIView {
+class AnotherLoginView: UIView {
     
     var onAppleLoginClicked: (() -> Void)?
     var onNaverLoginClicked: (() -> Void)?
@@ -151,19 +151,19 @@ class AnotherLoginsView: UIView {
     }
     
     @objc func appleLoginButtonClicked() {
-        print("appleLoginButtonClicked")
+        onAppleLoginClicked?()
     }
     
     @objc func naverLoginButtonClicked() {
-        print("naverLoginButtonClicked")
+        onNaverLoginClicked?()
     }
     
     @objc func googleLoginButtonClicked() {
-        print("googleLoginButtonClicked")
+        onGoogleLoginClicked?()
     }
     
     @objc func emailLoginButtonClicked() {
-        print("emailLoginButtonClicked")
+        onEmailLoginClicked?()
     }
 }
 

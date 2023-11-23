@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct UserInfo {
+    var access_token: String?
+    var refresh_token: String?
+}

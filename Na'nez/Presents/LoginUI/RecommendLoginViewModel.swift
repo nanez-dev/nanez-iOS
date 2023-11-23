@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import RxSwift
+
+class RecommendLoginViewModel {
+    let loginResult: PublishSubject<Bool> = PublishSubject()
+
+    func performKakaoLogin() {
+        loginResult.onNext(true)
+    }
+
+    func performAnotherLogin() {
+        loginResult.onNext(false)
+    }
+
+    func startAsGuest() {
+        loginResult.onNext(true)
+    }
+}

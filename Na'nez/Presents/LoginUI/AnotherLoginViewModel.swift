@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class AnotherLoginsViewModel {
+class AnotherLoginViewModel {
     let loginResult: PublishSubject<Bool> = PublishSubject()
     
     func performAppleLogin() {

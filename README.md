@@ -15,10 +15,9 @@
 ## 🛠️ Skill
 
 ### Architecture
+-  `Clean Architecture` + `MVVM`
+<img width="691" alt="스크린샷 2023-11-23 오후 2 22 56" src="https://github.com/nanez-dev/nanez-iOS/assets/114370871/05dd3ddf-8ace-4dd1-bb91-9b074d965e1d">
 
-
-
--  `Clean Architecture` + `MVVM` 
     
 </br>
 

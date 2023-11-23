@@ -1,5 +1,5 @@
 //
-//  LoginModel.swift
+//  UserInfo.swift
 //  Na'nez
 //
 //  Created by KIM Hyung Jun on 11/23/23.

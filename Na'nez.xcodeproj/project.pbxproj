@@ -93,6 +93,12 @@
 		09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6AC2A7CC4FE001645AA /* brandModel.swift */; };
 		09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B02A7CC553001645AA /* accordModel.swift */; };
 		09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */; };
+		BD8AC1A02B10A1EC001C78A1 /* TermsConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC19F2B10A1EC001C78A1 /* TermsConditionViewModel.swift */; };
+		BD8AC1A22B10A1FE001C78A1 /* TermsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */; };
+		BD8AC1A42B10A20C001C78A1 /* TermsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */; };
+		BD8AC1A62B10A223001C78A1 /* TermsConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A52B10A223001C78A1 /* TermsConditionView.swift */; };
+		BD8AC1A82B10A230001C78A1 /* TermsConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A72B10A230001C78A1 /* TermsConditionViewController.swift */; };
+		BD8AC1AE2B10E483001C78A1 /* TermsAgreement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1AD2B10E483001C78A1 /* TermsAgreement.swift */; };
 		BDA0DE112B0F47E800850839 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */; };
 		BDA0DE132B0F480C00850839 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */; };
 		BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */; };
@@ -189,6 +195,12 @@
 		09F7D6AC2A7CC4FE001645AA /* brandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brandModel.swift; sourceTree = "<group>"; };
 		09F7D6B02A7CC553001645AA /* accordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accordModel.swift; sourceTree = "<group>"; };
 		09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandtubeViewController.swift; sourceTree = "<group>"; };
+		BD8AC19F2B10A1EC001C78A1 /* TermsConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionViewModel.swift; sourceTree = "<group>"; };
+		BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsUseCase.swift; sourceTree = "<group>"; };
+		BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsRepository.swift; sourceTree = "<group>"; };
+		BD8AC1A52B10A223001C78A1 /* TermsConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionView.swift; sourceTree = "<group>"; };
+		BD8AC1A72B10A230001C78A1 /* TermsConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionViewController.swift; sourceTree = "<group>"; };
+		BD8AC1AD2B10E483001C78A1 /* TermsAgreement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreement.swift; sourceTree = "<group>"; };
 		BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
 		BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginUseCase.swift; sourceTree = "<group>"; };
@@ -371,6 +383,7 @@
 				0969A5462B0516F900883862 /* HomeRepository.swift */,
 				09972CDC2B05FD2300923CA5 /* DetailPerfumeRepository.swift */,
 				BDA0DE162B0F482A00850839 /* EmailLoginRepository.swift */,
+				BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -414,6 +427,7 @@
 				09F7D6B02A7CC553001645AA /* accordModel.swift */,
 				BDA0DE182B0F484200850839 /* UserInfo.swift */,
 				BDA0DE1C2B0F492700850839 /* LoginModel.swift */,
+				BD8AC1AD2B10E483001C78A1 /* TermsAgreement.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -424,6 +438,7 @@
 				0969A54F2B051C4400883862 /* HomeUseCase.swift */,
 				09972CDA2B05FCF100923CA5 /* DetailPerfumeUseCase.swift */,
 				BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */,
+				BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -569,6 +584,9 @@
 		BDA0DE0F2B0F47D500850839 /* JoinUI */ = {
 			isa = PBXGroup;
 			children = (
+				BD8AC19F2B10A1EC001C78A1 /* TermsConditionViewModel.swift */,
+				BD8AC1A52B10A223001C78A1 /* TermsConditionView.swift */,
+				BD8AC1A72B10A230001C78A1 /* TermsConditionViewController.swift */,
 			);
 			path = JoinUI;
 			sourceTree = "<group>";
@@ -687,8 +705,10 @@
 				09296F452AA072E500D724B1 /* DetailAccordView.swift in Sources */,
 				09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */,
 				0969A5552B05236900883862 /* AccordDTO.swift in Sources */,
+				BD8AC1AE2B10E483001C78A1 /* TermsAgreement.swift in Sources */,
 				0969A54C2B051ADF00883862 /* ViewModelType.swift in Sources */,
 				BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */,
+				BD8AC1A82B10A230001C78A1 /* TermsConditionViewController.swift in Sources */,
 				BDA0DE1D2B0F492700850839 /* LoginModel.swift in Sources */,
 				097B769A2AA9A9F1009B3708 /* AccordtubeView.swift in Sources */,
 				09972CE92B06011500923CA5 /* PerfumeTagDTO.swift in Sources */,
@@ -699,6 +719,7 @@
 				0999E2C62A62C954002042EF /* PerfumeService.swift in Sources */,
 				09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */,
 				09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */,
+				BD8AC1A62B10A223001C78A1 /* TermsConditionView.swift in Sources */,
 				09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */,
 				094BCD132A6142610012A404 /* PerfumeCollectionViewCell.swift in Sources */,
 				0969A55B2B0523B900883862 /* BannerDTO.swift in Sources */,
@@ -713,12 +734,14 @@
 				0969A55D2B0523E800883862 /* PerfumeDTO.swift in Sources */,
 				0969A5522B05200800883862 /* HomeDTO.swift in Sources */,
 				0969A55F2B0528F300883862 /* HomeService.swift in Sources */,
+				BD8AC1A22B10A1FE001C78A1 /* TermsUseCase.swift in Sources */,
 				0999E2C42A62C949002042EF /* BrandService.swift in Sources */,
 				094BCD112A613B8B0012A404 /* Fonts.swift in Sources */,
 				09972CE52B05FF9500923CA5 /* PerfumeAccordDTO.swift in Sources */,
 				094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */,
 				094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */,
 				BDA0DE282B0F705300850839 /* RecommendLoginViewController.swift in Sources */,
+				BD8AC1A42B10A20C001C78A1 /* TermsRepository.swift in Sources */,
 				09972CE72B0600F300923CA5 /* PerfumeNoteDTO.swift in Sources */,
 				0969A5592B0523A400883862 /* BrandDTO.swift in Sources */,
 				09C59E742AD86F2100A631A7 /* QuadPageControl.swift in Sources */,
@@ -745,6 +768,7 @@
 				09972CEF2B06022700923CA5 /* TagDTO.swift in Sources */,
 				0969A5472B0516F900883862 /* HomeRepository.swift in Sources */,
 				0926A9D12B0C7C29004E3D00 /* temapAccordDTO.swift in Sources */,
+				BD8AC1A02B10A1EC001C78A1 /* TermsConditionViewModel.swift in Sources */,
 				0969A5502B051C4400883862 /* HomeUseCase.swift in Sources */,
 				09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */,
 				09C59E7B2AD8774700A631A7 /* WishListCollectionViewCell.swift in Sources */,

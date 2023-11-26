@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct TermsAgreement {
+    var isServiceTermsAgreed: Bool
+    var isPrivacyTermsAgreed: Bool
+    var isMarketingAgreed: Bool
+}

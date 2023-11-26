@@ -58,7 +58,13 @@ class AnotherLoginViewController: UIViewController {
     
     private func showEmailLogin() {
         let emailLoginVC = EmailLoginViewController()
+        
+        let emailLoginUseCase = EmailLoginUseCase(repository: EmailLoginRepository(loginService: LoginService()))
+        let emailLoginViewModel = EmailLoginViewModel(useCase: emailLoginUseCase)
+        
+        emailLoginVC.setViewModel(viewModel: emailLoginViewModel)
         navigationController?.pushViewController(emailLoginVC, animated: true)
     }
     
 }
+

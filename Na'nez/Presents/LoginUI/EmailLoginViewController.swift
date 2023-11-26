@@ -17,13 +17,13 @@ class EmailLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.addSubview(emailLoginView)
-        
         configure()
         setupBindings()
     }
     
     private func configure() {
+        self.view.addSubview(emailLoginView)
+        
         self.emailLoginView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.bottom.leading.trailing.equalToSuperview()
@@ -42,8 +42,8 @@ class EmailLoginViewController: UIViewController {
         }
 
         emailLoginView.onJoinButtonClicked = { [weak self] in
-            // 회원가입 로직 처리
             print("회원가입 버튼 클릭")
+            self?.showTermsConditionView()
         }
 
         viewModel.loginResult
@@ -51,10 +51,11 @@ class EmailLoginViewController: UIViewController {
             .subscribe(onNext: { [weak self] isSuccess in
                 if isSuccess {
                     // 로그인 성공 처리, 예: 다른 화면으로 이동
+                    self?.emailLoginView.indicateEmailAvailable()
                     print("로그인 성공")
                 } else {
                     // 로그인 실패 처리, 예: 에러 메시지 표시
-//                    self?.emailLoginView.showFailureMessage()
+                    self?.emailLoginView.indicateLoginFailure()
                     print("로그인 실패")
                 }
             }).disposed(by: disposeBag)
@@ -63,4 +64,13 @@ class EmailLoginViewController: UIViewController {
     func setViewModel(viewModel: EmailLoginViewModel) {
         self.viewModel = viewModel
     }
+    
+    private func showTermsConditionView() {
+        let termsRepository = TermsRepository()
+        let termsUseCase = TermsUseCase(repository: termsRepository)
+        let termsViewModel = TermsConditionViewModel(termsUseCase: termsUseCase)
+        let termsConditionVC = TermsConditionViewController(viewModel: termsViewModel)
+        present(termsConditionVC, animated: true)
+    }
 }
+

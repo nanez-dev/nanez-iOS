@@ -156,6 +156,7 @@ class EmailLoginView: UIView {
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
         }
+        
     }
     
     func indicateLoginFailure() {
@@ -163,6 +164,16 @@ class EmailLoginView: UIView {
         emailField.layer.borderColor = UIColor.red.cgColor
         pwField.layer.borderWidth = 1
         pwField.layer.borderColor = UIColor.red.cgColor
+        
+        failureNoticeLabel.text = "* 이메일 또는 비밀번호가 일치하지 않습니다."
+        failureNoticeLabel.isHidden = false
+    }
+    
+    func indicateEmailAvailable() {
+        emailField.layer.borderWidth = 1
+        emailField.layer.borderColor = #colorLiteral(red: 0.2638565898, green: 0.6260595918, blue: 0.9594424367, alpha: 1)
+        pwField.layer.borderWidth = 1
+        pwField.layer.borderColor = #colorLiteral(red: 0.2638565898, green: 0.6260595918, blue: 0.9594424367, alpha: 1)
     }
     
     // 로그인 버튼 클릭 핸들러
@@ -177,3 +188,4 @@ class EmailLoginView: UIView {
         onJoinButtonClicked?()
     }
 }
+

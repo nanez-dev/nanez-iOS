@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct TermsOfService {
+    let id: String
+    let title
+}

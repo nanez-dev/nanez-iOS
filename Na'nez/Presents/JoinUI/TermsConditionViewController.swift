@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SafariServices
 
 class TermsConditionViewController: UIViewController {
     private let termsConditionView: TermsConditionView = TermsConditionView(frame: .zero)
@@ -42,6 +43,12 @@ class TermsConditionViewController: UIViewController {
     }
     
     private func bindViewModel() {
+        
+        termsConditionView.backButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.dismiss(animated: true, completion: nil)
+            }).disposed(by: disposeBag)
+        
         termsConditionView.checkboxButton1.rx.tap
             .bind(to: viewModel.inputServiceAgreement)
             .disposed(by: disposeBag)
@@ -64,6 +71,14 @@ class TermsConditionViewController: UIViewController {
             }
             .bind(to: viewModel.inputAllAgreements)
             .disposed(by: disposeBag)
+        
+        termsConditionView.agreeButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self, self.termsConditionView.agreeButton.isEnabled else { return }
+                print("동의합니다")
+                
+                showSelectEmailVC()
+            }).disposed(by: disposeBag)
     
         
         viewModel.agreementStatus()
@@ -85,6 +100,34 @@ class TermsConditionViewController: UIViewController {
                 self?.termsConditionView.agreeButton.isEnabled = requiredAgreed
                 self?.termsConditionView.agreeButton.backgroundColor = requiredAgreed ? UIColor(named: "mainturquoise") : #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
             }).disposed(by: disposeBag)
+        
+        termsConditionView.selectButton1.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.openWebPage(urlString: "https://nanez.notion.site/Na-nez-3d1026fa415d44f2afb456bc24bbf6dc")
+            }).disposed(by: disposeBag)
+        
+        termsConditionView.selectButton2.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.openWebPage(urlString: "https://nanez.notion.site/Na-nez-ba8a5a47341a455ba26cbb3807be2585")
+            }).disposed(by: disposeBag)
+        
+        termsConditionView.selectButton3.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.openWebPage(urlString: "https://nanez.notion.site/Na-nez-SNS-3f74db9bc4d64415ba2d775268290a8c")
+            }).disposed(by: disposeBag)
+    }
+    
+    private func openWebPage(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        self.present(safariViewController, animated: true, completion: nil)
+    }
+    
+    private func showSelectEmailVC() {
+        let selectEmailVC = SelectEmailViewController()
+        selectEmailVC.modalPresentationStyle = .fullScreen
+        selectEmailVC.modalTransitionStyle = .crossDissolve
+        self.present(selectEmailVC, animated: true, completion: nil)
     }
 }
 

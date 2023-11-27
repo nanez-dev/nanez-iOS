@@ -8,14 +8,11 @@
 import UIKit
 import SnapKit
 import Then
-import RxSwift
-import RxCocoa
 
 class TermsConditionView: UIView {
     
     class var mainturquoise: UIColor { UIColor(named: "mainturquoise") ?? UIColor() }
     var viewModel: TermsConditionViewModel?
-    private let disposeBag = DisposeBag()
 
     let backButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false

@@ -7,7 +7,7 @@
 
 * 프로젝트 기간 : 2023.07.13 - 2023.12.30 (약 6개월)
 
-|[김형민](https://github.com/hyung6370)|[최지철](https://github.com/jife98)|
+|[김형준](https://github.com/hyung6370)|[최지철](https://github.com/jife98)|
 |:--:|:--:|
 |<img src="https://avatars.githubusercontent.com/u/81064963?v=4" width="150">|<img src="https://avatars.githubusercontent.com/u/114370871?v=4" width="150">
 </br>

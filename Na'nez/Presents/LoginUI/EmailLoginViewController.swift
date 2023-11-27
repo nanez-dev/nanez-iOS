@@ -70,6 +70,7 @@ class EmailLoginViewController: UIViewController {
         let termsUseCase = TermsUseCase(repository: termsRepository)
         let termsViewModel = TermsConditionViewModel(termsUseCase: termsUseCase)
         let termsConditionVC = TermsConditionViewController(viewModel: termsViewModel)
+        termsConditionVC.modalPresentationStyle = .fullScreen
         present(termsConditionVC, animated: true)
     }
 }

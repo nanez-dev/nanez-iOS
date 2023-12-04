@@ -262,7 +262,6 @@ class SelectEmailView: UIView {
                 $0.top.equalTo(emailAuthButton.snp.bottom).offset(15)
                 $0.height.equalTo(50)
             }
-            
             self.layoutIfNeeded()
         }
     }
@@ -270,5 +269,12 @@ class SelectEmailView: UIView {
     func updateEmailAuthButtonState(isEnabled: Bool) {
         emailAuthButton.isEnabled = isEnabled
         emailAuthButton.backgroundColor = isEnabled ? UIColor(named: "mainturquoise") : #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
+        let title = isEnabled ? "인증 확인" : "인증번호 전송"
+        emailAuthButton.setTitle(title, for: .normal)
+    }
+    
+    func updateEmailAuthButtonTitle(isVerified: Bool) {
+        let title = isVerified ? "인증 확인" : "인증번호 전송"
+        emailAuthButton.setTitle(title, for: .normal)
     }
 }

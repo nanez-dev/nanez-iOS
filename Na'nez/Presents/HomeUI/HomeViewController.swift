@@ -14,7 +14,7 @@ import Kingfisher
 import RxCocoa
 import RxSwift
 
-final class HomeViewController: BaseViewController {
+final class HomeViewController: BaseViewController, UICollectionViewDelegate {
     
     // MARK: - Properties
 
@@ -113,9 +113,6 @@ final class HomeViewController: BaseViewController {
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
     }
-
-
-
     private let recommenLabel = UILabel().then{
         $0.text = "이런 향수는 어떠세요?"
         $0.font = .pretendard(.Bold, size: 20)
@@ -407,6 +404,12 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: disposebag)
         
+        Second_recommendCollectionView.rx.modelSelected(PerfumeDTO.self)
+            .bind(onNext: { [weak self] cell in
+                self?.pushPerfumeDetail(id: cell.id)
+            })
+            .disposed(by: disposebag)
+        
         brandCollectionView.rx.modelSelected(BrandDTO.self)
             .bind(onNext: {
                 [weak self] cell in
@@ -420,6 +423,19 @@ final class HomeViewController: BaseViewController {
                 self?.pushAllBrand()
             })
             .disposed(by: disposebag)
+        
+        accordCollectionView.rx.modelSelected(AccordDTO.self)
+            .bind(onNext: { [weak self] cell in
+                self?.pushAccordDetail(id: cell.id)
+            })
+            .disposed(by: disposebag)
+        
+        allaccordBtn.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                self?.pushAllAccord()
+            })
+            .disposed(by: disposebag)
     }
 }
 
@@ -428,14 +444,27 @@ extension HomeViewController {
     private func pushPerfumeDetail(id: Int) {
         let usecase = DetailPerfumeUseCase(repository: DetailPerfumeRepository(detailPerfumeService: PerfumeService()))
         let vc = DetailPerfumeViewController(DetailPerfumeViewModel(usecase: usecase, id: id))
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     private func pushBrandDetail(id:Int) {
         let vc = DetailBrandViewController(BrandViewModel(usecase: BrandUseCase(BrandRepository(BrandService()))),id: id)
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     private func pushAllBrand() {
         let vc = BrandtubeViewController(BrandViewModel(usecase: BrandUseCase(BrandRepository(BrandService()))))
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    private func pushAllAccord() {
+        let vc = AccordtubeViewController(viewModle: AccordViewModel(usecase: AccordUseCase(AccordRepository(AccordService()))))
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    private func pushAccordDetail(id:Int) {
+        let vc = DetailAccordViewController()
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

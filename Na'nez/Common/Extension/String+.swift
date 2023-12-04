@@ -32,7 +32,7 @@ extension String{
         case "M":
             return "MiddleNote"
         case "B":
-            return "BottomNote"
+            return "BaseNote"
         default:
             return "TopNote"
         }

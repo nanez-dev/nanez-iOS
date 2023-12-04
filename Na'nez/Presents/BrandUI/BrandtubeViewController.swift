@@ -9,13 +9,6 @@ class BrandtubeViewController: BaseViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 7
         layout.minimumLineSpacing = 16
-//
-//        let numberOfColumns: CGFloat = 2.3
-//        let numberOfRows: CGFloat = 3.2
-//
-//        let collectionViewWidth = UIScreen.main.bounds.width
-//        let cellWidth = (collectionViewWidth - (layout.minimumInteritemSpacing * (numberOfColumns - 1))) / numberOfColumns
-
         layout.itemSize = CGSize(width: 164, height: 116)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         $0.register(BrandCollectionViewCell.self, forCellWithReuseIdentifier: BrandCollectionViewCell.identifier)

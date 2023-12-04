@@ -8,90 +8,129 @@
 import UIKit
 
 class AccordtubeViewController: BaseViewController {
-    private var Totalaccord:[Accord] = []
-    private var popularAccord:[Accord] = []
-    private let api = AccordService()
-    private let accordtubeView: AccordtubeView = AccordtubeView(frame: .zero)
+    
+    let viewModle:AccordViewModel
+    
     private let navibar: CustomNaviBar = CustomNaviBar(frame: .zero)
+    private let AllaccordtitleLabel = UILabel().then{
+        $0.text = "모든 어코드"
+        $0.font = .pretendard(.Bold, size: 20)
+        $0.textColor = UIColor(rgb: 0x333333)
+    }
+    public let AllaccordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 75, height: 84)
+        $0.register(AllAccordCollectionViewCell.self, forCellWithReuseIdentifier: AllAccordCollectionViewCell.identifier)
+        $0.collectionViewLayout = layout
+        $0.decelerationRate = .fast
+        $0.isScrollEnabled = false
+        $0.backgroundColor = .clear
+        $0.showsHorizontalScrollIndicator = false
+        $0.showsVerticalScrollIndicator = false
+        layout.minimumInteritemSpacing = 0
+
+    }
+    public let RecommendaccordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
+        let layout = UICollectionViewFlowLayout()
+        $0.register(AccordCollectionViewCell.self, forCellWithReuseIdentifier: AccordCollectionViewCell.identifier)
+        $0.collectionViewLayout = layout
+        $0.decelerationRate = .fast
+        $0.isScrollEnabled = false
+        $0.backgroundColor = .clear
+        $0.showsHorizontalScrollIndicator = false
+        $0.showsVerticalScrollIndicator = false
+        layout.minimumInteritemSpacing = 0
+    }
+    private let accordtitleLabel = UILabel().then{
+        $0.text = "지금, 사랑받고 있는 어코드"
+        $0.font = .pretendard(.Bold, size: 20)
+        $0.textColor = UIColor(rgb: 0x333333)
+    }
+    private let contentView = UIView().then{
+        $0.backgroundColor = .white
+    }
+    private let scrollView = UIScrollView()
+    
+    init(viewModle: AccordViewModel) {
+        self.viewModle = viewModle
+        viewModle.updateAllAccord()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    }
     
     override func configure(){
-        self.accordtubeView.RecommendaccordCollectionView.dataSource = self
-        self.accordtubeView.RecommendaccordCollectionView.delegate = self
-        self.accordtubeView.AllaccordCollectionView.dataSource = self
-        self.accordtubeView.AllaccordCollectionView.delegate = self
         self.navibar.delegate = self
         self.navibar.navititleLabel.text = "어코드관"
         self.navibar.searchBtn.isHidden = true
-        self.view.addSubview(accordtubeView)
         self.view.addSubview(navibar)
     }
+    
+    override func addview(){
+        self.view.addSubview(scrollView)
+        self.scrollView.addSubview(contentView)
+        self.contentView.addSubview(accordtitleLabel)
+        self.contentView.addSubview(RecommendaccordCollectionView)
+        self.contentView.addSubview(AllaccordCollectionView)
+        self.contentView.addSubview(AllaccordtitleLabel)
+    }
+    
     override func layout() {
         self.navibar.snp.makeConstraints{
             $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             $0.width.equalToSuperview().offset(0)
             $0.height.equalTo(52)
         }
-        self.accordtubeView.snp.makeConstraints{
-            $0.top.equalTo(navibar.snp.bottom)
-            $0.leading.bottom.trailing.equalToSuperview()
+        self.AllaccordCollectionView.snp.makeConstraints{
+            $0.top.equalTo(AllaccordtitleLabel.snp.bottom).offset(20)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(380)
+        }
+        self.AllaccordtitleLabel.snp.makeConstraints{
+            $0.top.equalTo(RecommendaccordCollectionView.snp.bottom).offset(50)
+            $0.leading.equalToSuperview().offset(16)
+        }
+        self.RecommendaccordCollectionView.snp.makeConstraints{
+            $0.top.equalTo(accordtitleLabel.snp.bottom).offset(20)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(150)
+
+        }
+        self.accordtitleLabel.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(26)
+            $0.leading.equalToSuperview().offset(16)
+        }
+        self.contentView.snp.makeConstraints{
+            $0.width.equalToSuperview().offset(0)
+            $0.edges.equalToSuperview().offset(0)
+            $0.height.equalTo(820)
+        }
+        self.scrollView.snp.makeConstraints{
+            $0.top.equalTo(self.navibar.snp.bottom)
+            $0.left.right.bottom.equalToSuperview()
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        self.api.getAccord { response in
-            switch response {
-            case .success(let accordList):
-                self.Totalaccord = accordList.accords
-                DispatchQueue.main.async {
-                    self.accordtubeView.AllaccordCollectionView.reloadData()
-                    self.accordtubeView.RecommendaccordCollectionView.reloadData()
-                }
-            case .failure(_):
-                break
-            }
-        }
-    }
-}
-extension AccordtubeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == accordtubeView.RecommendaccordCollectionView {
-            return min(5, Totalaccord.count)
-    }
-        else{
-            return Totalaccord.count
-        }
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AccordCollectionViewCell.identifier, for: indexPath) as! AccordCollectionViewCell
-  
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == accordtubeView.RecommendaccordCollectionView{
-            if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-                let cellWidth: CGFloat = (collectionView.bounds.width - layout.minimumInteritemSpacing) / 5.2
-                let cellHeight: CGFloat = (collectionView.bounds.height - layout.minimumLineSpacing) / 2
-                    return CGSize(width: cellWidth, height: cellHeight)
-                }
-            return CGSize(width: 0, height: 0)
-        }else{
-            if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-                let cellWidth: CGFloat = (collectionView.bounds.width - layout.minimumInteritemSpacing) / 5
-                let cellHeight: CGFloat = (collectionView.bounds.height - layout.minimumLineSpacing) / 4.2
-                    return CGSize(width: cellWidth, height: cellHeight)
-                }
-            return CGSize(width: 0, height: 0)
-        }
+    
+    override func binding() {
+//        viewModle.accords
+//            .bind(to: self.RecommendaccordCollectionView.rx.items(cellIdentifier: <#T##String#>))
         
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = DetailAccordViewController()
-         vc.modalPresentationStyle = .fullScreen
-         self.present(vc,animated: false,completion: nil)
+        viewModle.accords
+            .bind(to: self.AllaccordCollectionView.rx.items(cellIdentifier: AllAccordCollectionViewCell.identifier, cellType: AllAccordCollectionViewCell.self))
+        {   index, item, cell   in
+            cell.configureCell(item)
+        }
+        .disposed(by: disposebag)
     }
 }
 extension AccordtubeViewController: CustomNaviBarDelegate {
     func backBtnClick(_ navibar: CustomNaviBar) {
-        self.dismiss(animated: false)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func searchBtnClick(_ navibar: CustomNaviBar) {

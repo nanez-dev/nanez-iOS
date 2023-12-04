@@ -12,7 +12,7 @@ protocol HomeRepositoryInterface {
     func getHomeInfo() -> Single<PerfumeDataDTO>
 }
 
-class HomeRepository: HomeRepositoryInterface {
+final class HomeRepository: HomeRepositoryInterface {
     
     private let homeService: HomeService
     

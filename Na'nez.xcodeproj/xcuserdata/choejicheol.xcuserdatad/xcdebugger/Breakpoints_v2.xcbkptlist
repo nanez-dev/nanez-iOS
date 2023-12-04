@@ -46,8 +46,10 @@
             filePath = "Na&apos;nez/Presents/AccordUI/DetailAccordViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116">
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "layout()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "413E8E67-1FD8-4E25-A7DF-E1129D62DD4B - 25c6707ad0ede52d"
@@ -96,6 +98,129 @@
             endingLineNumber = "5"
             landmarkName = "unknown"
             landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC243F89-2C07-443D-BC5B-A9BF45BD82AD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Na&apos;nez/Presents/DetailPerfumeUI/DetailPerfumeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "reviewBtn"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "EC243F89-2C07-443D-BC5B-A9BF45BD82AD - 504a72824789f701"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UIButton) -&gt; () in variable initialization expression of Na_nez.DetailPerfumeViewController.reviewBtn : __C.UIButton"
+                  moduleName = "Na&apos;nez"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choejicheol/Desktop/nanez-iOS/Na&apos;nez/Presents/DetailPerfumeUI/DetailPerfumeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "45">
+               </Location>
+               <Location
+                  uuid = "EC243F89-2C07-443D-BC5B-A9BF45BD82AD - 55afbb1e2b532f72"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Na_nez.DetailPerfumeViewController.reviewBtn.getter : __C.UIButton"
+                  moduleName = "Na&apos;nez"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choejicheol/Desktop/nanez-iOS/Na&apos;nez/Presents/DetailPerfumeUI/DetailPerfumeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "94">
+               </Location>
+               <Location
+                  uuid = "EC243F89-2C07-443D-BC5B-A9BF45BD82AD - 73a66b7687a65fb6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Na_nez.DetailPerfumeViewController.reviewBtn.setter : __C.UIButton"
+                  moduleName = "Na&apos;nez"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choejicheol/Desktop/nanez-iOS/Na&apos;nez/Presents/DetailPerfumeUI/DetailPerfumeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "EC243F89-2C07-443D-BC5B-A9BF45BD82AD - 1f2d106b0dfed361"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Na_nez.DetailPerfumeViewController.reviewBtn.modify : __C.UIButton"
+                  moduleName = "Na&apos;nez"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choejicheol/Desktop/nanez-iOS/Na&apos;nez/Presents/DetailPerfumeUI/DetailPerfumeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "EC243F89-2C07-443D-BC5B-A9BF45BD82AD - 7c67cc8c5d55bb8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Na_nez.DetailPerfumeViewController.reviewBtn.modify : __C.UIButton with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Na&apos;nez"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choejicheol/Desktop/nanez-iOS/Na&apos;nez/Presents/DetailPerfumeUI/DetailPerfumeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  uuid = "EC243F89-2C07-443D-BC5B-A9BF45BD82AD - 814ff1213814c1e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Na_nez.DetailPerfumeViewController.init(Na_nez.DetailPerfumeViewModel) -&gt; Na_nez.DetailPerfumeViewController"
+                  moduleName = "Na&apos;nez"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choejicheol/Desktop/nanez-iOS/Na&apos;nez/Presents/DetailPerfumeUI/DetailPerfumeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "425">
+               </Location>
+               <Location
+                  uuid = "EC243F89-2C07-443D-BC5B-A9BF45BD82AD - a48bf0a74d838629"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Na_nez.DetailPerfumeViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Na_nez.DetailPerfumeViewController&gt;"
+                  moduleName = "Na&apos;nez"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/choejicheol/Desktop/nanez-iOS/Na&apos;nez/Presents/DetailPerfumeUI/DetailPerfumeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "409">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

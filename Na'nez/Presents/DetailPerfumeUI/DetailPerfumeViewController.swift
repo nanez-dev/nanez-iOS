@@ -56,7 +56,7 @@ class DetailPerfumeViewController: BaseViewController {
     private let noteCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1
-        layout.itemSize = CGSize(width: 106, height: 150)
+        layout.itemSize = CGSize(width: 106, height: 160)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         $0.register(NoteCollectionViewCell.self, forCellWithReuseIdentifier: NoteCollectionViewCell.identifier)
         $0.collectionViewLayout = layout
@@ -204,7 +204,6 @@ class DetailPerfumeViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func configure(){
         self.view.backgroundColor = .white
         self.navibar.delegate = self
@@ -271,7 +270,7 @@ class DetailPerfumeViewController: BaseViewController {
             $0.top.equalTo(noteSV.snp.bottom).offset(12)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.height.equalTo(150)
+            $0.height.equalTo(160)
         }
         self.noteSV.snp.makeConstraints{
             $0.top.equalTo(notedesLabel.snp.bottom).offset(24)

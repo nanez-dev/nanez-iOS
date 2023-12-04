@@ -12,7 +12,7 @@ protocol DetailPerfumeUseCaseProtocol {
     func getPerfumeInfo(with id: Int) -> Single<DetailPerfumeResponse>
 }
 
-class DetailPerfumeUseCase: DetailPerfumeUseCaseProtocol {
+final class DetailPerfumeUseCase: DetailPerfumeUseCaseProtocol {
     
     private let repository: DetailPerfumeRepositoryInterface
 

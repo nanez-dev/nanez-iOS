@@ -8,8 +8,70 @@
 import UIKit
 
 class DetailAccordViewController: BaseViewController {
-    private let detailaccordView:DetailAccordView = DetailAccordView(frame: .zero)
     private let navibar:CustomNaviBar = CustomNaviBar(frame: .zero)
+    private let accordPerfumeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
+        $0.register(PerfumeCollectionViewCell.self, forCellWithReuseIdentifier: PerfumeCollectionViewCell.identifier)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        $0.collectionViewLayout = layout
+        $0.decelerationRate = .fast
+        $0.backgroundColor = .clear
+        $0.showsHorizontalScrollIndicator = false
+    }
+    private let accordPerfume = UILabel().then{
+        $0.text = "어코드 대표 향수"
+        $0.font = .pretendard(.Bold, size: 23)
+        $0.textColor = UIColor(hexString:"#333333")
+    }
+    private let accordInfoLabel = UILabel().then{
+        $0.textAlignment = .center
+        $0.text = "시트러스는 호불호 없이 많은 이에게 사랑받는 어코드입니다. 가볍고 청량한 느낌이 있어 S/S 시즌에 손이 가는 향기입니다. 상큼한 시트러스 향수를 만나보세요."
+        $0.font = .pretendard(.Regular, size: 16)
+        $0.textColor = UIColor(rgb: 0x000000)
+        $0.numberOfLines = 0
+    }
+    private let accordDesLabel = UILabel().then{
+        $0.text = "상큼한 향수를 찾는다면?"
+        $0.font = .pretendard(.Bold, size: 20)
+        $0.textColor = UIColor(rgb: 0x333333)
+    }
+    private var accordAniImg = UIImageView().then{
+        $0.backgroundColor = .clear
+        $0.contentMode = .scaleAspectFit
+        $0.layer.masksToBounds = true
+        $0.image = UIImage(named: "Na'NezLogo")
+    }
+    private var accordImgView = UIImageView().then{
+        $0.backgroundColor = .clear
+        $0.contentMode = .scaleAspectFit
+        $0.layer.masksToBounds = true
+        $0.image = UIImage(named: "Na'NezLogo")
+        
+    }
+    private let contentView = UIView().then{
+        $0.backgroundColor = .white
+    }
+    private let scrollView = UIScrollView()
+    
+    override func configure(){
+        self.view.backgroundColor = .white
+        self.view.addSubview(navibar)
+        self.navibar.navititleLabel.text = "어코드"
+        self.navibar.searchBtn.isHidden = true
+        self.navibar.delegate = self
+    }
+    
+    override func addview(){
+        self.view.addSubview(scrollView)
+        self.scrollView.addSubview(contentView)
+        self.contentView.addSubview(accordAniImg)
+        self.contentView.addSubview(accordImgView)
+        self.contentView.addSubview(accordDesLabel)
+        self.contentView.addSubview(accordInfoLabel)
+        self.contentView.addSubview(accordPerfume)
+        self.contentView.addSubview(accordPerfumeCollectionView)
+        
+    }
     
     override func layout() {
         navibar.snp.makeConstraints{
@@ -17,45 +79,55 @@ class DetailAccordViewController: BaseViewController {
             $0.width.equalToSuperview().offset(0)
             $0.height.equalTo(52)
         }
-        detailaccordView.snp.makeConstraints {
-            $0.top.equalTo(navibar.snp.bottom)
-            $0.bottom.leading.trailing.equalToSuperview()
+        self.accordPerfumeCollectionView.snp.makeConstraints{
+            $0.top.equalTo(accordPerfume.snp.bottom).offset(20)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(580)
+        }
+        self.accordPerfume.snp.makeConstraints{
+            $0.top.equalTo(accordInfoLabel.snp.bottom).offset(52)
+            $0.centerX.equalToSuperview()
+        }
+        self.accordInfoLabel.snp.makeConstraints{
+            $0.top.equalTo(accordDesLabel.snp.bottom).offset(8)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+        }
+        self.accordDesLabel.snp.makeConstraints{
+            $0.top.equalTo(accordImgView.snp.bottom).offset(12)
+            $0.centerX.equalToSuperview()
+        }
+        self.accordImgView.snp.makeConstraints{
+            $0.top.equalTo(accordAniImg.snp.bottom).offset(10)
+            $0.width.equalTo(123)
+            $0.height.equalTo(40)
+            $0.centerX.equalToSuperview()
+        }
+        self.accordAniImg.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(32)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(170)
+        }
+        self.contentView.snp.makeConstraints{
+            $0.width.equalToSuperview().offset(0)
+            $0.edges.equalToSuperview().offset(0)
+            $0.height.equalTo(1000)
+        }
+        self.scrollView.snp.makeConstraints{
+            $0.top.equalTo(self.navibar.snp.bottom).offset(0)
+            $0.left.right.bottom.equalToSuperview()
         }
     }
-    override func configure(){
-        self.view.backgroundColor = .white
-        self.view.addSubview(navibar)
-        self.view.addSubview(detailaccordView)
-        self.navibar.navititleLabel.text = "어코드"
-        self.navibar.searchBtn.isHidden = true
-        self.navibar.delegate = self
-        self.detailaccordView.accordPerfumeCollectionView.delegate = self
-        self.detailaccordView.accordPerfumeCollectionView.dataSource = self
-    }
-}
-extension DetailAccordViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+    
+    override func binding() {
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PerfumeCollectionViewCell.identifier, for: indexPath) as! PerfumeCollectionViewCell
-       
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            let cellWidth: CGFloat = (collectionView.bounds.width - layout.minimumInteritemSpacing) / 3.1
-            let cellHeight: CGFloat = (collectionView.bounds.height - layout.minimumLineSpacing) / 1
-                return CGSize(width: cellWidth, height: cellHeight)
-            }
-        return CGSize(width: 0, height: 0)
-
-    }
 }
 extension DetailAccordViewController: CustomNaviBarDelegate{
     func backBtnClick(_ navibar: CustomNaviBar) {
-        self.dismiss(animated: false)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func searchBtnClick(_ navibar: CustomNaviBar) {

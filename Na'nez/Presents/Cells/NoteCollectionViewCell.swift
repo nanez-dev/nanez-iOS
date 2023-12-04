@@ -14,20 +14,13 @@ class NoteCollectionViewCell: UICollectionViewCell {
     private var noteStateLabel = UILabel().then{
         $0.text = "TopNote"
         $0.textColor = UIColor(rgb: 0x666666)
-        $0.font = .pretendard(.Light, size: 14)
+        $0.font = .pretendard(.Light, size: 11)
         $0.sizeToFit()
     }
     private var Img = UIImageView().then{
         $0.backgroundColor = .clear
         $0.contentMode = .scaleAspectFit
         $0.layer.masksToBounds = true
-    }
-    private let roundview = UIView().then{
-           $0.layer.cornerRadius = 8
-           $0.layer.masksToBounds = true
-           $0.layer.borderWidth = 1
-           $0.layer.borderColor = UIColor(rgb: 0xEFEFEF).cgColor
-           $0.backgroundColor = .clear
     }
     private var noteLabel = UILabel().then{
         $0.text = "accord"
@@ -38,33 +31,25 @@ class NoteCollectionViewCell: UICollectionViewCell {
     }
     private func layout(){
         self.Img.snp.makeConstraints{
-            $0.top.bottom.equalToSuperview()
-            $0.leading.equalToSuperview().offset(10)
-            $0.trailing.equalToSuperview().offset(-10)
-        }
-        self.roundview.snp.makeConstraints{
             $0.top.equalToSuperview()
-            $0.height.equalTo(111)
-            $0.width.equalToSuperview()
+            $0.width.height.equalTo(106)
+        }
+        self.noteStateLabel.snp.makeConstraints {
+            $0.top.equalTo(Img.snp.bottom).offset(8)
+            $0.leading.equalToSuperview()
         }
         self.noteLabel.snp.makeConstraints{
             $0.top.equalTo(noteStateLabel.snp.bottom)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-        }
-        self.noteStateLabel.snp.makeConstraints {
-            $0.top.equalTo(roundview.snp.bottom).offset(8)
-            $0.leading.equalToSuperview()
-            $0.height.equalTo(16)
 
         }
     }
     
     private func addview(){
-        self.addSubview(roundview)
         self.addSubview(noteLabel)
         self.addSubview(noteStateLabel)
-        self.roundview.addSubview(Img)
+        self.addSubview(Img)
       }
     
     func configureCell(_ item: PerfumeNoteDTO) {

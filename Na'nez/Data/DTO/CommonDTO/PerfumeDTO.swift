@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 // 향수 정보 DTO
 struct PerfumeDTO: Codable {
     let kor: String

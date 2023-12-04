@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct PopularBrandDTO:Codable {
+    let brands: [BrandDTO]
+}

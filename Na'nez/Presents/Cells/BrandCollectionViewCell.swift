@@ -51,7 +51,7 @@ class BrandCollectionViewCell: UICollectionViewCell {
       }
     
     func configureCell(_ item: BrandDTO) {
-        if let imageURL = URL(string: item.image) {
+        if let imageURL = URL(string: item.image ?? APIConstants.noImage) {
             self.Img.kf.setImage(with: imageURL)
         }
         self.brandLabel.text = item.kor

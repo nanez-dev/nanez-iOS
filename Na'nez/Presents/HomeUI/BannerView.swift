@@ -7,47 +7,31 @@
 
 import UIKit
 
-class BannerView: UIView{
- 
-
-    public var nowPage: Int = 0 {
-        didSet {
-            pageControl.currentPage = nowPage
-        }
-    }
+class BannerView: UIView, UIScrollViewDelegate, UICollectionViewDelegate{
     
     public let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         $0.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
-        let layout = UICollectionViewFlowLayout()
-        
-        $0.collectionViewLayout = layout
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 5
-        layout.itemSize = .init(width: 375, height: 240)
-        layout.sectionInsetReference = .fromContentInset
-        layout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 20)
-        $0.decelerationRate = .fast
-        $0.backgroundColor = .clear
-        $0.contentInsetAdjustmentBehavior = .never
-        $0.isPagingEnabled = true
-        $0.showsHorizontalScrollIndicator = false
-        $0.translatesAutoresizingMaskIntoConstraints = false
+         let layout = UICollectionViewFlowLayout()
+         let cellWidth = UIScreen.main.bounds.width
+         let cellHeight = CGFloat(240)
+         
+         layout.scrollDirection = .horizontal
+         layout.minimumInteritemSpacing = 0
+         layout.minimumLineSpacing = 0
+         layout.itemSize = .init(width: cellWidth, height: cellHeight)
+         layout.sectionInsetReference = .fromContentInset
+         layout.sectionInset = .zero
+         
+         $0.collectionViewLayout = layout
+         $0.decelerationRate = .fast
+         $0.backgroundColor = .clear
+         $0.contentInsetAdjustmentBehavior = .never
+         $0.isPagingEnabled = true
+         $0.showsHorizontalScrollIndicator = false
+         $0.translatesAutoresizingMaskIntoConstraints = false
     }
-    let pageControl = UIPageControl().then {
-        $0.numberOfPages = 5
-        $0.currentPage = 0
-        let activeImage = UIImage(named: "activeDot")
-        $0.pageIndicatorTintColor = UIColor(hexString: "##D9D9D9")
-        $0.currentPageIndicatorTintColor = UIColor(hexString: "#424242")
-        
-        $0.setCurrentPageIndicatorImage(activeImage, forPage: 0)
-        $0.setCurrentPageIndicatorImage(activeImage, forPage: 1)
-        $0.setCurrentPageIndicatorImage(activeImage, forPage: 2)
-        $0.setCurrentPageIndicatorImage(activeImage, forPage: 3)
-        $0.setCurrentPageIndicatorImage(activeImage, forPage: 4)
+    let pageControl = CustomPageControlView(numberOfPages: 4)
 
-    }
-            
 
     private func layout() {
         
@@ -55,11 +39,11 @@ class BannerView: UIView{
             $0.top.leading.trailing.bottom.equalToSuperview()
             }
         self.pageControl.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(8)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(50)
+            $0.height.equalTo(20)
             }
-        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,10 +51,22 @@ class BannerView: UIView{
         self.addSubview(pageControl)
         self.layout()
         self.backgroundColor = .white
+        self.collectionView.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // 현재 보이는 셀의 인덱스를 가져옵니다.
+        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        
+        if let indexPath = collectionView.indexPathForItem(at: visiblePoint) {
+            let currentIndex = indexPath.item
+            
+          pageControl.setCurrentPage(currentIndex)
+        }
     }
 }

@@ -12,7 +12,7 @@ protocol DetailPerfumeRepositoryInterface {
     func getPerfumeInfo(with id: Int) -> Single<DetailPerfumeResponse>
 }
 
-class DetailPerfumeRepository: DetailPerfumeRepositoryInterface {
+final class DetailPerfumeRepository: DetailPerfumeRepositoryInterface {
         
     private let detailPerfumeService: PerfumeService
     

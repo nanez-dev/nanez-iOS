@@ -9,7 +9,7 @@ import Foundation
 
 struct BrandDTO: Codable {
     let id: Int
-    let image: String
+    let image: String?
     let eng: String
     let kor: String
 }

@@ -2,7 +2,7 @@
 //  LoginModel.swift
 //  Na'nez
 //
-//  Created by Gahyun Kim on 2023/08/18.
+//  Created by KIM Hyung Jun on 11/23/23.
 //
 
 import Foundation

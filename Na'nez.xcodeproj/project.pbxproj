@@ -102,6 +102,30 @@
 		09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6AC2A7CC4FE001645AA /* brandModel.swift */; };
 		09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B02A7CC553001645AA /* accordModel.swift */; };
 		09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */; };
+		BD3D0D102B14B501005D3A9F /* SelectEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D0F2B14B501005D3A9F /* SelectEmailView.swift */; };
+		BD3D0D122B14B5AD005D3A9F /* SelectEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D112B14B5AD005D3A9F /* SelectEmailViewController.swift */; };
+		BD3D0D142B14B5D8005D3A9F /* SelectEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D132B14B5D8005D3A9F /* SelectEmailViewModel.swift */; };
+		BD8AC1A02B10A1EC001C78A1 /* TermsConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC19F2B10A1EC001C78A1 /* TermsConditionViewModel.swift */; };
+		BD8AC1A22B10A1FE001C78A1 /* TermsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */; };
+		BD8AC1A42B10A20C001C78A1 /* TermsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */; };
+		BD8AC1A62B10A223001C78A1 /* TermsConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A52B10A223001C78A1 /* TermsConditionView.swift */; };
+		BD8AC1A82B10A230001C78A1 /* TermsConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A72B10A230001C78A1 /* TermsConditionViewController.swift */; };
+		BD8AC1AE2B10E483001C78A1 /* TermsAgreement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1AD2B10E483001C78A1 /* TermsAgreement.swift */; };
+		BDA0DE112B0F47E800850839 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */; };
+		BDA0DE132B0F480C00850839 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */; };
+		BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */; };
+		BDA0DE172B0F482A00850839 /* EmailLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE162B0F482A00850839 /* EmailLoginRepository.swift */; };
+		BDA0DE192B0F484200850839 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE182B0F484200850839 /* UserInfo.swift */; };
+		BDA0DE1B2B0F489800850839 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE1A2B0F489800850839 /* LoginService.swift */; };
+		BDA0DE1D2B0F492700850839 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE1C2B0F492700850839 /* LoginModel.swift */; };
+		BDA0DE1F2B0F498D00850839 /* EmailLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE1E2B0F498D00850839 /* EmailLoginView.swift */; };
+		BDA0DE222B0F4CAB00850839 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDA0DE212B0F4CAB00850839 /* IQKeyboardManagerSwift */; };
+		BDA0DE262B0F704300850839 /* RecommendLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE252B0F704300850839 /* RecommendLoginView.swift */; };
+		BDA0DE282B0F705300850839 /* RecommendLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE272B0F705300850839 /* RecommendLoginViewController.swift */; };
+		BDA0DE2C2B0F7A8C00850839 /* AnotherLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE2B2B0F7A8C00850839 /* AnotherLoginView.swift */; };
+		BDC0CCEA2B0F823D00A39304 /* RecommendLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */; };
+		BDC0CCEC2B0F826900A39304 /* AnotherLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */; };
+		BDC0CCEE2B0F828800A39304 /* AnotherLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,6 +216,29 @@
 		09F7D6AC2A7CC4FE001645AA /* brandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brandModel.swift; sourceTree = "<group>"; };
 		09F7D6B02A7CC553001645AA /* accordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accordModel.swift; sourceTree = "<group>"; };
 		09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandtubeViewController.swift; sourceTree = "<group>"; };
+		BD3D0D0F2B14B501005D3A9F /* SelectEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailView.swift; sourceTree = "<group>"; };
+		BD3D0D112B14B5AD005D3A9F /* SelectEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailViewController.swift; sourceTree = "<group>"; };
+		BD3D0D132B14B5D8005D3A9F /* SelectEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailViewModel.swift; sourceTree = "<group>"; };
+		BD8AC19F2B10A1EC001C78A1 /* TermsConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionViewModel.swift; sourceTree = "<group>"; };
+		BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsUseCase.swift; sourceTree = "<group>"; };
+		BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsRepository.swift; sourceTree = "<group>"; };
+		BD8AC1A52B10A223001C78A1 /* TermsConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionView.swift; sourceTree = "<group>"; };
+		BD8AC1A72B10A230001C78A1 /* TermsConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionViewController.swift; sourceTree = "<group>"; };
+		BD8AC1AD2B10E483001C78A1 /* TermsAgreement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreement.swift; sourceTree = "<group>"; };
+		BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
+		BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
+		BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginUseCase.swift; sourceTree = "<group>"; };
+		BDA0DE162B0F482A00850839 /* EmailLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginRepository.swift; sourceTree = "<group>"; };
+		BDA0DE182B0F484200850839 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		BDA0DE1A2B0F489800850839 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		BDA0DE1C2B0F492700850839 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		BDA0DE1E2B0F498D00850839 /* EmailLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginView.swift; sourceTree = "<group>"; };
+		BDA0DE252B0F704300850839 /* RecommendLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLoginView.swift; sourceTree = "<group>"; };
+		BDA0DE272B0F705300850839 /* RecommendLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLoginViewController.swift; sourceTree = "<group>"; };
+		BDA0DE2B2B0F7A8C00850839 /* AnotherLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginView.swift; sourceTree = "<group>"; };
+		BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLoginViewModel.swift; sourceTree = "<group>"; };
+		BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewModel.swift; sourceTree = "<group>"; };
+		BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +255,7 @@
 				0924164B2A6F92E20084E415 /* Alamofire in Frameworks */,
 				092416622A6F94C70084E415 /* Kingfisher in Frameworks */,
 				0924166B2A6F95C10084E415 /* ImageSlideshow/Alamofire in Frameworks */,
+				BDA0DE222B0F4CAB00850839 /* IQKeyboardManagerSwift in Frameworks */,
 				092416512A6F93030084E415 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +313,7 @@
 				0999E2C72A62C95E002042EF /* AccordService.swift */,
 				0969A55E2B0528F300883862 /* HomeService.swift */,
 				0999E2CB2A62CA02002042EF /* APIConstants.swift */,
+				BDA0DE1A2B0F489800850839 /* LoginService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -282,6 +331,8 @@
 		094BCCDE2A5FEE590012A404 /* Presents */ = {
 			isa = PBXGroup;
 			children = (
+				BDA0DE0E2B0F47AD00850839 /* LoginUI */,
+				BDA0DE0F2B0F47D500850839 /* JoinUI */,
 				098CDB9D2A88F520008774B7 /* Cells */,
 				09FEB4232A6688A200DD1CC5 /* UIController */,
 				093396F52A76A2FF003B8C7A /* BrandUI */,
@@ -355,6 +406,8 @@
 				09972CDC2B05FD2300923CA5 /* DetailPerfumeRepository.swift */,
 				0900E3D32B0E3E0A00E480C7 /* BrandRepository.swift */,
 				09CA66C42B0F610600655C48 /* AccordRepository.swift */,
+				BDA0DE162B0F482A00850839 /* EmailLoginRepository.swift */,
+				BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -396,6 +449,9 @@
 				0924166E2A6FFA0C0084E415 /* reportModel.swift */,
 				09F7D6AC2A7CC4FE001645AA /* brandModel.swift */,
 				09F7D6B02A7CC553001645AA /* accordModel.swift */,
+				BDA0DE182B0F484200850839 /* UserInfo.swift */,
+				BDA0DE1C2B0F492700850839 /* LoginModel.swift */,
+				BD8AC1AD2B10E483001C78A1 /* TermsAgreement.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -407,6 +463,8 @@
 				09972CDA2B05FCF100923CA5 /* DetailPerfumeUseCase.swift */,
 				0900E3D52B0E3F0500E480C7 /* BrandUseCase.swift */,
 				09094D932B1042FB004233A5 /* AccordUseCase.swift */,
+				BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */,
+				BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -540,6 +598,35 @@
 			path = UIController;
 			sourceTree = "<group>";
 		};
+		BDA0DE0E2B0F47AD00850839 /* LoginUI */ = {
+			isa = PBXGroup;
+			children = (
+				BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */,
+				BDA0DE252B0F704300850839 /* RecommendLoginView.swift */,
+				BDA0DE272B0F705300850839 /* RecommendLoginViewController.swift */,
+				BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */,
+				BDA0DE2B2B0F7A8C00850839 /* AnotherLoginView.swift */,
+				BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */,
+				BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */,
+				BDA0DE1E2B0F498D00850839 /* EmailLoginView.swift */,
+				BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */,
+			);
+			path = LoginUI;
+			sourceTree = "<group>";
+		};
+		BDA0DE0F2B0F47D500850839 /* JoinUI */ = {
+			isa = PBXGroup;
+			children = (
+				BD8AC19F2B10A1EC001C78A1 /* TermsConditionViewModel.swift */,
+				BD8AC1A52B10A223001C78A1 /* TermsConditionView.swift */,
+				BD8AC1A72B10A230001C78A1 /* TermsConditionViewController.swift */,
+				BD3D0D132B14B5D8005D3A9F /* SelectEmailViewModel.swift */,
+				BD3D0D0F2B14B501005D3A9F /* SelectEmailView.swift */,
+				BD3D0D112B14B5AD005D3A9F /* SelectEmailViewController.swift */,
+			);
+			path = JoinUI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -567,6 +654,7 @@
 				09C59E762AD870C400A631A7 /* CHIPageControl */,
 				0936AB272AEF737200DD321F /* RxCocoa */,
 				0936AB292AEF737200DD321F /* RxRelay */,
+				BDA0DE212B0F4CAB00850839 /* IQKeyboardManagerSwift */,
 			);
 			productName = "Na'nez";
 			productReference = 094BCCC42A5FEC0B0012A404 /* Na'nez.app */;
@@ -604,6 +692,7 @@
 				092416672A6F95C10084E415 /* XCRemoteSwiftPackageReference "ImageSlideshow" */,
 				09C59E752AD870C400A631A7 /* XCRemoteSwiftPackageReference "CHIPageControl" */,
 				0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */,
+				BDA0DE202B0F4CAB00850839 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 094BCCC52A5FEC0B0012A404 /* Products */;
 			projectDirPath = "";
@@ -646,14 +735,21 @@
 				0924166F2A6FFA0C0084E415 /* reportModel.swift in Sources */,
 				093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */,
 				094334FD2B0EEA0100943E0D /* DetailBrandDTO.swift in Sources */,
+				BDA0DE2C2B0F7A8C00850839 /* AnotherLoginView.swift in Sources */,
 				09972CF12B060A6900923CA5 /* DetailPerfumeViewModel.swift in Sources */,
+				BDA0DE112B0F47E800850839 /* EmailLoginViewModel.swift in Sources */,
 				092416712A6FFFC70084E415 /* DropDownTableViewCell.swift in Sources */,
 				09972CDB2B05FCF100923CA5 /* DetailPerfumeUseCase.swift in Sources */,
 				0900E3D82B0E413500E480C7 /* BrandViewModel.swift in Sources */,
 				09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */,
 				09094D942B1042FB004233A5 /* AccordUseCase.swift in Sources */,
 				0969A5552B05236900883862 /* AccordDTO.swift in Sources */,
+				BD8AC1AE2B10E483001C78A1 /* TermsAgreement.swift in Sources */,
 				0969A54C2B051ADF00883862 /* ViewModelType.swift in Sources */,
+				BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */,
+				BD8AC1A82B10A230001C78A1 /* TermsConditionViewController.swift in Sources */,
+				BDA0DE1D2B0F492700850839 /* LoginModel.swift in Sources */,
+				097B769A2AA9A9F1009B3708 /* AccordtubeView.swift in Sources */,
 				09972CE92B06011500923CA5 /* PerfumeTagDTO.swift in Sources */,
 				0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */,
 				09ACDB0B2B1D90240065D8E4 /* CustomPageControlView.swift in Sources */,
@@ -665,6 +761,7 @@
 				09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */,
 				094334FF2B0F000100943E0D /* BrandPerfumeCollectionViewCell.swift in Sources */,
 				09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */,
+				BD8AC1A62B10A223001C78A1 /* TermsConditionView.swift in Sources */,
 				09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */,
 				094BCD132A6142610012A404 /* PerfumeCollectionViewCell.swift in Sources */,
 				0969A55B2B0523B900883862 /* BannerDTO.swift in Sources */,
@@ -674,6 +771,13 @@
 				09CA66BF2B0F5ADC00655C48 /* AllAccordDTO.swift in Sources */,
 				0926A9D32B0C7C33004E3D00 /* PopularBrandDTO.swift in Sources */,
 				09972CF32B07196600923CA5 /* String+.swift in Sources */,
+				BDA0DE1B2B0F489800850839 /* LoginService.swift in Sources */,
+				09972CDD2B05FD2300923CA5 /* DetailPerfumeRepository.swift in Sources */,
+				0926A9D32B0C7C33004E3D00 /* tempBrandDTO.swift in Sources */,
+				BD3D0D142B14B5D8005D3A9F /* SelectEmailViewModel.swift in Sources */,
+				09972CF32B07196600923CA5 /* String+.swift in Sources */,
+				09B4F8792AD2E9AD00E42220 /* BrandtubeView.swift in Sources */,
+				BDA0DE132B0F480C00850839 /* EmailLoginViewController.swift in Sources */,
 				0999E2C82A62C95E002042EF /* AccordService.swift in Sources */,
 				09094D982B107495004233A5 /* AllAccordCollectionViewCell.swift in Sources */,
 				0900E3D62B0E3F0500E480C7 /* BrandUseCase.swift in Sources */,
@@ -682,17 +786,23 @@
 				0969A55D2B0523E800883862 /* PerfumeDTO.swift in Sources */,
 				0969A5522B05200800883862 /* HomeDTO.swift in Sources */,
 				0969A55F2B0528F300883862 /* HomeService.swift in Sources */,
+				BD8AC1A22B10A1FE001C78A1 /* TermsUseCase.swift in Sources */,
 				0999E2C42A62C949002042EF /* BrandService.swift in Sources */,
 				094BCD112A613B8B0012A404 /* Fonts.swift in Sources */,
 				09972CE52B05FF9500923CA5 /* PerfumeAccordDTO.swift in Sources */,
 				094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */,
+				BD3D0D122B14B5AD005D3A9F /* SelectEmailViewController.swift in Sources */,
 				094BCCED2A60043C0012A404 /* MyInfoViewController.swift in Sources */,
+				BDA0DE282B0F705300850839 /* RecommendLoginViewController.swift in Sources */,
+				BD8AC1A42B10A20C001C78A1 /* TermsRepository.swift in Sources */,
 				09972CE72B0600F300923CA5 /* PerfumeNoteDTO.swift in Sources */,
 				0969A5592B0523A400883862 /* BrandDTO.swift in Sources */,
 				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,
 				09CA66C52B0F610600655C48 /* AccordRepository.swift in Sources */,
 				09972CEB2B0601BB00923CA5 /* DensityDTO.swift in Sources */,
+				BDA0DE262B0F704300850839 /* RecommendLoginView.swift in Sources */,
 				09972CED2B06021200923CA5 /* NoteDTO.swift in Sources */,
+				BDA0DE1F2B0F498D00850839 /* EmailLoginView.swift in Sources */,
 				094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */,
 				0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */,
 				09C59E7D2AD8783F00A631A7 /* HaveListView.swift in Sources */,
@@ -702,17 +812,26 @@
 				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
 				092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */,
 				09CA66BD2B0F565000655C48 /* AccordViewModel.swift in Sources */,
+				BDA0DE172B0F482A00850839 /* EmailLoginRepository.swift in Sources */,
+				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
+				092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */,
+				BDC0CCEA2B0F823D00A39304 /* RecommendLoginViewModel.swift in Sources */,
 				09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */,
 				09C59E6E2AD836CC00A631A7 /* BannerCell.swift in Sources */,
 				09C59E7F2AD8856F00A631A7 /* MyInfoView.swift in Sources */,
+				BD3D0D102B14B501005D3A9F /* SelectEmailView.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
 				09972CEF2B06022700923CA5 /* TagDTO.swift in Sources */,
 				0969A5472B0516F900883862 /* HomeRepository.swift in Sources */,
+				BD8AC1A02B10A1EC001C78A1 /* TermsConditionViewModel.swift in Sources */,
 				0969A5502B051C4400883862 /* HomeUseCase.swift in Sources */,
 				09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */,
 				09C59E7B2AD8774700A631A7 /* WishListCollectionViewCell.swift in Sources */,
+				BDC0CCEE2B0F828800A39304 /* AnotherLoginViewController.swift in Sources */,
 				0966E10F2A7143660083BF1C /* AccordtubeViewController.swift in Sources */,
 				094BCCE12A5FF2290012A404 /* HomeViewController.swift in Sources */,
+				BDA0DE192B0F484200850839 /* UserInfo.swift in Sources */,
+				BDC0CCEC2B0F826900A39304 /* AnotherLoginViewModel.swift in Sources */,
 				09972CE32B05FEFC00923CA5 /* DetailPerfumeDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -983,6 +1102,14 @@
 				minimumVersion = 0.2.1;
 			};
 		};
+		BDA0DE202B0F4CAB00850839 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.16;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1035,6 +1162,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 09C59E752AD870C400A631A7 /* XCRemoteSwiftPackageReference "CHIPageControl" */;
 			productName = CHIPageControl;
+		};
+		BDA0DE212B0F4CAB00850839 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDA0DE202B0F4CAB00850839 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

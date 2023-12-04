@@ -124,10 +124,14 @@ class TermsConditionViewController: UIViewController {
     }
     
     private func showSelectEmailVC() {
-        let selectEmailVC = SelectEmailViewController()
-        selectEmailVC.modalPresentationStyle = .fullScreen
-        selectEmailVC.modalTransitionStyle = .crossDissolve
+        let selectEmailRepository = SelectEmailRepository(emailSendService: EmailSendService(), emailVerifyService: EmailVerifyService())
+        let selectEmailUseCase = SelectEmailUseCase(repository: selectEmailRepository)
+        let viewModel = SelectEmailViewModel(useCase: selectEmailUseCase)
+        let selectEmailVC = SelectEmailViewController(viewModel: viewModel)
+        selectEmailVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        selectEmailVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(selectEmailVC, animated: true, completion: nil)
     }
 }
+
 

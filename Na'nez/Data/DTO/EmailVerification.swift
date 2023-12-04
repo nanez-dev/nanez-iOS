@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct EmailVerification {
+    let code: String
+    let email: String
+}

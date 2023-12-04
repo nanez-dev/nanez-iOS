@@ -11,6 +11,7 @@ import Then
 
 class SelectEmailView: UIView {
     class var mainturquoise: UIColor { UIColor(named: "mainturquoise") ?? UIColor() }
+    private var emailAuthButtonBottomConstraint: Constraint?
     
     let backButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -69,10 +70,12 @@ class SelectEmailView: UIView {
         $0.textColor = .black
         $0.borderStyle = .roundedRect
         $0.font = UIFont(name: "SUIT-Regular", size: 13.0)
+        $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
         $0.layer.cornerRadius = 12
         $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.lightGray.cgColor
         $0.layer.masksToBounds = true
+        $0.text = "korea6370@naver.com"
         $0.attributedPlaceholder = NSAttributedString(string: "이메일을 입력해주세요", attributes: [
             .font: UIFont.systemFont(ofSize: 13.0, weight: .medium)
         ])
@@ -86,19 +89,32 @@ class SelectEmailView: UIView {
         $0.layer.cornerRadius = 12
     }
     
-    let authNumberTextField = UITextField().then {
+    let authView = UIView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.textColor = .black
-        $0.borderStyle = .roundedRect
-        $0.font = UIFont(name: "SUIT-Regular", size: 13.0)
         $0.layer.cornerRadius = 12
         $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.lightGray.cgColor
         $0.layer.masksToBounds = true
-        $0.isSecureTextEntry = true
+    }
+    
+    let authNumberTextField = UITextField().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.textColor = .black
+        $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
+        $0.borderStyle = .roundedRect
+        $0.font = UIFont(name: "SUIT-Regular", size: 13.0)
         $0.attributedPlaceholder = NSAttributedString(string: "인증번호를 입력해주세요.", attributes: [
             .font: UIFont.systemFont(ofSize: 13.0, weight: .medium)
         ])
+        
+        $0.isHidden = true
+    }
+    
+    let countdownLabel = UILabel().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.textColor = .darkGray
+        $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
+        $0.font = UIFont(name: "SUIT-Regular", size: 13.0)
     }
     
     let resendButton = UIButton().then {
@@ -111,6 +127,16 @@ class SelectEmailView: UIView {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = #colorLiteral(red: 0.3959840536, green: 0.7506515384, blue: 0.7695786357, alpha: 1)
         
+        $0.isHidden = true
+    }
+    
+    let nextButton = UIButton().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setTitle("다음으로", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
+        $0.layer.cornerRadius = 12
+        $0.isEnabled = false
     }
     
     lazy var labelStackView: UIStackView = {
@@ -139,8 +165,12 @@ class SelectEmailView: UIView {
         addSubview(emailLabel)
         addSubview(emailTextField)
         addSubview(emailAuthButton)
-//        addSubview(authNumberTextField)
-//        addSubview(resendButton)
+        addSubview(nextButton)
+        
+        addSubview(authView)
+        authView.addSubview(authNumberTextField)
+        authView.addSubview(countdownLabel)
+        addSubview(resendButton)
         
         navigationView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(60)
@@ -165,7 +195,7 @@ class SelectEmailView: UIView {
         }
         
         labelStackView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(42)
+            $0.leading.equalToSuperview().offset(25)
             $0.top.equalTo(progressView.snp.bottom).offset(50)
             $0.trailing.equalToSuperview().offset(-47)
         }
@@ -176,17 +206,69 @@ class SelectEmailView: UIView {
         }
         
         emailTextField.snp.makeConstraints {
-            $0.leading.equalTo(emailLabel.snp.leading).offset(-9)
+            $0.centerX.equalToSuperview()
             $0.top.equalTo(emailLabel.snp.bottom).offset(10)
-            $0.width.equalTo(327)
+            $0.width.equalToSuperview().multipliedBy(0.9)
             $0.height.equalTo(50)
         }
         
         emailAuthButton.snp.makeConstraints {
-            $0.leading.equalTo(emailLabel.snp.leading).offset(-9)
             $0.top.equalTo(emailTextField.snp.bottom).offset(15)
-            $0.width.equalTo(327)
+            $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview().multipliedBy(0.9)
             $0.height.equalTo(50)
         }
+        
+        nextButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-50)
+            $0.height.equalTo(50)
+            $0.width.equalToSuperview().multipliedBy(0.9)
+        }
+    }
+
+    func updateEmailAuthButtonPosition(isAuthVisible: Bool) {
+        if isAuthVisible {
+            authView.snp.makeConstraints {
+                $0.top.equalTo(emailTextField.snp.bottom).offset(15)
+                $0.centerX.equalToSuperview()
+                $0.width.equalToSuperview().multipliedBy(0.9)
+                $0.height.equalTo(50)
+            }
+            
+            authNumberTextField.snp.remakeConstraints {
+                $0.leading.equalToSuperview()
+                $0.top.equalToSuperview()
+                $0.height.equalTo(50)
+                $0.trailing.equalTo(countdownLabel.snp.leading).offset(-10)
+            }
+            
+            countdownLabel.snp.makeConstraints {
+                $0.top.equalToSuperview()
+                $0.trailing.equalToSuperview()
+                $0.width.height.equalTo(50)
+            }
+            
+            emailAuthButton.snp.remakeConstraints {
+                $0.top.equalTo(authNumberTextField.snp.bottom).offset(15)
+                $0.centerX.equalToSuperview()
+                $0.width.equalToSuperview().multipliedBy(0.9)
+                $0.height.equalTo(50)
+            }
+            
+            resendButton.snp.remakeConstraints {
+                $0.leading.equalTo(emailAuthButton.snp.leading)
+                $0.trailing.equalTo(emailAuthButton.snp.trailing)
+                $0.top.equalTo(emailAuthButton.snp.bottom).offset(15)
+                $0.height.equalTo(50)
+            }
+            
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func updateEmailAuthButtonState(isEnabled: Bool) {
+        emailAuthButton.isEnabled = isEnabled
+        emailAuthButton.backgroundColor = isEnabled ? UIColor(named: "mainturquoise") : #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
     }
 }

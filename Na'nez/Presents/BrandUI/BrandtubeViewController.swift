@@ -21,7 +21,7 @@ class BrandtubeViewController: BaseViewController {
     }
     private let brandCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
-        $0.register(BrandCollectionViewCell.self, forCellWithReuseIdentifier: BrandCollectionViewCell.identifier)
+        $0.register(PopularAccordCell.self, forCellWithReuseIdentifier: PopularAccordCell.identifier)
         $0.collectionViewLayout = layout
         $0.decelerationRate = .fast
         $0.isScrollEnabled = false

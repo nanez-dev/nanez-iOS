@@ -29,3 +29,4 @@ class TermsRepository: TermsRepositoryeProtocol {
         return TermsAgreement(isServiceTermsAgreed: isServiceTermsAgreed, isPrivacyTermsAgreed: isPrivacyTermsAgreed, isMarketingAgreed: isMarketingAgreed)
     }
 }
+

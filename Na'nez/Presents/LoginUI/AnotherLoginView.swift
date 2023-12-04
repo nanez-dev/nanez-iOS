@@ -42,13 +42,13 @@ class AnotherLoginView: UIView {
         $0.setAttributedTitle(NSAttributedString(string: "네이버로 시작하기", attributes: attributes), for: .normal)
         
         if let originalImage = UIImage(named: "naverIcon") {
-            let scaledImage = originalImage.resized(toWidth: 26)
+            let scaledImage = originalImage.resized(toWidth: 14)
             $0.setImage(scaledImage, for: .normal)
         }
 
         $0.tintColor = .white
         $0.imageView?.contentMode = .scaleAspectFit
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: -3, bottom: 0, right: 0)
+        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: -11, bottom: 0, right: 0)
         $0.layer.cornerRadius = 12
     }
     
@@ -58,12 +58,12 @@ class AnotherLoginView: UIView {
         $0.setAttributedTitle(NSAttributedString(string: "구글로 시작하기", attributes: attributes), for: .normal)
         
         if let originalImage = UIImage(named: "googleIcon") {
-            let scaledImage = originalImage.resized(toWidth: 16)
+            let scaledImage = originalImage.resized(toWidth: 19)
             $0.setImage(scaledImage, for: .normal)
         }
         
         $0.tintColor = .white
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: -9, bottom: 0, right: 0)
         $0.backgroundColor = UIColor.white
         $0.setTitleColor(.black, for: .normal)
         $0.layer.borderColor = #colorLiteral(red: 0.9666457772, green: 0.9563897252, blue: 0.9230519533, alpha: 1)

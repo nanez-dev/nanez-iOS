@@ -438,8 +438,6 @@ final class HomeViewController: BaseViewController, UICollectionViewDelegate {
             .disposed(by: disposebag)
     }
 }
-
-// TODO: - 화면전환
 extension HomeViewController {
     private func pushPerfumeDetail(id: Int) {
         let usecase = DetailPerfumeUseCase(repository: DetailPerfumeRepository(detailPerfumeService: PerfumeService()))

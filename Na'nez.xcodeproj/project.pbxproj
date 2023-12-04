@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0900E3D02B0E3B2C00E480C7 /* PopularBrandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0900E3CF2B0E3B2C00E480C7 /* PopularBrandCollectionViewCell.swift */; };
+		0900E3D02B0E3B2C00E480C7 /* PopularAccordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0900E3CF2B0E3B2C00E480C7 /* PopularAccordCell.swift */; };
 		0900E3D22B0E3C9F00E480C7 /* AllBrandDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0900E3D12B0E3C9F00E480C7 /* AllBrandDTO.swift */; };
 		0900E3D42B0E3E0A00E480C7 /* BrandRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0900E3D32B0E3E0A00E480C7 /* BrandRepository.swift */; };
 		0900E3D62B0E3F0500E480C7 /* BrandUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0900E3D52B0E3F0500E480C7 /* BrandUseCase.swift */; };
 		0900E3D82B0E413500E480C7 /* BrandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0900E3D72B0E413500E480C7 /* BrandViewModel.swift */; };
 		090649232A66E225007FFE24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 094BCCD02A5FEC0E0012A404 /* Assets.xcassets */; };
 		09094D942B1042FB004233A5 /* AccordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09094D932B1042FB004233A5 /* AccordUseCase.swift */; };
-		09094D962B10748A004233A5 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09094D952B10748A004233A5 /* PopularCollectionViewCell.swift */; };
 		09094D982B107495004233A5 /* AllAccordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09094D972B107495004233A5 /* AllAccordCollectionViewCell.swift */; };
 		0924164B2A6F92E20084E415 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0924164A2A6F92E20084E415 /* Alamofire */; };
 		0924164E2A6F92F50084E415 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0924164D2A6F92F50084E415 /* SnapKit */; };
@@ -139,13 +138,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0900E3CF2B0E3B2C00E480C7 /* PopularBrandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularBrandCollectionViewCell.swift; sourceTree = "<group>"; };
+		0900E3CF2B0E3B2C00E480C7 /* PopularAccordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularAccordCell.swift; sourceTree = "<group>"; };
 		0900E3D12B0E3C9F00E480C7 /* AllBrandDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBrandDTO.swift; sourceTree = "<group>"; };
 		0900E3D32B0E3E0A00E480C7 /* BrandRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandRepository.swift; sourceTree = "<group>"; };
 		0900E3D52B0E3F0500E480C7 /* BrandUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandUseCase.swift; sourceTree = "<group>"; };
 		0900E3D72B0E413500E480C7 /* BrandViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandViewModel.swift; sourceTree = "<group>"; };
 		09094D932B1042FB004233A5 /* AccordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordUseCase.swift; sourceTree = "<group>"; };
-		09094D952B10748A004233A5 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		09094D972B107495004233A5 /* AllAccordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAccordCollectionViewCell.swift; sourceTree = "<group>"; };
 		0924166E2A6FFA0C0084E415 /* reportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reportModel.swift; sourceTree = "<group>"; };
 		092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
@@ -510,15 +508,14 @@
 			children = (
 				094BCD122A6142610012A404 /* PerfumeCollectionViewCell.swift */,
 				0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */,
-				0900E3CF2B0E3B2C00E480C7 /* PopularBrandCollectionViewCell.swift */,
 				0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */,
 				09C59E6D2AD836CC00A631A7 /* BannerCell.swift */,
 				092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */,
 				09C59E7A2AD8774700A631A7 /* WishListCollectionViewCell.swift */,
 				09972CF42B07573700923CA5 /* NoteCollectionViewCell.swift */,
 				094334FE2B0F000100943E0D /* BrandPerfumeCollectionViewCell.swift */,
-				09094D952B10748A004233A5 /* PopularCollectionViewCell.swift */,
 				09094D972B107495004233A5 /* AllAccordCollectionViewCell.swift */,
+				0900E3CF2B0E3B2C00E480C7 /* PopularAccordCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -769,7 +766,7 @@
 			files = (
 				098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */,
 				09C59E702AD838A100A631A7 /* BannerView.swift in Sources */,
-				0900E3D02B0E3B2C00E480C7 /* PopularBrandCollectionViewCell.swift in Sources */,
+				0900E3D02B0E3B2C00E480C7 /* PopularAccordCell.swift in Sources */,
 				0924166F2A6FFA0C0084E415 /* reportModel.swift in Sources */,
 				093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */,
 				094334FD2B0EEA0100943E0D /* DetailBrandDTO.swift in Sources */,
@@ -788,7 +785,6 @@
 				BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */,
 				BD8AC1A82B10A230001C78A1 /* TermsConditionViewController.swift in Sources */,
 				BDA0DE1D2B0F492700850839 /* LoginModel.swift in Sources */,
-				097B769A2AA9A9F1009B3708 /* AccordtubeView.swift in Sources */,
 				09972CE92B06011500923CA5 /* PerfumeTagDTO.swift in Sources */,
 				0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */,
 				09ACDB0B2B1D90240065D8E4 /* CustomPageControlView.swift in Sources */,
@@ -804,7 +800,6 @@
 				09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */,
 				094BCD132A6142610012A404 /* PerfumeCollectionViewCell.swift in Sources */,
 				0969A55B2B0523B900883862 /* BannerDTO.swift in Sources */,
-				09094D962B10748A004233A5 /* PopularCollectionViewCell.swift in Sources */,
 				09CA66C32B0F5C8D00655C48 /* DetailAccordDTO.swift in Sources */,
 				09972CDD2B05FD2300923CA5 /* DetailPerfumeRepository.swift in Sources */,
 				09CA66BF2B0F5ADC00655C48 /* AllAccordDTO.swift in Sources */,
@@ -812,10 +807,9 @@
 				09972CF32B07196600923CA5 /* String+.swift in Sources */,
 				BDA0DE1B2B0F489800850839 /* LoginService.swift in Sources */,
 				09972CDD2B05FD2300923CA5 /* DetailPerfumeRepository.swift in Sources */,
-				0926A9D32B0C7C33004E3D00 /* tempBrandDTO.swift in Sources */,
+				0926A9D32B0C7C33004E3D00 /* PopularBrandDTO.swift in Sources */,
 				BD3D0D142B14B5D8005D3A9F /* SelectEmailViewModel.swift in Sources */,
 				09972CF32B07196600923CA5 /* String+.swift in Sources */,
-				09B4F8792AD2E9AD00E42220 /* BrandtubeView.swift in Sources */,
 				BDA0DE132B0F480C00850839 /* EmailLoginViewController.swift in Sources */,
 				0999E2C82A62C95E002042EF /* AccordService.swift in Sources */,
 				09094D982B107495004233A5 /* AllAccordCollectionViewCell.swift in Sources */,

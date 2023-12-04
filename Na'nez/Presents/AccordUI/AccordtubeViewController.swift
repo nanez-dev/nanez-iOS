@@ -17,7 +17,7 @@ class AccordtubeViewController: BaseViewController {
         $0.font = .pretendard(.Bold, size: 20)
         $0.textColor = UIColor(rgb: 0x333333)
     }
-    public let AllaccordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
+    private let AllaccordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 75, height: 84)
         $0.register(AllAccordCollectionViewCell.self, forCellWithReuseIdentifier: AllAccordCollectionViewCell.identifier)
@@ -30,12 +30,14 @@ class AccordtubeViewController: BaseViewController {
         layout.minimumInteritemSpacing = 0
 
     }
-    public let RecommendaccordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
+    private let RecommendaccordCollectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then{
         let layout = UICollectionViewFlowLayout()
-        $0.register(AccordCollectionViewCell.self, forCellWithReuseIdentifier: AccordCollectionViewCell.identifier)
+        layout.itemSize = CGSize(width: 220, height: 140)
+        layout.scrollDirection = .horizontal
+        $0.register(PopularAccordCell.self, forCellWithReuseIdentifier: PopularAccordCell.identifier)
         $0.collectionViewLayout = layout
         $0.decelerationRate = .fast
-        $0.isScrollEnabled = false
+        $0.isScrollEnabled = true
         $0.backgroundColor = .clear
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
@@ -117,8 +119,12 @@ class AccordtubeViewController: BaseViewController {
     }
     
     override func binding() {
-//        viewModle.accords
-//            .bind(to: self.RecommendaccordCollectionView.rx.items(cellIdentifier: <#T##String#>))
+        viewModle.popular
+            .bind(to: self.RecommendaccordCollectionView.rx.items(cellIdentifier: PopularAccordCell.identifier, cellType: PopularAccordCell.self))
+        {   index, item, cell   in
+            cell.configureCell(item)
+        }
+        .disposed(by: disposebag)
         
         viewModle.accords
             .bind(to: self.AllaccordCollectionView.rx.items(cellIdentifier: AllAccordCollectionViewCell.identifier, cellType: AllAccordCollectionViewCell.self))

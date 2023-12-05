@@ -16,14 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
           window = UIWindow(windowScene: windowScene)
         
-//        let HomeVC = TabController()
-//        window?.rootViewController = HomeVC
+        let HomeVC = TabController()
+        window?.rootViewController = HomeVC
         
-        let HomeVC = RecommendLoginViewController()
-        let navigationController = UINavigationController(rootViewController: HomeVC)
-        window?.rootViewController = navigationController
-        
-        window?.makeKeyAndVisible()
+//        let HomeVC = RecommendLoginViewController()
+//        let navigationController = UINavigationController(rootViewController: HomeVC)
+//        window?.rootViewController = navigationController
+//        window?.makeKeyAndVisible()
 
     }
 

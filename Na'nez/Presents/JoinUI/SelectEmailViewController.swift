@@ -86,7 +86,6 @@ class SelectEmailViewController: UIViewController {
                         if success {
                             self.viewModel.startCountdown(duration: 180)
                             self.selectEmailView.updateEmailAuthButtonState(isEnabled: false)
-                            self.selectEmailView.updateEmailAuthButtonTitle(isVerified: true)
                             print("Success")
                         }
                         else {
@@ -148,6 +147,7 @@ class SelectEmailViewController: UIViewController {
             .subscribe(onNext: { [weak self] isSuccess in
                 self?.updateNextButtonState(isEnabled: isSuccess)
                 if isSuccess {
+                    self?.selectEmailView.updateEmailAuthButtonTitle(isVerified: true)
                     self?.showSuccessCode()
                 }
                 else {

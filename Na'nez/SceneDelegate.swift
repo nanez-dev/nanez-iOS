@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let HomeVC = RecommendLoginViewController()
 //        let navigationController = UINavigationController(rootViewController: HomeVC)
 //        window?.rootViewController = navigationController
-//        
 //        window?.makeKeyAndVisible()
 
     }

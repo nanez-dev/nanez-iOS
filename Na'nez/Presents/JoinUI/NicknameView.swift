@@ -1,15 +1,15 @@
 //
-//  PasswordView.swift
+//  NicknameView.swift
 //  Na'nez
 //
-//  Created by KIM Hyung Jun on 12/3/23.
+//  Created by KIM Hyung Jun on 12/5/23.
 //
 
 import UIKit
 import SnapKit
 import Then
 
-class PasswordView: UIView {
+class NicknameView: UIView {
     class var mainturquoise: UIColor { UIColor(named: "mainturquoise") ?? UIColor() }
     
     let backButton = UIButton().then {
@@ -32,35 +32,35 @@ class PasswordView: UIView {
     
     let progressView = UIProgressView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setProgress(0.5, animated: true)
+        $0.setProgress(0.66, animated: true)
         $0.trackTintColor = #colorLiteral(red: 0.8523480296, green: 0.924305737, blue: 0.9935916066, alpha: 1)
     }
     
     let mainLabelLine1 = UILabel().then {
-        $0.text = "로그인에 사용할"
+        $0.text = "나네에서 부를"
         $0.font = UIFont.boldSystemFont(ofSize: 24)
         $0.textColor = .black
     }
     
     let mainLabelLine2 = UILabel().then {
-        $0.text = "비밀번호를 입력해주세요!"
+        $0.text = "이름을 정해주세요!"
         $0.font = UIFont.boldSystemFont(ofSize: 24)
         $0.textColor = .black
     }
     
     let detailLabel = UILabel().then {
-        $0.text = "비밀번호는 영문+숫자 조합의 8~20자리입니다:)"
+        $0.text = "나네에서 부를 이름을 입력해주세요:)"
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.textColor = .gray
     }
     
     let titleLabel = UILabel().then {
-        $0.text = "비밀번호"
+        $0.text = "이름"
         $0.font = UIFont.boldSystemFont(ofSize: 14)
         $0.textColor = .black
     }
     
-    let pwTextField = UITextField().then {
+    let nickTextField = UITextField().then {
         $0.textColor = .black
         $0.borderStyle = .roundedRect
         $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
@@ -68,26 +68,19 @@ class PasswordView: UIView {
         $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.lightGray.cgColor
         $0.layer.masksToBounds = true
-        $0.isSecureTextEntry = true
         $0.font = UIFont(name: "SUIT-Regular", size: 13.0)
-        $0.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력해주세요.", attributes: [
+        $0.attributedPlaceholder = NSAttributedString(string: "이름을 입력해주세요.", attributes: [
             .font: UIFont.systemFont(ofSize: 13.0, weight: .medium)
         ])
     }
     
-    let checkPwTextField = UITextField().then {
-        $0.textColor = .black
-        $0.borderStyle = .roundedRect
-        $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
+    let checkButton = UIButton().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setTitle("중복 확인", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
         $0.layer.cornerRadius = 12
-        $0.layer.borderWidth = 0.5
-        $0.layer.borderColor = UIColor.lightGray.cgColor
-        $0.layer.masksToBounds = true
-        $0.isSecureTextEntry = true
-        $0.font = UIFont(name: "SUIT-Regular", size: 13.0)
-        $0.attributedPlaceholder = NSAttributedString(string: "비밀번호를 다시 한 번 입력해주세요.", attributes: [
-            .font: UIFont.systemFont(ofSize: 13.0, weight: .medium)
-        ])
+        $0.isEnabled = false
     }
     
     let nextButton = UIButton().then {
@@ -99,17 +92,9 @@ class PasswordView: UIView {
         $0.isEnabled = false
     }
     
-    let notMatchLabel1 = UILabel().then {
+    let notMatchLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "* 비밀번호는 영문+숫자 조합의 8~20자리입니다."
-        $0.textColor = .red
-        $0.font = UIFont.systemFont(ofSize: 13)
-        $0.numberOfLines = 0
-    }
-    
-    let notMatchLabel2 = UILabel().then {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "* 비밀번호가 일치하지 않습니다."
+        $0.text = "* 이미 사용 중인 닉네임입니다."
         $0.textColor = .red
         $0.font = UIFont.systemFont(ofSize: 13)
         $0.numberOfLines = 0
@@ -117,7 +102,7 @@ class PasswordView: UIView {
     
     let canMatchLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "* 사용 가능한 비밀번호 입니다."
+        $0.text = "* 사용 가능한 닉네임 입니다."
         $0.textColor = #colorLiteral(red: 0.2625362277, green: 0.6258890629, blue: 0.9609254003, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 13)
         $0.numberOfLines = 0
@@ -144,13 +129,9 @@ class PasswordView: UIView {
         addSubview(progressView)
         addSubview(labelStackView)
         addSubview(titleLabel)
-        addSubview(pwTextField)
-        addSubview(checkPwTextField)
+        addSubview(nickTextField)
+        addSubview(checkButton)
         addSubview(nextButton)
-        
-        addSubview(notMatchLabel1)
-        addSubview(notMatchLabel2)
-        addSubview(canMatchLabel)
         
         navigationView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(60)
@@ -185,18 +166,18 @@ class PasswordView: UIView {
             $0.top.equalTo(labelStackView.snp.bottom).offset(35)
         }
         
-        pwTextField.snp.makeConstraints {
+        nickTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
             $0.width.equalToSuperview().multipliedBy(0.9)
             $0.height.equalTo(50)
         }
         
-        checkPwTextField.snp.makeConstraints {
+        checkButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(pwTextField.snp.bottom).offset(12)
-            $0.width.equalToSuperview().multipliedBy(0.9)
+            $0.top.equalTo(nickTextField.snp.bottom).offset(10)
             $0.height.equalTo(50)
+            $0.width.equalToSuperview().multipliedBy(0.9)
         }
         
         nextButton.snp.makeConstraints {
@@ -205,62 +186,5 @@ class PasswordView: UIView {
             $0.height.equalTo(50)
             $0.width.equalToSuperview().multipliedBy(0.9)
         }
-        
-        
-        notMatchLabel1.snp.makeConstraints {
-            $0.top.equalTo(checkPwTextField.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().offset(20)
-        }
-
-        notMatchLabel2.snp.makeConstraints {
-            $0.top.equalTo(checkPwTextField.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().offset(20)
-        }
-        
-        canMatchLabel.snp.makeConstraints {
-            $0.top.equalTo(checkPwTextField.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().offset(20)
-        }
-    }
-    
-    func updateValidationState(isValid: Bool, isMatch: Bool) {
-        let isPwTextFieldEmpty = pwTextField.text?.isEmpty ?? true
-        let isCheckPwTextFieldEmpty = checkPwTextField.text?.isEmpty ?? true
-
-        if isPwTextFieldEmpty && isCheckPwTextFieldEmpty {
-            // 두 텍스트 필드가 모두 비어있을 경우
-            resetTextFieldBorders()
-            notMatchLabel1.isHidden = true
-            notMatchLabel2.isHidden = true
-            canMatchLabel.isHidden = true
-        }
-        else if isValid && isMatch {
-            pwTextField.layer.borderColor = #colorLiteral(red: 0.2625362277, green: 0.6258890629, blue: 0.9609254003, alpha: 1)
-            checkPwTextField.layer.borderColor = #colorLiteral(red: 0.2625362277, green: 0.6258890629, blue: 0.9609254003, alpha: 1)
-            pwTextField.layer.borderWidth = 1
-            checkPwTextField.layer.borderWidth = 1
-            notMatchLabel1.isHidden = true
-            notMatchLabel2.isHidden = true
-            canMatchLabel.isHidden = false
-        }
-        
-        else {
-            let borderColor: CGColor = UIColor.red.cgColor
-            pwTextField.layer.borderColor = borderColor
-            checkPwTextField.layer.borderColor = borderColor
-            pwTextField.layer.borderWidth = 1
-            checkPwTextField.layer.borderWidth = 1
-            notMatchLabel1.isHidden = isValid || isPwTextFieldEmpty
-            notMatchLabel2.isHidden = isMatch || isCheckPwTextFieldEmpty
-            canMatchLabel.isHidden = true
-        }
-    }
-    
-    private func resetTextFieldBorders() {
-        let defaultBorderColor = UIColor.lightGray.cgColor
-        pwTextField.layer.borderColor = defaultBorderColor
-        checkPwTextField.layer.borderColor = defaultBorderColor
-        pwTextField.layer.borderWidth = 1
-        checkPwTextField.layer.borderWidth = 1
     }
 }

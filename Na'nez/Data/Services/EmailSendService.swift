@@ -30,7 +30,7 @@ class EmailSendService {
                         if let data = response.data, let errorString = String(data: data, encoding: .utf8) {
                             print("Server response: \(errorString)")
                         }
-                        observer.onNext(false) // 실패했을 때도 정보를 전달할 수 있도록 onNext를 호출합니다.
+                        observer.onNext(false)
                         observer.onCompleted()
                     }
                 }

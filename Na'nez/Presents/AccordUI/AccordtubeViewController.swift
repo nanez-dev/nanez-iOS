@@ -34,6 +34,7 @@ class AccordtubeViewController: BaseViewController {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 220, height: 140)
         layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         $0.register(PopularAccordCell.self, forCellWithReuseIdentifier: PopularAccordCell.identifier)
         $0.collectionViewLayout = layout
         $0.decelerationRate = .fast

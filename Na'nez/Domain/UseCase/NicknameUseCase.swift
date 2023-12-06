@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import RxSwift
+
+class NicknameUseCase {
+    private let repository: NicknameRepository
+    
+    init(repository: NicknameRepository) {
+        self.repository = repository
+    }
+    
+    func verifyNickname(nickname: String) -> Observable<Bool> {
+        return repository.postNicknameVerify(nickname: nickname)
+    }
+}

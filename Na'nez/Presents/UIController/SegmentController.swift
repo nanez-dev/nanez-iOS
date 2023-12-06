@@ -13,7 +13,6 @@ class SegmentController: UISegmentedControl {
       self.setBackgroundImage(image, for: .normal, barMetrics: .default)
       self.setBackgroundImage(image, for: .selected, barMetrics: .default)
       self.setBackgroundImage(image, for: .highlighted, barMetrics: .default)
-      
       self.setDividerImage(image, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
     }
     private lazy var underlineView: UIView = {

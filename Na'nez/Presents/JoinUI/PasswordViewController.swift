@@ -55,7 +55,10 @@ class PasswordViewController: UIViewController {
         
         passwordView.nextButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                let nicknameVC = NicknameViewController()
+                let nicknameRepository = NicknameRepository(nicknameVerifyService: NicknameVerifyService())
+                let nicknameUseCase = NicknameUseCase(repository: nicknameRepository)
+                let viewModel = NicknameViewModel(useCase: nicknameUseCase)
+                let nicknameVC = NicknameViewController(viewModel: viewModel)
                 nicknameVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
                 nicknameVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
                 self?.present(nicknameVC, animated: true)

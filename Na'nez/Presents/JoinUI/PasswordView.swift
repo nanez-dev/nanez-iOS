@@ -61,6 +61,7 @@ class PasswordView: UIView {
     }
     
     let pwTextField = UITextField().then {
+        $0.text = "hhh88888"
         $0.textColor = .black
         $0.borderStyle = .roundedRect
         $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
@@ -76,6 +77,7 @@ class PasswordView: UIView {
     }
     
     let checkPwTextField = UITextField().then {
+        $0.text = "hhh88888"
         $0.textColor = .black
         $0.borderStyle = .roundedRect
         $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)

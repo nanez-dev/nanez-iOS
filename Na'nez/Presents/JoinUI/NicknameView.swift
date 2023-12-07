@@ -11,7 +11,8 @@ import Then
 
 class NicknameView: UIView {
     class var mainturquoise: UIColor { UIColor(named: "mainturquoise") ?? UIColor() }
-    
+    var checkButtonVerticalConstraint: Constraint?
+
     let backButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setImage(UIImage(named: "Nan'Nez_Back"), for: .normal)
@@ -61,6 +62,7 @@ class NicknameView: UIView {
     }
     
     let nickTextField = UITextField().then {
+        $0.text = "xlvvlx"
         $0.textColor = .black
         $0.borderStyle = .roundedRect
         $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
@@ -68,6 +70,7 @@ class NicknameView: UIView {
         $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.lightGray.cgColor
         $0.layer.masksToBounds = true
+        $0.keyboardType = .default
         $0.font = UIFont(name: "SUIT-Regular", size: 13.0)
         $0.attributedPlaceholder = NSAttributedString(string: "이름을 입력해주세요.", attributes: [
             .font: UIFont.systemFont(ofSize: 13.0, weight: .medium)
@@ -98,6 +101,7 @@ class NicknameView: UIView {
         $0.textColor = .red
         $0.font = UIFont.systemFont(ofSize: 13)
         $0.numberOfLines = 0
+        $0.isHidden = true
     }
     
     let canMatchLabel = UILabel().then {
@@ -106,6 +110,7 @@ class NicknameView: UIView {
         $0.textColor = #colorLiteral(red: 0.2625362277, green: 0.6258890629, blue: 0.9609254003, alpha: 1)
         $0.font = UIFont.systemFont(ofSize: 13)
         $0.numberOfLines = 0
+        $0.isHidden = true
     }
     
     lazy var labelStackView = UIStackView(arrangedSubviews: [mainLabelLine1, mainLabelLine2, detailLabel]).then {
@@ -132,6 +137,9 @@ class NicknameView: UIView {
         addSubview(nickTextField)
         addSubview(checkButton)
         addSubview(nextButton)
+        
+        addSubview(notMatchLabel)
+        addSubview(canMatchLabel)
         
         navigationView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(60)
@@ -172,12 +180,22 @@ class NicknameView: UIView {
             $0.width.equalToSuperview().multipliedBy(0.9)
             $0.height.equalTo(50)
         }
-        
+
         checkButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(nickTextField.snp.bottom).offset(10)
+            checkButtonVerticalConstraint = $0.top.equalTo(nickTextField.snp.bottom).offset(10).constraint
             $0.height.equalTo(50)
             $0.width.equalToSuperview().multipliedBy(0.9)
+        }
+        
+        notMatchLabel.snp.makeConstraints {
+            $0.top.equalTo(nickTextField.snp.bottom).offset(10)
+            $0.leading.equalToSuperview().offset(20)
+        }
+        
+        canMatchLabel.snp.makeConstraints {
+            $0.top.equalTo(nickTextField.snp.bottom).offset(10)
+            $0.leading.equalToSuperview().offset(20)
         }
         
         nextButton.snp.makeConstraints {

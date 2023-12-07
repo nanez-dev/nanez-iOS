@@ -121,6 +121,12 @@
 		BD8D120D2B1EBAB700813065 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D120C2B1EBAB700813065 /* NicknameViewModel.swift */; };
 		BD8D120F2B1EBAC300813065 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D120E2B1EBAC300813065 /* NicknameView.swift */; };
 		BD8D12112B1EBACD00813065 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12102B1EBACD00813065 /* NicknameViewController.swift */; };
+		BD8D12472B2043D800813065 /* NicknameVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12462B2043D800813065 /* NicknameVerifyService.swift */; };
+		BD8D12492B20440C00813065 /* NicknameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12482B20440C00813065 /* NicknameUseCase.swift */; };
+		BD8D124B2B20442600813065 /* NicknameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D124A2B20442600813065 /* NicknameRepository.swift */; };
+		BD8D124D2B20462F00813065 /* SurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D124C2B20462F00813065 /* SurveyViewModel.swift */; };
+		BD8D124F2B20463C00813065 /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D124E2B20463C00813065 /* SurveyView.swift */; };
+		BD8D12512B20464900813065 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12502B20464900813065 /* SurveyViewController.swift */; };
 		BDA0DE112B0F47E800850839 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */; };
 		BDA0DE132B0F480C00850839 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */; };
 		BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */; };
@@ -245,6 +251,12 @@
 		BD8D120C2B1EBAB700813065 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
 		BD8D120E2B1EBAC300813065 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 		BD8D12102B1EBACD00813065 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		BD8D12462B2043D800813065 /* NicknameVerifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameVerifyService.swift; sourceTree = "<group>"; };
+		BD8D12482B20440C00813065 /* NicknameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameUseCase.swift; sourceTree = "<group>"; };
+		BD8D124A2B20442600813065 /* NicknameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameRepository.swift; sourceTree = "<group>"; };
+		BD8D124C2B20462F00813065 /* SurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewModel.swift; sourceTree = "<group>"; };
+		BD8D124E2B20463C00813065 /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
+		BD8D12502B20464900813065 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
 		BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginUseCase.swift; sourceTree = "<group>"; };
@@ -336,6 +348,7 @@
 				BDA0DE1A2B0F489800850839 /* LoginService.swift */,
 				BD3D0D172B14BD61005D3A9F /* EmailSendService.swift */,
 				BD3D0D5F2B177E51005D3A9F /* EmailVerifyService.swift */,
+				BD8D12462B2043D800813065 /* NicknameVerifyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -432,6 +445,7 @@
 				BDA0DE162B0F482A00850839 /* EmailLoginRepository.swift */,
 				BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */,
 				BD3D0D1D2B14CB83005D3A9F /* SelectEmailRepository.swift */,
+				BD8D124A2B20442600813065 /* NicknameRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -490,6 +504,7 @@
 				BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */,
 				BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */,
 				BD3D0D1F2B14CB94005D3A9F /* SelectEmailUseCase.swift */,
+				BD8D12482B20440C00813065 /* NicknameUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -661,6 +676,9 @@
 				BD8D120C2B1EBAB700813065 /* NicknameViewModel.swift */,
 				BD8D120E2B1EBAC300813065 /* NicknameView.swift */,
 				BD8D12102B1EBACD00813065 /* NicknameViewController.swift */,
+				BD8D124C2B20462F00813065 /* SurveyViewModel.swift */,
+				BD8D124E2B20463C00813065 /* SurveyView.swift */,
+				BD8D12502B20464900813065 /* SurveyViewController.swift */,
 			);
 			path = JoinUI;
 			sourceTree = "<group>";
@@ -773,6 +791,7 @@
 				0924166F2A6FFA0C0084E415 /* reportModel.swift in Sources */,
 				093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */,
 				094334FD2B0EEA0100943E0D /* DetailBrandDTO.swift in Sources */,
+				BD8D124D2B20462F00813065 /* SurveyViewModel.swift in Sources */,
 				BDA0DE2C2B0F7A8C00850839 /* AnotherLoginView.swift in Sources */,
 				09972CF12B060A6900923CA5 /* DetailPerfumeViewModel.swift in Sources */,
 				BDA0DE112B0F47E800850839 /* EmailLoginViewModel.swift in Sources */,
@@ -786,6 +805,7 @@
 				BD8AC1AE2B10E483001C78A1 /* TermsAgreement.swift in Sources */,
 				0969A54C2B051ADF00883862 /* ViewModelType.swift in Sources */,
 				BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */,
+				BD8D12492B20440C00813065 /* NicknameUseCase.swift in Sources */,
 				BD8AC1A82B10A230001C78A1 /* TermsConditionViewController.swift in Sources */,
 				BDA0DE1D2B0F492700850839 /* LoginModel.swift in Sources */,
 				09972CE92B06011500923CA5 /* PerfumeTagDTO.swift in Sources */,
@@ -823,6 +843,7 @@
 				0969A55D2B0523E800883862 /* PerfumeDTO.swift in Sources */,
 				0969A5522B05200800883862 /* HomeDTO.swift in Sources */,
 				BD462C482B1CC71E0022CB08 /* PasswordViewController.swift in Sources */,
+				BD8D12512B20464900813065 /* SurveyViewController.swift in Sources */,
 				0969A55F2B0528F300883862 /* HomeService.swift in Sources */,
 				BD8AC1A22B10A1FE001C78A1 /* TermsUseCase.swift in Sources */,
 				BD8D120F2B1EBAC300813065 /* NicknameView.swift in Sources */,
@@ -836,10 +857,12 @@
 				BD8AC1A42B10A20C001C78A1 /* TermsRepository.swift in Sources */,
 				BD3D0D1E2B14CB84005D3A9F /* SelectEmailRepository.swift in Sources */,
 				09972CE72B0600F300923CA5 /* PerfumeNoteDTO.swift in Sources */,
+				BD8D124F2B20463C00813065 /* SurveyView.swift in Sources */,
 				0969A5592B0523A400883862 /* BrandDTO.swift in Sources */,
 				BD462C442B1CC7070022CB08 /* PasswordViewModel.swift in Sources */,
 				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,
 				09CA66C52B0F610600655C48 /* AccordRepository.swift in Sources */,
+				BD8D124B2B20442600813065 /* NicknameRepository.swift in Sources */,
 				09972CEB2B0601BB00923CA5 /* DensityDTO.swift in Sources */,
 				BDA0DE262B0F704300850839 /* RecommendLoginView.swift in Sources */,
 				09972CED2B06021200923CA5 /* NoteDTO.swift in Sources */,
@@ -854,6 +877,7 @@
 				BD3D0D5E2B15E5D3005D3A9F /* CustomAlertView.swift in Sources */,
 				BD462C462B1CC7120022CB08 /* PasswordView.swift in Sources */,
 				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
+				BD8D12472B2043D800813065 /* NicknameVerifyService.swift in Sources */,
 				092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */,
 				09CA66BD2B0F565000655C48 /* AccordViewModel.swift in Sources */,
 				BDA0DE172B0F482A00850839 /* EmailLoginRepository.swift in Sources */,

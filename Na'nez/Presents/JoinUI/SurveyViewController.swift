@@ -59,6 +59,14 @@ class SurveyViewController: UIViewController {
                 self?.surveyView.nextButton.backgroundColor = isSelected ? SurveyView.mainturquoise : #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
             }).disposed(by: disposeBag)
         
+        surveyView.skipButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                let couponVC = CouponViewController()
+                couponVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                couponVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                self?.present(couponVC, animated: true)
+            }).disposed(by: disposeBag)
+        
         surveyView.nextButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 let couponVC = CouponViewController()

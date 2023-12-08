@@ -11,6 +11,17 @@ import Then
 
 class SurveyView: UIView {
     class var mainturquoise: UIColor { UIColor(named: "mainturquoise") ?? UIColor() }
+    let numberOfRows = 4
+    let numberOfColumns = 5
+    
+    let incenseButtonInfo: [(imageName: String, title: String)] = [
+        ("citrus", "시트러스"), ("fruity", "프루티"), ("floral", "플로럴"), ("whiteFloral", "화이트플로럴"), ("spicy", "스파이시"),
+        ("powdery", "파우더리"), ("fresh", "프레시"), ("aqua", "아쿠아"), ("aroma", "아로마"), ("woody", "우디"),
+        ("amber", "앰버"), ("musk", "머스크"), ("nutty", "너티"), ("vanilla", "바닐라"), ("green", "그린"),
+        ("sweet", "스위트"), ("leather", "레더"), ("smoky", "스모키")
+    ]
+    
+    var buttons: [UIButton] = []
     
     let backButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +43,7 @@ class SurveyView: UIView {
     
     let progressView = UIProgressView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setProgress(0.66, animated: true)
+        $0.setProgress(0.82, animated: true)
         $0.trackTintColor = #colorLiteral(red: 0.8523480296, green: 0.924305737, blue: 0.9935916066, alpha: 1)
     }
     
@@ -53,19 +64,86 @@ class SurveyView: UIView {
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.textColor = .gray
     }
+
     
     lazy var labelStackView = UIStackView(arrangedSubviews: [mainLabelLine1, mainLabelLine2, detailLabel]).then {
         $0.axis = .vertical
         $0.spacing = 7
     }
     
+    let buttonStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 40
+        $0.distribution = .equalSpacing
+        $0.alignment = .fill
+    }
+    
+    let skipButton = UIButton().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setTitle("건너뛰기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 12
+        $0.setTitleColor(mainturquoise, for: .normal)
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = mainturquoise.cgColor
+    }
+    
+    let nextButton = UIButton().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setTitle("다음으로", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
+        $0.layer.cornerRadius = 12
+        $0.isEnabled = false
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        setupButtons()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupButtons() {
+        var buttonIndex = 0
+        
+        for _ in 0..<numberOfRows {
+            let horizontalStackView = UIStackView().then {
+                $0.axis = .horizontal
+                $0.spacing = 10
+                $0.distribution = .fillEqually
+                $0.alignment = .fill
+            }
+            
+            for _ in 0..<numberOfColumns {
+                if buttonIndex < incenseButtonInfo.count {
+                    let buttonInfo = incenseButtonInfo[buttonIndex]
+                    let button = CustomSurveyButton(imageName: buttonInfo.imageName, title: buttonInfo.title).then {
+                        $0.translatesAutoresizingMaskIntoConstraints = false
+                    }
+                    horizontalStackView.addArrangedSubview(button)
+                    buttons.append(button)
+                    
+                    button.snp.makeConstraints {
+                        $0.height.equalTo(50)
+                    }
+                    
+                    buttonIndex += 1
+                } else {
+                    let placeholderView = UIView()
+                    horizontalStackView.addArrangedSubview(placeholderView)
+                }
+            }
+            buttonStackView.addArrangedSubview(horizontalStackView)
+            
+            horizontalStackView.snp.makeConstraints {
+                $0.height.equalTo(50)
+            }
+        }
     }
 
     private func setupUI() {
@@ -74,6 +152,11 @@ class SurveyView: UIView {
         navigationView.addSubview(topTitleLabel)
         addSubview(progressView)
         addSubview(labelStackView)
+        
+        addSubview(buttonStackView)
+        
+        addSubview(skipButton)
+        addSubview(nextButton)
         
         navigationView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(60)
@@ -102,5 +185,26 @@ class SurveyView: UIView {
             $0.top.equalTo(progressView.snp.bottom).offset(50)
             $0.trailing.equalToSuperview().offset(-47)
         }
+        
+        buttonStackView.snp.makeConstraints {
+            $0.top.equalTo(labelStackView.snp.bottom).offset(40)
+            $0.centerX.equalToSuperview()
+            $0.left.right.equalToSuperview().inset(20)
+        }
+        
+        skipButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(nextButton.snp.top).offset(-10)
+            $0.height.equalTo(50)
+            $0.width.equalToSuperview().multipliedBy(0.9)
+        }
+        
+        nextButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-50)
+            $0.height.equalTo(50)
+            $0.width.equalToSuperview().multipliedBy(0.9)
+        }
+
     }
 }

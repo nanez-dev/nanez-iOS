@@ -131,6 +131,8 @@
 		BD8D12A72B22E85C00813065 /* CouponViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12A62B22E85C00813065 /* CouponViewModel.swift */; };
 		BD8D12A92B22E86700813065 /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12A82B22E86700813065 /* CouponView.swift */; };
 		BD8D12AB2B22E87200813065 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12AA2B22E87200813065 /* CouponViewController.swift */; };
+		BD8D12D32B26A53B00813065 /* CouponUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12D22B26A53B00813065 /* CouponUseCase.swift */; };
+		BD8D12D52B26A55500813065 /* CouponRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12D42B26A55500813065 /* CouponRepository.swift */; };
 		BDA0DE112B0F47E800850839 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */; };
 		BDA0DE132B0F480C00850839 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */; };
 		BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */; };
@@ -265,6 +267,8 @@
 		BD8D12A62B22E85C00813065 /* CouponViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewModel.swift; sourceTree = "<group>"; };
 		BD8D12A82B22E86700813065 /* CouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponView.swift; sourceTree = "<group>"; };
 		BD8D12AA2B22E87200813065 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
+		BD8D12D22B26A53B00813065 /* CouponUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponUseCase.swift; sourceTree = "<group>"; };
+		BD8D12D42B26A55500813065 /* CouponRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponRepository.swift; sourceTree = "<group>"; };
 		BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
 		BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginUseCase.swift; sourceTree = "<group>"; };
@@ -454,6 +458,7 @@
 				BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */,
 				BD3D0D1D2B14CB83005D3A9F /* SelectEmailRepository.swift */,
 				BD8D124A2B20442600813065 /* NicknameRepository.swift */,
+				BD8D12D42B26A55500813065 /* CouponRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */,
 				BD3D0D1F2B14CB94005D3A9F /* SelectEmailUseCase.swift */,
 				BD8D12482B20440C00813065 /* NicknameUseCase.swift */,
+				BD8D12D22B26A53B00813065 /* CouponUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -818,6 +824,7 @@
 				BD8AC1AE2B10E483001C78A1 /* TermsAgreement.swift in Sources */,
 				0969A54C2B051ADF00883862 /* ViewModelType.swift in Sources */,
 				BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */,
+				BD8D12D52B26A55500813065 /* CouponRepository.swift in Sources */,
 				BD8D12492B20440C00813065 /* NicknameUseCase.swift in Sources */,
 				BD8AC1A82B10A230001C78A1 /* TermsConditionViewController.swift in Sources */,
 				BDA0DE1D2B0F492700850839 /* LoginModel.swift in Sources */,
@@ -842,6 +849,7 @@
 				09CA66BF2B0F5ADC00655C48 /* AllAccordDTO.swift in Sources */,
 				0926A9D32B0C7C33004E3D00 /* PopularBrandDTO.swift in Sources */,
 				09972CF32B07196600923CA5 /* String+.swift in Sources */,
+				BD8D12D32B26A53B00813065 /* CouponUseCase.swift in Sources */,
 				BDA0DE1B2B0F489800850839 /* LoginService.swift in Sources */,
 				09972CDD2B05FD2300923CA5 /* DetailPerfumeRepository.swift in Sources */,
 				0926A9D32B0C7C33004E3D00 /* PopularBrandDTO.swift in Sources */,

@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+class CouponViewModel {
+    private let disposeBag = DisposeBag()
+    
+    
+}

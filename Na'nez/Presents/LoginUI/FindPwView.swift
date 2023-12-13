@@ -1,15 +1,15 @@
 //
-//  CouponView.swift
+//  FindPwView.swift
 //  Na'nez
 //
-//  Created by KIM Hyung Jun on 12/8/23.
+//  Created by KIM Hyung Jun on 12/13/23.
 //
 
 import UIKit
 import SnapKit
 import Then
 
-class CouponView: UIView {
+class FindPwView: UIView {
     class var mainturquoise: UIColor { UIColor(named: "mainturquoise") ?? UIColor() }
     
     let backButton = UIButton().then {
@@ -20,7 +20,7 @@ class CouponView: UIView {
     
     let topTitleLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "회원가입"
+        $0.text = "비밀번호 찾기"
         $0.textColor = .black
         $0.font = UIFont(name: "SUIT-Bold", size: 18)
         $0.textAlignment = .center
@@ -30,26 +30,20 @@ class CouponView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    let progressView = UIProgressView().then {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setProgress(1, animated: true)
-        $0.trackTintColor = #colorLiteral(red: 0.8523480296, green: 0.924305737, blue: 0.9935916066, alpha: 1)
-    }
-    
     let mainLabelLine1 = UILabel().then {
-        $0.text = "특별 이벤트 코드를"
+        $0.text = "비밀번호를 잊으셨나요?"
         $0.font = UIFont.boldSystemFont(ofSize: 24)
         $0.textColor = .black
     }
     
     let mainLabelLine2 = UILabel().then {
-        $0.text = "입력해주세요!"
+        $0.text = "걱정하지 마세요!"
         $0.font = UIFont.boldSystemFont(ofSize: 24)
         $0.textColor = .black
     }
     
     let detailLabel = UILabel().then {
-        $0.text = "가입 완료시 자동으로 이벤트 참여 완료!"
+        $0.text = "나네에서 비밀번호를 찾아드릴게요:)"
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.textColor = .gray
     }
@@ -60,12 +54,12 @@ class CouponView: UIView {
     }
     
     let titleLabel = UILabel().then {
-        $0.text = "이벤트 코드"
+        $0.text = "가입 이메일"
         $0.font = UIFont.boldSystemFont(ofSize: 14)
         $0.textColor = .black
     }
     
-    let codeTextField = UITextField().then {
+    let emailTextField = UITextField().then {
         $0.textColor = .black
         $0.borderStyle = .roundedRect
         $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
@@ -75,14 +69,14 @@ class CouponView: UIView {
         $0.layer.masksToBounds = true
         $0.keyboardType = .default
         $0.font = UIFont(name: "SUIT-Regular", size: 13.0)
-        $0.attributedPlaceholder = NSAttributedString(string: "이벤트 코드를 입력해주세요.", attributes: [
+        $0.attributedPlaceholder = NSAttributedString(string: "이메일을 입력해주세요.", attributes: [
             .font: UIFont.systemFont(ofSize: 13.0, weight: .medium)
         ])
     }
     
-    let checkButton = UIButton().then {
+    let emailSendButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("확인", for: .normal)
+        $0.setTitle("이메일 전송", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
         $0.layer.cornerRadius = 12
@@ -90,32 +84,10 @@ class CouponView: UIView {
         $0.isEnabled = false
     }
     
-    let skipButton = UIButton().then {
+    let noExistEmailLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("건너뛰기", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.backgroundColor = .white
-        $0.layer.cornerRadius = 12
-        $0.setTitleColor(mainturquoise, for: .normal)
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = mainturquoise.cgColor
-        $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-    }
-    
-    let nextButton = UIButton().then {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("회원가입", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
-        $0.layer.cornerRadius = 12
-        $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        $0.isEnabled = false
-    }
-    
-    let canMatchLabel = UILabel().then {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "* 쿠폰이 등록되었습니다."
-        $0.textColor = #colorLiteral(red: 0.2625362277, green: 0.6258890629, blue: 0.9609254003, alpha: 1)
+        $0.text = "* 가입 되어있는 이메일이 아닙니다."
+        $0.textColor = .red
         $0.font = UIFont.systemFont(ofSize: 13)
         $0.numberOfLines = 0
         $0.isHidden = true
@@ -134,13 +106,10 @@ class CouponView: UIView {
         addSubview(navigationView)
         navigationView.addSubview(backButton)
         navigationView.addSubview(topTitleLabel)
-        addSubview(progressView)
         addSubview(labelStackView)
         addSubview(titleLabel)
-        addSubview(codeTextField)
-        addSubview(checkButton)
-        addSubview(skipButton)
-        addSubview(nextButton)
+        addSubview(emailTextField)
+        addSubview(emailSendButton)
         
         navigationView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(60)
@@ -159,14 +128,9 @@ class CouponView: UIView {
             $0.bottom.equalTo(backButton.snp.bottom).offset(1)
         }
         
-        progressView.snp.makeConstraints {
-            $0.top.equalTo(navigationView.snp.bottom).offset(16)
-            $0.left.right.equalToSuperview().inset(20)
-        }
-        
         labelStackView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(25)
-            $0.top.equalTo(progressView.snp.bottom).offset(50)
+            $0.top.equalTo(navigationView.snp.bottom).offset(50)
             $0.trailing.equalToSuperview().offset(-47)
         }
         
@@ -175,32 +139,19 @@ class CouponView: UIView {
             $0.top.equalTo(labelStackView.snp.bottom).offset(35)
         }
         
-        codeTextField.snp.makeConstraints {
+        emailTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
             $0.height.equalTo(50)
             $0.width.equalToSuperview().multipliedBy(0.9)
         }
         
-        checkButton.snp.makeConstraints {
+        emailSendButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(codeTextField.snp.bottom).offset(20)
-            $0.height.equalTo(50)
-            $0.width.equalToSuperview().multipliedBy(0.9)
-        }
-        
-        skipButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(nextButton.snp.top).offset(-10)
-            $0.height.equalTo(50)
-            $0.width.equalToSuperview().multipliedBy(0.9)
-        }
-        
-        nextButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-50)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(20)
             $0.height.equalTo(50)
             $0.width.equalToSuperview().multipliedBy(0.9)
         }
     }
+    
 }

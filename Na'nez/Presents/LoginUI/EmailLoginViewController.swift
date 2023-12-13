@@ -45,6 +45,11 @@ class EmailLoginViewController: UIViewController {
             print("회원가입 버튼 클릭")
             self?.showTermsConditionView()
         }
+        
+        emailLoginView.pwFindButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.showFindPwView()
+            }).disposed(by: disposeBag)
 
         viewModel.loginResult
             .observe(on: MainScheduler.instance)
@@ -64,6 +69,13 @@ class EmailLoginViewController: UIViewController {
     
     func setViewModel(viewModel: EmailLoginViewModel) {
         self.viewModel = viewModel
+    }
+    
+    private func showFindPwView() {
+        let findPwVC = FindPwViewController()
+        findPwVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        findPwVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(findPwVC, animated: true)
     }
     
     private func showTermsConditionView() {

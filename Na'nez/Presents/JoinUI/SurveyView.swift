@@ -87,6 +87,7 @@ class SurveyView: UIView {
         $0.setTitleColor(mainturquoise, for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = mainturquoise.cgColor
+        $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     }
     
     let nextButton = UIButton().then {
@@ -96,6 +97,7 @@ class SurveyView: UIView {
         $0.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
         $0.layer.cornerRadius = 12
         $0.isEnabled = false
+        $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     }
     
     override init(frame: CGRect) {

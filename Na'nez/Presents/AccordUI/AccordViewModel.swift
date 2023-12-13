@@ -15,7 +15,8 @@ class AccordViewModel:ViewModelType {
     let accords = PublishSubject<[AccordDTO]>()
     let popular = PublishSubject<[PopularAccord]>()
     let detail = PublishSubject<DetailAccordDTO>()
-
+    let accordPerfume = PublishSubject<[Relative_perfumes]>()
+    
     struct Input{
         
     }
@@ -51,6 +52,7 @@ class AccordViewModel:ViewModelType {
             .subscribe(
                 onSuccess: { [weak self] info in
                     self?.detail.onNext(info)
+                    self?.accordPerfume.onNext(info.related_perfumes)
             },
                 onFailure: { error in
                     print("AccordVM에러:\(error)")

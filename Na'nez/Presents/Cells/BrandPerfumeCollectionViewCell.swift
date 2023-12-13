@@ -15,8 +15,8 @@ final class BrandPerfumeCollectionViewCell: UICollectionViewCell {
            $0.layer.cornerRadius = 20
            $0.layer.masksToBounds = true
            $0.layer.borderWidth = 1
-           $0.layer.borderColor = UIColor(rgb: 0xEFEFEF).cgColor
-           $0.backgroundColor = .clear
+           $0.layer.borderColor = UIColor(hexString:"#F6F4EC").cgColor
+           $0.backgroundColor = UIColor(hexString: "#FDFCF9")
     }
     private let perfumeImg = UIImageView().then {
         $0.contentMode = .scaleAspectFit
@@ -111,7 +111,7 @@ final class BrandPerfumeCollectionViewCell: UICollectionViewCell {
             $0.leading.equalTo(starImg.snp.trailing)
         }
         self.perfumeDesLabel.snp.makeConstraints {
-            $0.top.equalTo(starRatioLabel.snp.bottom).offset(8)
+            $0.top.equalTo(perfumeImg.snp.bottom).offset(8)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
         }
@@ -125,15 +125,33 @@ final class BrandPerfumeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(_ item: BrandPerfumeDTO) {
-        if let imageURL = URL(string: item.image ?? APIConstants.noImage) {
+    private func configureForBrandPerfume(_ brandPerfume: BrandPerfumeDTO) {
+        if let imageURL = URL(string: brandPerfume.image ?? APIConstants.noImage) {
             self.perfumeImg.kf.setImage(with: imageURL)
         }
-        perfumeBrandLabel.text = item.brand.kor
-        perfumeNameLabel.text = item.kor
-        priceLabel.text = String(item.price).formatPriceWithWon()
+        perfumeBrandLabel.text = brandPerfume.brand.kor
+        perfumeNameLabel.text = brandPerfume.kor
+        priceLabel.text = String(brandPerfume.price).formatPriceWithWon()
     }
-       
+
+    private func configureForRelativePerfume(_ relativePerfume: Relative_perfumes) {
+        if let imageURL = URL(string: relativePerfume.image ) {
+            self.perfumeImg.kf.setImage(with: imageURL)
+        }
+        perfumeBrandLabel.text = relativePerfume.brand.kor
+        perfumeNameLabel.text = relativePerfume.kor
+        priceLabel.text = String(relativePerfume.price).formatPriceWithWon()
+    }
+
+    
+    func configureCell(_ item: Any) {
+        if let brandPerfume = item as? BrandPerfumeDTO {
+            configureForBrandPerfume(brandPerfume)
+        } else {
+            configureForRelativePerfume(item as! Relative_perfumes)
+        }
+        
+    }
     override init(frame: CGRect) {
            super.init(frame: .zero)
            self.addview()

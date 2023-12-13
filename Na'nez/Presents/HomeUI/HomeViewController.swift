@@ -461,7 +461,8 @@ extension HomeViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     private func pushAccordDetail(id:Int) {
-        let vc = DetailAccordViewController()
+        let usecase = AccordViewModel(usecase: AccordUseCase(AccordRepository(AccordService())))
+        let vc = DetailAccordViewController(viewModel:usecase, id: id )
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }

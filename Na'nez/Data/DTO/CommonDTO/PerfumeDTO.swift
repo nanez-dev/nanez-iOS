@@ -7,12 +7,11 @@
 
 import Foundation
 
-// 향수 정보 DTO
 struct PerfumeDTO: Codable {
     let kor: String
     let is_single: Bool
     let image: String
-    let web_image1: String
+    let web_image1: String?
     let brand_id: Int
     let web_image2: String?
     let id: Int

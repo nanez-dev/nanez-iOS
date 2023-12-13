@@ -24,8 +24,6 @@
 		0924166D2A6F95C10084E415 /* ImageSlideshow/Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0924166C2A6F95C10084E415 /* ImageSlideshow/Kingfisher */; };
 		0924166F2A6FFA0C0084E415 /* reportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0924166E2A6FFA0C0084E415 /* reportModel.swift */; };
 		092416712A6FFFC70084E415 /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092416702A6FFFC70084E415 /* DropDownTableViewCell.swift */; };
-		0926A9D32B0C7C33004E3D00 /* PopularBrandDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0926A9D22B0C7C33004E3D00 /* PopularBrandDTO.swift */; };
-		092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EFFBC2A778E9900E0DA90 /* DetailBrandViewController.swift */; };
 		093396F72A76A314003B8C7A /* DetailAccordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093396F62A76A314003B8C7A /* DetailAccordViewController.swift */; };
 		0936AB282AEF737200DD321F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0936AB272AEF737200DD321F /* RxCocoa */; };
 		0936AB2A2AEF737200DD321F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0936AB292AEF737200DD321F /* RxRelay */; };
@@ -62,9 +60,20 @@
 		0969A55B2B0523B900883862 /* BannerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A55A2B0523B900883862 /* BannerDTO.swift */; };
 		0969A55D2B0523E800883862 /* PerfumeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A55C2B0523E800883862 /* PerfumeDTO.swift */; };
 		0969A55F2B0528F300883862 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0969A55E2B0528F300883862 /* HomeService.swift */; };
+		09725CF62B2989BA00F137DA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09725CF52B2989BA00F137DA /* SearchViewController.swift */; };
+		09725CF82B2991EF00F137DA /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09725CF72B2991EF00F137DA /* SearchTableViewCell.swift */; };
+		09725CF92B29940600F137DA /* PopularBrandDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0926A9D22B0C7C33004E3D00 /* PopularBrandDTO.swift */; };
+		09725CFA2B29941A00F137DA /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CF22B07196500923CA5 /* String+.swift */; };
+		09725CFB2B29943600F137DA /* DetailPerfumeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CDC2B05FD2300923CA5 /* DetailPerfumeRepository.swift */; };
+		09725CFC2B29944200F137DA /* DetailBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EFFBC2A778E9900E0DA90 /* DetailBrandViewController.swift */; };
+		09725CFE2B299A9400F137DA /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09725CFD2B299A9400F137DA /* SearchViewModel.swift */; };
+		09725D012B29A32200F137DA /* SearchDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09725D002B29A32200F137DA /* SearchDTO.swift */; };
+		09725D032B29A5E800F137DA /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09725D022B29A5E800F137DA /* SearchRepository.swift */; };
+		09725D052B29A65500F137DA /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09725D042B29A65500F137DA /* SearchUseCase.swift */; };
+		09725D082B29F94F00F137DA /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09725D072B29F94F00F137DA /* SearchResultViewController.swift */; };
+		09725D0A2B29FD4F00F137DA /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09725D092B29FD4F00F137DA /* SearchResultViewModel.swift */; };
 		098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */; };
 		09972CDB2B05FCF100923CA5 /* DetailPerfumeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CDA2B05FCF100923CA5 /* DetailPerfumeUseCase.swift */; };
-		09972CDD2B05FD2300923CA5 /* DetailPerfumeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CDC2B05FD2300923CA5 /* DetailPerfumeRepository.swift */; };
 		09972CE32B05FEFC00923CA5 /* DetailPerfumeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CE22B05FEFC00923CA5 /* DetailPerfumeDTO.swift */; };
 		09972CE52B05FF9500923CA5 /* PerfumeAccordDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CE42B05FF9500923CA5 /* PerfumeAccordDTO.swift */; };
 		09972CE72B0600F300923CA5 /* PerfumeNoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CE62B0600F300923CA5 /* PerfumeNoteDTO.swift */; };
@@ -73,7 +82,6 @@
 		09972CED2B06021200923CA5 /* NoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CEC2B06021200923CA5 /* NoteDTO.swift */; };
 		09972CEF2B06022700923CA5 /* TagDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CEE2B06022700923CA5 /* TagDTO.swift */; };
 		09972CF12B060A6900923CA5 /* DetailPerfumeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CF02B060A6900923CA5 /* DetailPerfumeViewModel.swift */; };
-		09972CF32B07196600923CA5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CF22B07196500923CA5 /* String+.swift */; };
 		09972CF52B07573700923CA5 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09972CF42B07573700923CA5 /* NoteCollectionViewCell.swift */; };
 		0999E2BE2A62B775002042EF /* BrandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2BD2A62B775002042EF /* BrandCollectionViewCell.swift */; };
 		0999E2C02A62C1DA002042EF /* AccordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2BF2A62C1DA002042EF /* AccordCollectionViewCell.swift */; };
@@ -82,15 +90,20 @@
 		0999E2C82A62C95E002042EF /* AccordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2C72A62C95E002042EF /* AccordService.swift */; };
 		0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999E2CB2A62CA02002042EF /* APIConstants.swift */; };
 		09ACDB0B2B1D90240065D8E4 /* CustomPageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACDB0A2B1D90240065D8E4 /* CustomPageControlView.swift */; };
+		09ADB6812B23463F002A0D60 /* PerfumeRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ADB6802B23463F002A0D60 /* PerfumeRegisterViewController.swift */; };
 		09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEACA92A9A077A009D57E5 /* WishListView.swift */; };
 		09AEACAC2A9A0EFB009D57E5 /* SegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEACAB2A9A0EFB009D57E5 /* SegmentController.swift */; };
-		09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B759862A652B53008452A3 /* ReportPopupViewController.swift */; };
+		09C539E02B2168E700563E70 /* CustomerTabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C539DF2B2168E700563E70 /* CustomerTabelView.swift */; };
+		09C539E22B2169AC00563E70 /* CustomerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C539E12B2169AC00563E70 /* CustomerTable.swift */; };
+		09C539E42B216AFB00563E70 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C539E32B216AFB00563E70 /* MyInfoViewModel.swift */; };
+		09C539E62B216CAA00563E70 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C539E52B216CAA00563E70 /* LoginView.swift */; };
+		09C539E82B2204FD00563E70 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C539E72B2204FD00563E70 /* CustomHeaderView.swift */; };
 		09C59E6E2AD836CC00A631A7 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E6D2AD836CC00A631A7 /* BannerCell.swift */; };
 		09C59E702AD838A100A631A7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E6F2AD838A100A631A7 /* BannerView.swift */; };
 		09C59E772AD870C400A631A7 /* CHIPageControl in Frameworks */ = {isa = PBXBuildFile; productRef = 09C59E762AD870C400A631A7 /* CHIPageControl */; };
 		09C59E7B2AD8774700A631A7 /* WishListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E7A2AD8774700A631A7 /* WishListCollectionViewCell.swift */; };
 		09C59E7D2AD8783F00A631A7 /* HaveListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E7C2AD8783F00A631A7 /* HaveListView.swift */; };
-		09C59E7F2AD8856F00A631A7 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E7E2AD8856F00A631A7 /* MyInfoView.swift */; };
+		09C59E7F2AD8856F00A631A7 /* LoginyetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E7E2AD8856F00A631A7 /* LoginyetView.swift */; };
 		09CA66BD2B0F565000655C48 /* AccordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA66BC2B0F565000655C48 /* AccordViewModel.swift */; };
 		09CA66BF2B0F5ADC00655C48 /* AllAccordDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA66BE2B0F5ADC00655C48 /* AllAccordDTO.swift */; };
 		09CA66C32B0F5C8D00655C48 /* DetailAccordDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA66C22B0F5C8D00655C48 /* DetailAccordDTO.swift */; };
@@ -98,8 +111,6 @@
 		09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE292A9497A20082EB28 /* BaseViewController.swift */; };
 		09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */; };
 		09D5FE2E2A949E4C0082EB28 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5FE2D2A949E4C0082EB28 /* BaseView.swift */; };
-		09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6AC2A7CC4FE001645AA /* brandModel.swift */; };
-		09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B02A7CC553001645AA /* accordModel.swift */; };
 		09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */; };
 		BD3D0D102B14B501005D3A9F /* SelectEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D0F2B14B501005D3A9F /* SelectEmailView.swift */; };
 		BD3D0D122B14B5AD005D3A9F /* SelectEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D112B14B5AD005D3A9F /* SelectEmailViewController.swift */; };
@@ -176,6 +187,14 @@
 		0969A55A2B0523B900883862 /* BannerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerDTO.swift; sourceTree = "<group>"; };
 		0969A55C2B0523E800883862 /* PerfumeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfumeDTO.swift; sourceTree = "<group>"; };
 		0969A55E2B0528F300883862 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		09725CF52B2989BA00F137DA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		09725CF72B2991EF00F137DA /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		09725CFD2B299A9400F137DA /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		09725D002B29A32200F137DA /* SearchDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDTO.swift; sourceTree = "<group>"; };
+		09725D022B29A5E800F137DA /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
+		09725D042B29A65500F137DA /* SearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCase.swift; sourceTree = "<group>"; };
+		09725D072B29F94F00F137DA /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		09725D092B29FD4F00F137DA /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		098F80C02A63202300F1E70A /* DetailPerfumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPerfumeViewController.swift; sourceTree = "<group>"; };
 		09972CDA2B05FCF100923CA5 /* DetailPerfumeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPerfumeUseCase.swift; sourceTree = "<group>"; };
 		09972CDC2B05FD2300923CA5 /* DetailPerfumeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPerfumeRepository.swift; sourceTree = "<group>"; };
@@ -196,14 +215,20 @@
 		0999E2C72A62C95E002042EF /* AccordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordService.swift; sourceTree = "<group>"; };
 		0999E2CB2A62CA02002042EF /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		09ACDB0A2B1D90240065D8E4 /* CustomPageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControlView.swift; sourceTree = "<group>"; };
+		09ADB6802B23463F002A0D60 /* PerfumeRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfumeRegisterViewController.swift; sourceTree = "<group>"; };
 		09AEACA92A9A077A009D57E5 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		09AEACAB2A9A0EFB009D57E5 /* SegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentController.swift; sourceTree = "<group>"; };
 		09B759862A652B53008452A3 /* ReportPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupViewController.swift; sourceTree = "<group>"; };
+		09C539DF2B2168E700563E70 /* CustomerTabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTabelView.swift; sourceTree = "<group>"; };
+		09C539E12B2169AC00563E70 /* CustomerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTable.swift; sourceTree = "<group>"; };
+		09C539E32B216AFB00563E70 /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
+		09C539E52B216CAA00563E70 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		09C539E72B2204FD00563E70 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		09C59E6D2AD836CC00A631A7 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		09C59E6F2AD838A100A631A7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		09C59E7A2AD8774700A631A7 /* WishListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCollectionViewCell.swift; sourceTree = "<group>"; };
 		09C59E7C2AD8783F00A631A7 /* HaveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveListView.swift; sourceTree = "<group>"; };
-		09C59E7E2AD8856F00A631A7 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		09C59E7E2AD8856F00A631A7 /* LoginyetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginyetView.swift; sourceTree = "<group>"; };
 		09CA66BC2B0F565000655C48 /* AccordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordViewModel.swift; sourceTree = "<group>"; };
 		09CA66BE2B0F5ADC00655C48 /* AllAccordDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAccordDTO.swift; sourceTree = "<group>"; };
 		09CA66C22B0F5C8D00655C48 /* DetailAccordDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAccordDTO.swift; sourceTree = "<group>"; };
@@ -211,8 +236,6 @@
 		09D5FE292A9497A20082EB28 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNaviBar.swift; sourceTree = "<group>"; };
 		09D5FE2D2A949E4C0082EB28 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		09F7D6AC2A7CC4FE001645AA /* brandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brandModel.swift; sourceTree = "<group>"; };
-		09F7D6B02A7CC553001645AA /* accordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accordModel.swift; sourceTree = "<group>"; };
 		09F7D6B22A7CCAED001645AA /* BrandtubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandtubeViewController.swift; sourceTree = "<group>"; };
 		BD3D0D0F2B14B501005D3A9F /* SelectEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailView.swift; sourceTree = "<group>"; };
 		BD3D0D112B14B5AD005D3A9F /* SelectEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +352,8 @@
 		094BCCDE2A5FEE590012A404 /* Presents */ = {
 			isa = PBXGroup;
 			children = (
+				09725D062B29F93A00F137DA /* SearchResultUI */,
+				09725CF42B2989AA00F137DA /* SearchUI */,
 				BDA0DE0E2B0F47AD00850839 /* LoginUI */,
 				BDA0DE0F2B0F47D500850839 /* JoinUI */,
 				098CDB9D2A88F520008774B7 /* Cells */,
@@ -339,6 +364,7 @@
 				09FEB4212A66886700DD1CC5 /* HomeUI */,
 				09D5FE302A94A6390082EB28 /* WishListUI */,
 				09D5FE2F2A94A62E0082EB28 /* MyInfoUI */,
+				09ADB67F2B234612002A0D60 /* PerfumeRegisterUI */,
 			);
 			path = Presents;
 			sourceTree = "<group>";
@@ -347,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				094BCCFB2A6123F30012A404 /* BannerAdModel.swift */,
+				09C539E12B2169AC00563E70 /* CustomerTable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -406,6 +433,7 @@
 				09CA66C42B0F610600655C48 /* AccordRepository.swift */,
 				BDA0DE162B0F482A00850839 /* EmailLoginRepository.swift */,
 				BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */,
+				09725D022B29A5E800F137DA /* SearchRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -415,6 +443,7 @@
 			children = (
 				09D5FE2B2A949DEF0082EB28 /* CustomNaviBar.swift */,
 				09ACDB0A2B1D90240065D8E4 /* CustomPageControlView.swift */,
+				09C539E72B2204FD00563E70 /* CustomHeaderView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -443,10 +472,9 @@
 				09972CE02B05FDAF00923CA5 /* AccordDTO */,
 				09972CDF2B05FDA700923CA5 /* BrandDTO */,
 				09972CDE2B05FD6500923CA5 /* DetailPerfume */,
+				09725CFF2B29A31600F137DA /* Search */,
 				0969A5532B05209C00883862 /* Home */,
 				0924166E2A6FFA0C0084E415 /* reportModel.swift */,
-				09F7D6AC2A7CC4FE001645AA /* brandModel.swift */,
-				09F7D6B02A7CC553001645AA /* accordModel.swift */,
 				BDA0DE182B0F484200850839 /* UserInfo.swift */,
 				BDA0DE1C2B0F492700850839 /* LoginModel.swift */,
 				BD8AC1AD2B10E483001C78A1 /* TermsAgreement.swift */,
@@ -463,6 +491,7 @@
 				09094D932B1042FB004233A5 /* AccordUseCase.swift */,
 				BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */,
 				BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */,
+				09725D042B29A65500F137DA /* SearchUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -474,6 +503,32 @@
 				0969A55A2B0523B900883862 /* BannerDTO.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		09725CF42B2989AA00F137DA /* SearchUI */ = {
+			isa = PBXGroup;
+			children = (
+				09725CF52B2989BA00F137DA /* SearchViewController.swift */,
+				09725CFD2B299A9400F137DA /* SearchViewModel.swift */,
+			);
+			path = SearchUI;
+			sourceTree = "<group>";
+		};
+		09725CFF2B29A31600F137DA /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				09725D002B29A32200F137DA /* SearchDTO.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		09725D062B29F93A00F137DA /* SearchResultUI */ = {
+			isa = PBXGroup;
+			children = (
+				09725D072B29F94F00F137DA /* SearchResultViewController.swift */,
+				09725D092B29FD4F00F137DA /* SearchResultViewModel.swift */,
+			);
+			path = SearchResultUI;
 			sourceTree = "<group>";
 		};
 		098CDB9D2A88F520008774B7 /* Cells */ = {
@@ -489,6 +544,8 @@
 				094334FE2B0F000100943E0D /* BrandPerfumeCollectionViewCell.swift */,
 				09094D972B107495004233A5 /* AllAccordCollectionViewCell.swift */,
 				0900E3CF2B0E3B2C00E480C7 /* PopularAccordCell.swift */,
+				09C539DF2B2168E700563E70 /* CustomerTabelView.swift */,
+				09725CF72B2991EF00F137DA /* SearchTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -536,6 +593,14 @@
 			path = CommonDTO;
 			sourceTree = "<group>";
 		};
+		09ADB67F2B234612002A0D60 /* PerfumeRegisterUI */ = {
+			isa = PBXGroup;
+			children = (
+				09ADB6802B23463F002A0D60 /* PerfumeRegisterViewController.swift */,
+			);
+			path = PerfumeRegisterUI;
+			sourceTree = "<group>";
+		};
 		09D5FE282A9497900082EB28 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,7 +616,9 @@
 			isa = PBXGroup;
 			children = (
 				094BCCEC2A60043C0012A404 /* MyInfoViewController.swift */,
-				09C59E7E2AD8856F00A631A7 /* MyInfoView.swift */,
+				09C539E32B216AFB00563E70 /* MyInfoViewModel.swift */,
+				09C59E7E2AD8856F00A631A7 /* LoginyetView.swift */,
+				09C539E52B216CAA00563E70 /* LoginView.swift */,
 			);
 			path = MyInfoUI;
 			sourceTree = "<group>";
@@ -726,6 +793,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09725CFC2B29944200F137DA /* DetailBrandViewController.swift in Sources */,
+				09725CFB2B29943600F137DA /* DetailPerfumeRepository.swift in Sources */,
+				09725D082B29F94F00F137DA /* SearchResultViewController.swift in Sources */,
+				09725CFA2B29941A00F137DA /* String+.swift in Sources */,
+				09725CF92B29940600F137DA /* PopularBrandDTO.swift in Sources */,
 				098F80C12A63202300F1E70A /* DetailPerfumeViewController.swift in Sources */,
 				09C59E702AD838A100A631A7 /* BannerView.swift in Sources */,
 				0900E3D02B0E3B2C00E480C7 /* PopularAccordCell.swift in Sources */,
@@ -740,6 +812,7 @@
 				0900E3D82B0E413500E480C7 /* BrandViewModel.swift in Sources */,
 				09D5FE2A2A9497A20082EB28 /* BaseViewController.swift in Sources */,
 				09094D942B1042FB004233A5 /* AccordUseCase.swift in Sources */,
+				09725CFE2B299A9400F137DA /* SearchViewModel.swift in Sources */,
 				0969A5552B05236900883862 /* AccordDTO.swift in Sources */,
 				BD8AC1AE2B10E483001C78A1 /* TermsAgreement.swift in Sources */,
 				0969A54C2B051ADF00883862 /* ViewModelType.swift in Sources */,
@@ -754,23 +827,21 @@
 				094BCCEB2A6003650012A404 /* TabController.swift in Sources */,
 				09D5FE2E2A949E4C0082EB28 /* BaseView.swift in Sources */,
 				0999E2C62A62C954002042EF /* PerfumeService.swift in Sources */,
-				09F7D6B12A7CC553001645AA /* accordModel.swift in Sources */,
 				094334FF2B0F000100943E0D /* BrandPerfumeCollectionViewCell.swift in Sources */,
+				09725D012B29A32200F137DA /* SearchDTO.swift in Sources */,
+				09725D052B29A65500F137DA /* SearchUseCase.swift in Sources */,
+				09725CF62B2989BA00F137DA /* SearchViewController.swift in Sources */,
+				09725D0A2B29FD4F00F137DA /* SearchResultViewModel.swift in Sources */,
 				09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */,
 				BD8AC1A62B10A223001C78A1 /* TermsConditionView.swift in Sources */,
 				09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */,
 				094BCD132A6142610012A404 /* PerfumeCollectionViewCell.swift in Sources */,
 				0969A55B2B0523B900883862 /* BannerDTO.swift in Sources */,
 				09CA66C32B0F5C8D00655C48 /* DetailAccordDTO.swift in Sources */,
-				09972CDD2B05FD2300923CA5 /* DetailPerfumeRepository.swift in Sources */,
 				09CA66BF2B0F5ADC00655C48 /* AllAccordDTO.swift in Sources */,
-				0926A9D32B0C7C33004E3D00 /* PopularBrandDTO.swift in Sources */,
-				09972CF32B07196600923CA5 /* String+.swift in Sources */,
 				BDA0DE1B2B0F489800850839 /* LoginService.swift in Sources */,
-				09972CDD2B05FD2300923CA5 /* DetailPerfumeRepository.swift in Sources */,
-				0926A9D32B0C7C33004E3D00 /* PopularBrandDTO.swift in Sources */,
+				09C539E22B2169AC00563E70 /* CustomerTable.swift in Sources */,
 				BD3D0D142B14B5D8005D3A9F /* SelectEmailViewModel.swift in Sources */,
-				09972CF32B07196600923CA5 /* String+.swift in Sources */,
 				BDA0DE132B0F480C00850839 /* EmailLoginViewController.swift in Sources */,
 				0999E2C82A62C95E002042EF /* AccordService.swift in Sources */,
 				09094D982B107495004233A5 /* AllAccordCollectionViewCell.swift in Sources */,
@@ -796,30 +867,32 @@
 				09972CEB2B0601BB00923CA5 /* DensityDTO.swift in Sources */,
 				BDA0DE262B0F704300850839 /* RecommendLoginView.swift in Sources */,
 				09972CED2B06021200923CA5 /* NoteDTO.swift in Sources */,
+				09725D032B29A5E800F137DA /* SearchRepository.swift in Sources */,
 				BDA0DE1F2B0F498D00850839 /* EmailLoginView.swift in Sources */,
 				094BCCC82A5FEC0B0012A404 /* AppDelegate.swift in Sources */,
 				0999E2CC2A62CA02002042EF /* APIConstants.swift in Sources */,
+				09C539E82B2204FD00563E70 /* CustomHeaderView.swift in Sources */,
 				09C59E7D2AD8783F00A631A7 /* HaveListView.swift in Sources */,
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
+				09725CF82B2991EF00F137DA /* SearchTableViewCell.swift in Sources */,
 				0969A5442B05165300883862 /* HomeViewModel.swift in Sources */,
 				09AEACAC2A9A0EFB009D57E5 /* SegmentController.swift in Sources */,
-				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
-				092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */,
+				09C539E62B216CAA00563E70 /* LoginView.swift in Sources */,
+				09C539E42B216AFB00563E70 /* MyInfoViewModel.swift in Sources */,
 				09CA66BD2B0F565000655C48 /* AccordViewModel.swift in Sources */,
 				BDA0DE172B0F482A00850839 /* EmailLoginRepository.swift in Sources */,
-				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
-				092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */,
+				09ADB6812B23463F002A0D60 /* PerfumeRegisterViewController.swift in Sources */,
+				09C539E02B2168E700563E70 /* CustomerTabelView.swift in Sources */,
 				BDC0CCEA2B0F823D00A39304 /* RecommendLoginViewModel.swift in Sources */,
 				09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */,
 				09C59E6E2AD836CC00A631A7 /* BannerCell.swift in Sources */,
-				09C59E7F2AD8856F00A631A7 /* MyInfoView.swift in Sources */,
+				09C59E7F2AD8856F00A631A7 /* LoginyetView.swift in Sources */,
 				BD3D0D102B14B501005D3A9F /* SelectEmailView.swift in Sources */,
 				094BCCCA2A5FEC0B0012A404 /* SceneDelegate.swift in Sources */,
 				09972CEF2B06022700923CA5 /* TagDTO.swift in Sources */,
 				0969A5472B0516F900883862 /* HomeRepository.swift in Sources */,
 				BD8AC1A02B10A1EC001C78A1 /* TermsConditionViewModel.swift in Sources */,
 				0969A5502B051C4400883862 /* HomeUseCase.swift in Sources */,
-				09F7D6AD2A7CC4FE001645AA /* brandModel.swift in Sources */,
 				09C59E7B2AD8774700A631A7 /* WishListCollectionViewCell.swift in Sources */,
 				BDC0CCEE2B0F828800A39304 /* AnotherLoginViewController.swift in Sources */,
 				0966E10F2A7143660083BF1C /* AccordtubeViewController.swift in Sources */,

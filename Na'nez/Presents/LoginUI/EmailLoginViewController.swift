@@ -59,6 +59,7 @@ class EmailLoginViewController: UIViewController {
                     print("로그인 실패")
                 }
             }).disposed(by: disposeBag)
+        
     }
     
     func setViewModel(viewModel: EmailLoginViewModel) {

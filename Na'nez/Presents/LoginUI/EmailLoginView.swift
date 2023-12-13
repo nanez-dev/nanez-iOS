@@ -57,11 +57,35 @@ class EmailLoginView: UIView {
         $0.layer.cornerRadius = 12
     }
     
+    private let pwQuesLabel = UILabel().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.text = "회원정보를 잊으셨나요?"
+        $0.textColor = .darkGray
+        $0.font = UIFont.systemFont(ofSize: 11)
+    }
+    
+    private let pwFindButton = UIButton().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: 11),
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+        let attributedTitle = NSAttributedString(string: "비밀번호 찾기", attributes: attributes)
+        $0.setAttributedTitle(attributedTitle, for: .normal)
+        $0.setTitleColor(UIColor(red: 0.2638565898, green: 0.6260595918, blue: 0.9594424367, alpha: 1), for: .normal)
+        $0.backgroundColor = .white
+    }
+    
+    lazy var pwFindStackView = UIStackView(arrangedSubviews: [pwQuesLabel, pwFindButton]).then {
+        $0.axis = .horizontal
+        $0.spacing = 7
+    }
+    
     private let noticeLabel = UILabel().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "아직 나네를 시작하지 않으셨나요?"
         $0.textColor = .gray
         $0.font = UIFont.systemFont(ofSize: 14)
-        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private let joinButton = UIButton().then {
@@ -78,7 +102,7 @@ class EmailLoginView: UIView {
     let failureNoticeLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textColor = .red
-        $0.font = UIFont.systemFont(ofSize: 14)
+        $0.font = UIFont.systemFont(ofSize: 12)
         $0.numberOfLines = 0
         $0.textAlignment = .center
         $0.isHidden = true
@@ -107,6 +131,9 @@ class EmailLoginView: UIView {
         addSubview(emailField)
         addSubview(pwField)
         addSubview(loginButton)
+        
+        addSubview(pwFindStackView)
+        
         addSubview(joinButton)
         addSubview(noticeLabel)
         
@@ -138,6 +165,11 @@ class EmailLoginView: UIView {
             $0.width.equalToSuperview().multipliedBy(0.9)
         }
         
+        pwFindStackView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(loginButton.snp.bottom).offset(5)
+        }
+        
         joinButton.snp.makeConstraints {
             $0.leading.trailing.equalTo(emailField)
             $0.bottom.equalToSuperview().offset(-50)
@@ -152,9 +184,8 @@ class EmailLoginView: UIView {
         }
         
         failureNoticeLabel.snp.makeConstraints {
-            $0.top.equalTo(loginButton.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.top.equalTo(pwField.snp.bottom).offset(5)
+            $0.leading.equalTo(pwField)
         }
         
     }
@@ -167,6 +198,14 @@ class EmailLoginView: UIView {
         
         failureNoticeLabel.text = "* 이메일 또는 비밀번호가 일치하지 않습니다."
         failureNoticeLabel.isHidden = false
+        
+        loginButton.snp.updateConstraints {
+            $0.top.equalTo(pwField.snp.bottom).offset(55)
+        }
+        
+        UIView.animate(withDuration: 0.1) {
+            self.layoutIfNeeded()
+        }
     }
     
     func indicateEmailAvailable() {

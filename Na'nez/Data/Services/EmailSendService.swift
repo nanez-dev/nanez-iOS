@@ -6,3 +6,36 @@
 //
 
 import Foundation
+import Alamofire
+import RxSwift
+
+class EmailSendService {
+    
+    func postEmailSend(email: String) -> Observable<Bool> {
+        return Observable.create { observer in
+            let url = APIConstants.baseURL + "/users/email-send"
+            let parameters = ["email": email]
+            let headers: HTTPHeaders = [
+                "Content-Type": "application/json"
+            ]
+            
+            AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+                .responseJSON { response in
+                    switch response.result {
+                    case .success:
+                        observer.onNext(true)
+                        observer.onCompleted()
+                    case .failure(let error):
+                        print("Failure with error: \(error)")
+                        if let data = response.data, let errorString = String(data: data, encoding: .utf8) {
+                            print("Server response: \(errorString)")
+                        }
+                        observer.onNext(false)
+                        observer.onCompleted()
+                    }
+                }
+            
+            return Disposables.create()
+        }
+    }
+}

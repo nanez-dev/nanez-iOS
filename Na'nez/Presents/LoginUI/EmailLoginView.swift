@@ -49,7 +49,7 @@ class EmailLoginView: UIView {
         $0.isSecureTextEntry = true
     }
     
-    private let loginButton = UIButton().then {
+    let loginButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setTitle("로그인", for: .normal)
         $0.backgroundColor = UIColor(named: "mainturquoise") ?? UIColor()
@@ -57,14 +57,14 @@ class EmailLoginView: UIView {
         $0.layer.cornerRadius = 12
     }
     
-    private let pwQuesLabel = UILabel().then {
+    let pwQuesLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "회원정보를 잊으셨나요?"
         $0.textColor = .darkGray
         $0.font = UIFont.systemFont(ofSize: 11)
     }
     
-    private let pwFindButton = UIButton().then {
+    let pwFindButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.boldSystemFont(ofSize: 11),
@@ -81,14 +81,14 @@ class EmailLoginView: UIView {
         $0.spacing = 7
     }
     
-    private let noticeLabel = UILabel().then {
+    let noticeLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "아직 나네를 시작하지 않으셨나요?"
         $0.textColor = .gray
         $0.font = UIFont.systemFont(ofSize: 14)
     }
     
-    private let joinButton = UIButton().then {
+    let joinButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setTitle("회원가입", for: .normal)
         $0.backgroundColor = .white
@@ -187,7 +187,6 @@ class EmailLoginView: UIView {
             $0.top.equalTo(pwField.snp.bottom).offset(5)
             $0.leading.equalTo(pwField)
         }
-        
     }
     
     func indicateLoginFailure() {

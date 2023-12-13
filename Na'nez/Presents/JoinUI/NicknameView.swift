@@ -83,6 +83,7 @@ class NicknameView: UIView {
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
         $0.layer.cornerRadius = 12
+        $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         $0.isEnabled = false
     }
     
@@ -92,6 +93,7 @@ class NicknameView: UIView {
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
         $0.layer.cornerRadius = 12
+        $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         $0.isEnabled = false
     }
     

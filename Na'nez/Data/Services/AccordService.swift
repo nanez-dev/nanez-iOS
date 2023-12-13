@@ -28,7 +28,7 @@ class AccordService{
     }
     
     func getDetailAccordInfo(id:Int) -> Single<DetailAccordDTO> {
-        let url = APIConstants.baseURL + "/Accord/\(id)/exhibition"
+        let url = APIConstants.baseURL + "/accord/\(id)/exhibition"
         
         return Single<DetailAccordDTO>.create {  observer in
             AF.request(url)

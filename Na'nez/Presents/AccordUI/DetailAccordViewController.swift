@@ -9,10 +9,15 @@ import UIKit
 
 class DetailAccordViewController: BaseViewController {
     private let navibar:CustomNaviBar = CustomNaviBar(frame: .zero)
+    private let viewModel:AccordViewModel
     private let accordPerfumeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
-        $0.register(PerfumeCollectionViewCell.self, forCellWithReuseIdentifier: PerfumeCollectionViewCell.identifier)
+        $0.register(BrandPerfumeCollectionViewCell.self, forCellWithReuseIdentifier: BrandPerfumeCollectionViewCell.identifier)
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 8
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: 335, height: 238)
+        $0.isScrollEnabled = false
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         $0.collectionViewLayout = layout
         $0.decelerationRate = .fast
         $0.backgroundColor = .clear
@@ -53,6 +58,16 @@ class DetailAccordViewController: BaseViewController {
     }
     private let scrollView = UIScrollView()
     
+    init(viewModel: AccordViewModel, id:Int) {
+        self.viewModel = viewModel
+        self.viewModel.upadateAccordDetail(id: id)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func configure(){
         self.view.backgroundColor = .white
         self.view.addSubview(navibar)
@@ -83,7 +98,7 @@ class DetailAccordViewController: BaseViewController {
             $0.top.equalTo(accordPerfume.snp.bottom).offset(20)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.height.equalTo(580)
+            $0.height.equalTo(730)
         }
         self.accordPerfume.snp.makeConstraints{
             $0.top.equalTo(accordInfoLabel.snp.bottom).offset(52)
@@ -112,7 +127,7 @@ class DetailAccordViewController: BaseViewController {
         self.contentView.snp.makeConstraints{
             $0.width.equalToSuperview().offset(0)
             $0.edges.equalToSuperview().offset(0)
-            $0.height.equalTo(1000)
+            $0.height.equalTo(1200)
         }
         self.scrollView.snp.makeConstraints{
             $0.top.equalTo(self.navibar.snp.bottom).offset(0)
@@ -121,7 +136,22 @@ class DetailAccordViewController: BaseViewController {
     }
     
     override func binding() {
+        viewModel.detail
+            .bind(onNext: {  info in
+                if let imageURL = URL(string:  info.accord.image) {
+                    self.accordImgView.kf.setImage(with: imageURL)
+                }
+                self.accordDesLabel.text = info.accord.kor
+            })
+            .disposed(by: disposebag)
         
+        viewModel.accordPerfume
+            .bind(to: self.accordPerfumeCollectionView.rx.items(cellIdentifier: BrandPerfumeCollectionViewCell.identifier
+                                                                ,cellType: BrandPerfumeCollectionViewCell.self))
+        {  index, item ,cell  in
+            cell.configureCell(item)
+        }
+        .disposed(by: disposebag)
     }
     
 }

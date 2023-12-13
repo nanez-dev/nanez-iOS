@@ -22,7 +22,7 @@ class TabController: UITabBarController, UITabBarControllerDelegate {
         vc2.tabBarItem.image = UIImage(named: "heart")
         vc2.tabBarItem.selectedImage = UIImage(named: "heartSelect")
         vc2.navigationBar.isHidden = true
-        let vc3 = UINavigationController(rootViewController: MyInfoViewController())
+        let vc3 = UINavigationController(rootViewController: MyInfoViewController(viewModel: MyInfoViewModel()))
         vc3.tabBarItem.selectedImage = UIImage(named: "mySelect")
         vc3.tabBarItem.image = UIImage(named: "my")
         vc3.navigationBar.isHidden = true

@@ -44,23 +44,28 @@ class CustomPageControlView: UIView {
     
     private func updateIndicators() {
         for (index, indicatorView) in indicatorViews.enumerated() {
-            indicatorView.backgroundColor = (index == currentPage) ? UIColor(hexString: "#424242") : UIColor(hexString: "##D9D9D9")
-            let width = (index == currentPage) ? indicatorWidth : indicatorHeight
-            indicatorView.snp.remakeConstraints {
-                $0.centerY.equalToSuperview()
-                $0.height.equalTo(indicatorHeight)
-                $0.width.equalTo(width)
-                if index == 0 {
-                    $0.leading.equalToSuperview()
-                } else {
-                    $0.leading.equalTo(indicatorViews[index - 1].snp.trailing).offset(indicatorSpacing)
+            UIView.animate(withDuration: 0.4) {
+                indicatorView.backgroundColor = (index == self.currentPage) ? UIColor(hexString: "#424242") : UIColor(hexString: "##D9D9D9")
+                indicatorView.alpha = (index == self.currentPage) ? 1.0 : 0.5
+                let width = (index == self.currentPage) ? self.indicatorWidth : self.indicatorHeight
+                indicatorView.snp.remakeConstraints {
+                    $0.centerY.equalToSuperview()
+                    $0.height.equalTo(self.indicatorHeight)
+                    $0.width.equalTo(width)
+                    if index == 0 {
+                        $0.leading.equalToSuperview()
+                    } else {
+                        $0.leading.equalTo(self.indicatorViews[index - 1].snp.trailing).offset(self.indicatorSpacing)
+                    }
+                    if index == self.numberOfPages - 1 {
+                        $0.trailing.equalToSuperview()
+                    }
                 }
-                if index == numberOfPages - 1 {
-                    $0.trailing.equalToSuperview()
-                }
+                self.layoutIfNeeded()
             }
         }
     }
+
     
     func setCurrentPage(_ currentPage: Int) {
         guard currentPage >= 0 && currentPage < numberOfPages else { return }

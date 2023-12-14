@@ -115,6 +115,7 @@
 		BD0BCEFE2B29D814007E023F /* FindPwViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BCEFD2B29D814007E023F /* FindPwViewModel.swift */; };
 		BD0BCF002B29D822007E023F /* FindPwView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BCEFF2B29D822007E023F /* FindPwView.swift */; };
 		BD0BCF042B29DA6E007E023F /* FindPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BCF032B29DA6E007E023F /* FindPwViewController.swift */; };
+		BD0BCF3F2B2B4A1A007E023F /* EntireAccordDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BCF3E2B2B4A1A007E023F /* EntireAccordDTO.swift */; };
 		BD3D0D102B14B501005D3A9F /* SelectEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D0F2B14B501005D3A9F /* SelectEmailView.swift */; };
 		BD3D0D122B14B5AD005D3A9F /* SelectEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D112B14B5AD005D3A9F /* SelectEmailViewController.swift */; };
 		BD3D0D142B14B5D8005D3A9F /* SelectEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D132B14B5D8005D3A9F /* SelectEmailViewModel.swift */; };
@@ -266,6 +267,7 @@
 		BD0BCEFD2B29D814007E023F /* FindPwViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwViewModel.swift; sourceTree = "<group>"; };
 		BD0BCEFF2B29D822007E023F /* FindPwView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwView.swift; sourceTree = "<group>"; };
 		BD0BCF032B29DA6E007E023F /* FindPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwViewController.swift; sourceTree = "<group>"; };
+		BD0BCF3E2B2B4A1A007E023F /* EntireAccordDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntireAccordDTO.swift; sourceTree = "<group>"; };
 		BD3D0D0F2B14B501005D3A9F /* SelectEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailView.swift; sourceTree = "<group>"; };
 		BD3D0D112B14B5AD005D3A9F /* SelectEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailViewController.swift; sourceTree = "<group>"; };
 		BD3D0D132B14B5D8005D3A9F /* SelectEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailViewModel.swift; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 		09972CE02B05FDAF00923CA5 /* AccordDTO */ = {
 			isa = PBXGroup;
 			children = (
+				BD0BCF3E2B2B4A1A007E023F /* EntireAccordDTO.swift */,
 				09CA66BE2B0F5ADC00655C48 /* AllAccordDTO.swift */,
 				09CA66C22B0F5C8D00655C48 /* DetailAccordDTO.swift */,
 			);
@@ -931,13 +934,9 @@
 				0969A55B2B0523B900883862 /* BannerDTO.swift in Sources */,
 				09CA66C32B0F5C8D00655C48 /* DetailAccordDTO.swift in Sources */,
 				09CA66BF2B0F5ADC00655C48 /* AllAccordDTO.swift in Sources */,
-				0926A9D32B0C7C33004E3D00 /* PopularBrandDTO.swift in Sources */,
-				09972CF32B07196600923CA5 /* String+.swift in Sources */,
 				BD8D12D32B26A53B00813065 /* CouponUseCase.swift in Sources */,
 				BDA0DE1B2B0F489800850839 /* LoginService.swift in Sources */,
 				BD0BCF002B29D822007E023F /* FindPwView.swift in Sources */,
-				09972CDD2B05FD2300923CA5 /* DetailPerfumeRepository.swift in Sources */,
-				0926A9D32B0C7C33004E3D00 /* PopularBrandDTO.swift in Sources */,
 				09C539E22B2169AC00563E70 /* CustomerTable.swift in Sources */,
 				BD3D0D142B14B5D8005D3A9F /* SelectEmailViewModel.swift in Sources */,
 				BDA0DE132B0F480C00850839 /* EmailLoginViewController.swift in Sources */,
@@ -991,9 +990,7 @@
 				09C539E42B216AFB00563E70 /* MyInfoViewModel.swift in Sources */,
 				BD3D0D5E2B15E5D3005D3A9F /* CustomAlertView.swift in Sources */,
 				BD462C462B1CC7120022CB08 /* PasswordView.swift in Sources */,
-				09B759872A652B53008452A3 /* ReportPopupViewController.swift in Sources */,
 				BD8D12472B2043D800813065 /* NicknameVerifyService.swift in Sources */,
-				092EFFBD2A778E9900E0DA90 /* DetailBrandViewController.swift in Sources */,
 				09CA66BD2B0F565000655C48 /* AccordViewModel.swift in Sources */,
 				BDA0DE172B0F482A00850839 /* EmailLoginRepository.swift in Sources */,
 				09ADB6812B23463F002A0D60 /* PerfumeRegisterViewController.swift in Sources */,
@@ -1007,6 +1004,7 @@
 				BD0BCF042B29DA6E007E023F /* FindPwViewController.swift in Sources */,
 				09972CEF2B06022700923CA5 /* TagDTO.swift in Sources */,
 				0969A5472B0516F900883862 /* HomeRepository.swift in Sources */,
+				BD0BCF3F2B2B4A1A007E023F /* EntireAccordDTO.swift in Sources */,
 				BD3D0D182B14BD61005D3A9F /* EmailSendService.swift in Sources */,
 				BD8AC1A02B10A1EC001C78A1 /* TermsConditionViewModel.swift in Sources */,
 				0969A5502B051C4400883862 /* HomeUseCase.swift in Sources */,

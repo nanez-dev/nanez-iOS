@@ -10,6 +10,28 @@ import Alamofire
 import RxSwift
 
 class AccordService{
+    
+    func getEntireAccord() -> Single<EntireAccordDTO> {
+        let url = APIConstants.baseURL + "/accord"
+        
+        return Single<EntireAccordDTO>.create { observer in
+            let request = AF.request(url)
+                .responseDecodable(of: EntireAccordDTO.self) { response in
+                    switch response.result {
+                    case .success(let value):
+                        observer(.success(value))
+                    case .failure(let error):
+                        observer(.failure(error))
+                        print("전체 어코드 API 에러: \(error.localizedDescription)")
+                    }
+                }
+            
+            return Disposables.create {
+                request.cancel()
+            }
+        }
+    }
+    
     func getAllAccord() -> Single<AllAccordDTO> {
         let url = APIConstants.baseURL + "/accord/exhibition"
         

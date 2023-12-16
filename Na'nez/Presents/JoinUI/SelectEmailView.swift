@@ -106,7 +106,7 @@ class SelectEmailView: UIView {
         $0.attributedPlaceholder = NSAttributedString(string: "인증번호를 입력해주세요.", attributes: [
             .font: UIFont.systemFont(ofSize: 13.0, weight: .medium)
         ])
-        
+        $0.keyboardType = .numberPad
         $0.isHidden = true
     }
     

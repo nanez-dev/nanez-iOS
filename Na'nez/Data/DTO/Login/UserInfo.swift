@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserInfo {
+struct UserInfo: Codable {
     var access_token: String?
     var refresh_token: String?
 }

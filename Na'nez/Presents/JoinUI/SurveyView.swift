@@ -14,11 +14,11 @@ class SurveyView: UIView {
     let numberOfRows = 4
     let numberOfColumns = 5
     
-    let incenseButtonInfo: [(imageName: String, title: String)] = [
-        ("citrus", "시트러스"), ("fruity", "프루티"), ("floral", "플로럴"), ("whiteFloral", "화이트플로럴"), ("spicy", "스파이시"),
-        ("powdery", "파우더리"), ("fresh", "프레시"), ("aqua", "아쿠아"), ("aroma", "아로마"), ("woody", "우디"),
-        ("amber", "앰버"), ("musk", "머스크"), ("nutty", "너티"), ("vanilla", "바닐라"), ("green", "그린"),
-        ("sweet", "스위트"), ("leather", "레더"), ("smoky", "스모키")
+    let incenseButtonInfo: [(imageName: String, title: String, id: Int)] = [
+        ("citrus", "시트러스", 1), ("fruity", "프루티", 2), ("floral", "플로럴", 3), ("whiteFloral", "화이트플로럴", 4), ("spicy", "스파이시", 5),
+        ("powdery", "파우더리", 6), ("fresh", "프레시", 7), ("aqua", "아쿠아", 8), ("aroma", "아로마", 9), ("woody", "우디", 10),
+        ("amber", "앰버", 11), ("musk", "머스크", 12), ("nutty", "너티", 13), ("vanilla", "바닐라", 14), ("green", "그린", 15),
+        ("sweet", "스위트", 16), ("leather", "레더", 17), ("smoky", "스모키", 18)
     ]
     
     var buttons: [UIButton] = []
@@ -103,14 +103,14 @@ class SurveyView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        setupButtons()
+        setupAccordButtons()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupButtons() {
+    private func setupAccordButtons() {
         var buttonIndex = 0
         
         for _ in 0..<numberOfRows {

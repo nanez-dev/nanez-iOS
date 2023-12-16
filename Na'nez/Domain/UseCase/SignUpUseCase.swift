@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import RxSwift
+
+class SignUpUseCase {
+    private let repository: SignUpRepositoryProtocol
+    
+    init(repository: SignUpRepositoryProtocol) {
+        self.repository = repository
+    }
+    
+    func execute(signUpDTO: SignUpDTO) -> Single<UserInfo> {
+        return repository.signUp(with: signUpDTO)
+    }
+}

@@ -43,6 +43,7 @@ class SurveyViewController: UIViewController {
         for (index, button) in surveyView.buttons.enumerated() {
             button.rx.tap
                 .subscribe(onNext: { [weak self] in
+                    print("Button ID: \(self?.surveyView.incenseButtonInfo[index].id ?? 0)")
                     self?.viewModel.selectButton(at: index)
                 }).disposed(by: disposeBag)
         }

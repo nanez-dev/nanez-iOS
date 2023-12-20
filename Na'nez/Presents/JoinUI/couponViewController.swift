@@ -12,7 +12,17 @@ import RxSwift
 
 class CouponViewController: UIViewController {
     private let couponView = CouponView()
+    private let couponViewModel: CouponViewModel
     private let disposeBag = DisposeBag()
+
+    init(couponViewModel: CouponViewModel) {
+        self.couponViewModel = couponViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

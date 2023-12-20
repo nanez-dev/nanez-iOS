@@ -62,19 +62,23 @@ class SurveyViewController: UIViewController {
         
         surveyView.skipButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                let couponVC = CouponViewController()
-                couponVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                couponVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-                self?.present(couponVC, animated: true)
+                self?.navigateToCouponVC()
             }).disposed(by: disposeBag)
         
         surveyView.nextButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                let couponVC = CouponViewController()
-                couponVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                couponVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-                self?.present(couponVC, animated: true)
+                self?.navigateToCouponVC()
             }).disposed(by: disposeBag)
+    }
+    
+    private func navigateToCouponVC() {
+        let couponRp = CouponRepository(signUpService: SignUpService())
+        let couponUC = CouponUseCase(repository: couponRp)
+        let couponVM = CouponViewModel(useCase: couponUC)
+        let couponVC = CouponViewController(couponViewModel: couponVM)
+        couponVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        couponVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(couponVC, animated: true)
     }
     
     private func updateButtonSelectionState(selectedIndex: Int?) {

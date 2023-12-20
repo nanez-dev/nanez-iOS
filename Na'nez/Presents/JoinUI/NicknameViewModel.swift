@@ -12,6 +12,8 @@ import RxCocoa
 class NicknameViewModel {
     private let disposeBag = DisposeBag()
     
+    let nickname = BehaviorSubject<String>(value: "")
+    
     // Input
     let checkNickname = PublishSubject<String>()
     

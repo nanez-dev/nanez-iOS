@@ -14,9 +14,24 @@ class CouponViewController: UIViewController {
     private let couponView = CouponView()
     private let couponViewModel: CouponViewModel
     private let disposeBag = DisposeBag()
+    
+    private var nicknameVC: NicknameViewController?
+    private var selectEmailVC: SelectEmailViewController?
+    private var passwordVC: PasswordViewController?
+    private var surveyVC: SurveyViewController?
+    private var surveyViewModel: SurveyViewModel?
+    private var termsConditionVC: TermsConditionViewController?
+    private var termsConditionViewModel: TermsConditionViewModel?
+    
+    private var nickname: String?
+    private var email: String?
+    private var password: String?
+    private var accordId: Int?
+    private var isAccepted: Bool?
 
-    init(couponViewModel: CouponViewModel) {
+    init(couponViewModel: CouponViewModel, surveyViewModel: SurveyViewModel) {
         self.couponViewModel = couponViewModel
+        self.surveyViewModel = surveyViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,6 +46,8 @@ class CouponViewController: UIViewController {
         
         configure()
         setupBinding()
+    
+        setupBinding2()
     }
     
     private func configure() {
@@ -40,6 +57,25 @@ class CouponViewController: UIViewController {
         couponView.snp.makeConstraints {
             $0.top.left.right.bottom.equalToSuperview()
         }
+        
+        let nicknameRP = NicknameRepository(nicknameVerifyService: NicknameVerifyService())
+        let nicknameUC = NicknameUseCase(repository: nicknameRP)
+        let nicknameVM = NicknameViewModel(useCase: nicknameUC)
+        nicknameVC = NicknameViewController(viewModel: nicknameVM)
+        
+        let selectEmailRP = SelectEmailRepository(emailSendService: EmailSendService(), emailVerifyService: EmailVerifyService())
+        let selectEmailUC = SelectEmailUseCase(repository: selectEmailRP)
+        let selectEmailVM = SelectEmailViewModel(useCase: selectEmailUC)
+        selectEmailVC = SelectEmailViewController(viewModel: selectEmailVM)
+        
+        passwordVC = PasswordViewController()
+        
+        surveyVC = SurveyViewController()
+        
+        let termsConditionRP = TermsRepository()
+        let termsConditionUC = TermsUseCase(repository: termsConditionRP)
+        let termsConditionVM = TermsConditionViewModel(termsUseCase: termsConditionUC)
+        termsConditionVC = TermsConditionViewController(viewModel: termsConditionVM)
     }
     
     private func setupBinding() {
@@ -59,8 +95,52 @@ class CouponViewController: UIViewController {
                 
                 self?.couponView.canMatchLabel.isHidden = true
             }).disposed(by: disposeBag)
-    }
+        
+     
+//        couponView.skipButton.rx.tap
+//            .flatMapLatest { [weak self] _ -> Observable<SignUpDTO> in
+//                
+//            
+        }
     
+    private func setupBinding2() {
+        guard let nicknameVC = nicknameVC else { return }
+        nicknameVC.nicknameObservable
+            .subscribe(onNext: { [weak self] newNickname in
+                self?.nickname = newNickname
+                print("Nickname: \(newNickname)")
+            }).disposed(by: disposeBag)
+        
+        guard let selectEmailVC = selectEmailVC else { return }
+        selectEmailVC.emailObservable
+            .subscribe(onNext: { [weak self] newEmail in
+                self?.email = newEmail
+                print("Email: \(newEmail)")
+            }).disposed(by: disposeBag)
+        
+        guard let passwordVC = passwordVC else { return }
+        passwordVC.passwordObservable
+            .subscribe(onNext: { [weak self] newPassword in
+                self?.password = newPassword
+                print("Password: \(newPassword)")
+            }).disposed(by: disposeBag)
+        
+        surveyViewModel?.selectedButtonId
+            .subscribe(onNext: { [weak self] id in
+                guard let strongSelf = self, let unwrappedId = id else { return }
+                strongSelf.accordId = unwrappedId
+                print("Accord Id: \(unwrappedId)")
+            }).disposed(by: disposeBag)
+        
+        guard let termsConditionVC = termsConditionVC else { return }
+        termsConditionVC.marketingAgreementObservable
+            .subscribe(onNext: { [weak self] isMarketingAgreed in
+                self?.isAccepted = isMarketingAgreed
+                print("Marketing Agreed: \(isMarketingAgreed)")
+            }).disposed(by: disposeBag)
+    }
+
+
     private func showSameAlert() {
         let alertView = CustomAlertView()
         alertView.configure(message: "확인이 완료되었습니다.", actionButtonTitle: "확인")

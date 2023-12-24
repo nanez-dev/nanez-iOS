@@ -208,3 +208,4 @@ class NicknameView: UIView {
         }
     }
 }
+

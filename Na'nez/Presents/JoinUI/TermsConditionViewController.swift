@@ -15,6 +15,10 @@ class TermsConditionViewController: UIViewController {
     private let viewModel: TermsConditionViewModel
     private let disposeBag = DisposeBag()
     
+    var marketingAgreementObservable: Observable<Bool> {
+        return viewModel.isMarketingAgreement.asObservable()
+    }
+    
     init(viewModel: TermsConditionViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -79,7 +83,6 @@ class TermsConditionViewController: UIViewController {
                 
                 showSelectEmailVC()
             }).disposed(by: disposeBag)
-    
         
         viewModel.agreementStatus()
             .subscribe(onNext: { [weak self] agreement in
@@ -116,6 +119,7 @@ class TermsConditionViewController: UIViewController {
                 self?.openWebPage(urlString: "https://nanez.notion.site/Na-nez-SNS-3f74db9bc4d64415ba2d775268290a8c")
             }).disposed(by: disposeBag)
     }
+
     
     private func openWebPage(urlString: String) {
         guard let url = URL(string: urlString) else { return }

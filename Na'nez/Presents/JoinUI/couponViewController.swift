@@ -96,12 +96,52 @@ class CouponViewController: UIViewController {
                 self?.couponView.canMatchLabel.isHidden = true
             }).disposed(by: disposeBag)
         
-     
-//        couponView.skipButton.rx.tap
-//            .flatMapLatest { [weak self] _ -> Observable<SignUpDTO> in
-//                
-//            
-        }
+        
+        couponView.skipButton.rx.tap
+            .flatMapLatest { [weak self] _ -> Observable<SignUpDTO> in
+                guard let self = self,
+                      let nickname = self.nickname,
+                      let email = self.email,
+                      let password = self.password,
+                      let accordId = self.accordId,
+                      let isAccepted = self.isAccepted
+                else {
+                    return Observable.just(SignUpDTO(
+                        nickname: "",
+                        email: "",
+                        password: "",
+                        gender: "",
+                        ageGroup: 0,
+                        referCode: "",
+                        accordId: 0,
+                        isAccepted: false,
+                        profileImage: ""
+                    ))
+                }
+                
+                print("nickname: \(nickname ?? nil)")
+                print("email: \(email ?? nil)")
+                print("password: \(password ?? nil)")
+                print("accordId: \(accordId ?? nil)")
+                print("isAccepted: \(isAccepted ?? nil)")
+                
+                let dto = SignUpDTO(
+                    nickname: nickname,
+                    email: email,
+                    password: password,
+                    gender: "-",
+                    ageGroup: 0,
+                    referCode: "",
+                    accordId: accordId,
+                    isAccepted: isAccepted,
+                    profileImage: ""
+                )
+                return Observable.just(dto)
+            }
+            .subscribe(onNext: { [weak self] dto in
+                self?.couponViewModel.signUp(dto: dto)
+            }).disposed(by: disposeBag)
+    }
     
     private func setupBinding2() {
         guard let nicknameVC = nicknameVC else { return }
@@ -128,7 +168,7 @@ class CouponViewController: UIViewController {
         surveyViewModel?.selectedButtonId
             .subscribe(onNext: { [weak self] id in
                 guard let strongSelf = self, let unwrappedId = id else { return }
-                strongSelf.accordId = unwrappedId
+                strongSelf.accordId = Int(unwrappedId)
                 print("Accord Id: \(unwrappedId)")
             }).disposed(by: disposeBag)
         

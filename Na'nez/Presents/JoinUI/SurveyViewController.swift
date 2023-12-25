@@ -13,9 +13,9 @@ import RxCocoa
 
 class SurveyViewController: UIViewController {
     private let surveyView = SurveyView()
-    private let viewModel = SurveyViewModel()
+    let viewModel = SurveyViewModel()
     private let disposeBag = DisposeBag()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -44,14 +44,11 @@ class SurveyViewController: UIViewController {
             button.rx.tap
                 .subscribe(onNext: { [weak self] in
                     print("Button ID: \(self?.surveyView.incenseButtonInfo[index].id ?? 0)")
+
                     self?.viewModel.selectButton(at: index)
+                    
                 }).disposed(by: disposeBag)
         }
-        
-        viewModel.selectedButton
-            .subscribe(onNext: { [weak self] selectedIndex in
-                self?.updateButtonSelectionState(selectedIndex: selectedIndex)
-            }).disposed(by: disposeBag)
         
         viewModel.isButtonSelected
             .observe(on: MainScheduler.instance)
@@ -70,20 +67,16 @@ class SurveyViewController: UIViewController {
                 self?.navigateToCouponVC()
             }).disposed(by: disposeBag)
     }
-    
+
     private func navigateToCouponVC() {
-        let couponRp = CouponRepository(signUpService: SignUpService())
-        let couponUC = CouponUseCase(repository: couponRp)
-        let couponVM = CouponViewModel(useCase: couponUC)
-        let couponVC = CouponViewController(couponViewModel: couponVM)
+        let signUpRp = SignUpRepository(signUpService: SignUpService())
+        let signUpUC = SignUpUseCase(repository: signUpRp)
+        let couponVM = CouponViewModel(useCase: signUpUC)
+        let couponVC = CouponViewController(couponViewModel: couponVM, surveyViewModel: viewModel)
+        
         couponVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         couponVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(couponVC, animated: true)
     }
-    
-    private func updateButtonSelectionState(selectedIndex: Int?) {
-        for (index, button) in surveyView.buttons.enumerated() {
-            button.isSelected = index == selectedIndex
-        }
-    }
 }
+

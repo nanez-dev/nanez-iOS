@@ -12,7 +12,7 @@ import RxCocoa
 class TermsConditionViewModel {
     private let termsUseCase: TermsUseCaseProtocol
     private let disposeBag = DisposeBag()
-    
+        
     let inputServiceAgreement = PublishSubject<Void>()
     let inputPrivacyAgreement = PublishSubject<Void>()
     let inputMarketingAgreement = PublishSubject<Void>()
@@ -20,9 +20,16 @@ class TermsConditionViewModel {
     
     let termsAgreement: BehaviorSubject<TermsAgreement>
     
+    let isMarketingAgreement = BehaviorSubject<Bool>(value: false)
+        
     init(termsUseCase: TermsUseCaseProtocol) {
         self.termsUseCase = termsUseCase
         self.termsAgreement = termsUseCase.termsAgreement
+        
+        termsUseCase.termsAgreement
+            .map { $0.isMarketingAgreed }
+            .bind(to: isMarketingAgreement)
+            .disposed(by: disposeBag)
         
         inputServiceAgreement
             .subscribe(onNext: { [weak self] _ in
@@ -43,7 +50,6 @@ class TermsConditionViewModel {
             .subscribe(onNext: { [weak self] value in
                 self?.termsUseCase.setAllAgreements(to: value)
             }).disposed(by: disposeBag)
-        
     }
     
     func agreementStatus() -> Observable<TermsAgreement> {

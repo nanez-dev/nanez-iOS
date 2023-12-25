@@ -12,11 +12,14 @@ import RxSwift
 import RxCocoa
 
 class SelectEmailViewController: UIViewController {
-    
     private let loadingIndicator = UIActivityIndicatorView(style: .large)
     private let selectEmailView = SelectEmailView()
     private let viewModel: SelectEmailViewModel
     private let disposeBag = DisposeBag()
+    
+    var emailObservable: Observable<String> {
+        return selectEmailView.emailTextField.rx.text.orEmpty.asObservable()
+    }
     
     init(viewModel: SelectEmailViewModel) {
         self.viewModel = viewModel

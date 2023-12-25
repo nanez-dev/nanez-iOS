@@ -10,8 +10,17 @@ import RxSwift
 import RxCocoa
 
 class SurveyViewModel {
+    private let surveyView = SurveyView()
     private var selectedButtonIndex: BehaviorSubject<Int?> = BehaviorSubject(value: nil)
     private let disposeBag = DisposeBag()
+    
+    var selectedButtonId: Observable<Int?> {
+        return selectedButtonIndex
+            .map { [weak self] index in
+                guard let index = index else { return nil }
+                return self?.surveyView.incenseButtonInfo[index].id
+            }
+    }
     
     var selectedButton: Observable<Int?> {
         return selectedButtonIndex.asObservable()

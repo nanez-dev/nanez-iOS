@@ -10,15 +10,15 @@ import RxSwift
 import RxCocoa
 
 class CouponViewModel {
-    private let couponUseCase: CouponUseCase
+    private let signUpUseCase: SignUpUseCase
     private let disposeBag = DisposeBag()
     
-    init(useCase: CouponUseCase) {
-        self.couponUseCase = useCase
+    init(useCase: SignUpUseCase) {
+        self.signUpUseCase = useCase
     }
     
     func signUp(dto: SignUpDTO) {
-        couponUseCase.executeSignUp(dto: dto)
+        signUpUseCase.execute(signUpDTO: dto)
             .subscribe(
                 onSuccess: { userInfo in
                     print("회원가입에 성공하였습니다.")
@@ -28,5 +28,4 @@ class CouponViewModel {
                 }
             ).disposed(by: disposeBag)
     }
-    
 }

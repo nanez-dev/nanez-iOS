@@ -14,6 +14,10 @@ class PasswordViewController: UIViewController {
     private let passwordView = PasswordView()
     private let disposeBag = DisposeBag()
     
+    var passwordObservable: Observable<String> {
+        return passwordView.pwTextField.rx.text.orEmpty.asObservable()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

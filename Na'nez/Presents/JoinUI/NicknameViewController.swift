@@ -15,6 +15,10 @@ class NicknameViewController: UIViewController {
     private let viewModel: NicknameViewModel
     private let disposeBag = DisposeBag()
     
+    var nicknameObservable: Observable<String> {
+        return nicknameView.nickTextField.rx.text.orEmpty.asObservable()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

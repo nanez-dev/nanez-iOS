@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 class SelectEmailViewController: UIViewController {
-    private let loadingIndicator = UIActivityIndicatorView(style: .large)
+    private let customIndicatorView = CustomIndicatorView()
     private let selectEmailView = SelectEmailView()
     private let viewModel: SelectEmailViewModel
     private let disposeBag = DisposeBag()
@@ -36,21 +36,15 @@ class SelectEmailViewController: UIViewController {
         
         configure()
         setupBinding()
-        configureLoadingIndicator()
+        configureCustomIndicatorView()
     }
     
-    private func configureLoadingIndicator() {
-        view.addSubview(loadingIndicator)
-        loadingIndicator.center = view.center
-        loadingIndicator.hidesWhenStopped = true
-    }
-    
-    private func showLoadingIndicator() {
-        loadingIndicator.startAnimating()
-    }
-    
-    private func hideLoadingIndicator() {
-        loadingIndicator.stopAnimating()
+    private func configureCustomIndicatorView() {
+        view.addSubview(customIndicatorView)
+        customIndicatorView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        customIndicatorView.isHidden = true
     }
 
     private func configure() {
@@ -80,12 +74,14 @@ class SelectEmailViewController: UIViewController {
                     return
                 }
                 
-                self.showLoadingIndicator()
+                self.customIndicatorView.isHidden = false
+                self.customIndicatorView.startAnimating()
                 
                 self.viewModel.sendEmail(email: email)
                     .observe(on: MainScheduler.instance)
                     .subscribe(onNext: { success in
-                        self.hideLoadingIndicator()
+                        self.customIndicatorView.stopAnimating()
+                        self.customIndicatorView.isHidden = true
                         if success {
                             self.viewModel.startCountdown(duration: 180)
                             self.selectEmailView.updateEmailAuthButtonState(isEnabled: false)
@@ -112,12 +108,14 @@ class SelectEmailViewController: UIViewController {
                     return
                 }
                 
-                self.showLoadingIndicator()
+                self.customIndicatorView.isHidden = false
+                self.customIndicatorView.startAnimating()
                 
                 self.viewModel.sendEmail(email: email)
                     .observe(on: MainScheduler.instance)
                     .subscribe(onNext: { success in
-                        self.hideLoadingIndicator()
+                        self.customIndicatorView.stopAnimating()
+                        self.customIndicatorView.isHidden = true
                         if success {
                             self.viewModel.startCountdown(duration: 180)
                             print("Success2")

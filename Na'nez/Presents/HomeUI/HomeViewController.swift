@@ -199,6 +199,9 @@ final class HomeViewController: BaseViewController, UICollectionViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationItem.hidesBackButton = true
+        
         viewModel.updateHomeInfo()
     }
     

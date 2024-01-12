@@ -164,6 +164,12 @@
 		BDA0DE262B0F704300850839 /* RecommendLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE252B0F704300850839 /* RecommendLoginView.swift */; };
 		BDA0DE282B0F705300850839 /* RecommendLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE272B0F705300850839 /* RecommendLoginViewController.swift */; };
 		BDA0DE2C2B0F7A8C00850839 /* AnotherLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE2B2B0F7A8C00850839 /* AnotherLoginView.swift */; };
+		BDA4ED412B5188D100152266 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BDA4ED402B5188D000152266 /* loading.json */; };
+		BDA4ED442B51895B00152266 /* CustomIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4ED432B51895B00152266 /* CustomIndicatorView.swift */; };
+		BDA4ED472B518A2B00152266 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BDA4ED462B518A2B00152266 /* Lottie */; };
+		BDA4ED492B518FC400152266 /* FindPwService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4ED482B518FC400152266 /* FindPwService.swift */; };
+		BDA4ED4B2B518FD300152266 /* FindPwUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4ED4A2B518FD300152266 /* FindPwUseCase.swift */; };
+		BDB578372B4E340500E9E8C1 /* FindPwService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB578362B4E340500E9E8C1 /* FindPwService.swift */; };
 		BDC0CCEA2B0F823D00A39304 /* RecommendLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */; };
 		BDC0CCEC2B0F826900A39304 /* AnotherLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */; };
 		BDC0CCEE2B0F828800A39304 /* AnotherLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */; };
@@ -319,6 +325,11 @@
 		BDA0DE252B0F704300850839 /* RecommendLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLoginView.swift; sourceTree = "<group>"; };
 		BDA0DE272B0F705300850839 /* RecommendLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLoginViewController.swift; sourceTree = "<group>"; };
 		BDA0DE2B2B0F7A8C00850839 /* AnotherLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginView.swift; sourceTree = "<group>"; };
+		BDA4ED402B5188D000152266 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		BDA4ED432B51895B00152266 /* CustomIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicatorView.swift; sourceTree = "<group>"; };
+		BDA4ED482B518FC400152266 /* FindPwService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwService.swift; sourceTree = "<group>"; };
+		BDA4ED4A2B518FD300152266 /* FindPwUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwUseCase.swift; sourceTree = "<group>"; };
+		BDB578362B4E340500E9E8C1 /* FindPwService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwService.swift; sourceTree = "<group>"; };
 		BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLoginViewModel.swift; sourceTree = "<group>"; };
 		BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewModel.swift; sourceTree = "<group>"; };
 		BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewController.swift; sourceTree = "<group>"; };
@@ -340,6 +351,7 @@
 				0924166B2A6F95C10084E415 /* ImageSlideshow/Alamofire in Frameworks */,
 				BDA0DE222B0F4CAB00850839 /* IQKeyboardManagerSwift in Frameworks */,
 				092416512A6F93030084E415 /* Then in Frameworks */,
+				BDA4ED472B518A2B00152266 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +413,7 @@
 				BD3D0D5F2B177E51005D3A9F /* EmailVerifyService.swift */,
 				BD8D12462B2043D800813065 /* NicknameVerifyService.swift */,
 				BD0BCF862B2D40D9007E023F /* SignUpService.swift */,
+				BDB578362B4E340500E9E8C1 /* FindPwService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -421,6 +434,7 @@
 				09725D062B29F93A00F137DA /* SearchResultUI */,
 				09725CF42B2989AA00F137DA /* SearchUI */,
 				BD3D0D5C2B15E5B3005D3A9F /* CustomAlertUI */,
+				BDA4ED422B51894300152266 /* CustomIndicatorUI */,
 				BDA0DE0E2B0F47AD00850839 /* LoginUI */,
 				BDA0DE0F2B0F47D500850839 /* JoinUI */,
 				098CDB9D2A88F520008774B7 /* Cells */,
@@ -449,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				094BCCD02A5FEC0E0012A404 /* Assets.xcassets */,
+				BDA4ED402B5188D000152266 /* loading.json */,
 				094BCD052A613AD60012A404 /* SUIT-Bold.ttf */,
 				094BCD042A613AD60012A404 /* SUIT-ExtraBold.ttf */,
 				094BCD032A613AD60012A404 /* SUIT-ExtraLight.ttf */,
@@ -505,6 +520,7 @@
 				BD8D124A2B20442600813065 /* NicknameRepository.swift */,
 				BD8D12D42B26A55500813065 /* CouponRepository.swift */,
 				BD0BCF882B2D5DC7007E023F /* SignUpRepository.swift */,
+				BDA4ED482B518FC400152266 /* FindPwService.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -567,6 +583,7 @@
 				BD8D12482B20440C00813065 /* NicknameUseCase.swift */,
 				BD8D12D22B26A53B00813065 /* CouponUseCase.swift */,
 				BD0BCF8A2B2D5DDF007E023F /* SignUpUseCase.swift */,
+				BDA4ED4A2B518FD300152266 /* FindPwUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -808,6 +825,14 @@
 			path = JoinUI;
 			sourceTree = "<group>";
 		};
+		BDA4ED422B51894300152266 /* CustomIndicatorUI */ = {
+			isa = PBXGroup;
+			children = (
+				BDA4ED432B51895B00152266 /* CustomIndicatorView.swift */,
+			);
+			path = CustomIndicatorUI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -836,6 +861,7 @@
 				0936AB272AEF737200DD321F /* RxCocoa */,
 				0936AB292AEF737200DD321F /* RxRelay */,
 				BDA0DE212B0F4CAB00850839 /* IQKeyboardManagerSwift */,
+				BDA4ED462B518A2B00152266 /* Lottie */,
 			);
 			productName = "Na'nez";
 			productReference = 094BCCC42A5FEC0B0012A404 /* Na'nez.app */;
@@ -874,6 +900,7 @@
 				09C59E752AD870C400A631A7 /* XCRemoteSwiftPackageReference "CHIPageControl" */,
 				0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */,
 				BDA0DE202B0F4CAB00850839 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				BDA4ED452B518A2B00152266 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 094BCCC52A5FEC0B0012A404 /* Products */;
 			projectDirPath = "";
@@ -889,6 +916,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDA4ED412B5188D100152266 /* loading.json in Resources */,
 				094BCD0B2A613AD60012A404 /* SUIT-Medium.ttf in Resources */,
 				094BCD082A613AD60012A404 /* SUIT-Regular.ttf in Resources */,
 				090649232A66E225007FFE24 /* Assets.xcassets in Resources */,
@@ -977,6 +1005,7 @@
 				0900E3D62B0E3F0500E480C7 /* BrandUseCase.swift in Sources */,
 				09972CF52B07573700923CA5 /* NoteCollectionViewCell.swift in Sources */,
 				0900E3D42B0E3E0A00E480C7 /* BrandRepository.swift in Sources */,
+				BDA4ED442B51895B00152266 /* CustomIndicatorView.swift in Sources */,
 				0969A55D2B0523E800883862 /* PerfumeDTO.swift in Sources */,
 				0969A5522B05200800883862 /* HomeDTO.swift in Sources */,
 				BD462C482B1CC71E0022CB08 /* PasswordViewController.swift in Sources */,
@@ -1016,6 +1045,7 @@
 				094BCCEF2A60045A0012A404 /* WishListViewController.swift in Sources */,
 				09725CF82B2991EF00F137DA /* SearchTableViewCell.swift in Sources */,
 				0969A5442B05165300883862 /* HomeViewModel.swift in Sources */,
+				BDA4ED4B2B518FD300152266 /* FindPwUseCase.swift in Sources */,
 				BD3D0D602B177E51005D3A9F /* EmailVerifyService.swift in Sources */,
 				09AEACAC2A9A0EFB009D57E5 /* SegmentController.swift in Sources */,
 				09C539E62B216CAA00563E70 /* LoginView.swift in Sources */,
@@ -1023,6 +1053,8 @@
 				BD3D0D5E2B15E5D3005D3A9F /* CustomAlertView.swift in Sources */,
 				BD462C462B1CC7120022CB08 /* PasswordView.swift in Sources */,
 				BD8D12472B2043D800813065 /* NicknameVerifyService.swift in Sources */,
+				BDB578372B4E340500E9E8C1 /* FindPwService.swift in Sources */,
+				BDA4ED492B518FC400152266 /* FindPwService.swift in Sources */,
 				09CA66BD2B0F565000655C48 /* AccordViewModel.swift in Sources */,
 				BDA0DE172B0F482A00850839 /* EmailLoginRepository.swift in Sources */,
 				09ADB6812B23463F002A0D60 /* PerfumeRegisterViewController.swift in Sources */,
@@ -1186,7 +1218,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JA7UDVTQBU;
+				DEVELOPMENT_TEAM = 7DVWGZFH6N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Na'nez/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1215,7 +1247,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JA7UDVTQBU;
+				DEVELOPMENT_TEAM = 7DVWGZFH6N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Na'nez/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1325,6 +1357,14 @@
 				minimumVersion = 6.5.16;
 			};
 		};
+		BDA4ED452B518A2B00152266 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1382,6 +1422,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BDA0DE202B0F4CAB00850839 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		BDA4ED462B518A2B00152266 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDA4ED452B518A2B00152266 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -13,12 +13,14 @@ class EmailLoginViewController: UIViewController {
     private let emailLoginView: EmailLoginView = EmailLoginView(frame: .zero)
     private var viewModel: EmailLoginViewModel!
     private let disposeBag = DisposeBag()
+    private let customIndicatorView = CustomIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configure()
         setupBindings()
+        configureCustomIndicatorView()
     }
     
     private func configure() {
@@ -31,6 +33,14 @@ class EmailLoginViewController: UIViewController {
         view.backgroundColor = .white
     }
     
+    private func configureCustomIndicatorView() {
+        view.addSubview(customIndicatorView)
+        customIndicatorView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        customIndicatorView.isHidden = true
+    }
+    
     private func setupBindings() {
         guard let viewModel = viewModel else {
             print("ViewModel is not initialized")
@@ -38,6 +48,8 @@ class EmailLoginViewController: UIViewController {
         }
         
         emailLoginView.onLoginButtonClicked = { [weak self] email, password in
+            self?.customIndicatorView.isHidden = false
+            self?.customIndicatorView.startAnimating()
             self?.viewModel.login(email: email, password: password)
         }
 
@@ -54,10 +66,14 @@ class EmailLoginViewController: UIViewController {
         viewModel.loginResult
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isSuccess in
+                self?.customIndicatorView.stopAnimating()
+                self?.customIndicatorView.isHidden = true
+                
                 if isSuccess {
                     // 로그인 성공 처리, 예: 다른 화면으로 이동
                     self?.emailLoginView.indicateEmailAvailable()
                     print("로그인 성공")
+                    self?.showHomeView()
                 } else {
                     // 로그인 실패 처리, 예: 에러 메시지 표시
                     self?.emailLoginView.indicateLoginFailure()
@@ -85,6 +101,14 @@ class EmailLoginViewController: UIViewController {
         let termsConditionVC = TermsConditionViewController(viewModel: termsViewModel)
         termsConditionVC.modalPresentationStyle = .fullScreen
         present(termsConditionVC, animated: true)
+    }
+    
+    private func showHomeView() {
+        let homeRepository = HomeRepository(homeService: HomeService())
+        let homeUseCase = HomeUseCase(repository: homeRepository)
+        let homeViewModel = HomeViewModel(usecase: homeUseCase)
+        let homeViewController = HomeViewController(homeViewModel)
+        self.navigationController?.pushViewController(homeViewController, animated: true)
     }
 }
 

@@ -22,10 +22,26 @@ class CouponViewModel {
             .subscribe(
                 onSuccess: { userInfo in
                     print("회원가입에 성공하였습니다.")
+//                    self?.showSameAlert()
                 },
                 onFailure: { error in
                     print("회원가입에 실패하였습니다: \(error.localizedDescription)")
                 }
             ).disposed(by: disposeBag)
     }
+    
+//    private func showSameAlert() {
+//        let alertView = CustomAlertView()
+//        alertView.configure(message: "축하합니다! 회원가입에 성공하셨습니다!", actionButtonTitle: "확인")
+//        alertView.onActionButotnTapped = {
+//            alertView.dismiss()
+//            self?.showEmailLoginView()
+//        }
+//        alertView.show(on: self.view)
+//    }
+//    
+//    private func showEmailLoginView() {
+//        let emailLoginVC = EmailLoginViewController()
+//        self.pushViewController(emailLoginVC, animated: true)
+//    }
 }

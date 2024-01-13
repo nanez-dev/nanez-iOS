@@ -92,7 +92,7 @@ class FindPwView: UIView {
         $0.numberOfLines = 0
         $0.isHidden = true
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -153,5 +153,4 @@ class FindPwView: UIView {
             $0.width.equalToSuperview().multipliedBy(0.9)
         }
     }
-    
 }

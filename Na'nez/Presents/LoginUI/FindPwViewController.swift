@@ -11,16 +11,21 @@ import Then
 import RxSwift
 
 class FindPwViewController: UIViewController {
+    private let customIndicatorView = CustomIndicatorView()
     private let findPwView = FindPwView()
     private let disposeBag = DisposeBag()
+    private var viewModel: FindPwViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.title = "비밀번호 찾기"
         
+        viewModel = FindPwViewModel(useCase: FindPwUseCase(repository: FindPwRepository(service: FindPwService())))
+        
         configure()
         setupBinding()
+        configureCustomIndicatorView()
     }
     
     private func configure() {
@@ -30,6 +35,14 @@ class FindPwViewController: UIViewController {
         findPwView.snp.makeConstraints {
             $0.top.left.right.bottom.equalToSuperview()
         }
+    }
+    
+    private func configureCustomIndicatorView() {
+        view.addSubview(customIndicatorView)
+        customIndicatorView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        customIndicatorView.isHidden = true
     }
     
     private func setupBinding() {
@@ -48,11 +61,45 @@ class FindPwViewController: UIViewController {
                 self?.findPwView.emailSendButton.isEnabled = !isEmpty
                 
             }).disposed(by: disposeBag)
+        
+        findPwView.emailSendButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let email = self?.findPwView.emailTextField.text, !email.isEmpty else { return }
+                self?.customIndicatorView.isHidden = false
+                self?.customIndicatorView.startAnimating()
+                self?.viewModel.postFindPw(email: email)
+            }).disposed(by: disposeBag)
+        
+        viewModel.postFindPwSuccess
+            .subscribe(onNext: { [weak self] success in
+                self?.customIndicatorView.stopAnimating()
+                if success {
+                    self?.findPwView.emailSendButton.isEnabled = false
+                    self?.findPwView.emailSendButton.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
+                    self?.successAlert()
+                }
+                else {
+                    self?.errorAlert(message: "사용자를 찾을 수 없습니다.")
+                }
+            }, onError: { [weak self] _ in
+                self?.customIndicatorView.stopAnimating()
+                self?.customIndicatorView.isHidden = true
+            }).disposed(by: disposeBag)
     }
     
     private func successAlert() {
         let alertView = CustomAlertView()
-        alertView.configure(message: "이메일 전송이 완료되었습니다.", actionButtonTitle: "확인")
+        alertView.configure(message: "이메일 전송이 완료되었습니다. 로그인 화면으로 이동하시겠습니까?", actionButtonTitle: "확인")
+        alertView.onActionButotnTapped = {
+            alertView.dismiss()
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertView.show(on: self.view)
+    }
+    
+    private func errorAlert(message: String) {
+        let alertView = CustomAlertView()
+        alertView.configure(message: message, actionButtonTitle: "확인")
         alertView.onActionButotnTapped = {
             alertView.dismiss()
         }

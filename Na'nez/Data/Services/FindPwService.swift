@@ -22,15 +22,18 @@ class FindPwService {
             AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    if let json = value as? [String: Any], let result = json["result"] as? Bool {
-                        print("APi 성공")
-                        observer.onNext(result)
-                        observer.onCompleted()
+                    if let json = value as? [String: Any], json["detail"] as? String == "NOT_FOUND_USER" {
+                        // 사용자를 찾을 수 없을 때 처리
+                        print("API 실패: 사용자를 찾을 수 없음")
+                        observer.onError(NSError(domain: "UserNotFoundError", code: 404, userInfo: nil))
                     } else {
-                        print("APi 실패")
-                        observer.onError(NSError(domain: "", code: -1, userInfo: nil))
+                        // 성공 처리
+                        print("API 성공")
+                        observer.onNext(true)
+                        observer.onCompleted()
                     }
                 case .failure(let error):
+                    print("API 실패: \(error.localizedDescription)")
                     observer.onError(error)
                 }
             }

@@ -167,8 +167,8 @@
 		BDA4ED412B5188D100152266 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BDA4ED402B5188D000152266 /* loading.json */; };
 		BDA4ED442B51895B00152266 /* CustomIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4ED432B51895B00152266 /* CustomIndicatorView.swift */; };
 		BDA4ED472B518A2B00152266 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BDA4ED462B518A2B00152266 /* Lottie */; };
-		BDA4ED492B518FC400152266 /* FindPwService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4ED482B518FC400152266 /* FindPwService.swift */; };
 		BDA4ED4B2B518FD300152266 /* FindPwUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4ED4A2B518FD300152266 /* FindPwUseCase.swift */; };
+		BDA4ED4D2B52140800152266 /* FindPwRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4ED4C2B52140800152266 /* FindPwRepository.swift */; };
 		BDB578372B4E340500E9E8C1 /* FindPwService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB578362B4E340500E9E8C1 /* FindPwService.swift */; };
 		BDC0CCEA2B0F823D00A39304 /* RecommendLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */; };
 		BDC0CCEC2B0F826900A39304 /* AnotherLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */; };
@@ -327,8 +327,8 @@
 		BDA0DE2B2B0F7A8C00850839 /* AnotherLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginView.swift; sourceTree = "<group>"; };
 		BDA4ED402B5188D000152266 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		BDA4ED432B51895B00152266 /* CustomIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicatorView.swift; sourceTree = "<group>"; };
-		BDA4ED482B518FC400152266 /* FindPwService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwService.swift; sourceTree = "<group>"; };
 		BDA4ED4A2B518FD300152266 /* FindPwUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwUseCase.swift; sourceTree = "<group>"; };
+		BDA4ED4C2B52140800152266 /* FindPwRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwRepository.swift; sourceTree = "<group>"; };
 		BDB578362B4E340500E9E8C1 /* FindPwService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwService.swift; sourceTree = "<group>"; };
 		BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLoginViewModel.swift; sourceTree = "<group>"; };
 		BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewModel.swift; sourceTree = "<group>"; };
@@ -520,7 +520,7 @@
 				BD8D124A2B20442600813065 /* NicknameRepository.swift */,
 				BD8D12D42B26A55500813065 /* CouponRepository.swift */,
 				BD0BCF882B2D5DC7007E023F /* SignUpRepository.swift */,
-				BDA4ED482B518FC400152266 /* FindPwService.swift */,
+				BDA4ED4C2B52140800152266 /* FindPwRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -989,6 +989,7 @@
 				09F7D6B32A7CCAED001645AA /* BrandtubeViewController.swift in Sources */,
 				BD8AC1A62B10A223001C78A1 /* TermsConditionView.swift in Sources */,
 				09D5FE2C2A949DEF0082EB28 /* CustomNaviBar.swift in Sources */,
+				BDA4ED4D2B52140800152266 /* FindPwRepository.swift in Sources */,
 				094BCD132A6142610012A404 /* PerfumeCollectionViewCell.swift in Sources */,
 				0969A55B2B0523B900883862 /* BannerDTO.swift in Sources */,
 				09CA66C32B0F5C8D00655C48 /* DetailAccordDTO.swift in Sources */,
@@ -1054,7 +1055,6 @@
 				BD462C462B1CC7120022CB08 /* PasswordView.swift in Sources */,
 				BD8D12472B2043D800813065 /* NicknameVerifyService.swift in Sources */,
 				BDB578372B4E340500E9E8C1 /* FindPwService.swift in Sources */,
-				BDA4ED492B518FC400152266 /* FindPwService.swift in Sources */,
 				09CA66BD2B0F565000655C48 /* AccordViewModel.swift in Sources */,
 				BDA0DE172B0F482A00850839 /* EmailLoginRepository.swift in Sources */,
 				09ADB6812B23463F002A0D60 /* PerfumeRegisterViewController.swift in Sources */,

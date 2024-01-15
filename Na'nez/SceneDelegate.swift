@@ -16,8 +16,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
           window = UIWindow(windowScene: windowScene)
         
-        let HomeVC = SearchViewController(viewModel: SearchViewModel(usecase: SearchUseCase(repository: SearchRepository(service: PerfumeService()))))
-        window?.rootViewController = HomeVC
+//        let HomeVC = SearchViewController(viewModel: SearchViewModel(usecase: SearchUseCase(repository: SearchRepository(service: PerfumeService()))))
+//        window?.rootViewController = HomeVC
+        
+        
+        let tabController = TabController()
+        window?.rootViewController = tabController
+        window?.makeKeyAndVisible()
+        
+        
         
 //        let HomeVC = RecommendLoginViewController()
 //        let navigationController = UINavigationController(rootViewController: HomeVC)

@@ -47,6 +47,12 @@ class EmailLoginViewController: UIViewController {
             return
         }
         
+        emailLoginView.backButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }).disposed(by: disposeBag)
+        
+        
         emailLoginView.onLoginButtonClicked = { [weak self] email, password in
             self?.customIndicatorView.isHidden = false
             self?.customIndicatorView.startAnimating()
@@ -70,12 +76,10 @@ class EmailLoginViewController: UIViewController {
                 self?.customIndicatorView.isHidden = true
                 
                 if isSuccess {
-                    // 로그인 성공 처리, 예: 다른 화면으로 이동
                     self?.emailLoginView.indicateEmailAvailable()
                     print("로그인 성공")
                     self?.showHomeView()
                 } else {
-                    // 로그인 실패 처리, 예: 에러 메시지 표시
                     self?.emailLoginView.indicateLoginFailure()
                     print("로그인 실패")
                 }

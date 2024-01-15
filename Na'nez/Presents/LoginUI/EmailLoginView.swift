@@ -16,6 +16,12 @@ class EmailLoginView: UIView {
     
     class var mainturquoise: UIColor { UIColor(named: "mainturquoise") ?? UIColor() }
     
+    let backButton = UIButton().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setImage(UIImage(named: "Nan'Nez_Back"), for: .normal)
+        $0.contentMode = .scaleAspectFit
+    }
+    
     private let mainLogo = UIImageView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.image = UIImage(named: "emailLoginMainLogo")
@@ -127,6 +133,7 @@ class EmailLoginView: UIView {
     }
     
     private func setupViews() {
+        addSubview(backButton)
         addSubview(mainLogo)
         addSubview(emailField)
         addSubview(pwField)
@@ -138,6 +145,12 @@ class EmailLoginView: UIView {
         addSubview(noticeLabel)
         
         addSubview(failureNoticeLabel)
+        
+        backButton.snp.makeConstraints {
+            $0.left.equalToSuperview().inset(16)
+            $0.top.equalToSuperview().offset(15)
+            $0.size.equalTo(CGSize(width: 24, height: 24))
+        }
         
         mainLogo.snp.makeConstraints {
             $0.centerX.equalToSuperview()

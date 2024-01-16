@@ -12,7 +12,7 @@ import RxSwift
 class MyInfoViewController: BaseViewController {
     private let viewModel:MyInfoViewModel
     private let navibar:CustomNaviBar = CustomNaviBar(frame: .zero)
-    private let loginYetView:LoginyetView = LoginyetView(frame: .zero)
+    private let loginYetView:BeforeLoginView = BeforeLoginView(frame: .zero)
     private let headerView: HeaderView = HeaderView(frame: .zero, title: "고객센터")
     private let loginInfoSV = UIStackView().then {
         $0.distribution = .fill
@@ -94,7 +94,19 @@ class MyInfoViewController: BaseViewController {
                  }
              })
              .disposed(by: disposebag)
+        
+        loginYetView.loginBtn.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigateToLoginVC()
+            }).disposed(by: disposebag)
     }
+    
+    private func navigateToLoginVC() {
+        let recommendLoginVC = RecommendLoginViewController()
+        recommendLoginVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(recommendLoginVC, animated: true)
+    }
+    
 }
 extension MyInfoViewController: CustomNaviBarDelegate{
     func backBtnClick(_ navibar: CustomNaviBar) {

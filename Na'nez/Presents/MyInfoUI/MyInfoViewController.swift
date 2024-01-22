@@ -10,14 +10,17 @@ import RxCocoa
 import RxSwift
 
 class MyInfoViewController: BaseViewController {
-    private let viewModel:MyInfoViewModel
-    private let navibar:CustomNaviBar = CustomNaviBar(frame: .zero)
-    private let loginYetView:BeforeLoginView = BeforeLoginView(frame: .zero)
+    private let viewModel: MyInfoViewModel
+    private let navibar: CustomNaviBar = CustomNaviBar(frame: .zero)
+    private let loginYetView: BeforeLoginView = BeforeLoginView(frame: .zero)
+    private let loginAfterView: AfterLoginView = AfterLoginView(frame: .zero)
     private let headerView: HeaderView = HeaderView(frame: .zero, title: "고객센터")
+    
     private let loginInfoSV = UIStackView().then {
         $0.distribution = .fill
         $0.axis = .vertical
     }
+    
     private let customerTabelView = UITableView(frame: CGRect.zero, style: .grouped).then{
         $0.backgroundColor = .clear
         $0.register(CustomerTabelView.self, forCellReuseIdentifier: CustomerTabelView.identifier)
@@ -38,7 +41,7 @@ class MyInfoViewController: BaseViewController {
         self.view.addSubview(navibar)
         self.navibar.backBtn.isHidden = true
         self.navibar.searchBtn.isHidden = true
-        self.navibar.navititleLabel.text = "내정보"
+        self.navibar.navititleLabel.text = "내 정보"
         customerTabelView.tableHeaderView = headerView
         self.customerTabelView.delegate = self
     }
@@ -46,7 +49,8 @@ class MyInfoViewController: BaseViewController {
     override func addview() {
         self.view.addSubview(navibar)
         self.view.addSubview(loginInfoSV)
-        self.loginInfoSV.addArrangedSubview(loginYetView)
+//        self.loginInfoSV.addArrangedSubview(loginYetView)
+        self.loginInfoSV.addArrangedSubview(loginAfterView)
         self.view.addSubview(customerTabelView)
     }
     
@@ -56,18 +60,26 @@ class MyInfoViewController: BaseViewController {
             $0.width.equalToSuperview().offset(0)
             $0.height.equalTo(52)
         }
+        
         self.loginInfoSV.snp.makeConstraints {
             $0.top.equalTo(navibar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
         }
+        
         self.customerTabelView.snp.makeConstraints {
             $0.top.equalTo(loginInfoSV.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(312)
         }
+        
         self.loginYetView.snp.makeConstraints {
             $0.height.equalTo(240)
         }
+        
+        self.loginAfterView.snp.makeConstraints {
+            $0.height.equalTo(240)
+        }
+        
         self.headerView.snp.makeConstraints {
             $0.height.equalTo(44)
         }
@@ -108,6 +120,7 @@ class MyInfoViewController: BaseViewController {
     }
     
 }
+
 extension MyInfoViewController: CustomNaviBarDelegate{
     func backBtnClick(_ navibar: CustomNaviBar) {
         
@@ -116,11 +129,13 @@ extension MyInfoViewController: CustomNaviBarDelegate{
         
     }
 }
+
 extension MyInfoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 52
     }
 }
+
 extension MyInfoViewController {
     private func pushPerfumeRegister() {
         let vc = PerfumeRegisterViewController()

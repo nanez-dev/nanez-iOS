@@ -108,11 +108,8 @@ class EmailLoginViewController: UIViewController {
     }
     
     private func showHomeView() {
-        let homeRepository = HomeRepository(homeService: HomeService())
-        let homeUseCase = HomeUseCase(repository: homeRepository)
-        let homeViewModel = HomeViewModel(usecase: homeUseCase)
-        let homeViewController = HomeViewController(homeViewModel)
-        self.navigationController?.pushViewController(homeViewController, animated: true)
+        let tabController = TabController()
+        UIApplication.shared.keyWindow?.rootViewController = tabController
     }
 }
 

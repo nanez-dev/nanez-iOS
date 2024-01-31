@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class RecommendLoginViewController: UIViewController {
     private let recommendLoginView = RecommendLoginView(frame: .zero)
@@ -42,6 +43,11 @@ class RecommendLoginViewController: UIViewController {
             viewModel?.startAsGuest()
         }
         
+        recommendLoginView.startGuestButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.showHome()
+            })
+        
         viewModel.loginResult
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isSuccess in
@@ -59,5 +65,9 @@ class RecommendLoginViewController: UIViewController {
         navigationController?.pushViewController(anotherLoginVC, animated: true)
     }
 
+    private func showHome() {
+        let homeVC = TabController()
+        navigationController?.pushViewController(homeVC, animated: true)
+    }
 }
 

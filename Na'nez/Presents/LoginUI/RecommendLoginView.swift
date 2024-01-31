@@ -45,7 +45,7 @@ class RecommendLoginView: UIView {
         $0.layer.cornerRadius = 12
     }
     
-    private let startGuestButton = UIButton().then {
+    let startGuestButton = UIButton().then {
         let attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setAttributedTitle(NSAttributedString(string: "게스트로 시작하기", attributes: attributes), for: .normal)
@@ -100,20 +100,11 @@ class RecommendLoginView: UIView {
     }
     
     private func configureActions() {
-        kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonClicked), for: .touchUpInside)
         anotherLoginButton.addTarget(self, action: #selector(anotherLoginButtonClicked), for: .touchUpInside)
-        startGuestButton.addTarget(self, action: #selector(startGuestButtonClicked), for: .touchUpInside)
-    }
-    
-    @objc func kakaoLoginButtonClicked() {
-        onKakaoLoginClicked?()
     }
     
     @objc func anotherLoginButtonClicked() {
         onAnotherLoginClicked?()
     }
-    
-    @objc func startGuestButtonClicked() {
-        onStartGuestClicked?()
-    }
+
 }

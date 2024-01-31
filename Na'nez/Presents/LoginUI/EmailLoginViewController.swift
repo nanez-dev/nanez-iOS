@@ -56,7 +56,7 @@ class EmailLoginViewController: UIViewController {
         emailLoginView.onLoginButtonClicked = { [weak self] email, password in
             self?.customIndicatorView.isHidden = false
             self?.customIndicatorView.startAnimating()
-            self?.viewModel.login(email: email, password: password)
+            viewModel.login(email: email, password: password)
         }
 
         emailLoginView.onJoinButtonClicked = { [weak self] in
@@ -71,10 +71,11 @@ class EmailLoginViewController: UIViewController {
 
         viewModel.loginResult
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] isSuccess in
+            .subscribe(onNext: { [weak self] response in
                 self?.customIndicatorView.stopAnimating()
                 self?.customIndicatorView.isHidden = true
-                
+
+                let isSuccess = !response.access_token.isEmpty
                 if isSuccess {
                     self?.emailLoginView.indicateEmailAvailable()
                     print("로그인 성공")
@@ -83,6 +84,11 @@ class EmailLoginViewController: UIViewController {
                     self?.emailLoginView.indicateLoginFailure()
                     print("로그인 실패")
                 }
+            }, onError: { [weak self] error in
+                self?.customIndicatorView.stopAnimating()
+                self?.customIndicatorView.isHidden = true
+                self?.emailLoginView.indicateLoginFailure()
+                print("로그인 실패: \(error)")
             }).disposed(by: disposeBag)
         
     }

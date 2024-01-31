@@ -173,6 +173,8 @@
 		BDC0CCEA2B0F823D00A39304 /* RecommendLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */; };
 		BDC0CCEC2B0F826900A39304 /* AnotherLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */; };
 		BDC0CCEE2B0F828800A39304 /* AnotherLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */; };
+		BDDE2DB62B693CA500FFC0AE /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDE2DB52B693CA500FFC0AE /* TokenManager.swift */; };
+		BDDE2DB92B693D1C00FFC0AE /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDDE2DB82B693D1C00FFC0AE /* KeychainSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -333,6 +335,7 @@
 		BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLoginViewModel.swift; sourceTree = "<group>"; };
 		BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewModel.swift; sourceTree = "<group>"; };
 		BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewController.swift; sourceTree = "<group>"; };
+		BDDE2DB52B693CA500FFC0AE /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +348,7 @@
 				09C59E772AD870C400A631A7 /* CHIPageControl in Frameworks */,
 				0924164E2A6F92F50084E415 /* SnapKit in Frameworks */,
 				0924166D2A6F95C10084E415 /* ImageSlideshow/Kingfisher in Frameworks */,
+				BDDE2DB92B693D1C00FFC0AE /* KeychainSwift in Frameworks */,
 				092416692A6F95C10084E415 /* ImageSlideshow in Frameworks */,
 				0924164B2A6F92E20084E415 /* Alamofire in Frameworks */,
 				092416622A6F94C70084E415 /* Kingfisher in Frameworks */,
@@ -565,6 +569,7 @@
 				BD0BCF812B2D3F2E007E023F /* Login */,
 				BD0BCF802B2D3EFB007E023F /* SignUp */,
 				0924166E2A6FFA0C0084E415 /* reportModel.swift */,
+				BDDE2DB52B693CA500FFC0AE /* TokenManager.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -862,6 +867,7 @@
 				0936AB292AEF737200DD321F /* RxRelay */,
 				BDA0DE212B0F4CAB00850839 /* IQKeyboardManagerSwift */,
 				BDA4ED462B518A2B00152266 /* Lottie */,
+				BDDE2DB82B693D1C00FFC0AE /* KeychainSwift */,
 			);
 			productName = "Na'nez";
 			productReference = 094BCCC42A5FEC0B0012A404 /* Na'nez.app */;
@@ -901,6 +907,7 @@
 				0936AB262AEF737200DD321F /* XCRemoteSwiftPackageReference "RxSwift" */,
 				BDA0DE202B0F4CAB00850839 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				BDA4ED452B518A2B00152266 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				BDDE2DB72B693D1C00FFC0AE /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 094BCCC52A5FEC0B0012A404 /* Products */;
 			projectDirPath = "";
@@ -1037,6 +1044,7 @@
 				BD8D12A72B22E85C00813065 /* CouponViewModel.swift in Sources */,
 				BDA0DE262B0F704300850839 /* RecommendLoginView.swift in Sources */,
 				09972CED2B06021200923CA5 /* NoteDTO.swift in Sources */,
+				BDDE2DB62B693CA500FFC0AE /* TokenManager.swift in Sources */,
 				09725D032B29A5E800F137DA /* SearchRepository.swift in Sources */,
 				BDA0DE1F2B0F498D00850839 /* EmailLoginView.swift in Sources */,
 				BDBDF40E2B5576C700A80A4E /* AfterLoginView.swift in Sources */,
@@ -1365,6 +1373,14 @@
 				minimumVersion = 4.3.4;
 			};
 		};
+		BDDE2DB72B693D1C00FFC0AE /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 21.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1427,6 +1443,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BDA4ED452B518A2B00152266 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		BDDE2DB82B693D1C00FFC0AE /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDDE2DB72B693D1C00FFC0AE /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

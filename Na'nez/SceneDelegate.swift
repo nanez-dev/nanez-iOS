@@ -20,17 +20,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = HomeVC
         
         
-        let tabController = TabController()
-        window?.rootViewController = tabController
-        window?.makeKeyAndVisible()
-        
-        
-        
-//        let HomeVC = RecommendLoginViewController()
-//        let navigationController = UINavigationController(rootViewController: HomeVC)
-//        window?.rootViewController = navigationController
-//        window?.makeKeyAndVisible()
-
+        if let accessToken = TokenManager.shared.getAccessToken(), !accessToken.isEmpty {
+            let tabController = TabController()
+            window?.rootViewController = tabController
+            window?.makeKeyAndVisible()
+        }
+        else {
+            let HomeVC = RecommendLoginViewController()
+            let navigationController = UINavigationController(rootViewController: HomeVC)
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

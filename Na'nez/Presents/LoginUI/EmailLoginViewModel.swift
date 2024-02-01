@@ -13,9 +13,7 @@ class EmailLoginViewModel {
     // 의존성
     private let useCase: EmailLoginUseCaseProtocol
     private let disposeBag = DisposeBag()
-
-    // RxSwift Subjects
-    let loginResult: PublishSubject<Bool> = PublishSubject()
+    let loginResult: PublishSubject<LoginResponse> = PublishSubject()
 
     // 초기화
     init(useCase: EmailLoginUseCaseProtocol) {
@@ -25,11 +23,14 @@ class EmailLoginViewModel {
     // 로그인 함수
     func login(email: String, password: String) {
         useCase.login(email: email, password: password)
-            .subscribe(onNext: { [weak self] isSuccess in
-                self?.loginResult.onNext(isSuccess)
+            .subscribe(onNext: { [weak self] response in
+//                print("Access Token: \(response.access_token ?? "")")
+//                print("Refresh Token: \(response.refresh_token ?? "")")
+                TokenManager.shared.saveTokens(accessToken: response.access_token, refreshToken: response.refresh_token)
+                self?.loginResult.onNext(response)
             }, onError: { [weak self] error in
                 print("Login Error: \(error)")
-                self?.loginResult.onNext(false)
+                self?.loginResult.onError(error)
             }).disposed(by: disposeBag)
     }
 }

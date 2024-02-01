@@ -49,8 +49,8 @@ class MyInfoViewController: BaseViewController {
     override func addview() {
         self.view.addSubview(navibar)
         self.view.addSubview(loginInfoSV)
-//        self.loginInfoSV.addArrangedSubview(loginYetView)
-        self.loginInfoSV.addArrangedSubview(loginAfterView)
+        self.loginInfoSV.addArrangedSubview(loginYetView)
+//        self.loginInfoSV.addArrangedSubview(loginAfterView)
         self.view.addSubview(customerTabelView)
     }
     

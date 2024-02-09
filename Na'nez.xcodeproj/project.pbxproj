@@ -94,7 +94,7 @@
 		09AEACAA2A9A077A009D57E5 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEACA92A9A077A009D57E5 /* WishListView.swift */; };
 		09AEACAC2A9A0EFB009D57E5 /* SegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AEACAB2A9A0EFB009D57E5 /* SegmentController.swift */; };
 		09C539E02B2168E700563E70 /* CustomerTabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C539DF2B2168E700563E70 /* CustomerTabelView.swift */; };
-		09C539E22B2169AC00563E70 /* CustomerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C539E12B2169AC00563E70 /* CustomerTable.swift */; };
+		09C539E22B2169AC00563E70 /* BeforeCustomerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C539E12B2169AC00563E70 /* BeforeCustomerTable.swift */; };
 		09C539E42B216AFB00563E70 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C539E32B216AFB00563E70 /* MyInfoViewModel.swift */; };
 		09C539E82B2204FD00563E70 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C539E72B2204FD00563E70 /* CustomHeaderView.swift */; };
 		09C59E6E2AD836CC00A631A7 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C59E6D2AD836CC00A631A7 /* BannerCell.swift */; };
@@ -175,6 +175,7 @@
 		BDC0CCEE2B0F828800A39304 /* AnotherLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */; };
 		BDDE2DB62B693CA500FFC0AE /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDE2DB52B693CA500FFC0AE /* TokenManager.swift */; };
 		BDDE2DB92B693D1C00FFC0AE /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDDE2DB82B693D1C00FFC0AE /* KeychainSwift */; };
+		BDE7854F2B764906000807B4 /* AfterCustomerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7854E2B764906000807B4 /* AfterCustomerTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -259,7 +260,7 @@
 		09AEACAB2A9A0EFB009D57E5 /* SegmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentController.swift; sourceTree = "<group>"; };
 		09B759862A652B53008452A3 /* ReportPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupViewController.swift; sourceTree = "<group>"; };
 		09C539DF2B2168E700563E70 /* CustomerTabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTabelView.swift; sourceTree = "<group>"; };
-		09C539E12B2169AC00563E70 /* CustomerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTable.swift; sourceTree = "<group>"; };
+		09C539E12B2169AC00563E70 /* BeforeCustomerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeCustomerTable.swift; sourceTree = "<group>"; };
 		09C539E32B216AFB00563E70 /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
 		09C539E72B2204FD00563E70 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		09C59E6D2AD836CC00A631A7 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
@@ -336,6 +337,7 @@
 		BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewModel.swift; sourceTree = "<group>"; };
 		BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewController.swift; sourceTree = "<group>"; };
 		BDDE2DB52B693CA500FFC0AE /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		BDE7854E2B764906000807B4 /* AfterCustomerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCustomerTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,7 +460,8 @@
 			isa = PBXGroup;
 			children = (
 				094BCCFB2A6123F30012A404 /* BannerAdModel.swift */,
-				09C539E12B2169AC00563E70 /* CustomerTable.swift */,
+				09C539E12B2169AC00563E70 /* BeforeCustomerTable.swift */,
+				BDE7854E2B764906000807B4 /* AfterCustomerTable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -976,6 +979,7 @@
 				BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */,
 				BD8D12D52B26A55500813065 /* CouponRepository.swift in Sources */,
 				BD8D12492B20440C00813065 /* NicknameUseCase.swift in Sources */,
+				BDE7854F2B764906000807B4 /* AfterCustomerTable.swift in Sources */,
 				BD8AC1A82B10A230001C78A1 /* TermsConditionViewController.swift in Sources */,
 				BDA0DE1D2B0F492700850839 /* LoginModel.swift in Sources */,
 				09972CE92B06011500923CA5 /* PerfumeTagDTO.swift in Sources */,
@@ -1005,7 +1009,7 @@
 				BD8D12D32B26A53B00813065 /* CouponUseCase.swift in Sources */,
 				BDA0DE1B2B0F489800850839 /* LoginService.swift in Sources */,
 				BD0BCF002B29D822007E023F /* FindPwView.swift in Sources */,
-				09C539E22B2169AC00563E70 /* CustomerTable.swift in Sources */,
+				09C539E22B2169AC00563E70 /* BeforeCustomerTable.swift in Sources */,
 				BD3D0D142B14B5D8005D3A9F /* SelectEmailViewModel.swift in Sources */,
 				BDA0DE132B0F480C00850839 /* EmailLoginViewController.swift in Sources */,
 				0999E2C82A62C95E002042EF /* AccordService.swift in Sources */,

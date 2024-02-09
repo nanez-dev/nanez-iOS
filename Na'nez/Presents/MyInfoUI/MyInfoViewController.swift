@@ -15,6 +15,7 @@ class MyInfoViewController: BaseViewController {
     private let loginYetView: BeforeLoginView = BeforeLoginView(frame: .zero)
     private let loginAfterView: AfterLoginView = AfterLoginView(frame: .zero)
     private let headerView: HeaderView = HeaderView(frame: .zero, title: "고객센터")
+    private let disposeBag = DisposeBag()
     
     private let loginInfoSV = UIStackView().then {
         $0.distribution = .fill
@@ -37,20 +38,30 @@ class MyInfoViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+        addview()
+        layout()
+        binding()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViewBasedOnLoginStatus()
+    }
+    
     override func configure() {
         self.view.addSubview(navibar)
         self.navibar.backBtn.isHidden = true
         self.navibar.searchBtn.isHidden = true
         self.navibar.navititleLabel.text = "내 정보"
         customerTabelView.tableHeaderView = headerView
-        self.customerTabelView.delegate = self
     }
     
     override func addview() {
         self.view.addSubview(navibar)
         self.view.addSubview(loginInfoSV)
-        self.loginInfoSV.addArrangedSubview(loginYetView)
-//        self.loginInfoSV.addArrangedSubview(loginAfterView)
         self.view.addSubview(customerTabelView)
     }
     
@@ -77,7 +88,7 @@ class MyInfoViewController: BaseViewController {
         }
         
         self.loginAfterView.snp.makeConstraints {
-            $0.height.equalTo(240)
+            $0.height.equalTo(320)
         }
         
         self.headerView.snp.makeConstraints {
@@ -86,15 +97,18 @@ class MyInfoViewController: BaseViewController {
     }
     
     override func binding() {
-        let input = MyInfoViewModel.Input()
+        customerTabelView.delegate = nil
+        customerTabelView.dataSource = nil
+        
+        let isLoggedInObservable = Observable.just(TokenManager.shared.getAccessToken() != nil)
+        let input = MyInfoViewModel.Input(isLoggedIn: isLoggedInObservable)
         let output = viewModel.transform(input: input)
         
         output.tableData
-             .drive(customerTabelView.rx.items(cellIdentifier: CustomerTabelView.identifier,
-                                               cellType: CustomerTabelView.self)) { index, model, cell in
-                 cell.textLabel?.text = model
-             }
-             .disposed(by: disposebag)
+                    .drive(customerTabelView.rx.items(cellIdentifier: CustomerTabelView.identifier, cellType: CustomerTabelView.self)) { index, model, cell in
+                        cell.textLabel?.text = model
+                    }
+                    .disposed(by: disposeBag)
         
         customerTabelView.rx.itemSelected
              .map { indexPath in
@@ -104,13 +118,31 @@ class MyInfoViewController: BaseViewController {
                  if let selectedModel = selectedModel {
                      print(selectedModel)
                  }
-             })
-             .disposed(by: disposebag)
+             }).disposed(by: disposeBag)
         
         loginYetView.loginBtn.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigateToLoginVC()
-            }).disposed(by: disposebag)
+            }).disposed(by: disposeBag)
+    }
+    
+    private func updateViewBasedOnLoginStatus() {
+        let isLoggedIn = TokenManager.shared.getAccessToken() != nil
+        loginYetView.isHidden = isLoggedIn
+        loginAfterView.isHidden = !isLoggedIn
+        
+        if isLoggedIn {
+            loginInfoSV.removeArrangedSubview(loginYetView)
+            loginYetView.removeFromSuperview()
+            loginInfoSV.addArrangedSubview(loginAfterView)
+        }
+        else {
+            loginInfoSV.removeArrangedSubview(loginAfterView)
+            loginAfterView.removeFromSuperview()
+            loginInfoSV.addArrangedSubview(loginYetView)
+        }
+        
+        binding()
     }
     
     private func navigateToLoginVC() {

@@ -9,29 +9,43 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class EmailLoginViewModel {
-    // 의존성
-    private let useCase: EmailLoginUseCaseProtocol
-    private let disposeBag = DisposeBag()
-    let loginResult: PublishSubject<LoginResponse> = PublishSubject()
+class EmailLoginViewModel: ViewModelType {
 
-    // 초기화
-    init(useCase: EmailLoginUseCaseProtocol) {
-        self.useCase = useCase
+    var disposeBag = DisposeBag()
+    let useCase: EmailLoginUseCaseProtocol
+    
+    struct Input {
+        let loginCredentials: Observable<(email: String, password: String)>
+    }
+    
+    struct Output {
+        let loginResult: Observable<LoginResponse>
+        let loginError: Observable<Error>
+    }
+    
+    func transform(input: Input) -> Output {
+        let resultSubject = PublishSubject<LoginResponse>()
+        let errorSubject = PublishSubject<Error>()
+        
+        input.loginCredentials
+            .flatMapLatest { [weak self] email, password -> Observable<LoginResponse> in
+                guard let self = self else { return .empty() }
+                return self.useCase.login(email: email, password: password)
+                    .catch { error -> Observable<LoginResponse> in
+                        errorSubject.onNext(error)
+                        return .empty()
+                    }
+            }
+            .subscribe(onNext: { response in
+                TokenManager.shared.saveTokens(accessToken: response.access_token, refreshToken: response.refresh_token)
+                resultSubject.onNext(response)
+            }).disposed(by: disposeBag)
+        
+        return Output(loginResult: resultSubject.asObservable(), loginError: errorSubject.asObservable())
     }
 
-    // 로그인 함수
-    func login(email: String, password: String) {
-        useCase.login(email: email, password: password)
-            .subscribe(onNext: { [weak self] response in
-//                print("Access Token: \(response.access_token ?? "")")
-//                print("Refresh Token: \(response.refresh_token ?? "")")
-                TokenManager.shared.saveTokens(accessToken: response.access_token, refreshToken: response.refresh_token)
-                self?.loginResult.onNext(response)
-            }, onError: { [weak self] error in
-                print("Login Error: \(error)")
-                self?.loginResult.onError(error)
-            }).disposed(by: disposeBag)
+    init(useCase: EmailLoginUseCaseProtocol) {
+        self.useCase = useCase
     }
 }
 

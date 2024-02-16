@@ -18,26 +18,26 @@ class FindPwViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        navigationItem.title = "비밀번호 찾기"
-        
-        viewModel = FindPwViewModel(useCase: FindPwUseCase(repository: FindPwRepository(service: FindPwService())))
-        
-        configure()
-        setupBinding()
-        configureCustomIndicatorView()
+        setupView()
+        setupViewModel()
+        bindViewModel()
     }
     
-    private func configure() {
-        view?.addSubview(findPwView)
-        findPwView.translatesAutoresizingMaskIntoConstraints = false
-        
+    private func setupView() {
+        view.backgroundColor = .white
+        navigationItem.title = "비밀번호 찾기"
+        setupFindPwView()
+        setupCustomIndicatorView()
+    }
+    
+    private func setupFindPwView() {
+        view.addSubview(findPwView)
         findPwView.snp.makeConstraints {
-            $0.top.left.right.bottom.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
     }
     
-    private func configureCustomIndicatorView() {
+    private func setupCustomIndicatorView() {
         view.addSubview(customIndicatorView)
         customIndicatorView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -45,46 +45,59 @@ class FindPwViewController: UIViewController {
         customIndicatorView.isHidden = true
     }
     
-    private func setupBinding() {
-        findPwView.backButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.dismiss(animated: true, completion: nil)
-            }).disposed(by: disposeBag)
+    private func setupViewModel() {
+        let useCase = FindPwUseCase(repository: FindPwRepository(service: FindPwService()))
+        viewModel = FindPwViewModel(useCase: useCase)
+    }
+    
+    private func bindViewModel() {
+        let emailInput = findPwView.emailTextField.rx.text.orEmpty.asObservable()
+        let input = FindPwViewModel.Input(email: emailInput)
+        let output = viewModel.transform(input: input)
         
-        findPwView.emailTextField.rx.text.orEmpty
-            .distinctUntilChanged()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] text in
-                let isEmpty = text.isEmpty
-                let color = isEmpty ? #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1) : FindPwView.mainturquoise
-                self?.findPwView.emailSendButton.backgroundColor = color
-                self?.findPwView.emailSendButton.isEnabled = !isEmpty
-                
-            }).disposed(by: disposeBag)
+        bindEmailTextField()
         
         findPwView.emailSendButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                guard let email = self?.findPwView.emailTextField.text, !email.isEmpty else { return }
+            .withLatestFrom(findPwView.emailTextField.rx.text.orEmpty)
+            .bind(onNext: { [weak self] _ in
                 self?.customIndicatorView.isHidden = false
                 self?.customIndicatorView.startAnimating()
-                self?.viewModel.postFindPw(email: email)
             }).disposed(by: disposeBag)
         
-        viewModel.postFindPwSuccess
-            .subscribe(onNext: { [weak self] success in
-                self?.customIndicatorView.stopAnimating()
-                if success {
-                    self?.findPwView.emailSendButton.isEnabled = false
-                    self?.findPwView.emailSendButton.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
-                    self?.successAlert()
-                }
-                else {
-                    self?.errorAlert(message: "사용자를 찾을 수 없습니다.")
-                }
-            }, onError: { [weak self] _ in
-                self?.customIndicatorView.stopAnimating()
-                self?.customIndicatorView.isHidden = true
+        bindPostFindPwSuccess(output: output)
+    }
+    
+    private func bindEmailTextField() {
+        findPwView.emailTextField.rx.text.orEmpty
+            .map { !$0.isEmpty }
+            .bind(to: findPwView.emailSendButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        findPwView.emailTextField.rx.text.orEmpty
+            .map { $0.isEmpty ? #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1) : FindPwView.mainturquoise}
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] color in
+                self?.findPwView.emailSendButton.backgroundColor = color
             }).disposed(by: disposeBag)
+    }
+    
+    private func bindPostFindPwSuccess(output: FindPwViewModel.Output) {
+        output.findPwResult
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] success in
+                self?.updateUIOnResult(success: success)
+            }).disposed(by: disposeBag)
+    }
+    
+    private func updateUIOnResult(success: Bool) {
+        customIndicatorView.stopAnimating()
+        customIndicatorView.isHidden = true
+        if success {
+            successAlert()
+        }
+        else {
+            errorAlert(message: "사용자를 찾을 수 없습니다.")
+        }
     }
     
     private func successAlert() {

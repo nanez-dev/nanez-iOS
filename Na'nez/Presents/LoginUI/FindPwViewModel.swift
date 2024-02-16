@@ -7,31 +7,45 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-class FindPwViewModel {
-    private let useCase: FindPwUseCase
-    private let disposeBag = DisposeBag()
+class FindPwViewModel: ViewModelType {
     
-    let postFindPwSuccess = PublishSubject<Bool>()
+    var disposeBag = DisposeBag()
+    let useCase: FindPwUseCase
+    
+    struct Input {
+        let email: Observable<String>
+    }
+    
+    struct Output {
+        let findPwResult: Observable<Bool>
+    }
+    
+    func transform(input: Input) -> Output {
+        let findPwResult = PublishSubject<Bool>()
+        
+        input.email
+            .flatMapLatest { [weak self] email -> Observable<Bool> in
+                guard let self = self else { return .empty() }
+                return self.useCase.execute(email: email)
+                    .catch { error -> Observable<Bool> in
+                        if let error = error as NSError?, error.domain == "UserNotFoundError" {
+                            return .just(false)
+                        }
+                        else {
+                            print("Error: \(error.localizedDescription)")
+                            return .just(false)
+                        }
+                    }
+            }
+            .bind(to: findPwResult)
+            .disposed(by: disposeBag)
+        
+        return Output(findPwResult: findPwResult.asObservable())
+    }
     
     init(useCase: FindPwUseCase) {
         self.useCase = useCase
-    }
-    
-    func postFindPw(email: String) {
-        useCase.execute(email: email)
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] success in
-                self?.postFindPwSuccess.onNext(success)
-                print("비밀번호 찾기 성공")
-            }, onError: { error in
-                if let error = error as NSError?, error.domain == "UserNotFoundError" {
-                    print("사용자를 찾을 수 없습니다.")
-                    self.postFindPwSuccess.onNext(false)
-                }
-                else {
-                    print("Error: \(error.localizedDescription)")
-                }
-            }).disposed(by: disposeBag)
     }
 }

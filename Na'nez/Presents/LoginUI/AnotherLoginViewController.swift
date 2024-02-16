@@ -29,18 +29,6 @@ class AnotherLoginViewController: UIViewController {
     }
     
     private func setupBindings() {
-        anotherLoginView.onAppleLoginClicked = { [weak self] in
-            self?.viewModel.performAppleLogin()
-        }
-
-        anotherLoginView.onNaverLoginClicked = { [weak self] in
-            self?.viewModel.performNaverLogin()
-        }
-
-        anotherLoginView.onGoogleLoginClicked = { [weak self] in
-            self?.viewModel.performGoogleLogin()
-        }
-
         anotherLoginView.onEmailLoginClicked = { [weak self] in
             self?.showEmailLogin()
         }

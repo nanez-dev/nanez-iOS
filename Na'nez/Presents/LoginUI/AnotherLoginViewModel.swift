@@ -8,22 +8,25 @@
 import Foundation
 import RxSwift
 
-class AnotherLoginViewModel {
+class AnotherLoginViewModel: ViewModelType {
+    
+    var disposeBag = DisposeBag()
     let loginResult: PublishSubject<Bool> = PublishSubject()
     
-    func performAppleLogin() {
-        print("Apple Login Button Clicked")
+    struct Input {
+        let loginTrigger: Observable<Void>
     }
     
-    func performNaverLogin() {
-        print("Naver Login Button Clicked")
+    struct Output {
+        let loginSuccess: Observable<Bool>
     }
     
-    func performGoogleLogin() {
-        print("Google Login Button Clicked")
-    }
-    
-    func performEmailLogin() {
-        print("Email Login Button Clicked")
+    func transform(input: Input) -> Output {
+        input.loginTrigger
+            .subscribe(onNext: { [weak self] _ in
+                self?.loginResult.onNext(true)
+            }).disposed(by: disposeBag)
+        
+        return Output(loginSuccess: loginResult.asObservable())
     }
 }

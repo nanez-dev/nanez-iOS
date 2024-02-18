@@ -10,22 +10,27 @@ import RxSwift
 import RxCocoa
 
 class MyInfoViewModel:ViewModelType {
- 
     var disposeBag = DisposeBag()
     
     struct Input {
-        
+        let isLoggedIn: Observable<Bool>
     }
     
     struct Output {
         let tableData: Driver<[String]>
-
     }
     
     func transform(input: Input) -> Output {
-        let tableData = Observable.just(CustomerTable.allTexts)
+        let tableData = input.isLoggedIn
+            .flatMapLatest { isLoggedIn -> Observable<[String]> in
+                if isLoggedIn {
+                    return Observable.just(AfterCustomerTable.allTexts)
+                } else {
+                    return Observable.just(BeforeCustomerTable.allTexts)
+                }
+            }
             .asDriver(onErrorJustReturn: [])
-
+        
         return Output(tableData: tableData)
     }
 }

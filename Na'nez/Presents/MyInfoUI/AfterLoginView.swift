@@ -50,6 +50,7 @@ class AfterLoginView: UIView {
         let stackView = UIStackView(arrangedSubviews: [holdingListCount, holdingListLabel]).then {
             $0.axis = .vertical
             $0.spacing = 5
+            $0.alignment = .center
         }
         return stackView
     }()
@@ -72,6 +73,7 @@ class AfterLoginView: UIView {
         let stackView = UIStackView(arrangedSubviews: [wishListCount, wishListLabel]).then {
             $0.axis = .vertical
             $0.spacing = 5
+            $0.alignment = .center
         }
         return stackView
     }()
@@ -79,9 +81,23 @@ class AfterLoginView: UIView {
     lazy var listStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [holdingListStackView, wishListStackView]).then {
             $0.axis = .horizontal
-            $0.spacing = 30
+            $0.spacing = 70
         }
         return stackView
+    }()
+    
+    lazy var dividerView: UIView = {
+        let view = UIView().then {
+            $0.backgroundColor = UIColor(hexString: "#DADADA")
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        return view
+    }()
+    
+    lazy var dividerContainerView: UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
     }()
 
     override init(frame: CGRect) {
@@ -99,9 +115,11 @@ class AfterLoginView: UIView {
         addSubview(emailLabel)
         addSubview(listStackView)
         
+        dividerContainerView.addSubview(dividerView)
+        
         accordProfileImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(52)
+            $0.top.equalToSuperview().offset(45)
             $0.width.equalTo(100)
             $0.height.equalTo(100)
         }
@@ -118,7 +136,20 @@ class AfterLoginView: UIView {
         
         listStackView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(self.emailLabel.snp.bottom).offset(15)
+            $0.top.equalTo(self.emailLabel.snp.bottom).offset(20)
+        }
+        
+        dividerView.snp.makeConstraints {
+            $0.width.equalTo(1)
+            $0.height.equalTo(20)
+            $0.center.equalToSuperview()
+        }
+        
+        listStackView.insertArrangedSubview(dividerContainerView, at: 1)
+        
+        dividerContainerView.snp.makeConstraints {
+            $0.width.equalTo(dividerView.snp.width)
+            $0.height.equalTo(listStackView.snp.height)
         }
     }
 }

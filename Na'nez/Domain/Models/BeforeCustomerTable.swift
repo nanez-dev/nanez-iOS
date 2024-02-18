@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CustomerTable: String{
+enum BeforeCustomerTable: String{
     case table1
     case table2
     case table3

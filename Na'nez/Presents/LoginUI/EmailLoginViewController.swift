@@ -14,83 +14,79 @@ class EmailLoginViewController: UIViewController {
     private var viewModel: EmailLoginViewModel!
     private let disposeBag = DisposeBag()
     private let customIndicatorView = CustomIndicatorView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        configure()
-        setupBindings()
-        configureCustomIndicatorView()
+        setupUI()
+        setupConstraints()
+        bindViewModel()
     }
     
-    private func configure() {
-        self.view.addSubview(emailLoginView)
-        
-        self.emailLoginView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.bottom.leading.trailing.equalToSuperview()
-        }
+    private func setupUI() {
         view.backgroundColor = .white
-    }
-    
-    private func configureCustomIndicatorView() {
+        view.addSubview(emailLoginView)
         view.addSubview(customIndicatorView)
-        customIndicatorView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
         customIndicatorView.isHidden = true
     }
     
-    private func setupBindings() {
-        guard let viewModel = viewModel else {
-            print("ViewModel is not initialized")
-            return
+    private func setupConstraints() {
+        emailLoginView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.bottom.leading.trailing.equalToSuperview()
         }
         
+        customIndicatorView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
+    private func bindViewModel() {
+        guard let viewModel = viewModel else { return }
+        
+        let input = EmailLoginViewModel.Input(
+            loginCredentials: emailLoginView.loginButton.rx.tap
+                .withLatestFrom(Observable.combineLatest(emailLoginView.emailField.rx.text.orEmpty, emailLoginView.pwField.rx.text.orEmpty))
+                .map { ($0, $1) }
+        )
+        
+        let output = viewModel.transform(input: input)
+        
+        bindActions()
+        bindOutputs(output)
+    }
+    
+    private func bindActions() {
         emailLoginView.backButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            }).disposed(by: disposeBag)
-        
-        
-        emailLoginView.onLoginButtonClicked = { [weak self] email, password in
-            self?.customIndicatorView.isHidden = false
-            self?.customIndicatorView.startAnimating()
-            viewModel.login(email: email, password: password)
-        }
-
-        emailLoginView.onJoinButtonClicked = { [weak self] in
-            print("회원가입 버튼 클릭")
-            self?.showTermsConditionView()
-        }
+            .bind { [weak self] in self?.navigationController?.popViewController(animated: true) }
+            .disposed(by: disposeBag)
         
         emailLoginView.pwFindButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.showFindPwView()
-            }).disposed(by: disposeBag)
-
-        viewModel.loginResult
+            .bind { [weak self] in self?.showFindPwView() }
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindOutputs(_ output: EmailLoginViewModel.Output) {
+        output.loginResult
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] response in
-                self?.customIndicatorView.stopAnimating()
-                self?.customIndicatorView.isHidden = true
-
-                let isSuccess = !response.access_token.isEmpty
-                if isSuccess {
-                    self?.emailLoginView.indicateEmailAvailable()
-                    print("로그인 성공")
-                    self?.showHomeView()
-                } else {
-                    self?.emailLoginView.indicateLoginFailure()
-                    print("로그인 실패")
-                }
-            }, onError: { [weak self] error in
-                self?.customIndicatorView.stopAnimating()
-                self?.customIndicatorView.isHidden = true
-                self?.emailLoginView.indicateLoginFailure()
-                print("로그인 실패: \(error)")
-            }).disposed(by: disposeBag)
+            .bind { [weak self] _ in self?.handleLoginSuccess() }
+            .disposed(by: disposeBag)
         
+        output.loginError
+            .observe(on: MainScheduler.instance)
+            .bind { [weak self] _ in self?.handleLoginFailure() }
+            .disposed(by: disposeBag)
+    }
+    
+    private func handleLoginSuccess() {
+        customIndicatorView.stopAnimating()
+        customIndicatorView.isHidden = true
+        showHomeView()
+    }
+    
+    private func handleLoginFailure() {
+        customIndicatorView.stopAnimating()
+        customIndicatorView.isHidden = true
+        emailLoginView.indicateLoginFailure()
     }
     
     func setViewModel(viewModel: EmailLoginViewModel) {

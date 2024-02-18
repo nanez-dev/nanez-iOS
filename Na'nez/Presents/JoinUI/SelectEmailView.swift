@@ -75,7 +75,6 @@ class SelectEmailView: UIView {
         $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.lightGray.cgColor
         $0.layer.masksToBounds = true
-//        $0.text = "korea6370@naver.com"
         $0.attributedPlaceholder = NSAttributedString(string: "이메일을 입력해주세요", attributes: [
             .font: UIFont.systemFont(ofSize: 13.0, weight: .medium)
         ])

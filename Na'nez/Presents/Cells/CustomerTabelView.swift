@@ -24,7 +24,7 @@ class CustomerTabelView: UITableViewCell {
         }
     }
     
-    func configureCell(_ item: CustomerTable) {
+    func configureCell(_ item: BeforeCustomerTable) {
         label.text = item.text
     }
 

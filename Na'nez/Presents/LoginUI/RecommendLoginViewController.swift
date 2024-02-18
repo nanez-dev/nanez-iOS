@@ -30,19 +30,6 @@ class RecommendLoginViewController: UIViewController {
     }
     
     private func setupBindings() {
-        recommendLoginView.onKakaoLoginClicked = { [weak viewModel] in
-            viewModel?.performKakaoLogin()
-        }
-        
-        recommendLoginView.onAnotherLoginClicked = { [weak self] in
-            print("onAnotherLoginClicked")
-            self?.showAnotherLogin()
-        }
-        
-        recommendLoginView.onStartGuestClicked = { [weak viewModel] in
-            viewModel?.startAsGuest()
-        }
-        
         recommendLoginView.startGuestButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.showHome()

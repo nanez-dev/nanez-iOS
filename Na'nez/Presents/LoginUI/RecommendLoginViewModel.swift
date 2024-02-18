@@ -8,18 +8,26 @@
 import Foundation
 import RxSwift
 
-class RecommendLoginViewModel {
+class RecommendLoginViewModel: ViewModelType {
+    
+    var disposeBag = DisposeBag()
     let loginResult: PublishSubject<Bool> = PublishSubject()
-
-    func performKakaoLogin() {
-        loginResult.onNext(true)
+    
+    struct Input {
+        let loginTrigger: Observable<Void>
     }
-
-    func performAnotherLogin() {
-        loginResult.onNext(false)
+    
+    struct Output {
+        let loginSuccess: Observable<Bool>
     }
-
-    func startAsGuest() {
-        loginResult.onNext(true)
+        
+    func transform(input: Input) -> Output {
+        input.loginTrigger
+            .subscribe(onNext: { [weak self] _ in
+                self?.loginResult.onNext(true)
+            }).disposed(by: disposeBag)
+        
+        let output = Output(loginSuccess: loginResult.asObservable())
+        return output
     }
 }

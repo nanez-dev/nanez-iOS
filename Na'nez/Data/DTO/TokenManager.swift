@@ -30,4 +30,8 @@ class TokenManager {
         keychain.delete("AccessToken")
         keychain.delete("RefreshToken")
     }
+    
+    func logout() {
+        deleteTokens()
+    }
 }

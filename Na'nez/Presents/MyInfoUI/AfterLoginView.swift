@@ -119,7 +119,7 @@ class AfterLoginView: UIView {
         
         accordProfileImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(45)
+            $0.top.equalToSuperview().offset(15)
             $0.width.equalTo(100)
             $0.height.equalTo(100)
         }

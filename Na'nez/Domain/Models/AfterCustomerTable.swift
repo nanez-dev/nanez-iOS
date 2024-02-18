@@ -14,6 +14,7 @@ enum AfterCustomerTable: String{
     case table4
     case table5
     case table6
+    case table7
     
     var text: String {
         switch self {
@@ -23,10 +24,11 @@ enum AfterCustomerTable: String{
         case .table4: return "비밀번호 변경"
         case .table5: return "서비스이용약관"
         case .table6: return "개인정보처리방침"
+        case .table7: return "로그아웃"
         }
     }
     
     static var allTexts: [String] {
-        return [table1, table2, table3, table4, table5, table6].map { $0.text }
+        return [table1, table2 ,table3, table4, table5, table6, table7].map { $0.text }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CustomerTabelView.swift
+//  CustomerTableView.swift
 //  Na'nez
 //
 //  Created by 최지철 on 2023/12/07.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class CustomerTabelView: UITableViewCell {
-    static let identifier = "CustomerTabelView"
+class CustomerTableView: UITableViewCell {
+    static let identifier = "CustomerTableView"
     
     private let label = UILabel().then {
         $0.text = ""

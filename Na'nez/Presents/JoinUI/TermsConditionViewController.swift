@@ -137,5 +137,3 @@ class TermsConditionViewController: UIViewController {
         self.present(selectEmailVC, animated: true, completion: nil)
     }
 }
-
-

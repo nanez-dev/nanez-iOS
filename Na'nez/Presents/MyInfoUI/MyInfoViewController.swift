@@ -25,7 +25,7 @@ class MyInfoViewController: BaseViewController {
     private let customerTableView = UITableView(frame: CGRect.zero, style: .grouped).then{
         $0.backgroundColor = .clear
         $0.register(CustomerTableView.self, forCellReuseIdentifier: CustomerTableView.identifier)
-        $0.isScrollEnabled = false
+        $0.isScrollEnabled = true
         $0.separatorInset = .zero
     }
     

@@ -118,6 +118,9 @@
 		BD0BCF872B2D40D9007E023F /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BCF862B2D40D9007E023F /* SignUpService.swift */; };
 		BD0BCF892B2D5DC7007E023F /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BCF882B2D5DC7007E023F /* SignUpRepository.swift */; };
 		BD0BCF8B2B2D5DDF007E023F /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BCF8A2B2D5DDF007E023F /* SignUpUseCase.swift */; };
+		BD35F2F62B836F4600476FB8 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35F2F52B836F4600476FB8 /* SettingView.swift */; };
+		BD35F2F82B836F5300476FB8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35F2F72B836F5300476FB8 /* SettingViewController.swift */; };
+		BD35F2FA2B836F5B00476FB8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35F2F92B836F5B00476FB8 /* SettingViewModel.swift */; };
 		BD3D0D102B14B501005D3A9F /* SelectEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D0F2B14B501005D3A9F /* SelectEmailView.swift */; };
 		BD3D0D122B14B5AD005D3A9F /* SelectEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D112B14B5AD005D3A9F /* SelectEmailViewController.swift */; };
 		BD3D0D142B14B5D8005D3A9F /* SelectEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D0D132B14B5D8005D3A9F /* SelectEmailViewModel.swift */; };
@@ -283,6 +286,9 @@
 		BD0BCF862B2D40D9007E023F /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		BD0BCF882B2D5DC7007E023F /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
 		BD0BCF8A2B2D5DDF007E023F /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
+		BD35F2F52B836F4600476FB8 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		BD35F2F72B836F5300476FB8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		BD35F2F92B836F5B00476FB8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		BD3D0D0F2B14B501005D3A9F /* SelectEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailView.swift; sourceTree = "<group>"; };
 		BD3D0D112B14B5AD005D3A9F /* SelectEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailViewController.swift; sourceTree = "<group>"; };
 		BD3D0D132B14B5D8005D3A9F /* SelectEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmailViewModel.swift; sourceTree = "<group>"; };
@@ -451,6 +457,7 @@
 				09FEB4212A66886700DD1CC5 /* HomeUI */,
 				09D5FE302A94A6390082EB28 /* WishListUI */,
 				09D5FE2F2A94A62E0082EB28 /* MyInfoUI */,
+				BD35F2F42B836F2E00476FB8 /* SettingUI */,
 				09ADB67F2B234612002A0D60 /* PerfumeRegisterUI */,
 			);
 			path = Presents;
@@ -781,6 +788,16 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		BD35F2F42B836F2E00476FB8 /* SettingUI */ = {
+			isa = PBXGroup;
+			children = (
+				BD35F2F52B836F4600476FB8 /* SettingView.swift */,
+				BD35F2F72B836F5300476FB8 /* SettingViewController.swift */,
+				BD35F2F92B836F5B00476FB8 /* SettingViewModel.swift */,
+			);
+			path = SettingUI;
+			sourceTree = "<group>";
+		};
 		BD3D0D5C2B15E5B3005D3A9F /* CustomAlertUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -991,6 +1008,7 @@
 				094BCCEB2A6003650012A404 /* TabController.swift in Sources */,
 				09D5FE2E2A949E4C0082EB28 /* BaseView.swift in Sources */,
 				0999E2C62A62C954002042EF /* PerfumeService.swift in Sources */,
+				BD35F2FA2B836F5B00476FB8 /* SettingViewModel.swift in Sources */,
 				094334FF2B0F000100943E0D /* BrandPerfumeCollectionViewCell.swift in Sources */,
 				09725D012B29A32200F137DA /* SearchDTO.swift in Sources */,
 				BD0BCF892B2D5DC7007E023F /* SignUpRepository.swift in Sources */,
@@ -1004,6 +1022,7 @@
 				BDA4ED4D2B52140800152266 /* FindPwRepository.swift in Sources */,
 				094BCD132A6142610012A404 /* PerfumeCollectionViewCell.swift in Sources */,
 				0969A55B2B0523B900883862 /* BannerDTO.swift in Sources */,
+				BD35F2F62B836F4600476FB8 /* SettingView.swift in Sources */,
 				09CA66C32B0F5C8D00655C48 /* DetailAccordDTO.swift in Sources */,
 				09CA66BF2B0F5ADC00655C48 /* AllAccordDTO.swift in Sources */,
 				BD8D12D32B26A53B00813065 /* CouponUseCase.swift in Sources */,
@@ -1022,6 +1041,7 @@
 				0969A55D2B0523E800883862 /* PerfumeDTO.swift in Sources */,
 				0969A5522B05200800883862 /* HomeDTO.swift in Sources */,
 				BD462C482B1CC71E0022CB08 /* PasswordViewController.swift in Sources */,
+				BD35F2F82B836F5300476FB8 /* SettingViewController.swift in Sources */,
 				BD8D12512B20464900813065 /* SurveyViewController.swift in Sources */,
 				0969A55F2B0528F300883862 /* HomeService.swift in Sources */,
 				BD8D129F2B21728900813065 /* CustomSurveyButton.swift in Sources */,

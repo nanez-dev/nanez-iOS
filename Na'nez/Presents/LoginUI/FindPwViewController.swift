@@ -51,20 +51,27 @@ class FindPwViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        let emailInput = findPwView.emailTextField.rx.text.orEmpty.asObservable()
-        let input = FindPwViewModel.Input(email: emailInput)
-        let output = viewModel.transform(input: input)
-        
         bindEmailTextField()
         
         findPwView.emailSendButton.rx.tap
             .withLatestFrom(findPwView.emailTextField.rx.text.orEmpty)
-            .bind(onNext: { [weak self] _ in
-                self?.customIndicatorView.isHidden = false
-                self?.customIndicatorView.startAnimating()
+            .filter { !$0.isEmpty }
+            .flatMapLatest { [unowned self] email in
+                self.viewModel.sendEmail(email: email)
+                    .do(onSubscribe: { self.customIndicatorView.isHidden = false; self.customIndicatorView.startAnimating() })
+                    .observe(on: MainScheduler.instance)
+                    .catchAndReturn(false)
+            }
+            .subscribe(onNext: { [weak self] success in
+                self?.customIndicatorView.isHidden = true
+                self?.customIndicatorView.stopAnimating()
+                if success {
+                    self?.successAlert()
+                }
+                else {
+                    self?.errorAlert(message: "사용자를 찾을 수 없습니다.")
+                }
             }).disposed(by: disposeBag)
-        
-        bindPostFindPwSuccess(output: output)
     }
     
     private func bindEmailTextField() {

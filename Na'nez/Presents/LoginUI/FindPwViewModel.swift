@@ -22,6 +22,11 @@ class FindPwViewModel: ViewModelType {
         let findPwResult: Observable<Bool>
     }
     
+    func sendEmail(email: String) -> Observable<Bool> {
+        return useCase.execute(email: email)
+            .catchAndReturn(false)
+    }
+    
     func transform(input: Input) -> Output {
         let findPwResult = PublishSubject<Bool>()
         

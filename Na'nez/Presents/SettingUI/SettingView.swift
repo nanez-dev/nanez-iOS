@@ -5,4 +5,10 @@
 //  Created by KIM Hyung Jun on 2/19/24.
 //
 
-import Foundation
+import UIKit
+import SnapKit
+import Then
+
+class SettingView: UIView {
+    
+}

@@ -53,6 +53,11 @@ class FindPwViewController: UIViewController {
     private func bindViewModel() {
         bindEmailTextField()
         
+        findPwView.backButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.dismiss(animated: true, completion: nil)
+            }).disposed(by: disposeBag)
+        
         findPwView.emailSendButton.rx.tap
             .withLatestFrom(findPwView.emailTextField.rx.text.orEmpty)
             .filter { !$0.isEmpty }

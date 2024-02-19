@@ -85,7 +85,7 @@ class MyInfoViewController: BaseViewController {
         self.customerTableView.snp.makeConstraints {
             $0.top.equalTo(loginInfoSV.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(312)
+            $0.height.equalTo(320)
         }
         
         self.loginYetView.snp.makeConstraints {
@@ -136,7 +136,8 @@ class MyInfoViewController: BaseViewController {
                 guard let self = self else { return }
                 
                 if indexPath.row == AfterCustomerTable.allTexts.count - 1 {
-                    self.logout()
+//                    self.logout()
+                    self.navigateToSettingVC()
                 }
                 else {
                     let selectedModel = AfterCustomerTable.allTexts[indexPath.row]
@@ -181,10 +182,16 @@ class MyInfoViewController: BaseViewController {
         self.navigationController?.pushViewController(recommendLoginVC, animated: true)
     }
     
-    private func logout() {
-        TokenManager.shared.logout()
-        updateViewBasedOnLoginStatus()
+    private func navigateToSettingVC() {
+        let settingVC = SettingViewController()
+        settingVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(settingVC, animated: true)
     }
+    
+//    private func logout() {
+//        TokenManager.shared.logout()
+//        updateViewBasedOnLoginStatus()
+//    }
 }
 
 extension MyInfoViewController: CustomNaviBarDelegate{

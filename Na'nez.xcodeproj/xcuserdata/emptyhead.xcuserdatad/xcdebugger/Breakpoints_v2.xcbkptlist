@@ -14,10 +14,10 @@
             filePath = "Na&apos;nez/Presents/MyInfoUI/MyInfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "logout()"
-            landmarkType = "7">
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "MyInfoViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "355903A3-FACF-4933-AB9A-59BE399E7839 - 59b3610c1de8eb45"

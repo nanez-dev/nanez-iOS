@@ -34,3 +34,4 @@ class MyInfoViewModel:ViewModelType {
         return Output(tableData: tableData)
     }
 }
+

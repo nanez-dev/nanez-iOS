@@ -17,6 +17,7 @@ class RecommendLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.navigationItem.hidesBackButton = true
         
         setupLayout()
         setupBindings()
@@ -33,7 +34,11 @@ class RecommendLoginViewController: UIViewController {
         recommendLoginView.startGuestButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.showHome()
-            })
+            }).disposed(by: disposeBag)
+        
+        recommendLoginView.onAnotherLoginClicked = { [weak self] in
+            self?.showAnotherLogin()
+        }
         
         viewModel.loginResult
             .observe(on: MainScheduler.instance)

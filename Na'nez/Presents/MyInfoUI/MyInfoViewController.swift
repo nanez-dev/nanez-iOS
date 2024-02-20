@@ -22,10 +22,10 @@ class MyInfoViewController: BaseViewController {
         $0.axis = .vertical
     }
     
-    private let customerTabelView = UITableView(frame: CGRect.zero, style: .grouped).then{
+    private let customerTableView = UITableView(frame: CGRect.zero, style: .grouped).then{
         $0.backgroundColor = .clear
-        $0.register(CustomerTabelView.self, forCellReuseIdentifier: CustomerTabelView.identifier)
-        $0.isScrollEnabled = false
+        $0.register(CustomerTableView.self, forCellReuseIdentifier: CustomerTableView.identifier)
+        $0.isScrollEnabled = true
         $0.separatorInset = .zero
     }
     
@@ -51,18 +51,23 @@ class MyInfoViewController: BaseViewController {
         updateViewBasedOnLoginStatus()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateTableViewHeight()
+    }
+    
     override func configure() {
         self.view.addSubview(navibar)
         self.navibar.backBtn.isHidden = true
         self.navibar.searchBtn.isHidden = true
         self.navibar.navititleLabel.text = "내 정보"
-        customerTabelView.tableHeaderView = headerView
+        customerTableView.tableHeaderView = headerView
     }
     
     override func addview() {
         self.view.addSubview(navibar)
         self.view.addSubview(loginInfoSV)
-        self.view.addSubview(customerTabelView)
+        self.view.addSubview(customerTableView)
     }
     
     override func layout() {
@@ -77,10 +82,10 @@ class MyInfoViewController: BaseViewController {
             $0.leading.trailing.equalToSuperview()
         }
         
-        self.customerTabelView.snp.makeConstraints {
+        self.customerTableView.snp.makeConstraints {
             $0.top.equalTo(loginInfoSV.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(312)
+            $0.height.equalTo(320)
         }
         
         self.loginYetView.snp.makeConstraints {
@@ -88,37 +93,57 @@ class MyInfoViewController: BaseViewController {
         }
         
         self.loginAfterView.snp.makeConstraints {
-            $0.height.equalTo(320)
+            $0.height.equalTo(280)
         }
         
         self.headerView.snp.makeConstraints {
             $0.height.equalTo(44)
         }
     }
+
+    private func updateTableViewHeight() {
+        let cellsCount = AfterCustomerTable.allTexts.count
+        let cellHeight = 52
+        let totalHeight = cellsCount * cellHeight
+        
+        customerTableView.snp.updateConstraints {
+            $0.height.equalTo(totalHeight)
+        }
+        self.view.layoutIfNeeded()
+    }
     
     override func binding() {
-        customerTabelView.delegate = nil
-        customerTabelView.dataSource = nil
+        customerTableView.delegate = nil
+        customerTableView.dataSource = nil
         
         let isLoggedInObservable = Observable.just(TokenManager.shared.getAccessToken() != nil)
         let input = MyInfoViewModel.Input(isLoggedIn: isLoggedInObservable)
         let output = viewModel.transform(input: input)
         
         output.tableData
-                    .drive(customerTabelView.rx.items(cellIdentifier: CustomerTabelView.identifier, cellType: CustomerTabelView.self)) { index, model, cell in
+                    .drive(customerTableView.rx.items(cellIdentifier: CustomerTableView.identifier, cellType: CustomerTableView.self)) { index, model, cell in
                         cell.textLabel?.text = model
                     }
                     .disposed(by: disposeBag)
         
-        customerTabelView.rx.itemSelected
-             .map { indexPath in
-                 return try? self.customerTabelView.rx.model(at: indexPath) as String
-             }
-             .bind(onNext: { [weak self] selectedModel in
-                 if let selectedModel = selectedModel {
-                     print(selectedModel)
-                 }
-             }).disposed(by: disposeBag)
+        output.tableData
+            .drive(onNext: { [weak self] _ in
+                self?.updateTableViewHeight()
+            }).disposed(by: disposeBag)
+        
+        customerTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                
+                if indexPath.row == AfterCustomerTable.allTexts.count - 1 {
+//                    self.logout()
+                    self.navigateToSettingVC()
+                }
+                else {
+                    let selectedModel = AfterCustomerTable.allTexts[indexPath.row]
+                    print(selectedModel)
+                }
+            }).disposed(by: disposeBag)
         
         loginYetView.loginBtn.rx.tap
             .subscribe(onNext: { [weak self] _ in
@@ -141,16 +166,32 @@ class MyInfoViewController: BaseViewController {
             loginAfterView.removeFromSuperview()
             loginInfoSV.addArrangedSubview(loginYetView)
         }
-        
-        binding()
     }
     
     private func navigateToLoginVC() {
+        if let viewControllers = self.navigationController?.viewControllers {
+            for viewController in viewControllers {
+                if viewController is RecommendLoginViewController {
+                    return
+                }
+            }
+        }
+        
         let recommendLoginVC = RecommendLoginViewController()
         recommendLoginVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(recommendLoginVC, animated: true)
     }
     
+    private func navigateToSettingVC() {
+        let settingVC = SettingViewController()
+        settingVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(settingVC, animated: true)
+    }
+    
+//    private func logout() {
+//        TokenManager.shared.logout()
+//        updateViewBasedOnLoginStatus()
+//    }
 }
 
 extension MyInfoViewController: CustomNaviBarDelegate{

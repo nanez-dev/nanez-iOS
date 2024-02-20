@@ -17,9 +17,12 @@ class EmailLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         setupUI()
         setupConstraints()
         bindViewModel()
+        
+        
     }
     
     private func setupUI() {
@@ -45,6 +48,10 @@ class EmailLoginViewController: UIViewController {
         
         let input = EmailLoginViewModel.Input(
             loginCredentials: emailLoginView.loginButton.rx.tap
+                .do(onNext: { [weak self] _ in
+                    self?.customIndicatorView.isHidden = false
+                    self?.customIndicatorView.startAnimating()
+                })
                 .withLatestFrom(Observable.combineLatest(emailLoginView.emailField.rx.text.orEmpty, emailLoginView.pwField.rx.text.orEmpty))
                 .map { ($0, $1) }
         )
@@ -57,12 +64,18 @@ class EmailLoginViewController: UIViewController {
     
     private func bindActions() {
         emailLoginView.backButton.rx.tap
+            .observe(on: MainScheduler.instance)
             .bind { [weak self] in self?.navigationController?.popViewController(animated: true) }
             .disposed(by: disposeBag)
         
         emailLoginView.pwFindButton.rx.tap
+            .observe(on: MainScheduler.instance)
             .bind { [weak self] in self?.showFindPwView() }
             .disposed(by: disposeBag)
+        
+        emailLoginView.onJoinButtonClicked = { [weak self] in
+            self?.showTermsConditionView()
+        }
     }
     
     private func bindOutputs(_ output: EmailLoginViewModel.Output) {

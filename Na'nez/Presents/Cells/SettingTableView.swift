@@ -1,14 +1,14 @@
 //
-//  CustomerTabelView.swift
+//  SettingTableView.swift
 //  Na'nez
 //
-//  Created by 최지철 on 2023/12/07.
+//  Created by KIM Hyung Jun on 2/19/24.
 //
 
 import UIKit
 
-class CustomerTabelView: UITableViewCell {
-    static let identifier = "CustomerTabelView"
+class SettingTableView: UITableViewCell {
+    static let identifier = "SettingTableView"
     
     private let label = UILabel().then {
         $0.text = ""
@@ -24,18 +24,17 @@ class CustomerTabelView: UITableViewCell {
         }
     }
     
-    func configureCell(_ item: BeforeCustomerTable) {
+    func configureCell(_ item: SettingTable) {
         label.text = item.text
     }
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(label)
         self.layout()
-
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

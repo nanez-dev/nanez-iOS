@@ -136,7 +136,6 @@ class MyInfoViewController: BaseViewController {
                 guard let self = self else { return }
                 
                 if indexPath.row == AfterCustomerTable.allTexts.count - 1 {
-//                    self.logout()
                     self.navigateToSettingVC()
                 }
                 else {
@@ -183,15 +182,18 @@ class MyInfoViewController: BaseViewController {
     }
     
     private func navigateToSettingVC() {
+        if let vcs = self.navigationController?.viewControllers {
+            for vc in vcs {
+                if vc is SettingViewController {
+                    return
+                }
+            }
+        }
+        
         let settingVC = SettingViewController()
         settingVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(settingVC, animated: true)
     }
-    
-//    private func logout() {
-//        TokenManager.shared.logout()
-//        updateViewBasedOnLoginStatus()
-//    }
 }
 
 extension MyInfoViewController: CustomNaviBarDelegate{

@@ -52,6 +52,7 @@ class SettingViewController: UIViewController {
         settingTableView.dataSource = self
         settingTableView.delegate = self
         setupSettingView()
+        setupBinding()
     }
     
     private func setupSettingView() {
@@ -79,17 +80,47 @@ class SettingViewController: UIViewController {
         }
         
         mainLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(25)
+            $0.leading.equalToSuperview().offset(20)
             $0.top.equalTo(navigationView.snp.bottom).offset(50)
             $0.trailing.equalToSuperview().offset(-47)
         }
-
+        
         
         settingTableView.snp.makeConstraints {
-            $0.top.equalTo(mainLabel.snp.bottom).offset(20)
+            $0.top.equalTo(mainLabel.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    private func setupBinding() {
+        backButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }).disposed(by: disposeBag)
+        
+        settingTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                
+                if indexPath.row == SettingTable.allTexts.count - 2 {
+                    self.logout()
+                }
+                else if indexPath.row == SettingTable.allTexts.count - 1 {
+                    print("회원탈퇴 버튼")
+                }
+            }).disposed(by: disposeBag)
+    }
+    
+    private func logout() {
+        TokenManager.shared.logout()
+        navigateToMyInfoVC()
+    }
+    
+    private func navigateToMyInfoVC() {
+        let myInfoVC = MyInfoViewController(viewModel: MyInfoViewModel())
+        myInfoVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(myInfoVC, animated: true)
     }
 }
 

@@ -103,18 +103,39 @@ class SettingViewController: UIViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 
+                self.settingTableView.deselectRow(at: indexPath, animated: true)
+                
                 if indexPath.row == SettingTable.allTexts.count - 2 {
-                    self.logout()
+                    showLogoutAlert()
                 }
                 else if indexPath.row == SettingTable.allTexts.count - 1 {
                     print("회원탈퇴 버튼")
+                    showResignAlert()
                 }
             }).disposed(by: disposeBag)
+    }
+    
+    private func showLogoutAlert() {
+        let logoutAlert = CustomAlertTwoAnswerView(frame: self.view.bounds)
+        logoutAlert.configure(message: "정말 로그아웃 하시겠습니까?", actionButtonTitle: "로그아웃", cancelButtonTitle: "취소")
+        logoutAlert.onActionButotnTapped = { [weak self] in
+            self?.logout()
+        }
+        logoutAlert.show(on: self.view)
     }
     
     private func logout() {
         TokenManager.shared.logout()
         navigateToMyInfoVC()
+    }
+    
+    private func showResignAlert() {
+        let resignAlert = CustomAlertTwoAnswerView(frame: self.view.bounds)
+        resignAlert.configure(message: "정말 회원탈퇴를 하시겠습니까?", subMessage: "회원 탈퇴 시, 나만의 향수 정보를 다시 불러 올 수 없습니다.", actionButtonTitle: "회원탈퇴",  cancelButtonTitle: "취소")
+        resignAlert.onActionButotnTapped = { [weak self] in
+            print("회원탈퇴 버튼")
+        }
+        resignAlert.show(on: self.view)
     }
     
     private func navigateToMyInfoVC() {

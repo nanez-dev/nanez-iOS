@@ -177,6 +177,7 @@
 		BDC0CCEA2B0F823D00A39304 /* RecommendLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */; };
 		BDC0CCEC2B0F826900A39304 /* AnotherLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */; };
 		BDC0CCEE2B0F828800A39304 /* AnotherLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */; };
+		BDD403E62B8475AE00ECB4B0 /* CustomAlertTwoAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD403E52B8475AE00ECB4B0 /* CustomAlertTwoAnswerView.swift */; };
 		BDDE2DB62B693CA500FFC0AE /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDE2DB52B693CA500FFC0AE /* TokenManager.swift */; };
 		BDDE2DB92B693D1C00FFC0AE /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDDE2DB82B693D1C00FFC0AE /* KeychainSwift */; };
 		BDE7854F2B764906000807B4 /* AfterCustomerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7854E2B764906000807B4 /* AfterCustomerTable.swift */; };
@@ -344,6 +345,7 @@
 		BDC0CCE92B0F823D00A39304 /* RecommendLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendLoginViewModel.swift; sourceTree = "<group>"; };
 		BDC0CCEB2B0F826900A39304 /* AnotherLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewModel.swift; sourceTree = "<group>"; };
 		BDC0CCED2B0F828800A39304 /* AnotherLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLoginViewController.swift; sourceTree = "<group>"; };
+		BDD403E52B8475AE00ECB4B0 /* CustomAlertTwoAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertTwoAnswerView.swift; sourceTree = "<group>"; };
 		BDDE2DB52B693CA500FFC0AE /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		BDE7854E2B764906000807B4 /* AfterCustomerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterCustomerTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -805,6 +807,7 @@
 			isa = PBXGroup;
 			children = (
 				BD3D0D5D2B15E5D3005D3A9F /* CustomAlertView.swift */,
+				BDD403E52B8475AE00ECB4B0 /* CustomAlertTwoAnswerView.swift */,
 			);
 			path = CustomAlertUI;
 			sourceTree = "<group>";
@@ -1036,6 +1039,7 @@
 				0999E2C82A62C95E002042EF /* AccordService.swift in Sources */,
 				09094D982B107495004233A5 /* AllAccordCollectionViewCell.swift in Sources */,
 				BD0BCEFE2B29D814007E023F /* FindPwViewModel.swift in Sources */,
+				BDD403E62B8475AE00ECB4B0 /* CustomAlertTwoAnswerView.swift in Sources */,
 				0900E3D62B0E3F0500E480C7 /* BrandUseCase.swift in Sources */,
 				09972CF52B07573700923CA5 /* NoteCollectionViewCell.swift in Sources */,
 				0900E3D42B0E3E0A00E480C7 /* BrandRepository.swift in Sources */,

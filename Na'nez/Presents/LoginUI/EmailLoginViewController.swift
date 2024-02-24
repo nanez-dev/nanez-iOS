@@ -21,8 +21,6 @@ class EmailLoginViewController: UIViewController {
         setupUI()
         setupConstraints()
         bindViewModel()
-        
-        
     }
     
     private func setupUI() {

@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class NicknameRepository {
+final class NicknameRepository {
     private let nicknameVerifyService: NicknameVerifyService
     
     init(nicknameVerifyService: NicknameVerifyService) {

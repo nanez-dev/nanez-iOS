@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class SelectEmailUseCase {
+final class SelectEmailUseCase {
     private let repository: SelectEmailRepository
     
     init(repository: SelectEmailRepository) {

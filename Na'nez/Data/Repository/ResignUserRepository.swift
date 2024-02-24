@@ -12,7 +12,7 @@ protocol ResignUserRepositoryProtocol {
     func resignUser() -> Observable<Void>
 }
 
-class ResignUserRepository: ResignUserRepositoryProtocol {
+final class ResignUserRepository: ResignUserRepositoryProtocol {
     private let service: ResignUserService
     
     init(service: ResignUserService) {

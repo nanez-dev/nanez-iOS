@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class SelectEmailRepository {
+final class SelectEmailRepository {
     private let emailSendService: EmailSendService
     private let emailVerifyService: EmailVerifyService
 

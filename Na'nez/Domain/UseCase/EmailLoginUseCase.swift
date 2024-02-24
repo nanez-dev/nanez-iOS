@@ -12,7 +12,7 @@ protocol EmailLoginUseCaseProtocol {
     func login(email: String, password: String) -> Observable<LoginResponse>
 }
 
-class EmailLoginUseCase: EmailLoginUseCaseProtocol {
+final class EmailLoginUseCase: EmailLoginUseCaseProtocol {
     private let repository: EmailLoginRepositoryProtocol
 
     init(repository: EmailLoginRepositoryProtocol) {

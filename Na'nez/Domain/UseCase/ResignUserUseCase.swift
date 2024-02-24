@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class ResignUserUseCase {
+final class ResignUserUseCase {
     private let repository: ResignUserRepositoryProtocol
     
     init(repository: ResignUserRepositoryProtocol) {

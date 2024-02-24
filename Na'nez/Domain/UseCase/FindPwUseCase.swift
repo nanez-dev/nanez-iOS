@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class FindPwUseCase {
+final class FindPwUseCase {
     private let repository: FindPwRepositoryProtocol
     
     init(repository: FindPwRepositoryProtocol) {

@@ -225,6 +225,7 @@ class TermsConditionView: UIView {
         addSubview(agreeButton)
         
         navigationView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(60)
             $0.top.left.right.equalToSuperview()
             $0.height.equalTo(44)
         }

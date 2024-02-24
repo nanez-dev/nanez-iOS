@@ -15,13 +15,12 @@ class CouponViewController: UIViewController {
     private let couponViewModel: CouponViewModel
     private let disposeBag = DisposeBag()
     
-    private var nicknameVC: NicknameViewController?
-    private var selectEmailVC: SelectEmailViewController?
-    private var passwordVC: PasswordViewController?
     private var surveyVC: SurveyViewController?
     private var surveyViewModel: SurveyViewModel?
     private var termsConditionVC: TermsConditionViewController?
     private var termsConditionViewModel: TermsConditionViewModel?
+    
+    var sharedViewModel: SharedViewModel!
     
     private var nickname: String?
     private var email: String?
@@ -29,9 +28,10 @@ class CouponViewController: UIViewController {
     private var accordId: Int?
     private var isAccepted: Bool?
 
-    init(couponViewModel: CouponViewModel, surveyViewModel: SurveyViewModel) {
+    init(couponViewModel: CouponViewModel, surveyViewModel: SurveyViewModel, sharedViewModel: SharedViewModel) {
         self.couponViewModel = couponViewModel
         self.surveyViewModel = surveyViewModel
+        self.sharedViewModel = sharedViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -46,8 +46,8 @@ class CouponViewController: UIViewController {
         
         configure()
         setupBinding()
-    
         setupBinding2()
+        setupViewModelBinding()
     }
     
     private func configure() {
@@ -57,21 +57,8 @@ class CouponViewController: UIViewController {
         couponView.snp.makeConstraints {
             $0.top.left.right.bottom.equalToSuperview()
         }
-        
-        let nicknameRP = NicknameRepository(nicknameVerifyService: NicknameVerifyService())
-        let nicknameUC = NicknameUseCase(repository: nicknameRP)
-        let nicknameVM = NicknameViewModel(useCase: nicknameUC)
-        nicknameVC = NicknameViewController(viewModel: nicknameVM)
-        
-        let selectEmailRP = SelectEmailRepository(emailSendService: EmailSendService(), emailVerifyService: EmailVerifyService())
-        let selectEmailUC = SelectEmailUseCase(repository: selectEmailRP)
-        let selectEmailVM = SelectEmailViewModel(useCase: selectEmailUC)
-        selectEmailVC = SelectEmailViewController(viewModel: selectEmailVM)
-        
-        passwordVC = PasswordViewController()
-        
+
         surveyVC = SurveyViewController()
-        
         let termsConditionRP = TermsRepository()
         let termsConditionUC = TermsUseCase(repository: termsConditionRP)
         let termsConditionVM = TermsConditionViewModel(termsUseCase: termsConditionUC)
@@ -144,25 +131,31 @@ class CouponViewController: UIViewController {
     }
     
     private func setupBinding2() {
-        guard let nicknameVC = nicknameVC else { return }
-        nicknameVC.nicknameObservable
-            .subscribe(onNext: { [weak self] newNickname in
-                self?.nickname = newNickname
-                print("Nickname: \(newNickname)")
+        sharedViewModel.nicknameRelay
+            .asObservable()
+            .subscribe(onNext: { [weak self] nickname in
+                if let nickname = nickname {
+                    self?.nickname = nickname
+                    print("Received nickname: \(nickname)")
+                }
             }).disposed(by: disposeBag)
         
-        guard let selectEmailVC = selectEmailVC else { return }
-        selectEmailVC.emailObservable
-            .subscribe(onNext: { [weak self] newEmail in
-                self?.email = newEmail
-                print("Email: \(newEmail)")
+        sharedViewModel.emailRelay
+            .asObservable()
+            .subscribe(onNext: { [weak self] email in
+                if let email = email {
+                    self?.email = email
+                    print("Received email: \(email)")
+                }
             }).disposed(by: disposeBag)
         
-        guard let passwordVC = passwordVC else { return }
-        passwordVC.passwordObservable
-            .subscribe(onNext: { [weak self] newPassword in
-                self?.password = newPassword
-                print("Password: \(newPassword)")
+        sharedViewModel.passwordRelay
+            .asObservable()
+            .subscribe(onNext: { [weak self] password in
+                if let password = password {
+                    self?.password = password
+                    print("Received password: \(password)")
+                }
             }).disposed(by: disposeBag)
         
         surveyViewModel?.selectedButtonId
@@ -179,7 +172,27 @@ class CouponViewController: UIViewController {
                 print("Marketing Agreed: \(isMarketingAgreed)")
             }).disposed(by: disposeBag)
     }
-
+    
+    private func setupViewModelBinding() {
+        couponViewModel.signUpSuccess
+            .subscribe(onNext: { [weak self] _ in
+                self?.showSuccessAlert()
+            }).disposed(by: disposeBag)
+    }
+    
+    private func showSuccessAlert() {
+        let alertView = CustomAlertView()
+        alertView.configure(message: "축하합니다! 회원가입에 성공하셨습니다!", actionButtonTitle: "확인")
+        alertView.onActionButotnTapped = {
+            alertView.dismiss()
+            self.navigateToLoginVC()
+        }
+        alertView.show(on: self.view)
+    }
+    
+    private func navigateToLoginVC() {
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
 
     private func showSameAlert() {
         let alertView = CustomAlertView()
@@ -192,7 +205,6 @@ class CouponViewController: UIViewController {
     
     private func showInconsistencyAlert() {
         let alertView = CustomAlertView()
-//        alertView.messageLabel.textColor = .red
         alertView.configure(message: "일치하는 쿠폰 코드가 없습니다.", actionButtonTitle: "확인")
         alertView.onActionButotnTapped = {
             alertView.dismiss()
@@ -217,4 +229,3 @@ class CouponViewController: UIViewController {
         }
     }
 }
-

@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import RxSwift
+
+class ResignUserUseCase {
+    private let repository: ResignUserRepositoryProtocol
+    
+    init(repository: ResignUserRepositoryProtocol) {
+        self.repository = repository
+    }
+    
+    func execute() -> Observable<Void> {
+        return repository.resignUser()
+    }
+}

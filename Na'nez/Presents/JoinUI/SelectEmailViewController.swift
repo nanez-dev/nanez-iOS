@@ -17,12 +17,11 @@ class SelectEmailViewController: UIViewController {
     private let viewModel: SelectEmailViewModel
     private let disposeBag = DisposeBag()
     
-    var emailObservable: Observable<String> {
-        return selectEmailView.emailTextField.rx.text.orEmpty.asObservable()
-    }
+    var sharedViewModel: SharedViewModel!
     
-    init(viewModel: SelectEmailViewModel) {
+    init(viewModel: SelectEmailViewModel, sharedViewModel: SharedViewModel) {
         self.viewModel = viewModel
+        self.sharedViewModel = sharedViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -129,6 +128,10 @@ class SelectEmailViewController: UIViewController {
                     }).disposed(by: self.disposeBag)
             }).disposed(by: disposeBag)
         
+        selectEmailView.emailTextField.rx.text.orEmpty
+            .bind(to: sharedViewModel.emailRelay)
+            .disposed(by: disposeBag)
+        
         selectEmailView.authNumberTextField.rx.text.orEmpty
             .filter { $0.count == 6 }
             .distinctUntilChanged()
@@ -185,6 +188,7 @@ class SelectEmailViewController: UIViewController {
     
     private func navigateToPasswordViewController() {
         let passwordVC = PasswordViewController()
+        passwordVC.sharedViewModel = self.sharedViewModel
         passwordVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         passwordVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(passwordVC, animated: true, completion: nil)

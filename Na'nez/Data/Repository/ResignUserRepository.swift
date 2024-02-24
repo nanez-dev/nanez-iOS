@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol ResignUserRepositoryProtocol {
+    func resignUser() -> Observable<Void>
+}
+
+class ResignUserRepository: ResignUserRepositoryProtocol {
+    private let service: ResignUserService
+    
+    init(service: ResignUserService) {
+        self.service = service
+    }
+    
+    func resignUser() -> Observable<Void> {
+        return service.deleteResignUser()
+    }
+}

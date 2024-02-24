@@ -17,9 +17,7 @@ class AnotherLoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.navigationItem.hidesBackButton = true
-        
-        
-        
+       
         setupLayout()
         setupBindings()
     }

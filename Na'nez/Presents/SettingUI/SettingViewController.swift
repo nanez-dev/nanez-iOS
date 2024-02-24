@@ -13,6 +13,7 @@ import RxCocoa
 
 class SettingViewController: UIViewController {
     private let disposeBag = DisposeBag()
+    private let viewModel = SettingViewModel(useCase: ResignUserUseCase(repository: ResignUserRepository(service: ResignUserService())))
     
     let backButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -94,6 +95,7 @@ class SettingViewController: UIViewController {
     }
     
     private func setupBinding() {
+        
         backButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
@@ -124,19 +126,40 @@ class SettingViewController: UIViewController {
         logoutAlert.show(on: self.view)
     }
     
-    private func logout() {
-        TokenManager.shared.logout()
-        navigateToMyInfoVC()
-    }
-    
     private func showResignAlert() {
         let resignAlert = CustomAlertTwoAnswerView(frame: self.view.bounds)
         resignAlert.configure(message: "정말 회원탈퇴를 하시겠습니까?", subMessage: "회원 탈퇴 시, 나만의 향수 정보를 다시 불러 올 수 없습니다.", actionButtonTitle: "회원탈퇴",  cancelButtonTitle: "취소")
         resignAlert.onActionButotnTapped = { [weak self] in
+            guard let self = self else { return }
+            self.resignUser()
             print("회원탈퇴 버튼")
         }
         resignAlert.show(on: self.view)
     }
+    
+    private func resignUser() {
+        let input = SettingViewModel.Input(resignTap: .just(()))
+        let output = viewModel.transform(input: input)
+        
+        output.resignCompleted
+            .subscribe(onNext: { [weak self] _ in
+                print("회원탈퇴 성공 - 로그아웃을 시도합니다.")
+                self?.navigateToMyInfoVC()
+            }, onError: { error in
+                print("회원탈퇴 실패: \(error)")
+            }).disposed(by: disposeBag)
+        
+        output.resignFailed
+            .subscribe(onNext: { error in
+                print("회원탈퇴 과정에서 오류 발생: \(error)")
+            }).disposed(by: disposeBag)
+    }
+        
+    private func logout() {
+        TokenManager.shared.logout()
+        navigateToMyInfoVC()
+    }
+
     
     private func navigateToMyInfoVC() {
         let myInfoVC = MyInfoViewController(viewModel: MyInfoViewModel())

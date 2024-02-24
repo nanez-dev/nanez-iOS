@@ -14,6 +14,7 @@ import RxCocoa
 class SurveyViewController: UIViewController {
     private let surveyView = SurveyView()
     let viewModel = SurveyViewModel()
+    var sharedViewModel = SharedViewModel()
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -72,8 +73,8 @@ class SurveyViewController: UIViewController {
         let signUpRp = SignUpRepository(signUpService: SignUpService())
         let signUpUC = SignUpUseCase(repository: signUpRp)
         let couponVM = CouponViewModel(useCase: signUpUC)
-        let couponVC = CouponViewController(couponViewModel: couponVM, surveyViewModel: viewModel)
-        
+        let couponVC = CouponViewController(couponViewModel: couponVM, surveyViewModel: viewModel, sharedViewModel: self.sharedViewModel)
+        couponVC.sharedViewModel = self.sharedViewModel
         couponVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         couponVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(couponVC, animated: true)

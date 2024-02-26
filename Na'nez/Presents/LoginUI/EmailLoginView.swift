@@ -148,7 +148,7 @@ class EmailLoginView: UIView {
         
         backButton.snp.makeConstraints {
             $0.left.equalToSuperview().inset(16)
-            $0.top.equalToSuperview().offset(1)
+            $0.top.equalToSuperview().offset(10)
             $0.size.equalTo(CGSize(width: 24, height: 24))
         }
         

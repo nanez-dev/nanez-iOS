@@ -59,6 +59,7 @@ class RecommendLoginViewController: UIViewController {
 
     private func showHome() {
         let homeVC = TabController()
+        self.navigationController?.isNavigationBarHidden = true
         navigationController?.pushViewController(homeVC, animated: true)
     }
 }

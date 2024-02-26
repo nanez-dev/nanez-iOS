@@ -33,6 +33,11 @@ class AnotherLoginViewController: UIViewController {
         anotherLoginView.onEmailLoginClicked = { [weak self] in
             self?.showEmailLogin()
         }
+        
+        anotherLoginView.backButton.rx.tap
+            .observe(on: MainScheduler.instance)
+            .bind { [weak self] in self?.navigationController?.popViewController(animated: true) }
+            .disposed(by: disposeBag)
 
         viewModel.loginResult
             .observe(on: MainScheduler.instance)
@@ -52,6 +57,7 @@ class AnotherLoginViewController: UIViewController {
         let emailLoginViewModel = EmailLoginViewModel(useCase: emailLoginUseCase)
         
         emailLoginVC.setViewModel(viewModel: emailLoginViewModel)
+        self.navigationController?.isNavigationBarHidden = true
         navigationController?.pushViewController(emailLoginVC, animated: true)
     }
     

@@ -12,6 +12,7 @@ class TabController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = .white
         self.delegate = self
         let vc1 = UINavigationController(rootViewController: HomeViewController(HomeViewModel(usecase: HomeUseCase(repository: HomeRepository(homeService: HomeService())))))

@@ -40,6 +40,8 @@ class MyInfoViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViewBasedOnLoginStatus()
+        updateTableViewHeight()
         configure()
         addview()
         layout()
@@ -48,12 +50,12 @@ class MyInfoViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateViewBasedOnLoginStatus()
+//        updateViewBasedOnLoginStatus()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updateTableViewHeight()
+//        updateTableViewHeight()
     }
     
     override func configure() {
@@ -121,14 +123,21 @@ class MyInfoViewController: BaseViewController {
         let output = viewModel.transform(input: input)
         
         output.tableData
-                    .drive(customerTableView.rx.items(cellIdentifier: CustomerTableView.identifier, cellType: CustomerTableView.self)) { index, model, cell in
-                        cell.textLabel?.text = model
-                    }
-                    .disposed(by: disposeBag)
+            .drive(customerTableView.rx.items(cellIdentifier: CustomerTableView.identifier, cellType: CustomerTableView.self)) { index, model, cell in
+                cell.textLabel?.text = model
+            }
+            .disposed(by: disposeBag)
         
         output.tableData
             .drive(onNext: { [weak self] _ in
                 self?.updateTableViewHeight()
+            }).disposed(by: disposeBag)
+        
+        output.userInfo
+            .drive(onNext: { [weak self] userInfo in
+                guard let self = self, let userInfo = userInfo else { return }
+                self.loginAfterView.nicknameLabel.text = "\(userInfo.nickname)님 안녕하세요."
+                self.loginAfterView.emailLabel.text = userInfo.email
             }).disposed(by: disposeBag)
         
         customerTableView.rx.itemSelected
@@ -139,6 +148,9 @@ class MyInfoViewController: BaseViewController {
                 
                 if indexPath.row == AfterCustomerTable.allTexts.count - 1 {
                     self.navigateToSettingVC()
+                }
+                else if indexPath.row == AfterCustomerTable.allTexts.count - 4 {
+                    
                 }
                 else {
                     let selectedModel = AfterCustomerTable.allTexts[indexPath.row]

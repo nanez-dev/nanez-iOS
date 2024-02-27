@@ -20,14 +20,12 @@ class AfterLoginView: UIView {
     
     let nicknameLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "도리님 안녕하세요."
         $0.font = .pretendard(.Bold, size: 20)
         $0.textColor = UIColor(hexString: "#333333")
     }
     
     let emailLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "dkfslf892@naver.com"
         $0.font = .pretendard(.Regular, size: 13)
         $0.textColor = UIColor(hexString: "#666666")
     }

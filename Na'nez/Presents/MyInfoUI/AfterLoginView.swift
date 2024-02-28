@@ -14,7 +14,6 @@ import RxSwift
 class AfterLoginView: UIView {
     let accordProfileImage = UIImageView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.image = UIImage(named: "citrus")
         $0.contentMode = .scaleAspectFit
     }
     

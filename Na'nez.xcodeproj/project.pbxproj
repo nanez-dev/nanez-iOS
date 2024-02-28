@@ -139,6 +139,10 @@
 		BD8AC1A62B10A223001C78A1 /* TermsConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A52B10A223001C78A1 /* TermsConditionView.swift */; };
 		BD8AC1A82B10A230001C78A1 /* TermsConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A72B10A230001C78A1 /* TermsConditionViewController.swift */; };
 		BD8AC1AE2B10E483001C78A1 /* TermsAgreement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1AD2B10E483001C78A1 /* TermsAgreement.swift */; };
+		BD8C83B92B8E2BCC0021F0CC /* CheckPwView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8C83B82B8E2BCC0021F0CC /* CheckPwView.swift */; };
+		BD8C83BB2B8E2BDB0021F0CC /* ChangePwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8C83BA2B8E2BDB0021F0CC /* ChangePwViewController.swift */; };
+		BD8C83BD2B8E2BEA0021F0CC /* ChangePwViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8C83BC2B8E2BEA0021F0CC /* ChangePwViewModel.swift */; };
+		BD8C83BF2B8E34EB0021F0CC /* ChangePwView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8C83BE2B8E34EB0021F0CC /* ChangePwView.swift */; };
 		BD8D120D2B1EBAB700813065 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D120C2B1EBAB700813065 /* NicknameViewModel.swift */; };
 		BD8D120F2B1EBAC300813065 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D120E2B1EBAC300813065 /* NicknameView.swift */; };
 		BD8D12112B1EBACD00813065 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12102B1EBACD00813065 /* NicknameViewController.swift */; };
@@ -189,6 +193,7 @@
 		BDF3B97C2B85BF8200AE46A6 /* ResignUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF3B97B2B85BF8200AE46A6 /* ResignUserUseCase.swift */; };
 		BDF3B97E2B85BFA700AE46A6 /* ChangePwRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF3B97D2B85BFA700AE46A6 /* ChangePwRepository.swift */; };
 		BDF3B9802B85BFBD00AE46A6 /* ChangePwUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF3B97F2B85BFBD00AE46A6 /* ChangePwUseCase.swift */; };
+		BDFAC4932B8ECB970090CB85 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFAC4922B8ECB970090CB85 /* UIImageView+.swift */; };
 		BDFC19F12B88DA110004C50C /* SharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFC19F02B88DA110004C50C /* SharedViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -318,6 +323,10 @@
 		BD8AC1A52B10A223001C78A1 /* TermsConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionView.swift; sourceTree = "<group>"; };
 		BD8AC1A72B10A230001C78A1 /* TermsConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionViewController.swift; sourceTree = "<group>"; };
 		BD8AC1AD2B10E483001C78A1 /* TermsAgreement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreement.swift; sourceTree = "<group>"; };
+		BD8C83B82B8E2BCC0021F0CC /* CheckPwView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPwView.swift; sourceTree = "<group>"; };
+		BD8C83BA2B8E2BDB0021F0CC /* ChangePwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwViewController.swift; sourceTree = "<group>"; };
+		BD8C83BC2B8E2BEA0021F0CC /* ChangePwViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwViewModel.swift; sourceTree = "<group>"; };
+		BD8C83BE2B8E34EB0021F0CC /* ChangePwView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwView.swift; sourceTree = "<group>"; };
 		BD8D120C2B1EBAB700813065 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
 		BD8D120E2B1EBAC300813065 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 		BD8D12102B1EBACD00813065 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
@@ -365,6 +374,7 @@
 		BDF3B97B2B85BF8200AE46A6 /* ResignUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignUserUseCase.swift; sourceTree = "<group>"; };
 		BDF3B97D2B85BFA700AE46A6 /* ChangePwRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwRepository.swift; sourceTree = "<group>"; };
 		BDF3B97F2B85BFBD00AE46A6 /* ChangePwUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePwUseCase.swift; sourceTree = "<group>"; };
+		BDFAC4922B8ECB970090CB85 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		BDFC19F02B88DA110004C50C /* SharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -461,6 +471,7 @@
 				094BCCE82A5FF37B0012A404 /* Colors.swift */,
 				094BCD102A613B8B0012A404 /* Fonts.swift */,
 				09972CF22B07196500923CA5 /* String+.swift */,
+				BDFAC4922B8ECB970090CB85 /* UIImageView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -842,6 +853,10 @@
 		BD8C83B72B8E2AA10021F0CC /* ChangePwUI */ = {
 			isa = PBXGroup;
 			children = (
+				BD8C83B82B8E2BCC0021F0CC /* CheckPwView.swift */,
+				BD8C83BE2B8E34EB0021F0CC /* ChangePwView.swift */,
+				BD8C83BA2B8E2BDB0021F0CC /* ChangePwViewController.swift */,
+				BD8C83BC2B8E2BEA0021F0CC /* ChangePwViewModel.swift */,
 			);
 			path = ChangePwUI;
 			sourceTree = "<group>";
@@ -1016,6 +1031,7 @@
 			files = (
 				09725CFC2B29944200F137DA /* DetailBrandViewController.swift in Sources */,
 				09725CFB2B29943600F137DA /* DetailPerfumeRepository.swift in Sources */,
+				BDFAC4932B8ECB970090CB85 /* UIImageView+.swift in Sources */,
 				BDBDF40C2B5576BC00A80A4E /* BeforeLoginView.swift in Sources */,
 				09725D082B29F94F00F137DA /* SearchResultViewController.swift in Sources */,
 				09725CFA2B29941A00F137DA /* String+.swift in Sources */,
@@ -1104,6 +1120,7 @@
 				0999E2C42A62C949002042EF /* BrandService.swift in Sources */,
 				094BCD112A613B8B0012A404 /* Fonts.swift in Sources */,
 				BDCF419F2B8C3FEB000345D1 /* MyInfoDTO.swift in Sources */,
+				BD8C83BD2B8E2BEA0021F0CC /* ChangePwViewModel.swift in Sources */,
 				09972CE52B05FF9500923CA5 /* PerfumeAccordDTO.swift in Sources */,
 				094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */,
 				BD3D0D122B14B5AD005D3A9F /* SelectEmailViewController.swift in Sources */,
@@ -1113,10 +1130,12 @@
 				BD3D0D1E2B14CB84005D3A9F /* SelectEmailRepository.swift in Sources */,
 				09972CE72B0600F300923CA5 /* PerfumeNoteDTO.swift in Sources */,
 				BD8D124F2B20463C00813065 /* SurveyView.swift in Sources */,
+				BD8C83BB2B8E2BDB0021F0CC /* ChangePwViewController.swift in Sources */,
 				0969A5592B0523A400883862 /* BrandDTO.swift in Sources */,
 				BD462C442B1CC7070022CB08 /* PasswordViewModel.swift in Sources */,
 				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,
 				09CA66C52B0F610600655C48 /* AccordRepository.swift in Sources */,
+				BD8C83B92B8E2BCC0021F0CC /* CheckPwView.swift in Sources */,
 				BD8D124B2B20442600813065 /* NicknameRepository.swift in Sources */,
 				09972CEB2B0601BB00923CA5 /* DensityDTO.swift in Sources */,
 				BDF3B97E2B85BFA700AE46A6 /* ChangePwRepository.swift in Sources */,
@@ -1138,6 +1157,7 @@
 				0969A5442B05165300883862 /* HomeViewModel.swift in Sources */,
 				BD35F2FC2B8395F900476FB8 /* SettingTable.swift in Sources */,
 				BDA4ED4B2B518FD300152266 /* FindPwUseCase.swift in Sources */,
+				BD8C83BF2B8E34EB0021F0CC /* ChangePwView.swift in Sources */,
 				BD3D0D602B177E51005D3A9F /* EmailVerifyService.swift in Sources */,
 				09AEACAC2A9A0EFB009D57E5 /* SegmentController.swift in Sources */,
 				09C539E42B216AFB00563E70 /* MyInfoViewModel.swift in Sources */,

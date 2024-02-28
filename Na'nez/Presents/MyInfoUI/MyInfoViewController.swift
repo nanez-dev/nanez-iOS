@@ -8,6 +8,8 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import Kingfisher
+import Alamofire
 
 class MyInfoViewController: BaseViewController {
     private let viewModel: MyInfoViewModel
@@ -46,16 +48,6 @@ class MyInfoViewController: BaseViewController {
         addview()
         layout()
         binding()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        updateViewBasedOnLoginStatus()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        updateTableViewHeight()
     }
     
     override func configure() {
@@ -136,6 +128,13 @@ class MyInfoViewController: BaseViewController {
         output.userInfo
             .drive(onNext: { [weak self] userInfo in
                 guard let self = self, let userInfo = userInfo else { return }
+                
+                if let imageURL = URL(string: userInfo.profileImage ?? ""), UIApplication.shared.canOpenURL(imageURL) {
+                    self.loginAfterView.accordProfileImage.kf.setImage(with: imageURL)
+                }
+                else {
+                    self.loginAfterView.accordProfileImage.image = UIImage(named: "citus")
+                }
                 self.loginAfterView.nicknameLabel.text = "\(userInfo.nickname)님 안녕하세요."
                 self.loginAfterView.emailLabel.text = userInfo.email
             }).disposed(by: disposeBag)
@@ -150,7 +149,7 @@ class MyInfoViewController: BaseViewController {
                     self.navigateToSettingVC()
                 }
                 else if indexPath.row == AfterCustomerTable.allTexts.count - 4 {
-                    
+                    self.navigateToChangePwVC()
                 }
                 else {
                     let selectedModel = AfterCustomerTable.allTexts[indexPath.row]
@@ -179,6 +178,20 @@ class MyInfoViewController: BaseViewController {
             loginAfterView.removeFromSuperview()
             loginInfoSV.addArrangedSubview(loginYetView)
         }
+    }
+    
+    private func navigateToChangePwVC() {
+        if let viewControllers = self.navigationController?.viewControllers {
+            for viewController in viewControllers {
+                if viewController is ChangePwViewController {
+                    return
+                }
+            }
+        }
+        
+        let changePwVC = ChangePwViewController()
+        changePwVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(changePwVC, animated: true)
     }
     
     private func navigateToLoginVC() {

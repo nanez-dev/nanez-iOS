@@ -1,5 +1,5 @@
 //
-//  ChangePwView.swift
+//  CheckPwView.swift
 //  Na'nez
 //
 //  Created by KIM Hyung Jun on 2/27/24.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ChangePwView: UIView {
+class CheckPwView: UIView {
     class var mainturquoise: UIColor { UIColor(named: "mainturquoise") ?? UIColor() }
     
     let backButton = UIButton().then {

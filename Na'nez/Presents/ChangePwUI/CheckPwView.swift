@@ -59,7 +59,7 @@ class CheckPwView: UIView {
         $0.textColor = .black
     }
     
-    let emailTextField = UITextField().then {
+    let curPwTextField = UITextField().then {
         $0.textColor = .black
         $0.borderStyle = .roundedRect
         $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
@@ -84,9 +84,9 @@ class CheckPwView: UIView {
         $0.isEnabled = false
     }
     
-    let noExistEmailLabel = UILabel().then {
+    let noMathLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "* 가입 되어있는 이메일이 아닙니다."
+        $0.text = "* 비밀번호가 잘못 입력하였습니다."
         $0.textColor = .red
         $0.font = UIFont.systemFont(ofSize: 13)
         $0.numberOfLines = 0
@@ -108,7 +108,7 @@ class CheckPwView: UIView {
         navigationView.addSubview(topTitleLabel)
         addSubview(labelStackView)
         addSubview(titleLabel)
-        addSubview(emailTextField)
+        addSubview(curPwTextField)
         addSubview(confirmButton)
         
         navigationView.snp.makeConstraints {
@@ -139,7 +139,7 @@ class CheckPwView: UIView {
             $0.top.equalTo(labelStackView.snp.bottom).offset(35)
         }
         
-        emailTextField.snp.makeConstraints {
+        curPwTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
             $0.height.equalTo(50)

@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import RxSwift
+
+final class ChangePwUseCase {
+    private let repository: ChangePwRepositoryProtocol
+    
+    init(repository: ChangePwRepositoryProtocol) {
+        self.repository = repository
+    }
+    
+    func execute(currentPassword: String, newPassword: String) -> Observable<Bool> {
+        return repository.changePassword(currentPassword: currentPassword, newPassword: newPassword)
+    }
+}

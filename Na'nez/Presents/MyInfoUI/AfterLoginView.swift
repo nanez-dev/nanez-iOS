@@ -31,7 +31,6 @@ class AfterLoginView: UIView {
     
     let holdingListCount = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "1"
         $0.font = .pretendard(.Bold, size: 20)
         $0.textColor = UIColor(hexString: "#333333")
     }
@@ -54,7 +53,6 @@ class AfterLoginView: UIView {
     
     let wishListCount = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "4"
         $0.font = .pretendard(.Bold, size: 20)
         $0.textColor = UIColor(hexString: "#333333")
     }

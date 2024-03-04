@@ -118,6 +118,8 @@
 		BD0BCF872B2D40D9007E023F /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BCF862B2D40D9007E023F /* SignUpService.swift */; };
 		BD0BCF892B2D5DC7007E023F /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BCF882B2D5DC7007E023F /* SignUpRepository.swift */; };
 		BD0BCF8B2B2D5DDF007E023F /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BCF8A2B2D5DDF007E023F /* SignUpUseCase.swift */; };
+		BD2687212B95599100A5A116 /* PerfumeMylistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2687202B95599000A5A116 /* PerfumeMylistRepository.swift */; };
+		BD2687232B9559A700A5A116 /* PerfumeMylistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2687222B9559A700A5A116 /* PerfumeMylistUseCase.swift */; };
 		BD35F2F82B836F5300476FB8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35F2F72B836F5300476FB8 /* SettingViewController.swift */; };
 		BD35F2FA2B836F5B00476FB8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35F2F92B836F5B00476FB8 /* SettingViewModel.swift */; };
 		BD35F2FC2B8395F900476FB8 /* SettingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35F2FB2B8395F900476FB8 /* SettingTable.swift */; };
@@ -156,6 +158,7 @@
 		BD8D12A72B22E85C00813065 /* CouponViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12A62B22E85C00813065 /* CouponViewModel.swift */; };
 		BD8D12A92B22E86700813065 /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12A82B22E86700813065 /* CouponView.swift */; };
 		BD8D12AB2B22E87200813065 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D12AA2B22E87200813065 /* CouponViewController.swift */; };
+		BD9E86232B919AC100CFD68D /* CompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9E86222B919AC100CFD68D /* CompleteView.swift */; };
 		BDA0DE112B0F47E800850839 /* EmailLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */; };
 		BDA0DE132B0F480C00850839 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */; };
 		BDA0DE152B0F481900850839 /* EmailLoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */; };
@@ -302,6 +305,8 @@
 		BD0BCF862B2D40D9007E023F /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		BD0BCF882B2D5DC7007E023F /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
 		BD0BCF8A2B2D5DDF007E023F /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
+		BD2687202B95599000A5A116 /* PerfumeMylistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfumeMylistRepository.swift; sourceTree = "<group>"; };
+		BD2687222B9559A700A5A116 /* PerfumeMylistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfumeMylistUseCase.swift; sourceTree = "<group>"; };
 		BD35F2F72B836F5300476FB8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		BD35F2F92B836F5B00476FB8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		BD35F2FB2B8395F900476FB8 /* SettingTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTable.swift; sourceTree = "<group>"; };
@@ -340,6 +345,7 @@
 		BD8D12A62B22E85C00813065 /* CouponViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewModel.swift; sourceTree = "<group>"; };
 		BD8D12A82B22E86700813065 /* CouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponView.swift; sourceTree = "<group>"; };
 		BD8D12AA2B22E87200813065 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
+		BD9E86222B919AC100CFD68D /* CompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteView.swift; sourceTree = "<group>"; };
 		BDA0DE102B0F47E800850839 /* EmailLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewModel.swift; sourceTree = "<group>"; };
 		BDA0DE122B0F480C00850839 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		BDA0DE142B0F481900850839 /* EmailLoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginUseCase.swift; sourceTree = "<group>"; };
@@ -575,6 +581,7 @@
 				BDF3B97D2B85BFA700AE46A6 /* ChangePwRepository.swift */,
 				BDF3B9792B85BECE00AE46A6 /* ResignUserRepository.swift */,
 				BDCF41A02B8C4437000345D1 /* MyInfoRepository.swift */,
+				BD2687202B95599000A5A116 /* PerfumeMylistRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -642,6 +649,7 @@
 				BDF3B97F2B85BFBD00AE46A6 /* ChangePwUseCase.swift */,
 				BDF3B97B2B85BF8200AE46A6 /* ResignUserUseCase.swift */,
 				BDCF41A22B8C447F000345D1 /* MyInfoUseCase.swift */,
+				BD2687222B9559A700A5A116 /* PerfumeMylistUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -857,6 +865,7 @@
 				BD8C83BE2B8E34EB0021F0CC /* ChangePwView.swift */,
 				BD8C83BA2B8E2BDB0021F0CC /* ChangePwViewController.swift */,
 				BD8C83BC2B8E2BEA0021F0CC /* ChangePwViewModel.swift */,
+				BD9E86222B919AC100CFD68D /* CompleteView.swift */,
 			);
 			path = ChangePwUI;
 			sourceTree = "<group>";
@@ -1082,6 +1091,7 @@
 				BD0BCF892B2D5DC7007E023F /* SignUpRepository.swift in Sources */,
 				09725D052B29A65500F137DA /* SearchUseCase.swift in Sources */,
 				BDF3B9802B85BFBD00AE46A6 /* ChangePwUseCase.swift in Sources */,
+				BD9E86232B919AC100CFD68D /* CompleteView.swift in Sources */,
 				09725CF62B2989BA00F137DA /* SearchViewController.swift in Sources */,
 				09725D0A2B29FD4F00F137DA /* SearchResultViewModel.swift in Sources */,
 				BD0BCF8B2B2D5DDF007E023F /* SignUpUseCase.swift in Sources */,
@@ -1110,6 +1120,7 @@
 				0969A55D2B0523E800883862 /* PerfumeDTO.swift in Sources */,
 				0969A5522B05200800883862 /* HomeDTO.swift in Sources */,
 				BD462C482B1CC71E0022CB08 /* PasswordViewController.swift in Sources */,
+				BD2687232B9559A700A5A116 /* PerfumeMylistUseCase.swift in Sources */,
 				BD35F2F82B836F5300476FB8 /* SettingViewController.swift in Sources */,
 				BD8D12512B20464900813065 /* SurveyViewController.swift in Sources */,
 				0969A55F2B0528F300883862 /* HomeService.swift in Sources */,
@@ -1121,6 +1132,7 @@
 				094BCD112A613B8B0012A404 /* Fonts.swift in Sources */,
 				BDCF419F2B8C3FEB000345D1 /* MyInfoDTO.swift in Sources */,
 				BD8C83BD2B8E2BEA0021F0CC /* ChangePwViewModel.swift in Sources */,
+				BD2687212B95599100A5A116 /* PerfumeMylistRepository.swift in Sources */,
 				09972CE52B05FF9500923CA5 /* PerfumeAccordDTO.swift in Sources */,
 				094BCCE92A5FF37B0012A404 /* Colors.swift in Sources */,
 				BD3D0D122B14B5AD005D3A9F /* SelectEmailViewController.swift in Sources */,

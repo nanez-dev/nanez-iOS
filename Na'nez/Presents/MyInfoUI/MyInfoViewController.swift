@@ -9,7 +9,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 import Kingfisher
-import Alamofire
 
 class MyInfoViewController: BaseViewController {
     private let viewModel: MyInfoViewModel
@@ -111,7 +110,11 @@ class MyInfoViewController: BaseViewController {
         customerTableView.dataSource = nil
         
         let isLoggedInObservable = Observable.just(TokenManager.shared.getAccessToken() != nil)
-        let input = MyInfoViewModel.Input(isLoggedIn: isLoggedInObservable)
+        let btnSelectionObservable = Observable.of("having", "wish").concatMap { btn -> Observable<String> in
+            return Observable.just(btn)
+        }
+        
+        let input = MyInfoViewModel.Input(isLoggedIn: isLoggedInObservable, btnSelection: btnSelectionObservable)
         let output = viewModel.transform(input: input)
         
         output.tableData
@@ -137,6 +140,24 @@ class MyInfoViewController: BaseViewController {
                 }
                 self.loginAfterView.nicknameLabel.text = "\(userInfo.nickname)님 안녕하세요."
                 self.loginAfterView.emailLabel.text = userInfo.email
+            }).disposed(by: disposeBag)
+        
+        isLoggedInObservable
+            .filter { $0 }
+            .flatMapLatest { _ in
+                Observable.zip(
+                    self.viewModel.perfumeMylistUseCase.execute(btn: "having"),
+                    self.viewModel.perfumeMylistUseCase.execute(btn: "wish")
+                )
+            }
+            .subscribe(onNext: { [weak self] holdingList, wishList in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    print(holdingList)
+                    print(wishList)
+                    self.loginAfterView.holdingListCount.text = "\(holdingList.count)"
+                    self.loginAfterView.wishListCount.text = "\(wishList.count)"
+                }
             }).disposed(by: disposeBag)
         
         customerTableView.rx.itemSelected

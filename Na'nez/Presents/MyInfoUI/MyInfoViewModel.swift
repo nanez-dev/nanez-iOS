@@ -10,19 +10,24 @@ import RxSwift
 import RxCocoa
 
 class MyInfoViewModel: ViewModelType {
+    let perfumeMylistUseCase: PerfumeMylistUseCase
     private let myInfoUseCase: MyInfoUseCase
     var disposeBag = DisposeBag()
     
     struct Input {
         let isLoggedIn: Observable<Bool>
+        let btnSelection: Observable<String>
     }
     
     struct Output {
         let tableData: Driver<[String]>
         let userInfo: Driver<MyInfoDTO?>
+        let holdingListCount: Observable<Int>
+        let wishListCount: Observable<Int>
     }
     
-    init(myInfoUseCase: MyInfoUseCase) {
+    init(perfumeMylistUseCase: PerfumeMylistUseCase, myInfoUseCase: MyInfoUseCase) {
+        self.perfumeMylistUseCase = perfumeMylistUseCase
         self.myInfoUseCase = myInfoUseCase
     }
     
@@ -53,6 +58,29 @@ class MyInfoViewModel: ViewModelType {
             }
             .asDriver(onErrorJustReturn: [])
         
-        return Output(tableData: tableData, userInfo: userInfo)
+        let holdingListCount = input.isLoggedIn
+            .filter { $0 }
+            .flatMapLatest { [weak self] _ -> Observable<Int> in
+                guard let self = self else { return Observable.just(0) }
+                return self.perfumeMylistUseCase.execute(btn: "having")
+                    .map { $0.count }
+                    .catchAndReturn(0)
+            }
+        
+        let wishListCount = input.isLoggedIn
+            .filter { $0 }
+            .flatMapLatest { [weak self] _ -> Observable<Int> in
+                guard let self = self else { return Observable.just(0) }
+                return self.perfumeMylistUseCase.execute(btn: "wish")
+                    .map { $0.count }
+                    .catchAndReturn(0)
+            }
+        
+        return Output(
+            tableData: tableData,
+            userInfo: userInfo,
+            holdingListCount: holdingListCount,
+            wishListCount: wishListCount
+        )
     }
 }

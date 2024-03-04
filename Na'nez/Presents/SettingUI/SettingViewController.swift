@@ -162,7 +162,7 @@ class SettingViewController: UIViewController {
 
     
     private func navigateToMyInfoVC() {
-        let myInfoVC = MyInfoViewController(viewModel: MyInfoViewModel(myInfoUseCase: MyInfoUseCase(repository: MyInfoRepository(myInfoService: MyInfoService()))))
+        let myInfoVC = MyInfoViewController(viewModel: MyInfoViewModel(perfumeMylistUseCase: PerfumeMylistUseCase(repository: PerfumeMylistRepository(perfumeService: PerfumeService())), myInfoUseCase: MyInfoUseCase(repository: MyInfoRepository(myInfoService: MyInfoService()))))
         myInfoVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(myInfoVC, animated: true)
     }

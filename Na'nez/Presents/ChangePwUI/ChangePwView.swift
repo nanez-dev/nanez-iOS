@@ -31,13 +31,13 @@ class ChangePwView: UIView {
     }
     
     let mainLabelLine1 = UILabel().then {
-        $0.text = "비밀번호 변경을 위해"
+        $0.text = "변경할 비밀번호를"
         $0.font = UIFont.boldSystemFont(ofSize: 24)
         $0.textColor = .black
     }
     
     let mainLabelLine2 = UILabel().then {
-        $0.text = "현재 비밀번호를 입력해주세요."
+        $0.text = "입력해주세요."
         $0.font = UIFont.boldSystemFont(ofSize: 24)
         $0.textColor = .black
     }
@@ -54,12 +54,12 @@ class ChangePwView: UIView {
     }
     
     let titleLabel = UILabel().then {
-        $0.text = "현재 비밀번호"
+        $0.text = "새 비밀번호"
         $0.font = UIFont.boldSystemFont(ofSize: 14)
         $0.textColor = .black
     }
     
-    let emailTextField = UITextField().then {
+    let pwTextField = UITextField().then {
         $0.textColor = .black
         $0.borderStyle = .roundedRect
         $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
@@ -74,9 +74,24 @@ class ChangePwView: UIView {
         ])
     }
     
+    let pwCheckTextField = UITextField().then {
+        $0.textColor = .black
+        $0.borderStyle = .roundedRect
+        $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)
+        $0.layer.cornerRadius = 12
+        $0.layer.borderWidth = 0.5
+        $0.layer.borderColor = UIColor.lightGray.cgColor
+        $0.layer.masksToBounds = true
+        $0.keyboardType = .default
+        $0.font = UIFont(name: "SUIT-Regular", size: 13.0)
+        $0.attributedPlaceholder = NSAttributedString(string: "비밀번호를 다시 한 번 입력해주세요.", attributes: [
+            .font: UIFont.systemFont(ofSize: 13.0, weight: .medium)
+        ])
+    }
+    
     let confirmButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("확인", for: .normal)
+        $0.setTitle("비밀번호 변경", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = #colorLiteral(red: 0.8588235378, green: 0.8588235378, blue: 0.8588235378, alpha: 1)
         $0.layer.cornerRadius = 12
@@ -84,13 +99,28 @@ class ChangePwView: UIView {
         $0.isEnabled = false
     }
     
-    let noExistEmailLabel = UILabel().then {
+    let notMatchLabel1 = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "* 가입 되어있는 이메일이 아닙니다."
+        $0.text = "* 비밀번호는 영문+숫자 조합의 8~20자리입니다."
         $0.textColor = .red
         $0.font = UIFont.systemFont(ofSize: 13)
         $0.numberOfLines = 0
-        $0.isHidden = true
+    }
+    
+    let notMatchLabel2 = UILabel().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.text = "* 비밀번호가 일치하지 않습니다."
+        $0.textColor = .red
+        $0.font = UIFont.systemFont(ofSize: 13)
+        $0.numberOfLines = 0
+    }
+    
+    let canMatchLabel = UILabel().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.text = "* 사용 가능한 비밀번호 입니다."
+        $0.textColor = #colorLiteral(red: 0.2625362277, green: 0.6258890629, blue: 0.9609254003, alpha: 1)
+        $0.font = UIFont.systemFont(ofSize: 13)
+        $0.numberOfLines = 0
     }
 
     override init(frame: CGRect) {
@@ -108,7 +138,8 @@ class ChangePwView: UIView {
         navigationView.addSubview(topTitleLabel)
         addSubview(labelStackView)
         addSubview(titleLabel)
-        addSubview(emailTextField)
+        addSubview(pwTextField)
+        addSubview(pwCheckTextField)
         addSubview(confirmButton)
         
         navigationView.snp.makeConstraints {
@@ -139,9 +170,16 @@ class ChangePwView: UIView {
             $0.top.equalTo(labelStackView.snp.bottom).offset(35)
         }
         
-        emailTextField.snp.makeConstraints {
+        pwTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.height.equalTo(50)
+            $0.width.equalToSuperview().multipliedBy(0.9)
+        }
+        
+        pwCheckTextField.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(pwTextField.snp.bottom).offset(10)
             $0.height.equalTo(50)
             $0.width.equalToSuperview().multipliedBy(0.9)
         }

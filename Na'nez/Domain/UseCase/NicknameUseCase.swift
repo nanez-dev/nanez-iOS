@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class NicknameUseCase {
+final class NicknameUseCase {
     private let repository: NicknameRepository
     
     init(repository: NicknameRepository) {

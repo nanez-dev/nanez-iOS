@@ -16,6 +16,12 @@ class AnotherLoginView: UIView {
     var onGoogleLoginClicked: (() -> Void)?
     var onEmailLoginClicked: (() -> Void)?
     
+    let backButton = UIButton().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setImage(UIImage(named: "Nan'Nez_Back"), for: .normal)
+        $0.contentMode = .scaleAspectFit
+    }
+    
     private let mainLogo = UIImageView().then {
         $0.image = UIImage(named: "loginLogoImg")
         $0.contentMode = .scaleAspectFit
@@ -102,11 +108,18 @@ class AnotherLoginView: UIView {
     }
     
     private func setupViews() {
+        addSubview(backButton)
         addSubview(mainLogo)
         addSubview(appleLoginButton)
         addSubview(naverLoginButton)
         addSubview(googleLoginButton)
         addSubview(emailLoginButton)
+        
+        backButton.snp.makeConstraints {
+            $0.left.equalToSuperview().inset(16)
+            $0.top.equalToSuperview().offset(70)
+            $0.size.equalTo(CGSize(width: 24, height: 24))
+        }
         
         mainLogo.snp.makeConstraints {
             $0.centerX.equalToSuperview()

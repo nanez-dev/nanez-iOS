@@ -13,10 +13,7 @@ import RxSwift
 class PasswordViewController: UIViewController {
     private let passwordView = PasswordView()
     private let disposeBag = DisposeBag()
-    
-    var passwordObservable: Observable<String> {
-        return passwordView.pwTextField.rx.text.orEmpty.asObservable()
-    }
+    var sharedViewModel = SharedViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +22,15 @@ class PasswordViewController: UIViewController {
         
         configure()
         setupBinding()
+    }
+    
+    init(sharedViewModel: SharedViewModel = SharedViewModel()) {
+        self.sharedViewModel = sharedViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func configure() {
@@ -44,6 +50,10 @@ class PasswordViewController: UIViewController {
                 self?.dismiss(animated: true, completion: nil)
             }).disposed(by: disposeBag)
         
+        passwordView.checkPwTextField.rx.text.orEmpty
+            .bind(to: sharedViewModel.passwordRelay)
+            .disposed(by: disposeBag)
+        
         Observable.combineLatest(
             passwordView.pwTextField.rx.text.orEmpty.distinctUntilChanged(),
             passwordView.checkPwTextField.rx.text.orEmpty.distinctUntilChanged()
@@ -59,13 +69,18 @@ class PasswordViewController: UIViewController {
         
         passwordView.nextButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                let nicknameRepository = NicknameRepository(nicknameVerifyService: NicknameVerifyService())
-                let nicknameUseCase = NicknameUseCase(repository: nicknameRepository)
-                let viewModel = NicknameViewModel(useCase: nicknameUseCase)
-                let nicknameVC = NicknameViewController(viewModel: viewModel)
-                nicknameVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                nicknameVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-                self?.present(nicknameVC, animated: true)
+                self?.navigateToNicknameVC()
             }).disposed(by: disposeBag)
+    }
+    
+    private func navigateToNicknameVC() {
+        let nicknameRepository = NicknameRepository(nicknameVerifyService: NicknameVerifyService())
+        let nicknameUseCase = NicknameUseCase(repository: nicknameRepository)
+        let viewModel = NicknameViewModel(useCase: nicknameUseCase)
+        let nicknameVC = NicknameViewController(viewModel: viewModel, sharedViewModel: self.sharedViewModel)
+        nicknameVC.sharedViewModel = self.sharedViewModel
+        nicknameVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        nicknameVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(nicknameVC, animated: true)
     }
 }

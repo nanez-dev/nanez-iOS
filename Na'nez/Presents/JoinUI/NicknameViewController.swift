@@ -13,8 +13,9 @@ import RxSwift
 class NicknameViewController: UIViewController {
     private let nicknameView = NicknameView()
     private let viewModel: NicknameViewModel
+    var sharedViewModel: SharedViewModel!
     private let disposeBag = DisposeBag()
-    
+            
     var nicknameObservable: Observable<String> {
         return nicknameView.nickTextField.rx.text.orEmpty.asObservable()
     }
@@ -28,8 +29,9 @@ class NicknameViewController: UIViewController {
         setupBinding()
     }
     
-    init(viewModel: NicknameViewModel) {
+    init(viewModel: NicknameViewModel, sharedViewModel: SharedViewModel) {
         self.viewModel = viewModel
+        self.sharedViewModel = sharedViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -52,6 +54,13 @@ class NicknameViewController: UIViewController {
                 self?.dismiss(animated: true, completion: nil)
             }).disposed(by: disposeBag)
         
+        nicknameView.nickTextField.rx.text.orEmpty
+            .bind(to: viewModel.nickname)
+            .disposed(by: disposeBag)
+        
+        nicknameView.nickTextField.rx.text.orEmpty
+            .bind(to: sharedViewModel.nicknameRelay)
+            .disposed(by: disposeBag)
         
         nicknameView.nickTextField.rx.text.orEmpty
             .distinctUntilChanged()
@@ -70,7 +79,7 @@ class NicknameViewController: UIViewController {
             }).disposed(by: disposeBag)
         
         nicknameView.checkButton.rx.tap
-            .withLatestFrom(nicknameView.nickTextField.rx.text.orEmpty)
+            .withLatestFrom(nicknameObservable)
             .bind(to: viewModel.checkNickname)
             .disposed(by: disposeBag)
         
@@ -84,11 +93,9 @@ class NicknameViewController: UIViewController {
             }).disposed(by: disposeBag)
         
         nicknameView.nextButton.rx.tap
+            .withLatestFrom(nicknameObservable)
             .subscribe(onNext: { [weak self] _ in
-                let surveyVC = SurveyViewController()
-                surveyVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                surveyVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-                self?.present(surveyVC, animated: true)
+                self?.navigateToSurveyVC()
             }).disposed(by: disposeBag)
 
         viewModel.nicknameValidated
@@ -97,6 +104,14 @@ class NicknameViewController: UIViewController {
                 self?.nicknameView.canMatchLabel.isHidden = !isValid
                 self?.nicknameView.notMatchLabel.isHidden = isValid
             }).disposed(by: disposeBag)
+    }
+    
+    func navigateToSurveyVC() {
+        let surveyVC = SurveyViewController()
+        surveyVC.sharedViewModel = self.sharedViewModel
+        surveyVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        surveyVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(surveyVC, animated: true)
     }
     
     private func handleNicknameValidation(isValid: Bool) {

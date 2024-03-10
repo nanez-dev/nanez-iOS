@@ -21,7 +21,7 @@ protocol TermsUseCaseProtocol {
     func setAllAgreements(to value: Bool)
 }
 
-class TermsUseCase: TermsUseCaseProtocol {
+final class TermsUseCase: TermsUseCaseProtocol {
     private let repository: TermsRepositoryeProtocol
     var termsAgreement: BehaviorSubject<TermsAgreement>
     

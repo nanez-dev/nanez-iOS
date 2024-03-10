@@ -8,6 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import Kingfisher
 
 class MyInfoViewController: BaseViewController {
     private let viewModel: MyInfoViewModel
@@ -40,20 +41,12 @@ class MyInfoViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViewBasedOnLoginStatus()
+        updateTableViewHeight()
         configure()
         addview()
         layout()
         binding()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateViewBasedOnLoginStatus()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        updateTableViewHeight()
     }
     
     override func configure() {
@@ -117,27 +110,67 @@ class MyInfoViewController: BaseViewController {
         customerTableView.dataSource = nil
         
         let isLoggedInObservable = Observable.just(TokenManager.shared.getAccessToken() != nil)
-        let input = MyInfoViewModel.Input(isLoggedIn: isLoggedInObservable)
+        let btnSelectionObservable = Observable.of("having", "wish").concatMap { btn -> Observable<String> in
+            return Observable.just(btn)
+        }
+        
+        let input = MyInfoViewModel.Input(isLoggedIn: isLoggedInObservable, btnSelection: btnSelectionObservable)
         let output = viewModel.transform(input: input)
         
         output.tableData
-                    .drive(customerTableView.rx.items(cellIdentifier: CustomerTableView.identifier, cellType: CustomerTableView.self)) { index, model, cell in
-                        cell.textLabel?.text = model
-                    }
-                    .disposed(by: disposeBag)
+            .drive(customerTableView.rx.items(cellIdentifier: CustomerTableView.identifier, cellType: CustomerTableView.self)) { index, model, cell in
+                cell.textLabel?.text = model
+            }
+            .disposed(by: disposeBag)
         
         output.tableData
             .drive(onNext: { [weak self] _ in
                 self?.updateTableViewHeight()
             }).disposed(by: disposeBag)
         
+        output.userInfo
+            .drive(onNext: { [weak self] userInfo in
+                guard let self = self, let userInfo = userInfo else { return }
+                
+                if let imageURL = URL(string: userInfo.profileImage ?? ""), UIApplication.shared.canOpenURL(imageURL) {
+                    self.loginAfterView.accordProfileImage.kf.setImage(with: imageURL)
+                }
+                else {
+                    self.loginAfterView.accordProfileImage.image = UIImage(named: "citus")
+                }
+                self.loginAfterView.nicknameLabel.text = "\(userInfo.nickname)님 안녕하세요."
+                self.loginAfterView.emailLabel.text = userInfo.email
+            }).disposed(by: disposeBag)
+        
+        isLoggedInObservable
+            .filter { $0 }
+            .flatMapLatest { _ in
+                Observable.zip(
+                    self.viewModel.perfumeMylistUseCase.execute(btn: "having"),
+                    self.viewModel.perfumeMylistUseCase.execute(btn: "wish")
+                )
+            }
+            .subscribe(onNext: { [weak self] holdingList, wishList in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    print(holdingList)
+                    print(wishList)
+                    self.loginAfterView.holdingListCount.text = "\(holdingList.count)"
+                    self.loginAfterView.wishListCount.text = "\(wishList.count)"
+                }
+            }).disposed(by: disposeBag)
+        
         customerTableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 
+                self.customerTableView.deselectRow(at: indexPath, animated: true)
+                
                 if indexPath.row == AfterCustomerTable.allTexts.count - 1 {
-//                    self.logout()
                     self.navigateToSettingVC()
+                }
+                else if indexPath.row == AfterCustomerTable.allTexts.count - 4 {
+                    self.navigateToChangePwVC()
                 }
                 else {
                     let selectedModel = AfterCustomerTable.allTexts[indexPath.row]
@@ -168,6 +201,20 @@ class MyInfoViewController: BaseViewController {
         }
     }
     
+    private func navigateToChangePwVC() {
+        if let viewControllers = self.navigationController?.viewControllers {
+            for viewController in viewControllers {
+                if viewController is ChangePwViewController {
+                    return
+                }
+            }
+        }
+        
+        let changePwVC = ChangePwViewController()
+        changePwVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(changePwVC, animated: true)
+    }
+    
     private func navigateToLoginVC() {
         if let viewControllers = self.navigationController?.viewControllers {
             for viewController in viewControllers {
@@ -183,15 +230,18 @@ class MyInfoViewController: BaseViewController {
     }
     
     private func navigateToSettingVC() {
+        if let vcs = self.navigationController?.viewControllers {
+            for vc in vcs {
+                if vc is SettingViewController {
+                    return
+                }
+            }
+        }
+        
         let settingVC = SettingViewController()
         settingVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(settingVC, animated: true)
     }
-    
-//    private func logout() {
-//        TokenManager.shared.logout()
-//        updateViewBasedOnLoginStatus()
-//    }
 }
 
 extension MyInfoViewController: CustomNaviBarDelegate{

@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class TermsRepository: TermsRepositoryeProtocol {
+final class TermsRepository: TermsRepositoryeProtocol {
     private let defaults: UserDefaults
     
     init(defaults: UserDefaults = .standard) {

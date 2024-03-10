@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class SignUpUseCase {
+final class SignUpUseCase {
     private let repository: SignUpRepositoryProtocol
     
     init(repository: SignUpRepositoryProtocol) {

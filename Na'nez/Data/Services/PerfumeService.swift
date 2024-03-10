@@ -27,7 +27,6 @@ class PerfumeService {
                     }
                 }
             return Disposables.create()
-            
         }
     }
     
@@ -35,17 +34,11 @@ class PerfumeService {
         let url = APIConstants.baseURL + "/perfume"
         var parameters: [String: Any] = [:]
 
-        // Add parameters to the dictionary if they are not nil
         if let name = name {
             parameters["name"] = name
         }
-
-
-            parameters["offset"] = offset
-
-
-
-            parameters["limit"] = limit
+        parameters["offset"] = offset
+        parameters["limit"] = limit
         
         return Single<SearchDTO>.create { observer in
             AF.request(url,parameters: parameters)
@@ -61,7 +54,42 @@ class PerfumeService {
                     }
                 }
             return Disposables.create()
+        }
+    }
+    
+    func getPerfumeMylist(btn: String) -> Observable<[PerfumeDTO]> {
+        return Observable.create { observer in
+            let url = APIConstants.baseURL + "/perfume/my-list"
             
+            if let accessToken = TokenManager.shared.getAccessToken() {
+                let parameters: [String: Any] = ["btn": btn]
+                let headers: HTTPHeaders = [
+                    "Accept": "application/json",
+                    "Authorization": "Bearer \(accessToken)"
+                ]
+                
+                AF.request(url, method: .get, parameters: parameters, headers: headers).responseData { response in
+                    switch response.result {
+                    case .success(let data):
+                        print(String(data: data, encoding: .utf8) ?? "Invalid response data")
+                        do {
+                            let perfumes = try JSONDecoder().decode([PerfumeDTO].self, from: data)
+                            observer.onNext(perfumes)
+                        } catch {
+                            print(error)
+                            observer.onError(error)
+                        }
+                    case .failure(let error):
+                        observer.onError(error)
+                    }
+                }
+            }
+            else {
+                observer.onError(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "인증 토큰이 존재하지 않습니다."]))
+                print("인증 토큰이 존재하지 않습니다.")
+            }
+            
+            return Disposables.create()
         }
     }
 }

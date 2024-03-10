@@ -62,7 +62,6 @@ class NicknameView: UIView {
     }
     
     let nickTextField = UITextField().then {
-//        $0.text = "xlvvlx"
         $0.textColor = .black
         $0.borderStyle = .roundedRect
         $0.backgroundColor = #colorLiteral(red: 0.9931281209, green: 0.9880107045, blue: 0.9755539298, alpha: 1)

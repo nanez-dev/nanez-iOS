@@ -12,7 +12,7 @@ protocol EmailLoginRepositoryProtocol {
     func login(email: String, password: String) -> Observable<LoginResponse>
 }
 
-class EmailLoginRepository: EmailLoginRepositoryProtocol {
+final class EmailLoginRepository: EmailLoginRepositoryProtocol {
     private let loginService: LoginService
 
     init(loginService: LoginService) {

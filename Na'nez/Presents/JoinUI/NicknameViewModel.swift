@@ -14,10 +14,8 @@ class NicknameViewModel {
     
     let nickname = BehaviorSubject<String>(value: "")
     
-    // Input
     let checkNickname = PublishSubject<String>()
     
-    // Output
     let nicknameValidated: Observable<Bool>
     
     init(useCase: NicknameUseCase) {

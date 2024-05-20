@@ -135,6 +135,7 @@
 		BD462C442B1CC7070022CB08 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD462C432B1CC7070022CB08 /* PasswordViewModel.swift */; };
 		BD462C462B1CC7120022CB08 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD462C452B1CC7120022CB08 /* PasswordView.swift */; };
 		BD462C482B1CC71E0022CB08 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD462C472B1CC71E0022CB08 /* PasswordViewController.swift */; };
+		BD4D68232BCEAAEA00C195F8 /* CheckPwService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D68222BCEAAEA00C195F8 /* CheckPwService.swift */; };
 		BD8AC1A02B10A1EC001C78A1 /* TermsConditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC19F2B10A1EC001C78A1 /* TermsConditionViewModel.swift */; };
 		BD8AC1A22B10A1FE001C78A1 /* TermsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */; };
 		BD8AC1A42B10A20C001C78A1 /* TermsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */; };
@@ -322,6 +323,7 @@
 		BD462C432B1CC7070022CB08 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		BD462C452B1CC7120022CB08 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		BD462C472B1CC71E0022CB08 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		BD4D68222BCEAAEA00C195F8 /* CheckPwService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPwService.swift; sourceTree = "<group>"; };
 		BD8AC19F2B10A1EC001C78A1 /* TermsConditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionViewModel.swift; sourceTree = "<group>"; };
 		BD8AC1A12B10A1FE001C78A1 /* TermsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsUseCase.swift; sourceTree = "<group>"; };
 		BD8AC1A32B10A20C001C78A1 /* TermsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsRepository.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 				BD3D0D5F2B177E51005D3A9F /* EmailVerifyService.swift */,
 				BD8D12462B2043D800813065 /* NicknameVerifyService.swift */,
 				BD0BCF862B2D40D9007E023F /* SignUpService.swift */,
+				BD4D68222BCEAAEA00C195F8 /* CheckPwService.swift */,
 				BDB578362B4E340500E9E8C1 /* FindPwService.swift */,
 				BDF3B9732B85B6E100AE46A6 /* ChangePwService.swift */,
 				BDF3B9772B85B91500AE46A6 /* ResignUserService.swift */,
@@ -1143,6 +1146,7 @@
 				09972CE72B0600F300923CA5 /* PerfumeNoteDTO.swift in Sources */,
 				BD8D124F2B20463C00813065 /* SurveyView.swift in Sources */,
 				BD8C83BB2B8E2BDB0021F0CC /* ChangePwViewController.swift in Sources */,
+				BD4D68232BCEAAEA00C195F8 /* CheckPwService.swift in Sources */,
 				0969A5592B0523A400883862 /* BrandDTO.swift in Sources */,
 				BD462C442B1CC7070022CB08 /* PasswordViewModel.swift in Sources */,
 				094BCCFC2A6123F30012A404 /* BannerAdModel.swift in Sources */,

@@ -230,9 +230,9 @@ class MyInfoViewController: BaseViewController {
     }
     
     private func navigateToSettingVC() {
-        if let vcs = self.navigationController?.viewControllers {
-            for vc in vcs {
-                if vc is SettingViewController {
+        if let viewControllers = self.navigationController?.viewControllers {
+            for viewController in viewControllers {
+                if viewController is SettingViewController {
                     return
                 }
             }

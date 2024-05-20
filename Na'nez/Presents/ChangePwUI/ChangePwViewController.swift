@@ -12,10 +12,12 @@ import RxSwift
 
 class ChangePwViewController: UIViewController {
     private let checkPwView = CheckPwView()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupBinding()
     }
     
     private func setupView() {
@@ -29,5 +31,12 @@ class ChangePwViewController: UIViewController {
         checkPwView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    private func setupBinding() {
+        checkPwView.backButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }).disposed(by: disposeBag)
     }
 }
